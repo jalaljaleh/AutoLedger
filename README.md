@@ -1,11 +1,29 @@
-# آیرون تونینگ
-### نرم‌افزار مدیریت مالی و حسابداری تعمیرگاه خودرو
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="#">
+    <img src="AutoLedger.App/Resources/autoledge.png" alt="Logo" width="300" height="300">
+  </a>
 
-![AutoLedger Logo](AutoLedger.App/Resources/autoledge.png)
+  <h3 align="center">آیرون تونینگ</h3>
 
-**AutoLedger** یک اپلیکیشن حسابداری سبک، سریع و کاملاً کاربردی است که به‌صورت اختصاصی برای مدیریت مالی تعمیرگاه‌ها و مراکز تیونینگ خودرو توسعه یافته. نسخه‌ی حاضر، پیاده‌سازی‌شده برای فروشگاه **آیرون تونینگ** واقع در سنندج می‌باشد.
+  <p align="center">
+    نرم‌افزار مدیریت مالی و حسابداری تعمیرگاه خودرو
+    <br />
+    <br />
+    <a href="https://github.com/jalaljaleh/AutoLedger/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/jalaljaleh/AutoLedger/issues">Request Feature</a>
+  </p>
+</div>
 
----
+<p align="center">
+  <a href="https://github.com/jalaljaleh/AutoLedger/blob/master/LICENSE"><img src="https://img.shields.io/github/license/jalaljaleh/AutoLedger" alt="License"></a>
+  <a href="https://github.com/jalaljaleh/AutoLedger"><img src="https://img.shields.io/github/stars/jalaljaleh/AutoLedger?style=social" alt="Stars"></a>
+  <a href="https://github.com/jalaljaleh/AutoLedger"><img src="https://img.shields.io/github/repo-size/jalaljaleh/AutoLedger" alt="Repo Size"></a>
+</p>
+
+
 
 ## 📍 درباره‌ی آیرون تونینگ
 
@@ -17,6 +35,17 @@
 🗺️ **موقعیت روی نقشه:** [مشاهده در نشان](https://nshn.ir/c4_bQXUXW5bMpz)
 
 ---
+
+## Features
+
+- **Income & Expense Tracking** – Record all financial transactions categorized by service type (ECU remap, hardware upgrades, diagnostics, etc.) with daily/weekly summaries.
+- **Invoice Management** – Generate official and informal invoices; print, save as PDF, or share directly with customers.
+- **Cheque & Debt Monitoring** – Track received/issued cheques with automatic due‑date reminders and customer outstanding balances.
+- **Financial Reporting** – Profit & loss statements, monthly revenue charts, expense breakdowns, and cash‑in‑hand reports.
+- **Local‑First & Offline** – All data stored locally in SQLite, no internet required; planned future cloud backup.
+- **Modular Architecture** – Clean MVVM design, easily extendable (inventory, appointments, customer notifications, etc.).
+- **Cross‑Platform** – Built with .NET MAUI, runs on Windows, Android, and iOS from a single codebase.
+
 
 ## ✨ ویژگی‌های کلیدی نرم‌افزار
 
@@ -37,23 +66,8 @@
 
 - 🧩 **طراحی ماژولار**  
   قابلیت افزودن امکانات جدید با کمترین تغییر در ساختار اصلی برنامه
+  
 
----
 
-## 🖥️ تکنولوژی‌های استفاده‌شده
-
-- **فریم‌ورک اصلی:** دات‌نت MAUI (NET 8)
-- **پایگاه داده محلی:** SQLite
-- **زبان برنامه‌نویسی:** #C
-- **رابط کاربری:** XAML با طراحی واکنش‌گرا (موبایل و دسکتاپ)
-- **معماری:** MVVM (Model-View-ViewModel)
-
----
-
-## 🚀 نصب و راه‌اندازی
-
-1. اطمینان حاصل کنید که **NET 8 SDK** روی سیستم شما نصب است.
-2. پروژه را از گیت‌هاب کلون کنید:
-   ```bash
-   git clone https://github.com/jalaljaleh/AutoLedger.git
-   ```
+Designed & developed with ❤️ by the Iron Tuning technical team
+Feel the power.
