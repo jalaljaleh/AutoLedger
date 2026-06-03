@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AutoLedger.App.Forms
 {
-    public partial class AddCarForm : Form
+    public partial class CarReceptionForm : Form
     {
-        public AddCarForm()
+        public CarReceptionForm()
         {
             InitializeComponent();
         }

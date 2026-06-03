@@ -90,30 +90,59 @@
             this.inputSuffixCode.AcceptsTab = true;
             this.inputSuffixCode.BackColor = System.Drawing.Color.WhiteSmoke;
             this.inputSuffixCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.inputSuffixCode.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.inputSuffixCode.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.inputSuffixCode.Location = new System.Drawing.Point(245, 21);
             this.inputSuffixCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.inputSuffixCode.MaxLength = 2;
             this.inputSuffixCode.Name = "inputSuffixCode";
-            this.inputSuffixCode.Size = new System.Drawing.Size(36, 32);
+            this.inputSuffixCode.Size = new System.Drawing.Size(36, 29);
             this.inputSuffixCode.TabIndex = 3;
             this.inputSuffixCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cbLetter
             // 
-            this.cbLetter.DisplayMember = "1";
-            this.cbLetter.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.cbLetter.DropDownHeight = 200;
+            this.cbLetter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLetter.DropDownWidth = 60;
+            this.cbLetter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.cbLetter.FormattingEnabled = true;
+            this.cbLetter.ItemHeight = 21;
             this.cbLetter.Items.AddRange(new object[] {
             "الف",
             "ب",
             "پ",
             "ت",
-            "ص"});
-            this.cbLetter.Location = new System.Drawing.Point(99, 18);
+            "ث",
+            "ج",
+            "ح",
+            "د",
+            "ر",
+            "ز",
+            "ژ",
+            "س",
+            "ش",
+            "ص",
+            "ض",
+            "ط",
+            "ظ",
+            "ع",
+            "ف",
+            "ق",
+            "ک",
+            "گ",
+            "ل",
+            "م",
+            "ن",
+            "و",
+            "ه",
+            "ی",
+            "D",
+            "S",
+            "♿"});
+            this.cbLetter.Location = new System.Drawing.Point(98, 22);
             this.cbLetter.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbLetter.Name = "cbLetter";
-            this.cbLetter.Size = new System.Drawing.Size(58, 38);
+            this.cbLetter.Size = new System.Drawing.Size(58, 29);
             this.cbLetter.TabIndex = 4;
             this.cbLetter.ValueMember = "1";
             // 
@@ -134,12 +163,12 @@
             this.inputProvinceCode.AcceptsTab = true;
             this.inputProvinceCode.BackColor = System.Drawing.Color.WhiteSmoke;
             this.inputProvinceCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.inputProvinceCode.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.inputProvinceCode.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.inputProvinceCode.Location = new System.Drawing.Point(41, 21);
             this.inputProvinceCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.inputProvinceCode.MaxLength = 2;
             this.inputProvinceCode.Name = "inputProvinceCode";
-            this.inputProvinceCode.Size = new System.Drawing.Size(50, 32);
+            this.inputProvinceCode.Size = new System.Drawing.Size(50, 29);
             this.inputProvinceCode.TabIndex = 1;
             this.inputProvinceCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -148,12 +177,12 @@
             this.inputSerialNumber.AcceptsTab = true;
             this.inputSerialNumber.BackColor = System.Drawing.Color.WhiteSmoke;
             this.inputSerialNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.inputSerialNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.inputSerialNumber.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.inputSerialNumber.Location = new System.Drawing.Point(166, 21);
             this.inputSerialNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.inputSerialNumber.MaxLength = 3;
             this.inputSerialNumber.Name = "inputSerialNumber";
-            this.inputSerialNumber.Size = new System.Drawing.Size(71, 32);
+            this.inputSerialNumber.Size = new System.Drawing.Size(71, 29);
             this.inputSerialNumber.TabIndex = 2;
             this.inputSerialNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

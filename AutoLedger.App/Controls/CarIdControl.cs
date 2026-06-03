@@ -21,7 +21,7 @@ namespace AutoLedger.App.Controls
             InitializeComponent();
 
             if (!string.IsNullOrWhiteSpace(plateText))
-                SetPlate(plateText);
+                SetOrClearPlate(plateText);
 
             inputProvinceCode.TextChanged += AutoTabTextBox_TextChanged;
             inputSerialNumber.TextChanged += AutoTabTextBox_TextChanged;
@@ -53,7 +53,7 @@ namespace AutoLedger.App.Controls
         {
             return $"{ProvinceCode} {Letter} {SerialNumber} {SuffixCode}";
         }
-        public void SetPlate(string plateText)
+        public void SetOrClearPlate(string plateText)
         {
             if (string.IsNullOrWhiteSpace(plateText))
             {

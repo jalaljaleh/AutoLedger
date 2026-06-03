@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoLedger.App.FormsModal;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +22,13 @@ namespace AutoLedger.App.Forms
 
         private void BtnNewCar_Click(object sender, EventArgs e)
         {
-          new AddCarForm().ShowDialog();
+            var carPlate = new CarPlateModalForm();
+            var result = carPlate.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+
+            }
         }
     }
 }

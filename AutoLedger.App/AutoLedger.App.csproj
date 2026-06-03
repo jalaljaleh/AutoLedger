@@ -54,11 +54,17 @@
     <Compile Include="Controls\CarIdControl.Designer.cs">
       <DependentUpon>CarIdControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddCarForm.cs">
+    <Compile Include="FormsModal\CarPlateModalForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddCarForm.Designer.cs">
-      <DependentUpon>AddCarForm.cs</DependentUpon>
+    <Compile Include="FormsModal\CarPlateModalForm.Designer.cs">
+      <DependentUpon>CarPlateModalForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CarReceptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CarReceptionForm.Designer.cs">
+      <DependentUpon>CarReceptionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DashboardForm.cs">
       <SubType>Form</SubType>
@@ -71,8 +77,11 @@
     <EmbeddedResource Include="Controls\CarIdControl.resx">
       <DependentUpon>CarIdControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddCarForm.resx">
-      <DependentUpon>AddCarForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormsModal\CarPlateModalForm.resx">
+      <DependentUpon>CarPlateModalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CarReceptionForm.resx">
+      <DependentUpon>CarReceptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
@@ -101,7 +110,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="FormsModal\" />
     <Folder Include="FormsView\" />
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +123,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\transport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\engine-room.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\engine-room128.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
