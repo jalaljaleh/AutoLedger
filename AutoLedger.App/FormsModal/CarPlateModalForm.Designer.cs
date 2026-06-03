@@ -83,7 +83,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::AutoLedger.App.Properties.Resources.search;
             this.pictureBox1.Location = new System.Drawing.Point(38, 21);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(292, 221);
