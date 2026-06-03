@@ -1,4 +1,4 @@
-# 🚗 AutoLedger | اتولجر
+# آیرون تونینگ
 ### نرم‌افزار مدیریت مالی و حسابداری تعمیرگاه خودرو
 
 ![AutoLedger Logo](AutoLedger.App/Resources/autoledge.png)
@@ -56,3 +56,4 @@
 2. پروژه را از گیت‌هاب کلون کنید:
    ```bash
    git clone https://github.com/jalaljaleh/AutoLedger.git
+   ```
