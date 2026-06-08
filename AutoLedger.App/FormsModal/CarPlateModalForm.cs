@@ -32,7 +32,7 @@ namespace AutoLedger.App.FormsModal
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
           
-            this.DialogResult = DialogResult.Yes;
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

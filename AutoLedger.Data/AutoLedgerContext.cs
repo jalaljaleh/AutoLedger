@@ -12,7 +12,7 @@ namespace AutoLedger.Data
     public class AutoLedgerContext : DbContext
     {
         public AutoLedgerContext() : base($@"Data Source=(LocalDB)\MSSQLLocalDB;
-                      AttachDbFilename={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "HalunDb.mdf")};
+                      AttachDbFilename={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IronTuning.mdf")};
                       Integrated Security=True;
                       Connect Timeout=30")
         {

@@ -29,7 +29,9 @@
         private void InitializeComponent()
         {
             this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.NewReception = new System.Windows.Forms.ToolStripButton();
             this.panelView = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -37,8 +39,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.NewReception = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.BtnActionCurrentUser.SuspendLayout();
             this.panelView.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -52,7 +53,8 @@
             this.BtnActionCurrentUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripSeparator1,
-            this.NewReception});
+            this.NewReception,
+            this.toolStripSeparator2});
             this.BtnActionCurrentUser.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.BtnActionCurrentUser.Location = new System.Drawing.Point(0, 25);
             this.BtnActionCurrentUser.Name = "BtnActionCurrentUser";
@@ -62,11 +64,36 @@
             this.BtnActionCurrentUser.TabIndex = 5;
             this.BtnActionCurrentUser.Text = "toolStrip1";
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.AutoSize = false;
+            this.toolStripButton1.Image = global::AutoLedger.App.Properties.Resources.checked_user;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(90, 90);
+            this.toolStripButton1.Text = "[کاربر]";
+            this.toolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 93);
+            // 
+            // NewReception
+            // 
+            this.NewReception.AutoSize = false;
+            this.NewReception.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewReception.Image = global::AutoLedger.App.Properties.Resources.transport;
+            this.NewReception.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.NewReception.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.NewReception.Name = "NewReception";
+            this.NewReception.RightToLeftAutoMirrorImage = true;
+            this.NewReception.Size = new System.Drawing.Size(75, 90);
+            this.NewReception.Text = "پذیرش خودرو";
+            this.NewReception.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.NewReception.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // panelView
             // 
@@ -129,30 +156,11 @@
             this.toolStripMenuItem4.Size = new System.Drawing.Size(51, 21);
             this.toolStripMenuItem4.Text = "راهنما";
             // 
-            // toolStripButton1
+            // toolStripSeparator2
             // 
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.Image = global::AutoLedger.App.Properties.Resources.checked_user;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(90, 90);
-            this.toolStripButton1.Text = "[کاربر]";
-            this.toolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // NewReception
-            // 
-            this.NewReception.AutoSize = false;
-            this.NewReception.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewReception.Image = global::AutoLedger.App.Properties.Resources.transport;
-            this.NewReception.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.NewReception.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.NewReception.Name = "NewReception";
-            this.NewReception.RightToLeftAutoMirrorImage = true;
-            this.NewReception.Size = new System.Drawing.Size(75, 90);
-            this.NewReception.Text = "پذیرش خودرو";
-            this.NewReception.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.NewReception.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(10);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 73);
             // 
             // DashboardForm
             // 
@@ -192,5 +200,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton NewReception;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

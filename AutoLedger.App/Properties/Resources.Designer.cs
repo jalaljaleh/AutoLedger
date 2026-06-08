@@ -63,6 +63,26 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _3d_setting {
+            get {
+                object obj = ResourceManager.GetObject("3d-setting", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap administrator_male_80px {
+            get {
+                object obj = ResourceManager.GetObject("administrator_male_80px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap autoledge {
             get {
                 object obj = ResourceManager.GetObject("autoledge", resourceCulture);
@@ -83,9 +103,39 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap car_wash {
+            get {
+                object obj = ResourceManager.GetObject("car-wash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap checked_user {
             get {
                 object obj = ResourceManager.GetObject("checked_user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap customer_form_background {
+            get {
+                object obj = ResourceManager.GetObject("customer_form_background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_production_order_320px {
+            get {
+                object obj = ResourceManager.GetObject("edit_production_order_320px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +176,16 @@ namespace AutoLedger.App.Properties {
         internal static System.Drawing.Bitmap ironTuning {
             get {
                 object obj = ResourceManager.GetObject("ironTuning", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap production_order_320px {
+            get {
+                object obj = ResourceManager.GetObject("production_order_320px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

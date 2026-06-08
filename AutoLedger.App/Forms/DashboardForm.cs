@@ -23,11 +23,21 @@ namespace AutoLedger.App.Forms
         private void BtnNewCar_Click(object sender, EventArgs e)
         {
             var carPlate = new CarPlateModalForm();
-            var result = carPlate.ShowDialog();
+            var plateResult = carPlate.ShowDialog();
 
-            if (result == DialogResult.OK)
+            if (plateResult == DialogResult.OK)
             {
+                if (true)
+                {
+                    var carDetails = new CarDetailsModalForm("");
+                    var carResult = carDetails.ShowDialog();
 
+                    if (carResult != DialogResult.OK)
+                        return;
+                }
+
+                var carReceptionForm = new CarReceptionForm();
+                var receptionResult = carReceptionForm.ShowDialog();
             }
         }
     }

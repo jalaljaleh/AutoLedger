@@ -54,6 +54,21 @@
     <Compile Include="Controls\CarIdControl.Designer.cs">
       <DependentUpon>CarIdControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ModernButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ModernTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\NumericUpDownModern.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormsModal\CarDetailsModalForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormsModal\CarDetailsModalForm.Designer.cs">
+      <DependentUpon>CarDetailsModalForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsModal\CarPlateModalForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +91,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\CarIdControl.resx">
       <DependentUpon>CarIdControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsModal\CarDetailsModalForm.resx">
+      <DependentUpon>CarDetailsModalForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsModal\CarPlateModalForm.resx">
       <DependentUpon>CarPlateModalForm.cs</DependentUpon>
@@ -138,6 +156,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ironTuning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\customer_form_background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\car-wash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3d-setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\production_order_320px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_production_order_320px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\administrator_male_80px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
