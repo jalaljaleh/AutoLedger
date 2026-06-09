@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Data.SQLite.EF6;
 using System.Data.Entity;
 using System.IO;
+using AutoLedger.Domain;
+using AutoLedger.Data.Mapping;
 
 namespace AutoLedger.Data
 {
@@ -18,13 +20,11 @@ namespace AutoLedger.Data
         {
 
         }
-      //  public DbSet<User> Users { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
-            // modelBuilder.Configurations.Add(new UserConfiguration());
-
+            modelBuilder.Configurations.Add(new CustomerConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

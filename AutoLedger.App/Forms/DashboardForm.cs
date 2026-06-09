@@ -27,15 +27,6 @@ namespace AutoLedger.App.Forms
 
             if (plateResult == DialogResult.OK)
             {
-                if (true)
-                {
-                    var carDetails = new CarDetailsModalForm("");
-                    var carResult = carDetails.ShowDialog();
-
-                    if (carResult != DialogResult.OK)
-                        return;
-                }
-
                 var carReceptionForm = new CarReceptionForm();
                 var receptionResult = carReceptionForm.ShowDialog();
             }

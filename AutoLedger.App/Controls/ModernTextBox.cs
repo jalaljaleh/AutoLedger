@@ -8,19 +8,21 @@ namespace AutoLedger.App.Controls
 {
     public class ModernTextBox : Control
     {
-        private string text = string.Empty;
-        private string placeholder = string.Empty;
-        private Color placeholderColor = Color.Gray;
-        private Color borderColor = Color.LightGray;
-        private Color borderFocusColor = Color.DodgerBlue;
-        private int cornerRadius = 4;
+        private string _text = string.Empty;
+        private string _placeholder = string.Empty;
+        private Color _placeholderColor = Color.Gray;
+        private Color _borderColor = Color.LightGray;
+        private Color _borderFocusColor = Color.DodgerBlue;
+        private int _cornerRadius = 4;
+
         private int caretPosition = 0;
-        private int selectionStart = -1;
+        private int selectionStart = 0;
         private int selectionLength = 0;
         private bool isFocused = false;
+
         private Timer caretTimer;
         private bool caretVisible = true;
-        private int scrollOffset = 0;
+
         private HorizontalAlignment textAlignment = HorizontalAlignment.Left;
 
         public ModernTextBox()
@@ -31,24 +33,35 @@ namespace AutoLedger.App.Controls
                      ControlStyles.OptimizedDoubleBuffer |
                      ControlStyles.Selectable, true);
 
-            this.Size = new Size(200, 35);
-            this.BackColor = Color.White;
-            this.ForeColor = Color.Black;
-            this.Cursor = Cursors.IBeam;
-            this.TabStop = true;
+            Size = new Size(200, 35);
+            BackColor = Color.White;
+            ForeColor = Color.Black;
+            Cursor = Cursors.IBeam;
+            TabStop = true;
 
             caretTimer = new Timer { Interval = 500 };
-            caretTimer.Tick += (s, e) => { caretVisible = !caretVisible; Invalidate(); };
+            caretTimer.Tick += CaretTimer_Tick;
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                caretTimer?.Stop();
-                caretTimer?.Dispose();
+                if (caretTimer != null)
+                {
+                    caretTimer.Tick -= CaretTimer_Tick;
+                    caretTimer.Stop();
+                    caretTimer.Dispose();
+                    caretTimer = null;
+                }
             }
             base.Dispose(disposing);
+        }
+
+        private void CaretTimer_Tick(object sender, EventArgs e)
+        {
+            caretVisible = !caretVisible;
+            Invalidate();
         }
 
         #region Properties
@@ -56,13 +69,12 @@ namespace AutoLedger.App.Controls
         [Category("Appearance"), DefaultValue("")]
         public override string Text
         {
-            get => text;
+            get => _text;
             set
             {
-                text = value ?? string.Empty;
-                caretPosition = Math.Min(caretPosition, text.Length);
-                selectionStart = -1;
-                selectionLength = 0;
+                _text = value ?? string.Empty;
+                caretPosition = Math.Min(caretPosition, _text.Length);
+                ClearSelection();
                 Invalidate();
             }
         }
@@ -70,48 +82,43 @@ namespace AutoLedger.App.Controls
         [Category("Appearance"), DefaultValue("")]
         public string Placeholder
         {
-            get => placeholder;
-            set { placeholder = value; Invalidate(); }
+            get => _placeholder;
+            set { _placeholder = value ?? string.Empty; Invalidate(); }
         }
 
         [Category("Appearance")]
         public Color PlaceholderColor
         {
-            get => placeholderColor;
-            set { placeholderColor = value; Invalidate(); }
+            get => _placeholderColor;
+            set { _placeholderColor = value; Invalidate(); }
         }
 
         [Category("Appearance")]
         public Color BorderColor
         {
-            get => borderColor;
-            set { borderColor = value; Invalidate(); }
+            get => _borderColor;
+            set { _borderColor = value; Invalidate(); }
         }
 
         [Category("Appearance")]
         public Color BorderFocusColor
         {
-            get => borderFocusColor;
-            set { borderFocusColor = value; Invalidate(); }
+            get => _borderFocusColor;
+            set { _borderFocusColor = value; Invalidate(); }
         }
 
         [Category("Appearance"), DefaultValue(4)]
         public int CornerRadius
         {
-            get => cornerRadius;
-            set { cornerRadius = Math.Max(0, value); Invalidate(); }
+            get => _cornerRadius;
+            set { _cornerRadius = Math.Max(0, value); Invalidate(); }
         }
 
         [Category("Appearance"), DefaultValue(HorizontalAlignment.Left)]
-        [Description("Horizontal alignment of the text and placeholder.")]
         public HorizontalAlignment TextAlignment
         {
             get => textAlignment;
-            set
-            {
-                textAlignment = value;
-                Invalidate();
-            }
+            set { textAlignment = value; Invalidate(); }
         }
 
         #endregion
@@ -120,24 +127,20 @@ namespace AutoLedger.App.Controls
 
         protected override void OnGotFocus(EventArgs e)
         {
+            base.OnGotFocus(e);
             isFocused = true;
             caretVisible = true;
-            caretTimer.Start();
+            caretTimer?.Start();
             Invalidate();
-            base.OnGotFocus(e);
         }
 
         protected override void OnLostFocus(EventArgs e)
         {
-            isFocused = false;
-            caretTimer.Stop();
-            Invalidate();
             base.OnLostFocus(e);
-        }
-
-        protected override void OnRightToLeftChanged(EventArgs e)
-        {
-            base.OnRightToLeftChanged(e);
+            isFocused = false;
+            caretTimer?.Stop();
+            caretVisible = false;
+            ClearSelection();
             Invalidate();
         }
 
@@ -149,80 +152,82 @@ namespace AutoLedger.App.Controls
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            // Background
+            // Background with rounded corners
             using (var brush = new SolidBrush(BackColor))
-            using (var path = GetRoundedRectPath(ClientRectangle, cornerRadius))
+            using (var path = GetRoundedRectPath(ClientRectangle, _cornerRadius))
             {
                 e.Graphics.FillPath(brush, path);
             }
 
-            // Determine what to draw
-            bool showPlaceholder = string.IsNullOrEmpty(text);
-            string displayText = showPlaceholder ? placeholder : text;
-            Color textColor = showPlaceholder ? placeholderColor : ForeColor;
+            // Prepare text and flags
+            bool showPlaceholder = string.IsNullOrEmpty(_text);
+            string displayText = showPlaceholder ? _placeholder : _text;
+            Color drawColor = showPlaceholder ? _placeholderColor : ForeColor;
 
             TextFormatFlags flags = GetDrawingFlags();
 
-            int leftPad = 4;
-            Rectangle textRect = new Rectangle(leftPad - scrollOffset, 0,
-                                               Width - 2 * leftPad, Height);
+            int padding = 6;
+            Rectangle textRect = new Rectangle(padding, 0, Width - 2 * padding, Height);
 
-            TextRenderer.DrawText(e.Graphics, displayText, Font, textRect, textColor, flags);
+            // Draw text
+            TextRenderer.DrawText(e.Graphics, displayText, Font, textRect, drawColor, flags);
 
-            if (!showPlaceholder)
+            // If we have real text, draw selection and caret
+            if (!showPlaceholder && (_text.Length > 0 || isFocused))
             {
-                int totalWidth = TextRenderer.MeasureText(e.Graphics, text, Font, Size.Empty, flags).Width;
-                int blockLeft = GetBlockLeft(totalWidth);
+                // measure full text width once
+                int fullWidth = TextRenderer.MeasureText(e.Graphics, _text, Font, Size.Empty, flags).Width;
+                int blockLeft = GetBlockLeft(fullWidth, padding);
 
-                // Selection highlight
-                if (isFocused && selectionLength != 0)
+                // Selection
+                if (selectionLength != 0)
                 {
-                    int selStart = Math.Min(selectionStart, selectionStart + selectionLength);
-                    int selLen = Math.Abs(selectionLength);
-                    int selEnd = selStart + selLen - 1;
+                    int selStart = Math.Max(0, Math.Min(selectionStart, _text.Length));
+                    int selLen = Math.Max(0, Math.Min(selectionLength, _text.Length - selStart));
 
-                    int x1 = CharLeftEdge(selStart, blockLeft, totalWidth, flags, e.Graphics);
-                    int x2 = CharRightEdge(selEnd, blockLeft, totalWidth, flags, e.Graphics);
-                    Rectangle selRect = new Rectangle(Math.Min(x1, x2), textRect.Top,
-                                                      Math.Abs(x2 - x1), textRect.Height);
+                    int x1 = blockLeft + MeasureTextWidth(_text.Substring(0, selStart), flags, e.Graphics);
+                    int x2 = blockLeft + MeasureTextWidth(_text.Substring(0, selStart + selLen), flags, e.Graphics);
 
+                    Rectangle selRect = new Rectangle(Math.Min(x1, x2), textRect.Top, Math.Abs(x2 - x1), textRect.Height);
                     using (var selBrush = new SolidBrush(Color.FromArgb(173, 214, 255)))
                         e.Graphics.FillRectangle(selBrush, selRect);
 
+                    // draw selected text over selection
                     Region oldClip = e.Graphics.Clip;
                     e.Graphics.SetClip(selRect);
-                    TextRenderer.DrawText(e.Graphics, text, Font, textRect, ForeColor, flags);
+                    TextRenderer.DrawText(e.Graphics, _text, Font, textRect, ForeColor, flags);
                     e.Graphics.Clip = oldClip;
                 }
 
                 // Caret
                 if (isFocused && caretVisible && selectionLength == 0)
                 {
-                    int caretX;
-                    if (RightToLeft == RightToLeft.Yes)
-                        caretX = blockLeft + totalWidth - PrefixWidth(caretPosition, flags, e.Graphics);
-                    else
-                        caretX = blockLeft + PrefixWidth(caretPosition, flags, e.Graphics);
-
+                    int caretX = blockLeft + MeasureTextWidth(_text.Substring(0, Math.Min(caretPosition, _text.Length)), flags, e.Graphics);
                     int caretHeight = Font.Height;
-                    int yCenter = (Height - caretHeight) / 2;
-                    using (var pen = new Pen(Color.Black, 1.5f))
-                        e.Graphics.DrawLine(pen, caretX, yCenter, caretX, yCenter + caretHeight);
+                    int y = (Height - caretHeight) / 2;
+                    using (var pen = new Pen(ForeColor, 1f))
+                        e.Graphics.DrawLine(pen, caretX, y, caretX, y + caretHeight);
                 }
             }
 
             // Border
-            Color currentBorder = isFocused ? borderFocusColor : borderColor;
+            Color currentBorder = isFocused ? _borderFocusColor : _borderColor;
             using (var pen = new Pen(currentBorder, 1.5f))
-            using (var path = GetRoundedRectPath(ClientRectangle, cornerRadius))
+            using (var path = GetRoundedRectPath(ClientRectangle, _cornerRadius))
             {
                 e.Graphics.DrawPath(pen, path);
             }
         }
 
+        private int MeasureTextWidth(string s, TextFormatFlags flags, Graphics g)
+        {
+            if (string.IsNullOrEmpty(s)) return 0;
+            return TextRenderer.MeasureText(g, s, Font, Size.Empty, flags).Width;
+        }
+
         private GraphicsPath GetRoundedRectPath(Rectangle rect, int radius)
         {
-            GraphicsPath path = new GraphicsPath();
+            var path = new GraphicsPath();
             if (radius <= 0)
                 path.AddRectangle(rect);
             else
@@ -237,44 +242,8 @@ namespace AutoLedger.App.Controls
             return path;
         }
 
-        #endregion
-
-        #region Layout helpers
-
-        private int PrefixWidth(int length, TextFormatFlags flags, Graphics g)
+        private int GetBlockLeft(int totalWidth, int leftPad)
         {
-            if (length <= 0) return 0;
-            return TextRenderer.MeasureText(g, text.Substring(0, Math.Min(length, text.Length)), Font,
-                                            Size.Empty, flags).Width;
-        }
-
-        private int CharLeftEdge(int charIndex, int blockLeft, int totalWidth,
-                                 TextFormatFlags flags, Graphics g)
-        {
-            if (charIndex >= text.Length)
-                return RightToLeft == RightToLeft.Yes ? blockLeft : blockLeft + totalWidth;
-
-            if (RightToLeft == RightToLeft.Yes)
-                return blockLeft + totalWidth - PrefixWidth(charIndex + 1, flags, g);
-            else
-                return blockLeft + PrefixWidth(charIndex, flags, g);
-        }
-
-        private int CharRightEdge(int charIndex, int blockLeft, int totalWidth,
-                                  TextFormatFlags flags, Graphics g)
-        {
-            if (charIndex >= text.Length)
-                return RightToLeft == RightToLeft.Yes ? blockLeft : blockLeft + totalWidth;
-
-            if (RightToLeft == RightToLeft.Yes)
-                return blockLeft + totalWidth - PrefixWidth(charIndex, flags, g);
-            else
-                return blockLeft + PrefixWidth(charIndex + 1, flags, g);
-        }
-
-        private int GetBlockLeft(int totalWidth)
-        {
-            int leftPad = 4;
             TextFormatFlags flags = GetDrawingFlags();
             if ((flags & TextFormatFlags.Right) != 0)
                 return Width - leftPad - totalWidth;
@@ -318,57 +287,43 @@ namespace AutoLedger.App.Controls
             using (Graphics g = CreateGraphics())
             {
                 TextFormatFlags flags = GetDrawingFlags();
-                int totalWidth = TextRenderer.MeasureText(g, text, Font, Size.Empty, flags).Width;
-                int blockLeft = GetBlockLeft(totalWidth);
+                int totalWidth = TextRenderer.MeasureText(g, _text, Font, Size.Empty, flags).Width;
+                int blockLeft = GetBlockLeft(totalWidth, 6);
 
-                if (RightToLeft == RightToLeft.Yes)
+                // iterate characters to find position
+                for (int i = 0; i <= _text.Length; i++)
                 {
-                    for (int i = 0; i <= text.Length; i++)
-                    {
-                        int leftEdge = blockLeft + totalWidth - PrefixWidth(i, flags, g);
-                        if (x >= leftEdge)
-                            return i;
-                    }
-                    return text.Length;
+                    int w = MeasureTextWidth(_text.Substring(0, i), flags, g);
+                    int charRight = blockLeft + w;
+                    if (x <= charRight) return i;
                 }
-                else
-                {
-                    for (int i = 0; i <= text.Length; i++)
-                    {
-                        int rightEdge = blockLeft + PrefixWidth(i, flags, g);
-                        if (x < rightEdge)
-                            return i;
-                    }
-                    return text.Length;
-                }
+                return _text.Length;
             }
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
         {
-            if (!this.Focused) this.Focus();
+            base.OnMouseDown(e);
+            if (!Focused) Focus();
 
-            int newPos = GetCaretIndexFromPoint(e.X + scrollOffset);
-            caretPosition = newPos;
-            selectionStart = newPos;
+            int newPos = GetCaretIndexFromPoint(e.X);
+            caretPosition = Math.Max(0, Math.Min(newPos, _text.Length));
+            selectionStart = caretPosition;
             selectionLength = 0;
             Invalidate();
-            base.OnMouseDown(e);
         }
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            base.OnMouseMove(e);
+            if (e.Button == MouseButtons.Left && isFocused)
             {
-                int newPos = GetCaretIndexFromPoint(e.X + scrollOffset);
-                // If selection hasn't been started, start it from the current caret position.
-                if (selectionStart == -1)
-                    selectionStart = caretPosition;
-                caretPosition = newPos;
-                selectionLength = newPos - selectionStart;
+                int newPos = GetCaretIndexFromPoint(e.X);
+                int pos = Math.Max(0, Math.Min(newPos, _text.Length));
+                selectionLength = pos - selectionStart;
+                caretPosition = pos;
                 Invalidate();
             }
-            base.OnMouseMove(e);
         }
 
         #endregion
@@ -377,37 +332,40 @@ namespace AutoLedger.App.Controls
 
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
+            base.OnKeyPress(e);
             if (!char.IsControl(e.KeyChar))
             {
-                DeleteSelection();
-                text = text.Insert(caretPosition, e.KeyChar.ToString());
+                DeleteSelectionIfAny();
+                _text = _text.Insert(caretPosition, e.KeyChar.ToString());
                 caretPosition++;
-                selectionStart = -1;
+                ClearSelection();
                 Invalidate();
             }
-            base.OnKeyPress(e);
         }
 
         protected override void OnKeyDown(KeyEventArgs e)
         {
+            base.OnKeyDown(e);
+
             if (e.KeyCode == Keys.Back)
             {
-                if (selectionLength != 0)
-                    DeleteSelection();
+                if (selectionLength != 0) DeleteSelectionIfAny();
                 else if (caretPosition > 0)
                 {
-                    text = text.Remove(caretPosition - 1, 1);
+                    _text = _text.Remove(caretPosition - 1, 1);
                     caretPosition--;
                 }
+                ClearSelection();
                 Invalidate();
                 e.Handled = true;
             }
             else if (e.KeyCode == Keys.Delete)
             {
-                if (selectionLength != 0)
-                    DeleteSelection();
-                else if (caretPosition < text.Length)
-                    text = text.Remove(caretPosition, 1);
+                if (selectionLength != 0) DeleteSelectionIfAny();
+                else if (caretPosition < _text.Length)
+                    _text = _text.Remove(caretPosition, 1);
+
+                ClearSelection();
                 Invalidate();
                 e.Handled = true;
             }
@@ -415,23 +373,18 @@ namespace AutoLedger.App.Controls
             {
                 if (e.Shift)
                 {
-                    int newPos = Math.Max(0, caretPosition - 1);
                     if (selectionLength == 0) selectionStart = caretPosition;
-                    caretPosition = newPos;
+                    caretPosition = Math.Max(0, caretPosition - 1);
                     selectionLength = caretPosition - selectionStart;
                 }
                 else
                 {
                     if (selectionLength != 0)
-                    {
                         caretPosition = Math.Min(selectionStart, selectionStart + selectionLength);
-                    }
                     else
-                    {
                         caretPosition = Math.Max(0, caretPosition - 1);
-                    }
-                    selectionStart = -1;
-                    selectionLength = 0;
+
+                    ClearSelection();
                 }
                 Invalidate();
                 e.Handled = true;
@@ -440,23 +393,18 @@ namespace AutoLedger.App.Controls
             {
                 if (e.Shift)
                 {
-                    int newPos = Math.Min(text.Length, caretPosition + 1);
                     if (selectionLength == 0) selectionStart = caretPosition;
-                    caretPosition = newPos;
+                    caretPosition = Math.Min(_text.Length, caretPosition + 1);
                     selectionLength = caretPosition - selectionStart;
                 }
                 else
                 {
                     if (selectionLength != 0)
-                    {
                         caretPosition = Math.Max(selectionStart, selectionStart + selectionLength);
-                    }
                     else
-                    {
-                        caretPosition = Math.Min(text.Length, caretPosition + 1);
-                    }
-                    selectionStart = -1;
-                    selectionLength = 0;
+                        caretPosition = Math.Min(_text.Length, caretPosition + 1);
+
+                    ClearSelection();
                 }
                 Invalidate();
                 e.Handled = true;
@@ -466,41 +414,42 @@ namespace AutoLedger.App.Controls
                 if (selectionLength != 0)
                 {
                     int start = Math.Min(selectionStart, selectionStart + selectionLength);
-                    Clipboard.SetText(text.Substring(start, Math.Abs(selectionLength)));
+                    int len = Math.Abs(selectionLength);
+                    Clipboard.SetText(_text.Substring(start, len));
                 }
                 e.Handled = true;
-                e.SuppressKeyPress = true;
             }
             else if (e.Control && e.KeyCode == Keys.V)
             {
                 string clip = Clipboard.GetText();
                 if (!string.IsNullOrEmpty(clip))
                 {
-                    DeleteSelection();
-                    text = text.Insert(caretPosition, clip);
+                    DeleteSelectionIfAny();
+                    _text = _text.Insert(caretPosition, clip);
                     caretPosition += clip.Length;
+                    ClearSelection();
                     Invalidate();
                 }
                 e.Handled = true;
-                e.SuppressKeyPress = true;
-            }
-            else
-            {
-                base.OnKeyDown(e);
             }
         }
 
-        private void DeleteSelection()
+        private void DeleteSelectionIfAny()
         {
             if (selectionLength != 0)
             {
                 int start = Math.Min(selectionStart, selectionStart + selectionLength);
                 int len = Math.Abs(selectionLength);
-                text = text.Remove(start, len);
+                _text = _text.Remove(start, len);
                 caretPosition = start;
-                selectionStart = -1;
-                selectionLength = 0;
+                ClearSelection();
             }
+        }
+
+        private void ClearSelection()
+        {
+            selectionStart = 0;
+            selectionLength = 0;
         }
 
         #endregion
