@@ -30,7 +30,7 @@ namespace AutoLedger.App.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarReceptionForm));
             this.dgCarRequests = new System.Windows.Forms.DataGridView();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,7 +45,7 @@ namespace AutoLedger.App.Forms
             this.labelTotalCost = new System.Windows.Forms.Label();
             this.labelTittle = new System.Windows.Forms.Label();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cBoxIsReleased = new System.Windows.Forms.CheckBox();
             this.panelBottom = new System.Windows.Forms.Panel();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnSubmit = new AutoLedger.App.Controls.ModernButton();
@@ -57,8 +57,8 @@ namespace AutoLedger.App.Forms
             this.inputColor = new AutoLedger.App.Controls.ModernTextBox();
             this.inputTip = new AutoLedger.App.Controls.ModernTextBox();
             this.inputBrand = new AutoLedger.App.Controls.ModernTextBox();
-            this.inputUsage = new AutoLedger.App.Controls.ModernTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.inputMileage = new AutoLedger.App.Controls.ModernTextBox();
+            this.dateReceptionAt = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.inputModel = new AutoLedger.App.Controls.ModernTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -104,7 +104,7 @@ namespace AutoLedger.App.Forms
             this.dgCarRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgCarRequests.Size = new System.Drawing.Size(837, 773);
             this.dgCarRequests.StandardTab = true;
-            this.dgCarRequests.TabIndex = 15;
+            this.dgCarRequests.TabIndex = 10;
             // 
             // Index
             // 
@@ -118,24 +118,27 @@ namespace AutoLedger.App.Forms
             // Title
             // 
             this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Title.DataPropertyName = "Title";
             this.Title.HeaderText = "عنوان";
             this.Title.Name = "Title";
             this.Title.Width = 70;
             // 
             // Description
             // 
+            this.Description.DataPropertyName = "Description";
             this.Description.HeaderText = "توضیحات";
             this.Description.Name = "Description";
             // 
             // Cost
             // 
             this.Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.Format = "#,0 تومان";
-            dataGridViewCellStyle1.NullValue = "0";
-            this.Cost.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Cost.DataPropertyName = "Cost";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Format = "#,0 تومان";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.Cost.DefaultCellStyle = dataGridViewCellStyle3;
             this.Cost.FillWeight = 200F;
             this.Cost.HeaderText = "هزینه";
             this.Cost.MinimumWidth = 150;
@@ -232,8 +235,7 @@ namespace AutoLedger.App.Forms
             // panelRight
             // 
             this.panelRight.BackColor = System.Drawing.SystemColors.Window;
-            this.panelRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelRight.Controls.Add(this.checkBox1);
+            this.panelRight.Controls.Add(this.cBoxIsReleased);
             this.panelRight.Controls.Add(this.panelBottom);
             this.panelRight.Controls.Add(this.label2);
             this.panelRight.Controls.Add(this.carId);
@@ -243,8 +245,8 @@ namespace AutoLedger.App.Forms
             this.panelRight.Controls.Add(this.inputColor);
             this.panelRight.Controls.Add(this.inputTip);
             this.panelRight.Controls.Add(this.inputBrand);
-            this.panelRight.Controls.Add(this.inputUsage);
-            this.panelRight.Controls.Add(this.dateTimePicker1);
+            this.panelRight.Controls.Add(this.inputMileage);
+            this.panelRight.Controls.Add(this.dateReceptionAt);
             this.panelRight.Controls.Add(this.label1);
             this.panelRight.Controls.Add(this.inputModel);
             this.panelRight.Controls.Add(this.pictureBox1);
@@ -254,28 +256,28 @@ namespace AutoLedger.App.Forms
             this.panelRight.Size = new System.Drawing.Size(337, 861);
             this.panelRight.TabIndex = 18;
             // 
-            // checkBox1
+            // cBoxIsReleased
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.Maroon;
-            this.checkBox1.Location = new System.Drawing.Point(198, 756);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.checkBox1.Size = new System.Drawing.Size(115, 24);
-            this.checkBox1.TabIndex = 144;
-            this.checkBox1.Text = "ترخیص خودرو";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.cBoxIsReleased.AutoSize = true;
+            this.cBoxIsReleased.BackColor = System.Drawing.SystemColors.Window;
+            this.cBoxIsReleased.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBoxIsReleased.ForeColor = System.Drawing.Color.Maroon;
+            this.cBoxIsReleased.Location = new System.Drawing.Point(198, 756);
+            this.cBoxIsReleased.Name = "cBoxIsReleased";
+            this.cBoxIsReleased.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cBoxIsReleased.Size = new System.Drawing.Size(115, 24);
+            this.cBoxIsReleased.TabIndex = 10;
+            this.cBoxIsReleased.Text = "ترخیص خودرو";
+            this.cBoxIsReleased.UseVisualStyleBackColor = false;
             // 
             // panelBottom
             // 
             this.panelBottom.Controls.Add(this.btnBack);
             this.panelBottom.Controls.Add(this.btnSubmit);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(0, 796);
+            this.panelBottom.Location = new System.Drawing.Point(0, 798);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(335, 63);
+            this.panelBottom.Size = new System.Drawing.Size(337, 63);
             this.panelBottom.TabIndex = 141;
             // 
             // btnBack
@@ -325,7 +327,7 @@ namespace AutoLedger.App.Forms
             this.carId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.carId.Name = "carId";
             this.carId.Size = new System.Drawing.Size(292, 70);
-            this.carId.TabIndex = 136;
+            this.carId.TabIndex = 1;
             // 
             // inputUserCardId
             // 
@@ -335,11 +337,12 @@ namespace AutoLedger.App.Forms
             this.inputUserCardId.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputUserCardId.ForeColor = System.Drawing.Color.Black;
             this.inputUserCardId.Location = new System.Drawing.Point(19, 518);
+            this.inputUserCardId.MaxLength = 10;
             this.inputUserCardId.Name = "inputUserCardId";
             this.inputUserCardId.Placeholder = "کد ملی";
             this.inputUserCardId.PlaceholderColor = System.Drawing.Color.Black;
             this.inputUserCardId.Size = new System.Drawing.Size(292, 35);
-            this.inputUserCardId.TabIndex = 140;
+            this.inputUserCardId.TabIndex = 6;
             this.inputUserCardId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputFullName
@@ -350,11 +353,12 @@ namespace AutoLedger.App.Forms
             this.inputFullName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputFullName.ForeColor = System.Drawing.Color.Black;
             this.inputFullName.Location = new System.Drawing.Point(19, 559);
+            this.inputFullName.MaxLength = 150;
             this.inputFullName.Name = "inputFullName";
             this.inputFullName.Placeholder = "نام و نام خانوادگی";
             this.inputFullName.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputFullName.Size = new System.Drawing.Size(292, 35);
-            this.inputFullName.TabIndex = 139;
+            this.inputFullName.TabIndex = 7;
             this.inputFullName.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputPhoneNumber
@@ -365,11 +369,12 @@ namespace AutoLedger.App.Forms
             this.inputPhoneNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputPhoneNumber.ForeColor = System.Drawing.Color.Black;
             this.inputPhoneNumber.Location = new System.Drawing.Point(19, 603);
+            this.inputPhoneNumber.MaxLength = 15;
             this.inputPhoneNumber.Name = "inputPhoneNumber";
             this.inputPhoneNumber.Placeholder = "تلفن همراه";
             this.inputPhoneNumber.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputPhoneNumber.Size = new System.Drawing.Size(292, 35);
-            this.inputPhoneNumber.TabIndex = 138;
+            this.inputPhoneNumber.TabIndex = 8;
             this.inputPhoneNumber.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputColor
@@ -380,11 +385,12 @@ namespace AutoLedger.App.Forms
             this.inputColor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputColor.ForeColor = System.Drawing.Color.Black;
             this.inputColor.Location = new System.Drawing.Point(168, 402);
+            this.inputColor.MaxLength = 30;
             this.inputColor.Name = "inputColor";
             this.inputColor.Placeholder = "رنگ";
             this.inputColor.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputColor.Size = new System.Drawing.Size(145, 35);
-            this.inputColor.TabIndex = 132;
+            this.inputColor.TabIndex = 3;
             this.inputColor.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputTip
@@ -395,11 +401,12 @@ namespace AutoLedger.App.Forms
             this.inputTip.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputTip.ForeColor = System.Drawing.Color.Black;
             this.inputTip.Location = new System.Drawing.Point(17, 402);
+            this.inputTip.MaxLength = 100;
             this.inputTip.Name = "inputTip";
             this.inputTip.Placeholder = "تیپ";
             this.inputTip.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputTip.Size = new System.Drawing.Size(145, 35);
-            this.inputTip.TabIndex = 130;
+            this.inputTip.TabIndex = 4;
             this.inputTip.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputBrand
@@ -410,34 +417,36 @@ namespace AutoLedger.App.Forms
             this.inputBrand.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputBrand.ForeColor = System.Drawing.Color.Black;
             this.inputBrand.Location = new System.Drawing.Point(168, 353);
+            this.inputBrand.MaxLength = 50;
             this.inputBrand.Name = "inputBrand";
             this.inputBrand.Placeholder = "برند";
             this.inputBrand.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputBrand.Size = new System.Drawing.Size(145, 35);
-            this.inputBrand.TabIndex = 129;
+            this.inputBrand.TabIndex = 2;
             this.inputBrand.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // inputUsage
+            // inputMileage
             // 
-            this.inputUsage.BackColor = System.Drawing.SystemColors.Window;
-            this.inputUsage.BorderColor = System.Drawing.Color.LightGray;
-            this.inputUsage.BorderFocusColor = System.Drawing.Color.DodgerBlue;
-            this.inputUsage.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputUsage.ForeColor = System.Drawing.Color.Black;
-            this.inputUsage.Location = new System.Drawing.Point(19, 443);
-            this.inputUsage.Name = "inputUsage";
-            this.inputUsage.Placeholder = "کارکرد فعلی (کیلومتر)";
-            this.inputUsage.PlaceholderColor = System.Drawing.SystemColors.Desktop;
-            this.inputUsage.Size = new System.Drawing.Size(292, 35);
-            this.inputUsage.TabIndex = 13;
-            this.inputUsage.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.inputMileage.BackColor = System.Drawing.SystemColors.Window;
+            this.inputMileage.BorderColor = System.Drawing.Color.LightGray;
+            this.inputMileage.BorderFocusColor = System.Drawing.Color.DodgerBlue;
+            this.inputMileage.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputMileage.ForeColor = System.Drawing.Color.Black;
+            this.inputMileage.Location = new System.Drawing.Point(19, 443);
+            this.inputMileage.Name = "inputMileage";
+            this.inputMileage.NumbersOnly = true;
+            this.inputMileage.Placeholder = "کارکرد فعلی (کیلومتر)";
+            this.inputMileage.PlaceholderColor = System.Drawing.SystemColors.Desktop;
+            this.inputMileage.Size = new System.Drawing.Size(292, 35);
+            this.inputMileage.TabIndex = 5;
+            this.inputMileage.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // dateTimePicker1
+            // dateReceptionAt
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(21, 655);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 27);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dateReceptionAt.Location = new System.Drawing.Point(21, 655);
+            this.dateReceptionAt.Name = "dateReceptionAt";
+            this.dateReceptionAt.Size = new System.Drawing.Size(200, 27);
+            this.dateReceptionAt.TabIndex = 9;
             // 
             // label1
             // 
@@ -457,11 +466,13 @@ namespace AutoLedger.App.Forms
             this.inputModel.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputModel.ForeColor = System.Drawing.Color.Black;
             this.inputModel.Location = new System.Drawing.Point(17, 353);
+            this.inputModel.MaxLength = 4;
             this.inputModel.Name = "inputModel";
+            this.inputModel.NumbersOnly = true;
             this.inputModel.Placeholder = "مدل";
             this.inputModel.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputModel.Size = new System.Drawing.Size(145, 35);
-            this.inputModel.TabIndex = 131;
+            this.inputModel.TabIndex = 2;
             this.inputModel.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox1
@@ -507,8 +518,8 @@ namespace AutoLedger.App.Forms
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private Controls.ModernTextBox inputUsage;
+        private System.Windows.Forms.DateTimePicker dateReceptionAt;
+        private Controls.ModernTextBox inputMileage;
         private Controls.ModernButton btnSubmit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelTittle;
@@ -525,12 +536,12 @@ namespace AutoLedger.App.Forms
         private Controls.ModernTextBox inputFullName;
         private Controls.ModernTextBox inputUserCardId;
         private System.Windows.Forms.Label labelTotalCost;
+        private Panel panelBottom;
+        private Panel panelFactor;
+        private CheckBox cBoxIsReleased;
         private DataGridViewTextBoxColumn Index;
         private DataGridViewTextBoxColumn Title;
         private DataGridViewTextBoxColumn Description;
         private DataGridViewTextBoxColumn Cost;
-        private Panel panelBottom;
-        private Panel panelFactor;
-        private CheckBox checkBox1;
     }
 }

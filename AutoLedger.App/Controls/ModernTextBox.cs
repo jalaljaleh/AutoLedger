@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace AutoLedger.App.Controls
@@ -14,6 +15,8 @@ namespace AutoLedger.App.Controls
         private Color _borderColor = Color.LightGray;
         private Color _borderFocusColor = Color.DodgerBlue;
         private int _cornerRadius = 4;
+        private int _maxLength = 0;             // 0 = بدون محدودیت
+        private bool _numbersOnly = false;
 
         private int caretPosition = 0;
         private int selectionStart = 0;
@@ -66,13 +69,65 @@ namespace AutoLedger.App.Controls
 
         #region Properties
 
+        [Category("Behavior"), DefaultValue(0),
+         Description("حداکثر تعداد کاراکتر مجاز. 0 = نامحدود")]
+        public int MaxLength
+        {
+            get => _maxLength;
+            set
+            {
+                _maxLength = Math.Max(0, value);
+                // اگر متن فعلی طولانی‌تر از حد جدید باشد کوتاه می‌شود
+                if (_maxLength > 0 && _text.Length > _maxLength)
+                {
+                    _text = _text.Substring(0, _maxLength);
+                    caretPosition = Math.Min(caretPosition, _text.Length);
+                    ClearSelection();
+                }
+                Invalidate();
+            }
+        }
+
+        [Category("Behavior"), DefaultValue(false),
+         Description("فقط ورودی عددی (۰-۹) مجاز باشد")]
+        public bool NumbersOnly
+        {
+            get => _numbersOnly;
+            set
+            {
+                _numbersOnly = value;
+                if (_numbersOnly)
+                {
+                    // حذف کاراکترهای غیرعددی از متن فعلی
+                    string filtered = new string(_text.Where(char.IsDigit).ToArray());
+                    if (filtered != _text)
+                    {
+                        _text = filtered;
+                        caretPosition = Math.Min(caretPosition, _text.Length);
+                        ClearSelection();
+                    }
+                }
+                Invalidate();
+            }
+        }
+
         [Category("Appearance"), DefaultValue("")]
         public override string Text
         {
             get => _text;
             set
             {
-                _text = value ?? string.Empty;
+                string newText = value ?? string.Empty;
+
+                // اعمال فیلتر NumbersOnly
+                if (_numbersOnly)
+                    newText = new string(newText.Where(char.IsDigit).ToArray());
+
+                // اعمال MaxLength
+                if (_maxLength > 0 && newText.Length > _maxLength)
+                    newText = newText.Substring(0, _maxLength);
+
+                _text = newText;
                 caretPosition = Math.Min(caretPosition, _text.Length);
                 ClearSelection();
                 Invalidate();
@@ -290,7 +345,6 @@ namespace AutoLedger.App.Controls
                 int totalWidth = TextRenderer.MeasureText(g, _text, Font, Size.Empty, flags).Width;
                 int blockLeft = GetBlockLeft(totalWidth, 6);
 
-                // iterate characters to find position
                 for (int i = 0; i <= _text.Length; i++)
                 {
                     int w = MeasureTextWidth(_text.Substring(0, i), flags, g);
@@ -333,13 +387,31 @@ namespace AutoLedger.App.Controls
         protected override void OnKeyPress(KeyPressEventArgs e)
         {
             base.OnKeyPress(e);
+
+            // اگر کنترل‌کاراکتر نباشد (مانند Backspace, Delete) و فقط عدد مجاز باشد
             if (!char.IsControl(e.KeyChar))
             {
-                DeleteSelectionIfAny();
+                // اعمال فیلتر NumbersOnly
+                if (_numbersOnly && !char.IsDigit(e.KeyChar))
+                {
+                    e.Handled = true;   // کاراکتر غیرمجاز را نادیده بگیر
+                    return;
+                }
+
+                DeleteSelectionIfAny(); // اول ناحیه انتخاب‌شده حذف می‌شود
+
+                // بررسی MaxLength
+                if (_maxLength > 0 && _text.Length >= _maxLength)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
                 _text = _text.Insert(caretPosition, e.KeyChar.ToString());
                 caretPosition++;
                 ClearSelection();
                 Invalidate();
+                e.Handled = true;
             }
         }
 
@@ -424,11 +496,27 @@ namespace AutoLedger.App.Controls
                 string clip = Clipboard.GetText();
                 if (!string.IsNullOrEmpty(clip))
                 {
-                    DeleteSelectionIfAny();
-                    _text = _text.Insert(caretPosition, clip);
-                    caretPosition += clip.Length;
-                    ClearSelection();
-                    Invalidate();
+                    // فیلتر NumbersOnly روی متن چسبانده‌شده
+                    if (_numbersOnly)
+                        clip = new string(clip.Where(char.IsDigit).ToArray());
+
+                    if (!string.IsNullOrEmpty(clip))
+                    {
+                        DeleteSelectionIfAny();
+
+                        // بررسی MaxLength
+                        int spaceLeft = (_maxLength > 0) ? _maxLength - _text.Length : int.MaxValue;
+                        if (spaceLeft > 0)
+                        {
+                            if (clip.Length > spaceLeft)
+                                clip = clip.Substring(0, spaceLeft);
+
+                            _text = _text.Insert(caretPosition, clip);
+                            caretPosition += clip.Length;
+                            ClearSelection();
+                            Invalidate();
+                        }
+                    }
                 }
                 e.Handled = true;
             }

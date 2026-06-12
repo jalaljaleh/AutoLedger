@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoLedger.Data;
+using AutoLedger.Domain;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +14,59 @@ namespace AutoLedger.App.Forms
 {
     public partial class CarReceptionForm : Form
     {
+        public Reception Reception { get; set; }
         public CarReceptionForm()
         {
             InitializeComponent();
             IntilizeDataGrid();
             IntilizeDataGridActionButtons();
+
+            this.btnSubmit.Click += BtnSubmit_Click;
         }
+
+        private void BtnSubmit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var reception = new Reception()
+                {
+                    CarPlateId = carId.GetPlate(),
+                    CarBrand = inputBrand.Text.Trim(),
+                    CarModel = int.Parse(inputModel.Text.Trim()),
+                    CarColor = inputColor.Text.Trim(),
+                    CarTip = inputTip.Text.Trim(),
+                    Mileage = int.Parse(inputMileage.Text.Trim()),
+                    NationalId = inputUserCardId.Text.Trim(),
+                    PhoneNumber = inputPhoneNumber.Text.Trim(),
+                    FullName = inputFullName.Text.Trim(),
+                    ReceptionAt = dateReceptionAt.Value,
+
+                    IsReleased = cBoxIsReleased.Checked,
+
+                    UpdatedAt = DateTime.Now,
+                    Requests = dgCarRequests.Rows.Cast<DataGridViewRow>()
+                        .Where(r => r.IsNewRow == false)
+                        .Select(r => new ReceptionRequest()
+                        {
+                            Title = r.Cells["Title"].Value?.ToString().Trim(),
+                            Description = r.Cells["Description"].Value?.ToString().Trim(),
+                            Cost = r.Cells["Cost"].Value != null ? Convert.ToInt64(r.Cells["Cost"].Value) : 0
+                        }).ToList()
+                };
+
+                using (var context = new AutoLedgerContext())
+                {
+                    context.Receptions.Add(reception);
+                    context.SaveChanges();
+                }
+            this.Close();
+            }
+            catch (Exception v)
+            {
+                MessageBox.Show(v.ToString());
+            }
+        }
+
         void IntilizeDataGridActionButtons()
         {
             this.btnDeleteCurrentRequest.Click += (s, e) =>

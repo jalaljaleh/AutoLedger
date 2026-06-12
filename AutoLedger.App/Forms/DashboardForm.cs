@@ -17,7 +17,7 @@ namespace AutoLedger.App.Forms
         {
             InitializeComponent();
 
-            this.NewReception.Click += BtnNewCar_Click;
+            this.btnCarReception.Click += BtnNewCar_Click;
         }
 
         private void BtnNewCar_Click(object sender, EventArgs e)
