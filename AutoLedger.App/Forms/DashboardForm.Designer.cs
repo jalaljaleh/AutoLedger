@@ -28,107 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.NewReception = new System.Windows.Forms.ToolStripButton();
-            this.panelView = new System.Windows.Forms.Panel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolbar = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.BtnActionCurrentUser.SuspendLayout();
-            this.panelView.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.panelView = new System.Windows.Forms.Panel();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.menuRight = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolbar.SuspendLayout();
+            this.menuRight.SuspendLayout();
             this.SuspendLayout();
             // 
-            // BtnActionCurrentUser
+            // toolbar
             // 
-            this.BtnActionCurrentUser.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.BtnActionCurrentUser.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.BtnActionCurrentUser.ImageScalingSize = new System.Drawing.Size(80, 80);
-            this.BtnActionCurrentUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripSeparator1,
-            this.NewReception,
-            this.toolStripSeparator2});
-            this.BtnActionCurrentUser.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.BtnActionCurrentUser.Location = new System.Drawing.Point(0, 25);
-            this.BtnActionCurrentUser.Name = "BtnActionCurrentUser";
-            this.BtnActionCurrentUser.Padding = new System.Windows.Forms.Padding(6);
-            this.BtnActionCurrentUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BtnActionCurrentUser.Size = new System.Drawing.Size(1397, 105);
-            this.BtnActionCurrentUser.TabIndex = 5;
-            this.BtnActionCurrentUser.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.AutoSize = false;
-            this.toolStripButton1.Image = global::AutoLedger.App.Properties.Resources.checked_user;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(90, 90);
-            this.toolStripButton1.Text = "[کاربر]";
-            this.toolStripButton1.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 93);
-            // 
-            // NewReception
-            // 
-            this.NewReception.AutoSize = false;
-            this.NewReception.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewReception.Image = global::AutoLedger.App.Properties.Resources.transport;
-            this.NewReception.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.NewReception.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.NewReception.Name = "NewReception";
-            this.NewReception.RightToLeftAutoMirrorImage = true;
-            this.NewReception.Size = new System.Drawing.Size(75, 90);
-            this.NewReception.Text = "پذیرش خودرو";
-            this.NewReception.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.NewReception.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
-            // panelView
-            // 
-            this.panelView.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.panelView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelView.Controls.Add(this.statusStrip1);
-            this.panelView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelView.Location = new System.Drawing.Point(0, 130);
-            this.panelView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(1397, 533);
-            this.panelView.TabIndex = 7;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 511);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1397, 22);
-            this.statusStrip1.TabIndex = 0;
-            this.statusStrip1.Text = "StatusBottom";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolbar.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.toolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem3,
             this.toolStripMenuItem4});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuStrip1.Size = new System.Drawing.Size(1397, 25);
-            this.menuStrip1.TabIndex = 8;
-            this.menuStrip1.Text = "menuStrip1";
+            this.toolbar.Location = new System.Drawing.Point(0, 0);
+            this.toolbar.Name = "toolbar";
+            this.toolbar.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.toolbar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.toolbar.Size = new System.Drawing.Size(1162, 25);
+            this.toolbar.TabIndex = 8;
+            this.toolbar.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
             // 
@@ -156,50 +82,87 @@
             this.toolStripMenuItem4.Size = new System.Drawing.Size(51, 21);
             this.toolStripMenuItem4.Text = "راهنما";
             // 
-            // toolStripSeparator2
+            // panelView
             // 
-            this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(10);
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 73);
+            this.panelView.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.panelView.BackgroundImage = global::AutoLedger.App.Properties.Resources.background1;
+            this.panelView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelView.Location = new System.Drawing.Point(0, 25);
+            this.panelView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelView.Name = "panelView";
+            this.panelView.Size = new System.Drawing.Size(1162, 711);
+            this.panelView.TabIndex = 7;
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.statusStrip.Location = new System.Drawing.Point(0, 736);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(1162, 22);
+            this.statusStrip.SizingGrip = false;
+            this.statusStrip.TabIndex = 0;
+            this.statusStrip.Text = "StatusBottom";
+            // 
+            // menuRight
+            // 
+            this.menuRight.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.menuRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.menuRight.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.menuRight.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.menuRight.Location = new System.Drawing.Point(1029, 25);
+            this.menuRight.Name = "menuRight";
+            this.menuRight.Size = new System.Drawing.Size(133, 711);
+            this.menuRight.TabIndex = 0;
+            this.menuRight.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.BackgroundImage = global::AutoLedger.App.Properties.Resources.transport;
+            this.toolStripButton1.Image = global::AutoLedger.App.Properties.Resources.transport;
+            this.toolStripButton1.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.toolStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(130, 149);
+            this.toolStripButton1.Text = "پذیرش خودرو";
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1397, 663);
+            this.ClientSize = new System.Drawing.Size(1162, 758);
+            this.Controls.Add(this.menuRight);
             this.Controls.Add(this.panelView);
-            this.Controls.Add(this.BtnActionCurrentUser);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.statusStrip);
+            this.Controls.Add(this.toolbar);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DashboardForm";
+            this.Text = "نرم افزار حسابداری تقویت خودرو آیرون تونینگ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.BtnActionCurrentUser.ResumeLayout(false);
-            this.BtnActionCurrentUser.PerformLayout();
-            this.panelView.ResumeLayout(false);
-            this.panelView.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.toolbar.ResumeLayout(false);
+            this.toolbar.PerformLayout();
+            this.menuRight.ResumeLayout(false);
+            this.menuRight.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ToolStrip BtnActionCurrentUser;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Panel panelView;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.MenuStrip toolbar;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStrip menuRight;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton NewReception;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }

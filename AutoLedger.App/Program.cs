@@ -18,15 +18,13 @@ namespace AutoLedger.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-               Application.Run(new DashboardForm());
 
-            using (AutoLedgerContext db = new AutoLedgerContext())
-            {
-                if (Program.IsDebugMode() && db.Database.Exists())
-                    db.Database.Delete();
+            var loginResult = new LoginForm().ShowDialog();
 
-                db.Database.CreateIfNotExists();
-            }
+            if (loginResult == DialogResult.OK)
+                Application.Run(new DashboardForm());
+            else
+                MessageBox.Show("خطا در اتصال به پایگاه داده رخ داده است. لطفا تنظیمات اتصال را بررسی کنید یا با توسعه دهنده نرم افزار تماس بگیرید..", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public const string Version = "ویرایش بتا نسخه 1.0.0.1";
         public static bool IsDebugMode() => System.Diagnostics.Debugger.IsAttached;

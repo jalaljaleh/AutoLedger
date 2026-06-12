@@ -20,11 +20,13 @@ namespace AutoLedger.Data
         {
 
         }
-        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<CarRequest> CarRequests { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new CustomerConfiguration());
+            modelBuilder.Configurations.Add(new CarConfiguration());
+            modelBuilder.Configurations.Add(new CarRequestsConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
