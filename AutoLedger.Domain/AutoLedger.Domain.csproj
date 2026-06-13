@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Reception.cs" />
-    <Compile Include="Entities\ReceptionRequest.cs" />
+    <Compile Include="Entities\Car.cs" />
+    <Compile Include="Entities\CarReception.cs" />
+    <Compile Include="Entities\CarReceptionRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

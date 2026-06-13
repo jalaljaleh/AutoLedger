@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AutoLedger.Domain
 {
-    public class ReceptionRequest
+    public class CarReceptionRequest
     {
         public int Id { get; set; }
 
@@ -15,7 +15,10 @@ namespace AutoLedger.Domain
         public long Cost { get; set; }
 
         public int ReceptionId { get; set; }
-        public Reception Reception { get; set; }
+        public CarReception Reception { get; set; }
+
+        public int CarId { get; set; }
+        public Car Car { get; set; }
 
     }
 }

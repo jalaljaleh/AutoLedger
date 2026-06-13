@@ -60,8 +60,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutoLedgerContext.cs" />
-    <Compile Include="Mapping\ReceptionRequestsConfiguration.cs" />
-    <Compile Include="Mapping\ReceptionConfiguration.cs" />
+    <Compile Include="Mapping\CarConfiguration.cs" />
+    <Compile Include="Mapping\CarReceptionRequestsConfiguration.cs" />
+    <Compile Include="Mapping\CarReceptionConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

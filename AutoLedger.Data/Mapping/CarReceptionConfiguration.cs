@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace AutoLedger.Data.Mapping
 {
-    public class ReceptionRequestsConfiguration : EntityTypeConfiguration<ReceptionRequest>
+    public class CarReceptionConfiguration : EntityTypeConfiguration<CarReception>
     {
-        public ReceptionRequestsConfiguration()
+        public CarReceptionConfiguration()
         {
-            ToTable("ReceptionRequests");
+            ToTable("CarReceptions");
 
             Property(a => a.Id)
                    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-          
-            Property(a => a.Title).HasMaxLength(200).IsRequired();
-            Property(a => a.Description).HasMaxLength(1000);
 
-            HasIndex(a => a.ReceptionId).HasName("IX_ReceptionRequests_ReceptionId");
+            HasMany(a=>a.Requests)
+                .WithRequired(a=>a.Reception)
+                .HasForeignKey(a=>a.ReceptionId)
+                .WillCascadeOnDelete(true);
         }
     }
 }

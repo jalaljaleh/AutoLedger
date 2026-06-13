@@ -79,6 +79,12 @@
     <Compile Include="FormsModal\CarPlateModalForm.Designer.cs">
       <DependentUpon>CarPlateModalForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddCarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCarForm.Designer.cs">
+      <DependentUpon>AddCarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CarReceptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormsModal\CarPlateModalForm.resx">
       <DependentUpon>CarPlateModalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddCarForm.resx">
+      <DependentUpon>AddCarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CarReceptionForm.resx">
       <DependentUpon>CarReceptionForm.cs</DependentUpon>
@@ -207,6 +216,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add-car.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bussiness-man.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

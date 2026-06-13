@@ -20,13 +20,15 @@ namespace AutoLedger.Data
         {
 
         }
-        public DbSet<Reception> Receptions { get; set; }
-        public DbSet<ReceptionRequest> CarRequests { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<CarReception> CarReceptions { get; set; }
+        public DbSet<CarReceptionRequest> CarReceptionsRequests { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new ReceptionConfiguration());
-            modelBuilder.Configurations.Add(new ReceptionRequestsConfiguration());
+            modelBuilder.Configurations.Add(new CarConfiguration());
+            modelBuilder.Configurations.Add(new CarReceptionConfiguration());
+            modelBuilder.Configurations.Add(new CarReceptionRequestsConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
