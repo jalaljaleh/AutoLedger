@@ -27,9 +27,9 @@ namespace AutoLedger.App.Forms
                 using (AutoLedgerContext db = new AutoLedgerContext())
                 {
                     if (Program.IsDebugMode() && db.Database.Exists())
-                        db.Database.Delete();
-
-                    db.Database.CreateIfNotExists();
+                        ;//   db.Database.Delete();
+                    else
+                        db.Database.CreateIfNotExists();
                 }
                 this.DialogResult = DialogResult.OK;
             }

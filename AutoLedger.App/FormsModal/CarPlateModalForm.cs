@@ -31,9 +31,16 @@ namespace AutoLedger.App.FormsModal
 
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
-          
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            try
+            {
+                this.carIdControl.SetOrClearPlate(Plate);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
         }
     }
 }

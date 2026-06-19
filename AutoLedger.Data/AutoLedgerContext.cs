@@ -30,6 +30,8 @@ namespace AutoLedger.Data
             modelBuilder.Configurations.Add(new CarReceptionConfiguration());
             modelBuilder.Configurations.Add(new CarReceptionRequestsConfiguration());
 
+            this.Configuration.LazyLoadingEnabled = false;
+
             base.OnModelCreating(modelBuilder);
         }
     }

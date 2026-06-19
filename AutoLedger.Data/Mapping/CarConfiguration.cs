@@ -18,7 +18,7 @@ namespace AutoLedger.Data.Mapping
             Property(a => a.Id)
                    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(a => a.CarPlateId).HasMaxLength(20).IsRequired();
+            Property(a => a.PlateId).HasMaxLength(20).IsRequired();
             Property(a => a.Brand).HasMaxLength(50);
             Property(a => a.Color).HasMaxLength(30);
             Property(a => a.Tip).HasMaxLength(100);
@@ -28,7 +28,7 @@ namespace AutoLedger.Data.Mapping
             Property(a => a.OwnerPhoneNumber).HasMaxLength(15).IsRequired();
 
 
-            HasIndex(a => a.CarPlateId).HasName("IX_Receptions_CarPlateId");
+            HasIndex(a => a.PlateId).HasName("IX_Receptions_CarPlateId");
             HasIndex(a => a.OwnerNationalId).HasName("IX_Receptions_NationalId");
             HasIndex(a => a.OwnerPhoneNumber).HasName("IX_Receptions_PhoneNumber");
 
@@ -39,10 +39,6 @@ namespace AutoLedger.Data.Mapping
                 .HasForeignKey(a => a.CarId)
                 .WillCascadeOnDelete(true);
 
-            HasMany(a => a.Requests)
-              .WithRequired(a => a.Car)
-              .HasForeignKey(a => a.CarId)
-              .WillCascadeOnDelete(true);
         }
     }
 }

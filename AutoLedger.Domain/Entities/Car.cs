@@ -9,7 +9,7 @@ namespace AutoLedger.Domain
     public class Car
     {
         public int Id { get; private set; }
-        public string CarPlateId { get; set; }
+        public string PlateId { get; set; }
 
         public string Brand { get; set; }
         public int Model { get; set; }
@@ -24,7 +24,6 @@ namespace AutoLedger.Domain
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         public virtual ICollection<CarReception> Receptions { get; set; } = new HashSet<CarReception>();
-        public virtual ICollection<CarReceptionRequest> Requests { get; set; } = new HashSet<CarReceptionRequest>();
 
     }
 }

@@ -101,11 +101,13 @@
             // 
             // cbLetter
             // 
+            this.cbLetter.DisplayMember = "-1";
             this.cbLetter.DropDownHeight = 200;
             this.cbLetter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLetter.DropDownWidth = 60;
             this.cbLetter.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.cbLetter.FormattingEnabled = true;
+            this.cbLetter.IntegralHeight = false;
             this.cbLetter.ItemHeight = 21;
             this.cbLetter.Items.AddRange(new object[] {
             "الف",

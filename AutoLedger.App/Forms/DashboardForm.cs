@@ -1,4 +1,6 @@
 ﻿using AutoLedger.App.FormsModal;
+using AutoLedger.App.FormsView;
+using AutoLedger.Data;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,8 +20,34 @@ namespace AutoLedger.App.Forms
             InitializeComponent();
 
             this.btnCarReception.Click += BtnNewCar_Click;
+            this.btnCurrentCars.Click += ViewButtons_Click;
         }
 
+        private void ViewButtons_Click(object sender, EventArgs e)
+        {
+            switch ((sender as Button).Name)
+            {
+                case "btnCurrentCars":
+                    ShowControl(new CarsManagerPage());
+                    break;
+
+                default:
+                    ShowControl(null);
+                    break;
+            }
+        }
+
+        private void ShowControl(UserControl control)
+        {
+            panelView.Controls.Clear();
+
+            if (control != null)
+            {
+                panelView.Controls.Add(control);
+                control.Dock = DockStyle.Fill;
+            }
+
+        }
         private void BtnNewCar_Click(object sender, EventArgs e)
         {
             var carPlate = new CarPlateModalForm();
@@ -27,8 +55,15 @@ namespace AutoLedger.App.Forms
 
             if (plateResult == DialogResult.OK)
             {
-                var carReceptionForm = new CarReceptionForm();
-                var receptionResult = carReceptionForm.ShowDialog();
+                using(var db = new AutoLedgerContext())
+                {
+                    var car = db.Cars.FirstOrDefault(a=>a.PlateId == carPlate.Plate);
+
+                    var carReceptionForm = new CarReceptionForm(car,null)
+                          .WithPlateId(carPlate.Plate);
+
+                    var receptionResult = carReceptionForm.ShowDialog();
+                }
             }
         }
     }

@@ -14,11 +14,12 @@ namespace AutoLedger.Domain
         public string Description { get; set; }
         public long Cost { get; set; }
 
+
         public int ReceptionId { get; set; }
         public CarReception Reception { get; set; }
 
-        public int CarId { get; set; }
-        public Car Car { get; set; }
 
+        public DateTime CreatedAt { get;  set; } = DateTime.Now;
+        public DateTime UpdatedAt { get; set; } = DateTime.Now;
     }
 }

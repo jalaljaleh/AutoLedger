@@ -11,15 +11,14 @@ namespace AutoLedger.Domain
         public int Id { get; private set; }
 
         public int Mileage { get; set; }
-
+        public long TotalCost { get; set; }
         public bool IsReleased { get; set; }
-        public DateTime ReceptionAt { get; set; } = DateTime.Now;
-
-        public DateTime CreatedAt { get; private set; } = DateTime.Now;
-        public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         public int CarId { get; set; }
         public Car Car { get; set; }
+
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         public virtual ICollection<CarReceptionRequest> Requests { get; set; } = new HashSet<CarReceptionRequest>();
 

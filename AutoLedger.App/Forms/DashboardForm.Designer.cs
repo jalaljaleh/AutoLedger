@@ -34,19 +34,23 @@
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.panelView = new System.Windows.Forms.Panel();
             this.panelActions = new System.Windows.Forms.FlowLayoutPanel();
             this.panelBtnCarReception = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCarReception = new System.Windows.Forms.Button();
             this.labelBtnCarReception = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnCurrentCars = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelView = new System.Windows.Forms.Panel();
             this.toolbar.SuspendLayout();
             this.panelActions.SuspendLayout();
             this.panelBtnCarReception.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolbar
             // 
-            this.toolbar.BackColor = System.Drawing.Color.NavajoWhite;
+            this.toolbar.BackColor = System.Drawing.Color.OldLace;
             this.toolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem3,
@@ -87,7 +91,7 @@
             // 
             // statusStrip
             // 
-            this.statusStrip.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.statusStrip.BackColor = System.Drawing.Color.OldLace;
             this.statusStrip.Location = new System.Drawing.Point(0, 657);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(1132, 22);
@@ -95,27 +99,16 @@
             this.statusStrip.TabIndex = 0;
             this.statusStrip.Text = "StatusBottom";
             // 
-            // panelView
-            // 
-            this.panelView.BackColor = System.Drawing.Color.Transparent;
-            this.panelView.BackgroundImage = global::AutoLedger.App.Properties.Resources.background;
-            this.panelView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelView.Location = new System.Drawing.Point(0, 25);
-            this.panelView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(1049, 632);
-            this.panelView.TabIndex = 7;
-            // 
             // panelActions
             // 
-            this.panelActions.BackColor = System.Drawing.Color.NavajoWhite;
+            this.panelActions.BackColor = System.Drawing.Color.OldLace;
             this.panelActions.Controls.Add(this.panelBtnCarReception);
-            this.panelActions.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelActions.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.panelActions.Location = new System.Drawing.Point(1049, 25);
+            this.panelActions.Controls.Add(this.flowLayoutPanel1);
+            this.panelActions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelActions.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.panelActions.Location = new System.Drawing.Point(0, 25);
             this.panelActions.Name = "panelActions";
-            this.panelActions.Size = new System.Drawing.Size(83, 632);
+            this.panelActions.Size = new System.Drawing.Size(1132, 93);
             this.panelActions.TabIndex = 0;
             // 
             // panelBtnCarReception
@@ -125,7 +118,7 @@
             this.panelBtnCarReception.Controls.Add(this.btnCarReception);
             this.panelBtnCarReception.Controls.Add(this.labelBtnCarReception);
             this.panelBtnCarReception.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.panelBtnCarReception.Location = new System.Drawing.Point(3, 3);
+            this.panelBtnCarReception.Location = new System.Drawing.Point(1052, 3);
             this.panelBtnCarReception.Name = "panelBtnCarReception";
             this.panelBtnCarReception.Size = new System.Drawing.Size(77, 81);
             this.panelBtnCarReception.TabIndex = 4;
@@ -151,11 +144,56 @@
             this.labelBtnCarReception.TabIndex = 1;
             this.labelBtnCarReception.Text = "پذیرش خودرو";
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel1.Controls.Add(this.btnCurrentCars);
+            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(979, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(67, 81);
+            this.flowLayoutPanel1.TabIndex = 5;
+            // 
+            // btnCurrentCars
+            // 
+            this.btnCurrentCars.BackgroundImage = global::AutoLedger.App.Properties.Resources.engine_room128;
+            this.btnCurrentCars.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCurrentCars.FlatAppearance.BorderSize = 0;
+            this.btnCurrentCars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCurrentCars.Location = new System.Drawing.Point(3, 3);
+            this.btnCurrentCars.Name = "btnCurrentCars";
+            this.btnCurrentCars.Size = new System.Drawing.Size(60, 60);
+            this.btnCurrentCars.TabIndex = 2;
+            this.btnCurrentCars.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 15);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "جهت تعمیر";
+            // 
+            // panelView
+            // 
+            this.panelView.BackColor = System.Drawing.Color.Transparent;
+            this.panelView.BackgroundImage = global::AutoLedger.App.Properties.Resources.background;
+            this.panelView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelView.Location = new System.Drawing.Point(0, 118);
+            this.panelView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelView.Name = "panelView";
+            this.panelView.Size = new System.Drawing.Size(1132, 539);
+            this.panelView.TabIndex = 7;
+            // 
             // DashboardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.NavajoWhite;
+            this.BackColor = System.Drawing.Color.OldLace;
             this.ClientSize = new System.Drawing.Size(1132, 679);
             this.Controls.Add(this.panelView);
             this.Controls.Add(this.panelActions);
@@ -173,13 +211,14 @@
             this.panelActions.PerformLayout();
             this.panelBtnCarReception.ResumeLayout(false);
             this.panelBtnCarReception.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panelView;
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.MenuStrip toolbar;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -190,5 +229,9 @@
         private System.Windows.Forms.FlowLayoutPanel panelBtnCarReception;
         private System.Windows.Forms.Button btnCarReception;
         private System.Windows.Forms.Label labelBtnCarReception;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button btnCurrentCars;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelView;
     }
 }

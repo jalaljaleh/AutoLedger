@@ -79,11 +79,11 @@
     <Compile Include="FormsModal\CarPlateModalForm.Designer.cs">
       <DependentUpon>CarPlateModalForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\AddCarForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="FormsView\CarsManagerPage.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\AddCarForm.Designer.cs">
-      <DependentUpon>AddCarForm.cs</DependentUpon>
+    <Compile Include="FormsView\CarsManagerPage.Designer.cs">
+      <DependentUpon>CarsManagerPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\CarReceptionForm.cs">
       <SubType>Form</SubType>
@@ -111,8 +111,8 @@
     <EmbeddedResource Include="FormsModal\CarPlateModalForm.resx">
       <DependentUpon>CarPlateModalForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\AddCarForm.resx">
-      <DependentUpon>AddCarForm.cs</DependentUpon>
+    <EmbeddedResource Include="FormsView\CarsManagerPage.resx">
+      <DependentUpon>CarsManagerPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CarReceptionForm.resx">
       <DependentUpon>CarReceptionForm.cs</DependentUpon>
@@ -147,9 +147,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FormsView\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\checked_user.png" />
   </ItemGroup>
