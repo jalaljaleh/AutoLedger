@@ -23,22 +23,22 @@ namespace AutoLedger.App.Controls
             if (!string.IsNullOrWhiteSpace(plateText))
                 SetOrClearPlate(plateText);
 
-            inputProvinceCode.TextChanged += AutoTabTextBox_TextChanged;
-            inputSerialNumber.TextChanged += AutoTabTextBox_TextChanged;
             inputSuffixCode.TextChanged += AutoTabTextBox_TextChanged;
+            inputSerialNumber.TextChanged += AutoTabTextBox_TextChanged;
+            inputProvinceCode.TextChanged += AutoTabTextBox_TextChanged;
 
-            inputProvinceCode.KeyDown += NumberTextBox_KeyDown;
-            inputSerialNumber.KeyDown += NumberTextBox_KeyDown;
             inputSuffixCode.KeyDown += NumberTextBox_KeyDown;
+            inputSerialNumber.KeyDown += NumberTextBox_KeyDown;
+            inputProvinceCode.KeyDown += NumberTextBox_KeyDown;
 
             cbLetter.SelectedIndexChanged += OnLetterChanged;
 
         }
 
-        public string ProvinceCode => inputProvinceCode.Text;
+        public string ProvinceCode => inputSuffixCode.Text;
         public string Letter => cbLetter.Text;
         public string SerialNumber => inputSerialNumber.Text;
-        public string SuffixCode => inputSuffixCode.Text;
+        public string SuffixCode => inputProvinceCode.Text;
 
 
         public event EventHandler<string> OnPlateUpdate;
@@ -57,10 +57,10 @@ namespace AutoLedger.App.Controls
         {
             if (string.IsNullOrWhiteSpace(plateText))
             {
-                inputProvinceCode.Text = "";
+                inputSuffixCode.Text = "";
                 cbLetter.SelectedIndex = -1;
                 inputSerialNumber.Text = "";
-                inputSuffixCode.Text = "";
+                inputProvinceCode.Text = "";
                 RaisePlateUpdate();
                 return;
             }
@@ -69,7 +69,7 @@ namespace AutoLedger.App.Controls
             if (parts.Length != 4)
                 throw new FormatException("قالب پلاک باید شامل ۴ بخش باشد: کد استان، حرف، شماره سریال و کد انتهایی. مثال: ۱۲ ب ۳۴۵ ۶۷");
 
-            inputProvinceCode.Text = parts[0];
+            inputSuffixCode.Text = parts[0];
 
             if (cbLetter.Items.Contains(parts[1]))
                 cbLetter.SelectedItem = parts[1];
@@ -77,7 +77,7 @@ namespace AutoLedger.App.Controls
                 throw new FormatException($"حرف '{parts[1]}' برای پلاک مجاز نیست.");
 
             inputSerialNumber.Text = parts[2];
-            inputSuffixCode.Text = parts[3];
+            inputProvinceCode.Text = parts[3];
 
             RaisePlateUpdate();
         }

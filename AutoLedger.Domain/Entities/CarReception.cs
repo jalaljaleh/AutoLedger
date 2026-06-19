@@ -13,9 +13,13 @@ namespace AutoLedger.Domain
         public int Mileage { get; set; }
         public long TotalCost { get; set; }
         public bool IsReleased { get; set; }
+        public bool IsRepaired { get; set; }
 
         public int CarId { get; set; }
         public Car Car { get; set; }
+
+        public DateTime RepairedAt { get; set; } = DateTime.MinValue;
+        public DateTime ReleasedAt { get; set; } = DateTime.MinValue;
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;

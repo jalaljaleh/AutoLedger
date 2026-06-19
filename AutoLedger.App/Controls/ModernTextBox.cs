@@ -9,23 +9,43 @@ namespace AutoLedger.App.Controls
 {
     public class ModernTextBox : Control
     {
+        // Core text storage (keeps compatibility with existing usage)
         private string _text = string.Empty;
         private string _placeholder = string.Empty;
-        private Color _placeholderColor = Color.Gray;
-        private Color _borderColor = Color.LightGray;
-        private Color _borderFocusColor = Color.DodgerBlue;
-        private int _cornerRadius = 4;
-        private int _maxLength = 0;             // 0 = بدون محدودیت
-        private bool _numbersOnly = false;
 
+        // Appearance
+        private Color _accentColor = Color.FromArgb(0, 120, 215); // modern accent
+        private Color _placeholderColor = Color.FromArgb(140, 140, 140);
+        private Color _borderColor = Color.FromArgb(200, 200, 200);
+        private Color _hoverColor = Color.FromArgb(230, 230, 230);
+        private int _cornerRadius = 6;
+        private int _padding = 10;
+        private int _iconSize = 18;
+
+        // Behavior
+        private int _maxLength = 0; // 0 = unlimited
+        private bool _numbersOnly = false;
+        private char _passwordChar = '\0';
+        private bool _showClearButton = true;
+        private Image _icon = null;
+
+        // Caret & selection
         private int caretPosition = 0;
         private int selectionStart = 0;
         private int selectionLength = 0;
         private bool isFocused = false;
-
         private Timer caretTimer;
         private bool caretVisible = true;
 
+        // Floating label animation
+        private float labelProgress = 0f; // 0 = placeholder inline, 1 = floating small label
+        private Timer animTimer;
+        private bool animTargetFloating = false;
+
+        // DPI-aware measurement helper
+        private StringFormat stringFormat = new StringFormat(StringFormat.GenericDefault);
+
+        // Text alignment
         private HorizontalAlignment textAlignment = HorizontalAlignment.Left;
 
         public ModernTextBox()
@@ -36,48 +56,61 @@ namespace AutoLedger.App.Controls
                      ControlStyles.OptimizedDoubleBuffer |
                      ControlStyles.Selectable, true);
 
-            Size = new Size(200, 35);
+            Size = new Size(260, 40);
             BackColor = Color.White;
-            ForeColor = Color.Black;
+            ForeColor = Color.FromArgb(30, 30, 30);
             Cursor = Cursors.IBeam;
             TabStop = true;
 
+            // caret blink
             caretTimer = new Timer { Interval = 500 };
-            caretTimer.Tick += CaretTimer_Tick;
+            caretTimer.Tick += (s, e) => { caretVisible = !caretVisible; Invalidate(); };
+
+            // animation timer (smooth)
+            animTimer = new Timer { Interval = 15 };
+            animTimer.Tick += AnimTimer_Tick;
+
+            // string format for vertical centering
+            stringFormat.LineAlignment = StringAlignment.Center;
+            stringFormat.Alignment = StringAlignment.Near;
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
             {
-                if (caretTimer != null)
-                {
-                    caretTimer.Tick -= CaretTimer_Tick;
-                    caretTimer.Stop();
-                    caretTimer.Dispose();
-                    caretTimer = null;
-                }
+                caretTimer?.Dispose();
+                animTimer?.Dispose();
             }
             base.Dispose(disposing);
         }
 
-        private void CaretTimer_Tick(object sender, EventArgs e)
+        private void AnimTimer_Tick(object sender, EventArgs e)
         {
-            caretVisible = !caretVisible;
+            const float step = 0.12f;
+            if (animTargetFloating)
+            {
+                labelProgress = Math.Min(1f, labelProgress + step);
+                if (labelProgress >= 1f) animTimer.Stop();
+            }
+            else
+            {
+                labelProgress = Math.Max(0f, labelProgress - step);
+                if (labelProgress <= 0f) animTimer.Stop();
+            }
             Invalidate();
         }
 
         #region Properties
 
         [Category("Behavior"), DefaultValue(0),
-         Description("حداکثر تعداد کاراکتر مجاز. 0 = نامحدود")]
+         Description("Maximum allowed characters. 0 = unlimited")]
         public int MaxLength
         {
             get => _maxLength;
             set
             {
                 _maxLength = Math.Max(0, value);
-                // اگر متن فعلی طولانی‌تر از حد جدید باشد کوتاه می‌شود
                 if (_maxLength > 0 && _text.Length > _maxLength)
                 {
                     _text = _text.Substring(0, _maxLength);
@@ -89,7 +122,7 @@ namespace AutoLedger.App.Controls
         }
 
         [Category("Behavior"), DefaultValue(false),
-         Description("فقط ورودی عددی (۰-۹) مجاز باشد")]
+         Description("Allow only numeric input")]
         public bool NumbersOnly
         {
             get => _numbersOnly;
@@ -98,7 +131,6 @@ namespace AutoLedger.App.Controls
                 _numbersOnly = value;
                 if (_numbersOnly)
                 {
-                    // حذف کاراکترهای غیرعددی از متن فعلی
                     string filtered = new string(_text.Where(char.IsDigit).ToArray());
                     if (filtered != _text)
                     {
@@ -111,34 +143,11 @@ namespace AutoLedger.App.Controls
             }
         }
 
-        [Category("Appearance"), DefaultValue("")]
-        public override string Text
+        [Category("Appearance")]
+        public Color AccentColor
         {
-            get => _text;
-            set
-            {
-                string newText = value ?? string.Empty;
-
-                // اعمال فیلتر NumbersOnly
-                if (_numbersOnly)
-                    newText = new string(newText.Where(char.IsDigit).ToArray());
-
-                // اعمال MaxLength
-                if (_maxLength > 0 && newText.Length > _maxLength)
-                    newText = newText.Substring(0, _maxLength);
-
-                _text = newText;
-                caretPosition = Math.Min(caretPosition, _text.Length);
-                ClearSelection();
-                Invalidate();
-            }
-        }
-
-        [Category("Appearance"), DefaultValue("")]
-        public string Placeholder
-        {
-            get => _placeholder;
-            set { _placeholder = value ?? string.Empty; Invalidate(); }
+            get => _accentColor;
+            set { _accentColor = value; Invalidate(); }
         }
 
         [Category("Appearance")]
@@ -156,17 +165,39 @@ namespace AutoLedger.App.Controls
         }
 
         [Category("Appearance")]
-        public Color BorderFocusColor
+        public Color HoverColor
         {
-            get => _borderFocusColor;
-            set { _borderFocusColor = value; Invalidate(); }
+            get => _hoverColor;
+            set { _hoverColor = value; Invalidate(); }
         }
 
-        [Category("Appearance"), DefaultValue(4)]
+        [Category("Appearance"), DefaultValue(6)]
         public int CornerRadius
         {
             get => _cornerRadius;
             set { _cornerRadius = Math.Max(0, value); Invalidate(); }
+        }
+
+        [Category("Behavior"), DefaultValue('\0'),
+         Description("Set to a non-zero char to mask input (password)")]
+        public char PasswordChar
+        {
+            get => _passwordChar;
+            set { _passwordChar = value; Invalidate(); }
+        }
+
+        [Category("Appearance"), DefaultValue(true)]
+        public bool ShowClearButton
+        {
+            get => _showClearButton;
+            set { _showClearButton = value; Invalidate(); }
+        }
+
+        [Category("Appearance")]
+        public Image Icon
+        {
+            get => _icon;
+            set { _icon = value; Invalidate(); }
         }
 
         [Category("Appearance"), DefaultValue(HorizontalAlignment.Left)]
@@ -174,6 +205,33 @@ namespace AutoLedger.App.Controls
         {
             get => textAlignment;
             set { textAlignment = value; Invalidate(); }
+        }
+
+        [Category("Appearance"), DefaultValue("")]
+        public override string Text
+        {
+            get => _text;
+            set
+            {
+                string newText = value ?? string.Empty;
+                if (_numbersOnly)
+                    newText = new string(newText.Where(char.IsDigit).ToArray());
+                if (_maxLength > 0 && newText.Length > _maxLength)
+                    newText = newText.Substring(0, _maxLength);
+
+                _text = newText;
+                caretPosition = Math.Min(caretPosition, _text.Length);
+                ClearSelection();
+                UpdateFloatingTarget();
+                Invalidate();
+            }
+        }
+
+        [Category("Appearance"), DefaultValue("")]
+        public string Placeholder
+        {
+            get => _placeholder;
+            set { _placeholder = value ?? string.Empty; UpdateFloatingTarget(); Invalidate(); }
         }
 
         #endregion
@@ -186,6 +244,7 @@ namespace AutoLedger.App.Controls
             isFocused = true;
             caretVisible = true;
             caretTimer?.Start();
+            UpdateFloatingTarget();
             Invalidate();
         }
 
@@ -196,7 +255,18 @@ namespace AutoLedger.App.Controls
             caretTimer?.Stop();
             caretVisible = false;
             ClearSelection();
+            UpdateFloatingTarget();
             Invalidate();
+        }
+
+        private void UpdateFloatingTarget()
+        {
+            bool shouldFloat = !string.IsNullOrEmpty(_text) || isFocused;
+            if (shouldFloat != animTargetFloating)
+            {
+                animTargetFloating = shouldFloat;
+                animTimer.Start();
+            }
         }
 
         #endregion
@@ -206,85 +276,155 @@ namespace AutoLedger.App.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+            e.Graphics.Clear(Parent?.BackColor ?? SystemColors.Control);
 
-            // Background with rounded corners
-            using (var brush = new SolidBrush(BackColor))
-            using (var path = GetRoundedRectPath(ClientRectangle, _cornerRadius))
+            Rectangle rect = ClientRectangle;
+            rect.Inflate(-1, -1);
+
+            // background
+            using (var bgBrush = new SolidBrush(BackColor))
+            using (var path = GetRoundedRectPath(rect, _cornerRadius))
             {
-                e.Graphics.FillPath(brush, path);
+                e.Graphics.FillPath(bgBrush, path);
             }
 
-            // Prepare text and flags
-            bool showPlaceholder = string.IsNullOrEmpty(_text);
-            string displayText = showPlaceholder ? _placeholder : _text;
-            Color drawColor = showPlaceholder ? _placeholderColor : ForeColor;
-
-            TextFormatFlags flags = GetDrawingFlags();
-
-            int padding = 6;
-            Rectangle textRect = new Rectangle(padding, 0, Width - 2 * padding, Height);
-
-            // Draw text
-            TextRenderer.DrawText(e.Graphics, displayText, Font, textRect, drawColor, flags);
-
-            // If we have real text, draw selection and caret
-            if (!showPlaceholder && (_text.Length > 0 || isFocused))
+            // hover highlight
+            if (ClientRectangle.Contains(PointToClient(MousePosition)))
             {
-                // measure full text width once
-                int fullWidth = TextRenderer.MeasureText(e.Graphics, _text, Font, Size.Empty, flags).Width;
-                int blockLeft = GetBlockLeft(fullWidth, padding);
-
-                // Selection
-                if (selectionLength != 0)
+                using (var hoverBrush = new SolidBrush(_hoverColor))
+                using (var path = GetRoundedRectPath(rect, _cornerRadius))
                 {
-                    int selStart = Math.Max(0, Math.Min(selectionStart, _text.Length));
-                    int selLen = Math.Max(0, Math.Min(selectionLength, _text.Length - selStart));
-
-                    int x1 = blockLeft + MeasureTextWidth(_text.Substring(0, selStart), flags, e.Graphics);
-                    int x2 = blockLeft + MeasureTextWidth(_text.Substring(0, selStart + selLen), flags, e.Graphics);
-
-                    Rectangle selRect = new Rectangle(Math.Min(x1, x2), textRect.Top, Math.Abs(x2 - x1), textRect.Height);
-                    using (var selBrush = new SolidBrush(Color.FromArgb(173, 214, 255)))
-                        e.Graphics.FillRectangle(selBrush, selRect);
-
-                    // draw selected text over selection
-                    Region oldClip = e.Graphics.Clip;
-                    e.Graphics.SetClip(selRect);
-                    TextRenderer.DrawText(e.Graphics, _text, Font, textRect, ForeColor, flags);
-                    e.Graphics.Clip = oldClip;
-                }
-
-                // Caret
-                if (isFocused && caretVisible && selectionLength == 0)
-                {
-                    int caretX = blockLeft + MeasureTextWidth(_text.Substring(0, Math.Min(caretPosition, _text.Length)), flags, e.Graphics);
-                    int caretHeight = Font.Height;
-                    int y = (Height - caretHeight) / 2;
-                    using (var pen = new Pen(ForeColor, 1f))
-                        e.Graphics.DrawLine(pen, caretX, y, caretX, y + caretHeight);
+                    e.Graphics.FillPath(hoverBrush, path);
                 }
             }
 
-            // Border
-            Color currentBorder = isFocused ? _borderFocusColor : _borderColor;
-            using (var pen = new Pen(currentBorder, 1.5f))
-            using (var path = GetRoundedRectPath(ClientRectangle, _cornerRadius))
+            // border (thin)
+            Color border = isFocused ? _accentColor : _borderColor;
+            using (var pen = new Pen(border, isFocused ? 2f : 1f))
+            using (var path = GetRoundedRectPath(rect, _cornerRadius))
             {
                 e.Graphics.DrawPath(pen, path);
             }
+
+            // compute inner text area
+            int left = rect.Left + _padding;
+            int right = rect.Right - _padding;
+            int centerY = rect.Top + rect.Height / 2;
+
+            // icon
+            if (_icon != null)
+            {
+                Rectangle iconRect = new Rectangle(left, centerY - _iconSize / 2, _iconSize, _iconSize);
+                e.Graphics.DrawImage(_icon, iconRect);
+                left += _iconSize + 8;
+            }
+
+            // clear button area
+            Rectangle clearRect = Rectangle.Empty;
+            if (_showClearButton && !string.IsNullOrEmpty(_text))
+            {
+                clearRect = new Rectangle(right - 18, centerY - 9, 18, 18);
+                right -= 18 + 6;
+            }
+
+            // text area
+            Rectangle textRect = new Rectangle(left, rect.Top, Math.Max(0, right - left), rect.Height);
+
+            // floating placeholder / label
+            DrawFloatingLabel(e.Graphics, textRect);
+
+            // draw selection background if any
+            if (selectionLength != 0)
+            {
+                int selStart = Math.Min(selectionStart, selectionStart + selectionLength);
+                int selLen = Math.Abs(selectionLength);
+                Rectangle selRect = GetSelectionRectangle(e.Graphics, textRect, selStart, selLen);
+                if (selRect.Width > 0)
+                {
+                    using (var selBrush = new SolidBrush(Color.FromArgb(180, _accentColor)))
+                        e.Graphics.FillRectangle(selBrush, selRect);
+                }
+            }
+
+            // draw text (masked if password)
+            string displayText = _passwordChar != '\0' ? new string(_passwordChar, _text.Length) : _text;
+            TextRenderer.DrawText(e.Graphics, displayText, Font, textRect, ForeColor, GetTextFormatFlags());
+
+            // caret
+            if (isFocused && caretVisible && selectionLength == 0)
+            {
+                int caretX = GetCaretX(e.Graphics, textRect, caretPosition);
+                int caretTop = textRect.Top + (textRect.Height - Font.Height) / 2;
+                using (var pen = new Pen(ForeColor, 1f))
+                {
+                    e.Graphics.DrawLine(pen, caretX, caretTop, caretX, caretTop + Font.Height);
+                }
+            }
+
+            // clear button icon (simple X)
+            if (clearRect != Rectangle.Empty)
+            {
+                using (var p = new Pen(Color.Gray, 2f))
+                {
+                    e.Graphics.DrawLine(p, clearRect.Left + 3, clearRect.Top + 3, clearRect.Right - 3, clearRect.Bottom - 3);
+                    e.Graphics.DrawLine(p, clearRect.Right - 3, clearRect.Top + 3, clearRect.Left + 3, clearRect.Bottom - 3);
+                }
+            }
         }
 
-        private int MeasureTextWidth(string s, TextFormatFlags flags, Graphics g)
+        private void DrawFloatingLabel(Graphics g, Rectangle textRect)
         {
-            if (string.IsNullOrEmpty(s)) return 0;
-            return TextRenderer.MeasureText(g, s, Font, Size.Empty, flags).Width;
+            // label floats up and shrinks when labelProgress -> 1
+            float smallScale = 0.75f;
+            float scale = 1f - (1f - smallScale) * labelProgress;
+            int baseY = textRect.Top + (textRect.Height - Font.Height) / 2;
+            int floatOffset = (int)(-(Font.Height + 6) * labelProgress);
+
+            // compute label font
+            using (var labelFont = new Font(Font.FontFamily, Font.Size * scale, Font.Style))
+            {
+                // placeholder text when empty, otherwise small label above
+                string label = string.IsNullOrEmpty(_text) ? _placeholder : _placeholder;
+                Color labelColor = isFocused ? _accentColor : _placeholderColor;
+
+                // when inline (labelProgress ~ 0) draw at baseY; when floating draw smaller above
+                RectangleF labelRect = new RectangleF(textRect.Left, baseY + floatOffset, textRect.Width, Font.Height);
+                TextRenderer.DrawText(g, label, labelFont, Rectangle.Round(labelRect), labelColor, GetTextFormatFlags());
+            }
+        }
+
+        private Rectangle GetSelectionRectangle(Graphics g, Rectangle textRect, int selStart, int selLen)
+        {
+            if (selLen <= 0) return Rectangle.Empty;
+            string before = _text.Substring(0, selStart);
+            string sel = _text.Substring(selStart, selLen);
+
+            int x1 = GetCaretX(g, textRect, before.Length);
+            int x2 = GetCaretX(g, textRect, before.Length + sel.Length);
+            return new Rectangle(Math.Min(x1, x2), textRect.Top + 2, Math.Abs(x2 - x1), textRect.Height - 4);
+        }
+
+        private int GetCaretX(Graphics g, Rectangle textRect, int charIndex)
+        {
+            string s = _passwordChar != '\0' ? new string(_passwordChar, charIndex) : _text.Substring(0, Math.Max(0, Math.Min(charIndex, _text.Length)));
+            Size size = TextRenderer.MeasureText(g, s, Font, Size.Empty, GetTextFormatFlags());
+            int x = textRect.Left + size.Width;
+            return x;
+        }
+
+        private TextFormatFlags GetTextFormatFlags()
+        {
+            TextFormatFlags flags = TextFormatFlags.VerticalCenter | TextFormatFlags.NoPrefix | TextFormatFlags.SingleLine;
+            if (textAlignment == HorizontalAlignment.Left) flags |= TextFormatFlags.Left;
+            else if (textAlignment == HorizontalAlignment.Center) flags |= TextFormatFlags.HorizontalCenter;
+            else flags |= TextFormatFlags.Right;
+            return flags;
         }
 
         private GraphicsPath GetRoundedRectPath(Rectangle rect, int radius)
         {
             var path = new GraphicsPath();
-            if (radius <= 0)
-                path.AddRectangle(rect);
+            if (radius <= 0) path.AddRectangle(rect);
             else
             {
                 int d = radius * 2;
@@ -297,42 +437,6 @@ namespace AutoLedger.App.Controls
             return path;
         }
 
-        private int GetBlockLeft(int totalWidth, int leftPad)
-        {
-            TextFormatFlags flags = GetDrawingFlags();
-            if ((flags & TextFormatFlags.Right) != 0)
-                return Width - leftPad - totalWidth;
-            else if ((flags & TextFormatFlags.HorizontalCenter) != 0)
-                return leftPad + (Width - 2 * leftPad - totalWidth) / 2;
-            else
-                return leftPad;
-        }
-
-        private TextFormatFlags GetDrawingFlags()
-        {
-            TextFormatFlags flags = TextFormatFlags.VerticalCenter | TextFormatFlags.NoPrefix;
-            if (RightToLeft == RightToLeft.Yes)
-            {
-                flags |= TextFormatFlags.RightToLeft;
-                if (textAlignment == HorizontalAlignment.Left)
-                    flags |= TextFormatFlags.Right;
-                else if (textAlignment == HorizontalAlignment.Right)
-                    flags |= TextFormatFlags.Left;
-                else
-                    flags |= TextFormatFlags.HorizontalCenter;
-            }
-            else
-            {
-                if (textAlignment == HorizontalAlignment.Left)
-                    flags |= TextFormatFlags.Left;
-                else if (textAlignment == HorizontalAlignment.Right)
-                    flags |= TextFormatFlags.Right;
-                else
-                    flags |= TextFormatFlags.HorizontalCenter;
-            }
-            return flags;
-        }
-
         #endregion
 
         #region Mouse input
@@ -341,14 +445,15 @@ namespace AutoLedger.App.Controls
         {
             using (Graphics g = CreateGraphics())
             {
-                TextFormatFlags flags = GetDrawingFlags();
-                int totalWidth = TextRenderer.MeasureText(g, _text, Font, Size.Empty, flags).Width;
-                int blockLeft = GetBlockLeft(totalWidth, 6);
+                Rectangle rect = ClientRectangle;
+                rect.Inflate(-1, -1);
+                int left = rect.Left + _padding;
+                if (_icon != null) left += _iconSize + 8;
 
                 for (int i = 0; i <= _text.Length; i++)
                 {
-                    int w = MeasureTextWidth(_text.Substring(0, i), flags, g);
-                    int charRight = blockLeft + w;
+                    int w = TextRenderer.MeasureText(g, _passwordChar != '\0' ? new string(_passwordChar, i) : _text.Substring(0, i), Font, Size.Empty, GetTextFormatFlags()).Width;
+                    int charRight = left + w;
                     if (x <= charRight) return i;
                 }
                 return _text.Length;
@@ -359,6 +464,24 @@ namespace AutoLedger.App.Controls
         {
             base.OnMouseDown(e);
             if (!Focused) Focus();
+
+            // check clear button click
+            Rectangle rect = ClientRectangle;
+            rect.Inflate(-1, -1);
+            int right = rect.Right - _padding;
+            Rectangle clearRect = Rectangle.Empty;
+            if (_showClearButton && !string.IsNullOrEmpty(_text))
+            {
+                clearRect = new Rectangle(right - 18, rect.Top + (rect.Height - 18) / 2, 18, 18);
+            }
+            if (clearRect != Rectangle.Empty && clearRect.Contains(e.Location))
+            {
+                Text = string.Empty;
+                caretPosition = 0;
+                ClearSelection();
+                Invalidate();
+                return;
+            }
 
             int newPos = GetCaretIndexFromPoint(e.X);
             caretPosition = Math.Max(0, Math.Min(newPos, _text.Length));
@@ -378,6 +501,18 @@ namespace AutoLedger.App.Controls
                 caretPosition = pos;
                 Invalidate();
             }
+            else
+            {
+                // change cursor over clear button
+                Rectangle rect = ClientRectangle;
+                rect.Inflate(-1, -1);
+                int right = rect.Right - _padding;
+                Rectangle clearRect = Rectangle.Empty;
+                if (_showClearButton && !string.IsNullOrEmpty(_text))
+                    clearRect = new Rectangle(right - 18, rect.Top + (rect.Height - 18) / 2, 18, 18);
+
+                Cursor = (clearRect != Rectangle.Empty && clearRect.Contains(e.Location)) ? Cursors.Hand : Cursors.IBeam;
+            }
         }
 
         #endregion
@@ -388,19 +523,16 @@ namespace AutoLedger.App.Controls
         {
             base.OnKeyPress(e);
 
-            // اگر کنترل‌کاراکتر نباشد (مانند Backspace, Delete) و فقط عدد مجاز باشد
             if (!char.IsControl(e.KeyChar))
             {
-                // اعمال فیلتر NumbersOnly
                 if (_numbersOnly && !char.IsDigit(e.KeyChar))
                 {
-                    e.Handled = true;   // کاراکتر غیرمجاز را نادیده بگیر
+                    e.Handled = true;
                     return;
                 }
 
-                DeleteSelectionIfAny(); // اول ناحیه انتخاب‌شده حذف می‌شود
+                DeleteSelectionIfAny();
 
-                // بررسی MaxLength
                 if (_maxLength > 0 && _text.Length >= _maxLength)
                 {
                     e.Handled = true;
@@ -410,6 +542,7 @@ namespace AutoLedger.App.Controls
                 _text = _text.Insert(caretPosition, e.KeyChar.ToString());
                 caretPosition++;
                 ClearSelection();
+                UpdateFloatingTarget();
                 Invalidate();
                 e.Handled = true;
             }
@@ -428,6 +561,7 @@ namespace AutoLedger.App.Controls
                     caretPosition--;
                 }
                 ClearSelection();
+                UpdateFloatingTarget();
                 Invalidate();
                 e.Handled = true;
             }
@@ -438,6 +572,7 @@ namespace AutoLedger.App.Controls
                     _text = _text.Remove(caretPosition, 1);
 
                 ClearSelection();
+                UpdateFloatingTarget();
                 Invalidate();
                 e.Handled = true;
             }
@@ -496,7 +631,6 @@ namespace AutoLedger.App.Controls
                 string clip = Clipboard.GetText();
                 if (!string.IsNullOrEmpty(clip))
                 {
-                    // فیلتر NumbersOnly روی متن چسبانده‌شده
                     if (_numbersOnly)
                         clip = new string(clip.Where(char.IsDigit).ToArray());
 
@@ -504,7 +638,6 @@ namespace AutoLedger.App.Controls
                     {
                         DeleteSelectionIfAny();
 
-                        // بررسی MaxLength
                         int spaceLeft = (_maxLength > 0) ? _maxLength - _text.Length : int.MaxValue;
                         if (spaceLeft > 0)
                         {
@@ -514,6 +647,7 @@ namespace AutoLedger.App.Controls
                             _text = _text.Insert(caretPosition, clip);
                             caretPosition += clip.Length;
                             ClearSelection();
+                            UpdateFloatingTarget();
                             Invalidate();
                         }
                     }

@@ -47,7 +47,8 @@ namespace AutoLedger.App.Forms
             {
                 dateReceptionAt.Value = _reception.CreatedAt;
                 inputMileage.Text = _reception.Mileage.ToString();
-                cBoxIsReleased.Checked = _reception.IsReleased;
+                cbIsReleased.Checked = _reception.IsReleased;
+                cbIsRepaired.Checked = _reception.IsRepaired;
 
                 using (var db = new AutoLedgerContext())
                 {
@@ -146,11 +147,14 @@ namespace AutoLedger.App.Forms
 
                         // Update scalar fields
                         reception.CreatedAt = dateReceptionAt.Value;
-                        reception.IsReleased = cBoxIsReleased.Checked;
+                        reception.IsReleased = cbIsReleased.Checked;
+                        reception.IsRepaired = cbIsRepaired.Checked;
                         reception.Mileage = int.TryParse(inputMileage.Text.Trim(), out var m) ? m : reception.Mileage;
                         reception.TotalCost = incomingRequests.Sum(x => Math.Max(0, x.Cost));
                         reception.UpdatedAt = DateTime.Now;
-
+                        reception.RepairedAt = cbIsRepaired.Checked ? DateTime.Now : DateTime.MinValue;
+                        reception.ReleasedAt = cbIsReleased.Checked ? DateTime.Now : DateTime.MinValue;
+                     
                         // Existing requests in DB
                         var existing = reception.Requests.ToList();
 
@@ -244,7 +248,8 @@ namespace AutoLedger.App.Forms
             {
                 TotalCost = list.Sum(a => a.Cost),
                 CreatedAt = dateReceptionAt.Value,
-                IsReleased = cBoxIsReleased.Checked,
+                IsReleased = cbIsReleased.Checked,
+                IsRepaired = cbIsRepaired.Checked,
                 UpdatedAt = DateTime.Now,
                 Requests = list
             };

@@ -37,11 +37,11 @@
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::AutoLedger.App.Properties.Resources.background11;
-            this.pictureBox2.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(2, 3);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1007, 559);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.Size = new System.Drawing.Size(1076, 674);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
@@ -49,27 +49,29 @@
             // 
             this.labelVersion.AutoSize = true;
             this.labelVersion.BackColor = System.Drawing.Color.Transparent;
+            this.labelVersion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.labelVersion.ForeColor = System.Drawing.Color.Cornsilk;
-            this.labelVersion.Location = new System.Drawing.Point(27, 523);
+            this.labelVersion.Location = new System.Drawing.Point(2, 655);
+            this.labelVersion.Margin = new System.Windows.Forms.Padding(10);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(51, 17);
+            this.labelVersion.Size = new System.Drawing.Size(53, 22);
             this.labelVersion.TabIndex = 4;
             this.labelVersion.Text = "Version";
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.ClientSize = new System.Drawing.Size(1011, 563);
+            this.ClientSize = new System.Drawing.Size(1080, 680);
             this.ControlBox = false;
             this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.pictureBox2);
-            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LoginForm";
-            this.Padding = new System.Windows.Forms.Padding(2);
+            this.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
