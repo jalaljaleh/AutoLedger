@@ -85,10 +85,7 @@
     <Compile Include="Controls\ModernTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controls\ModernToolStripButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Controls\NumericUpDownModern.cs">
+    <Compile Include="Controls\ModernNumericUpDown.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="FormsModal\CarPlateModalForm.cs">

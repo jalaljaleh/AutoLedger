@@ -84,7 +84,7 @@ namespace AutoLedger.App.Controls
 
         private void AutoTabTextBox_TextChanged(object sender, EventArgs e)
         {
-            TextBox input = (TextBox)sender;
+            ModernTextBox input = (ModernTextBox)sender;
             if (input.Text.Length >= input.MaxLength && input.MaxLength > 0)
             {
                 this.SelectNextControl(input, true, true, true, true);

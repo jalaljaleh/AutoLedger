@@ -18,6 +18,9 @@ namespace AutoLedger.Data.Mapping
             Property(a => a.Id)
                    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
+            this.Property(a => a.RepairedAt).HasColumnType("datetime2");
+            this.Property(a => a.ReleasedAt).HasColumnType("datetime2");
+
             HasMany(a=>a.Requests)
                 .WithRequired(a=>a.Reception)
                 .HasForeignKey(a=>a.ReceptionId)

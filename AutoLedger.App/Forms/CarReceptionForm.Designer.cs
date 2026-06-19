@@ -30,12 +30,12 @@ namespace AutoLedger.App.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarReceptionForm));
             this.dgCarRequests = new System.Windows.Forms.DataGridView();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,14 +113,14 @@ namespace AutoLedger.App.Forms
             this.dgCarRequests.Name = "dgCarRequests";
             this.dgCarRequests.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgCarRequests.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgCarRequests.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgCarRequests.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgCarRequests.RowHeadersVisible = false;
             this.dgCarRequests.RowHeadersWidth = 50;
             this.dgCarRequests.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -136,9 +136,9 @@ namespace AutoLedger.App.Forms
             // Index
             // 
             this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle13.NullValue = "[سیستم]";
-            this.Index.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle1.NullValue = "[سیستم]";
+            this.Index.DefaultCellStyle = dataGridViewCellStyle1;
             this.Index.HeaderText = "R";
             this.Index.Name = "Index";
             this.Index.ReadOnly = true;
@@ -149,9 +149,9 @@ namespace AutoLedger.App.Forms
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle14.NullValue = "[سیستم]";
-            this.Id.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle2.NullValue = "[سیستم]";
+            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
             this.Id.HeaderText = "شناسه";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
@@ -177,12 +177,12 @@ namespace AutoLedger.App.Forms
             // 
             this.Cost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Cost.DataPropertyName = "Cost";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle15.Format = "#,0 تومان";
-            dataGridViewCellStyle15.NullValue = "0";
-            this.Cost.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Format = "#,0 تومان";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.Cost.DefaultCellStyle = dataGridViewCellStyle3;
             this.Cost.FillWeight = 200F;
             this.Cost.HeaderText = "هزینه";
             this.Cost.MinimumWidth = 150;
@@ -193,10 +193,10 @@ namespace AutoLedger.App.Forms
             // 
             this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CreatedAt.DataPropertyName = "CreatedAt";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle16.NullValue = "[سیستم]";
-            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle4.NullValue = "[سیستم]";
+            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle4;
             this.CreatedAt.HeaderText = "تاریخ ثبت";
             this.CreatedAt.Name = "CreatedAt";
             this.CreatedAt.ReadOnly = true;
@@ -206,10 +206,10 @@ namespace AutoLedger.App.Forms
             // 
             this.UpdatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.UpdatedAt.DataPropertyName = "UpdatedAt";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle17.NullValue = "[سیستم]";
-            this.UpdatedAt.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle5.NullValue = "[سیستم]";
+            this.UpdatedAt.DefaultCellStyle = dataGridViewCellStyle5;
             this.UpdatedAt.HeaderText = "آخرین ویرایش";
             this.UpdatedAt.Name = "UpdatedAt";
             this.UpdatedAt.ReadOnly = true;
@@ -217,7 +217,7 @@ namespace AutoLedger.App.Forms
             // 
             // BtnActionCurrentUser
             // 
-            this.BtnActionCurrentUser.BackColor = System.Drawing.Color.SeaShell;
+            this.BtnActionCurrentUser.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BtnActionCurrentUser.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnActionCurrentUser.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.BtnActionCurrentUser.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -390,12 +390,12 @@ namespace AutoLedger.App.Forms
             this.inputMileage.BorderColor = System.Drawing.Color.LightGray;
             this.inputMileage.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputMileage.ForeColor = System.Drawing.Color.Black;
-            this.inputMileage.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputMileage.Icon = global::AutoLedger.App.Properties.Resources.speed_128;
             this.inputMileage.Location = new System.Drawing.Point(558, 57);
             this.inputMileage.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.inputMileage.Name = "inputMileage";
             this.inputMileage.NumbersOnly = true;
+            this.inputMileage.PasswordChar = '\0';
             this.inputMileage.Placeholder = "کارکرد فعلی (کیلومتر)";
             this.inputMileage.PlaceholderColor = System.Drawing.SystemColors.Desktop;
             this.inputMileage.Size = new System.Drawing.Size(200, 37);
@@ -487,6 +487,7 @@ namespace AutoLedger.App.Forms
             // 
             // carIdControl
             // 
+            this.carIdControl.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.carIdControl.Enabled = false;
             this.carIdControl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.carIdControl.Location = new System.Drawing.Point(17, 139);
@@ -502,12 +503,12 @@ namespace AutoLedger.App.Forms
             this.inputUserCardId.BorderColor = System.Drawing.Color.LightGray;
             this.inputUserCardId.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputUserCardId.ForeColor = System.Drawing.Color.Black;
-            this.inputUserCardId.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputUserCardId.Icon = global::AutoLedger.App.Properties.Resources.verified_badge_128;
             this.inputUserCardId.Location = new System.Drawing.Point(17, 449);
             this.inputUserCardId.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.inputUserCardId.MaxLength = 10;
             this.inputUserCardId.Name = "inputUserCardId";
+            this.inputUserCardId.PasswordChar = '\0';
             this.inputUserCardId.Placeholder = "کد ملی";
             this.inputUserCardId.PlaceholderColor = System.Drawing.Color.Black;
             this.inputUserCardId.Size = new System.Drawing.Size(293, 46);
@@ -521,12 +522,12 @@ namespace AutoLedger.App.Forms
             this.inputFullName.BorderColor = System.Drawing.Color.LightGray;
             this.inputFullName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputFullName.ForeColor = System.Drawing.Color.Black;
-            this.inputFullName.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputFullName.Icon = global::AutoLedger.App.Properties.Resources.bussiness_man;
             this.inputFullName.Location = new System.Drawing.Point(17, 393);
             this.inputFullName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.inputFullName.MaxLength = 150;
             this.inputFullName.Name = "inputFullName";
+            this.inputFullName.PasswordChar = '\0';
             this.inputFullName.Placeholder = "نام و نام خانوادگی";
             this.inputFullName.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputFullName.Size = new System.Drawing.Size(293, 46);
@@ -540,12 +541,12 @@ namespace AutoLedger.App.Forms
             this.inputPhoneNumber.BorderColor = System.Drawing.Color.LightGray;
             this.inputPhoneNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputPhoneNumber.ForeColor = System.Drawing.Color.Black;
-            this.inputPhoneNumber.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputPhoneNumber.Icon = global::AutoLedger.App.Properties.Resources.phone_128;
             this.inputPhoneNumber.Location = new System.Drawing.Point(17, 505);
             this.inputPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.inputPhoneNumber.MaxLength = 15;
             this.inputPhoneNumber.Name = "inputPhoneNumber";
+            this.inputPhoneNumber.PasswordChar = '\0';
             this.inputPhoneNumber.Placeholder = "تلفن همراه";
             this.inputPhoneNumber.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputPhoneNumber.Size = new System.Drawing.Size(293, 46);
@@ -559,12 +560,12 @@ namespace AutoLedger.App.Forms
             this.inputColor.BorderColor = System.Drawing.Color.LightGray;
             this.inputColor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputColor.ForeColor = System.Drawing.Color.Black;
-            this.inputColor.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputColor.Icon = global::AutoLedger.App.Properties.Resources.color_wheel_128;
             this.inputColor.Location = new System.Drawing.Point(170, 314);
             this.inputColor.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.inputColor.MaxLength = 30;
             this.inputColor.Name = "inputColor";
+            this.inputColor.PasswordChar = '\0';
             this.inputColor.Placeholder = "رنگ";
             this.inputColor.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputColor.Size = new System.Drawing.Size(145, 46);
@@ -578,12 +579,12 @@ namespace AutoLedger.App.Forms
             this.inputTip.BorderColor = System.Drawing.Color.LightGray;
             this.inputTip.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputTip.ForeColor = System.Drawing.Color.Black;
-            this.inputTip.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputTip.Icon = global::AutoLedger.App.Properties.Resources.info_128;
             this.inputTip.Location = new System.Drawing.Point(19, 314);
             this.inputTip.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.inputTip.MaxLength = 100;
             this.inputTip.Name = "inputTip";
+            this.inputTip.PasswordChar = '\0';
             this.inputTip.Placeholder = "تیپ";
             this.inputTip.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputTip.Size = new System.Drawing.Size(145, 46);
@@ -597,12 +598,12 @@ namespace AutoLedger.App.Forms
             this.inputBrand.BorderColor = System.Drawing.Color.LightGray;
             this.inputBrand.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputBrand.ForeColor = System.Drawing.Color.Black;
-            this.inputBrand.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputBrand.Icon = global::AutoLedger.App.Properties.Resources.mercedes_benz_128;
             this.inputBrand.Location = new System.Drawing.Point(170, 259);
             this.inputBrand.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.inputBrand.MaxLength = 50;
             this.inputBrand.Name = "inputBrand";
+            this.inputBrand.PasswordChar = '\0';
             this.inputBrand.Placeholder = "برند";
             this.inputBrand.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputBrand.Size = new System.Drawing.Size(145, 46);
@@ -616,13 +617,13 @@ namespace AutoLedger.App.Forms
             this.inputModel.BorderColor = System.Drawing.Color.LightGray;
             this.inputModel.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputModel.ForeColor = System.Drawing.Color.Black;
-            this.inputModel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputModel.Icon = global::AutoLedger.App.Properties.Resources.tesla_model_x_128;
             this.inputModel.Location = new System.Drawing.Point(19, 259);
             this.inputModel.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.inputModel.MaxLength = 4;
             this.inputModel.Name = "inputModel";
             this.inputModel.NumbersOnly = true;
+            this.inputModel.PasswordChar = '\0';
             this.inputModel.Placeholder = "مدل";
             this.inputModel.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputModel.Size = new System.Drawing.Size(145, 46);

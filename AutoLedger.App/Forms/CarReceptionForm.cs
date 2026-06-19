@@ -27,6 +27,8 @@ namespace AutoLedger.App.Forms
             dgCarRequests.CellFormatting += DgCarRequests_CellFormatting;
             dgCarRequests.CellParsing += DgCarRequests_CellParsing;
 
+            this.cbIsReleased.CheckedChanged += CbIsReleased_CheckedChanged;
+
             this._car = car;
             this._reception = reception;
 
@@ -61,6 +63,20 @@ namespace AutoLedger.App.Forms
             }
 
         }
+
+        private void CbIsReleased_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbIsReleased.Checked)
+            {
+                cbIsRepaired.Checked = true;
+                cbIsRepaired.Enabled = false;
+            }
+            else
+            {
+                cbIsRepaired.Enabled = true;
+            }
+        }
+
         public CarReceptionForm WithPlateId(string plate)
         {
             this.carIdControl.SetOrClearPlate(plate);

@@ -22,13 +22,16 @@ namespace AutoLedger.App.Forms
             this.btnCarReception.Click += BtnNewCar_Click;
             this.btnCurrentCars.Click += ViewButtons_Click;
         }
-
+        CarsManagerPage carsManagerPage;
         private void ViewButtons_Click(object sender, EventArgs e)
         {
             switch ((sender as Button).Name)
             {
                 case "btnCurrentCars":
-                    ShowControl(new CarsManagerPage());
+                    if (carsManagerPage is null)
+                        carsManagerPage = new CarsManagerPage();
+
+                    ShowControl(carsManagerPage);
                     break;
 
                 default:
@@ -55,15 +58,17 @@ namespace AutoLedger.App.Forms
 
             if (plateResult == DialogResult.OK)
             {
-                using(var db = new AutoLedgerContext())
+                using (var db = new AutoLedgerContext())
                 {
-                    var car = db.Cars.FirstOrDefault(a=>a.PlateId == carPlate.Plate);
+                    var car = db.Cars.FirstOrDefault(a => a.PlateId == carPlate.Plate);
 
-                    var carReceptionForm = new CarReceptionForm(car,null)
+                    var carReceptionForm = new CarReceptionForm(car, null)
                           .WithPlateId(carPlate.Plate);
 
                     var receptionResult = carReceptionForm.ShowDialog();
                 }
+                if (carsManagerPage != null)
+                   carsManagerPage.RefreshCars();
             }
         }
     }
