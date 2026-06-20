@@ -20,7 +20,8 @@ namespace AutoLedger.App
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var loginResult = new LoginForm().ShowDialog();
+            var loginResult = new LoginForm()
+                .ShowDialog();
 
             if (loginResult == DialogResult.OK)
                 Application.Run(new DashboardForm());

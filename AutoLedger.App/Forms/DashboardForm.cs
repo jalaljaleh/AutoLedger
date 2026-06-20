@@ -2,46 +2,49 @@
 using AutoLedger.App.FormsView;
 using AutoLedger.Data;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoLedger.App.Forms
 {
     public partial class DashboardForm : Form
     {
+        private CarsManagerPage carsManagerPage;
+        private CarsManagerPage carsManagerCurrentPage;
+
         public DashboardForm()
         {
             InitializeComponent();
 
-            this.btnCarReception.Click += BtnNewCar_Click;
-            this.btnCurrentCars.Click += ViewButtons_Click;
+            btnCarReception.Click += BtnNewCar_Click;
+            btnCarsAll.Click += ViewButtons_Click;
+            btnCarsCurrent.Click += ViewButtons_Click;
         }
-        CarsManagerPage carsManagerPage;
+
         private void ViewButtons_Click(object sender, EventArgs e)
         {
-            switch ((sender as Button).Name)
-            {
-                case "btnCurrentCars":
-                    if (carsManagerPage is null)
-                        carsManagerPage = new CarsManagerPage();
+            var btn = sender as Button;
+            if (btn == null) return;
 
+            switch (btn.Name)
+            {
+                case "btnCarsAll":
+                    if (carsManagerPage == null)
+                        carsManagerPage = new CarsManagerPage(false); // all cars
                     ShowControl(carsManagerPage);
                     break;
 
-                default:
-                    ShowControl(null);
+                case "btnCarsCurrent":
+                    if (carsManagerCurrentPage == null)
+                        carsManagerCurrentPage = new CarsManagerPage(true); // only unreleased cars
+                    ShowControl(carsManagerCurrentPage);
                     break;
             }
         }
 
         private void ShowControl(UserControl control)
         {
+            panelView.SuspendLayout();
             panelView.Controls.Clear();
 
             if (control != null)
@@ -50,26 +53,34 @@ namespace AutoLedger.App.Forms
                 control.Dock = DockStyle.Fill;
             }
 
+            panelView.ResumeLayout();
         }
+
         private void BtnNewCar_Click(object sender, EventArgs e)
         {
             var carPlate = new CarPlateModalForm();
-            var plateResult = carPlate.ShowDialog();
+            if (carPlate.ShowDialog() != DialogResult.OK)
+                return;
 
-            if (plateResult == DialogResult.OK)
+            using (var db = new AutoLedgerContext())
             {
-                using (var db = new AutoLedgerContext())
+                var car = db.Cars.FirstOrDefault(a => a.PlateId == carPlate.Plate);
+
+                var receptionForm = new CarReceptionForm(car, null)
+                    .WithPlateId(carPlate.Plate);
+
+                if (receptionForm.ShowDialog() == DialogResult.OK)
                 {
-                    var car = db.Cars.FirstOrDefault(a => a.PlateId == carPlate.Plate);
-
-                    var carReceptionForm = new CarReceptionForm(car, null)
-                          .WithPlateId(carPlate.Plate);
-
-                    var receptionResult = carReceptionForm.ShowDialog();
+                    // Refresh both pages if they exist
+                    carsManagerPage?.RefreshCars();
+                    carsManagerCurrentPage?.RefreshCars();
                 }
-                if (carsManagerPage != null)
-                   carsManagerPage.RefreshCars();
             }
+        }
+
+        private void panelActions_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

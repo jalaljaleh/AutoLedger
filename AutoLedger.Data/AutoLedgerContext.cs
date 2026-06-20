@@ -13,6 +13,14 @@ namespace AutoLedger.Data
 {
     public class AutoLedgerContext : DbContext
     {
+        //public AutoLedgerContext()
+        //    : base(@"Data Source=.\SQLEXPRESS2014;
+        //     Initial Catalog=IronTuning;
+        //     Integrated Security=True;
+        //     MultipleActiveResultSets=True;
+        //     Connect Timeout=30")
+        //{
+        //}
         public AutoLedgerContext() : base($@"Data Source=(LocalDB)\MSSQLLocalDB;
                       AttachDbFilename={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IronTuning.mdf")};
                       Integrated Security=True;

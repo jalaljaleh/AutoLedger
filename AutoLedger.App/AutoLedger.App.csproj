@@ -289,6 +289,39 @@
   <ItemGroup>
     <None Include="Resources\four_squares_128.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_to_fit_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\insurance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checklist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mechanic_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\optimizing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\optimizing_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maintenance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\develop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\develop_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passbook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\budget.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

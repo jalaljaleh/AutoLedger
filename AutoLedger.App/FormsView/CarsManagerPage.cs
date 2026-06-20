@@ -13,10 +13,11 @@ namespace AutoLedger.App.FormsView
 {
     public partial class CarsManagerPage : UserControl
     {
-        public CarsManagerPage()
+        private readonly bool _currentCarsOnly;
+        public CarsManagerPage(bool currentCarsOnly = false)
         {
             InitializeComponent();
-
+            this._currentCarsOnly = currentCarsOnly;
             // Load all cars (no virtualization)
             RefreshCars();
 
@@ -272,12 +273,20 @@ namespace AutoLedger.App.FormsView
             dataGridSelectedCar.DataSource = new List<Car>() { dgCars.SelectedRows[0].DataBoundItem as Car };
         }
 
-       public void RefreshCars()
+        public void RefreshCars()
         {
             using (var db = new AutoLedgerContext())
             {
                 dgCars.AutoGenerateColumns = false;
-                dgCars.DataSource = db.Cars.OrderByDescending(c => c.UpdatedAt).ToList();
+
+                if (_currentCarsOnly)
+                    dgCars.DataSource = db.CarReceptions.Where(a => a.IsReleased == false)
+                        .Select(a=>a.Car)
+                        .Distinct()
+                        .OrderByDescending(c => c.UpdatedAt)
+                        .ToList();
+                else
+                    dgCars.DataSource = db.Cars.OrderByDescending(c => c.UpdatedAt).ToList();
             }
         }
     }

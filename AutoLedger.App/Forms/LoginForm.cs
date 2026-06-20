@@ -17,6 +17,7 @@ namespace AutoLedger.App.Forms
         {
             InitializeComponent();
             this.labelVersion.Text = Program.Version;
+
             Task.Run(()=> InitializeDatabase());
         }
 
@@ -31,12 +32,14 @@ namespace AutoLedger.App.Forms
                     else
                         db.Database.CreateIfNotExists();
                 }
+                
                 this.DialogResult = DialogResult.OK;
             }
             catch
             {
                 this.DialogResult = DialogResult.No;
             }
+         //   await Task.Delay(4000);
             this.Close();
 
         }
