@@ -1,13 +1,14 @@
-﻿using System;
+﻿using AutoLedger.Data.Mapping;
+using AutoLedger.Data.Mapping.AutoLedger.Data.Mapping;
+using AutoLedger.Domain;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.SQLite.EF6;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SQLite.EF6;
-using System.Data.Entity;
-using System.IO;
-using AutoLedger.Domain;
-using AutoLedger.Data.Mapping;
 
 namespace AutoLedger.Data
 {
@@ -32,11 +33,17 @@ namespace AutoLedger.Data
         public DbSet<CarReception> CarReceptions { get; set; }
         public DbSet<CarReceptionRequest> CarReceptionsRequests { get; set; }
 
+        public DbSet<Expense> Expenses { get; set; }
+        public DbSet<MonthlySummary> MonthlySummaries { get; set; } 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new CarConfiguration());
             modelBuilder.Configurations.Add(new CarReceptionConfiguration());
             modelBuilder.Configurations.Add(new CarReceptionRequestsConfiguration());
+
+            modelBuilder.Configurations.Add(new ExpenseConfiguration());
+            modelBuilder.Configurations.Add(new MonthlySummaryConfiguration());
 
             this.Configuration.LazyLoadingEnabled = false;
 

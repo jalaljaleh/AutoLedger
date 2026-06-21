@@ -11,7 +11,7 @@ namespace AutoLedger.Domain
         public int Id { get; private set; }
 
         public int Mileage { get; set; }
-        public long TotalCost { get; set; }
+        public decimal TotalCost { get; set; }
         public bool IsReleased { get; set; }
         public bool IsRepaired { get; set; }
 
@@ -25,6 +25,7 @@ namespace AutoLedger.Domain
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
         public virtual ICollection<CarReceptionRequest> Requests { get; set; } = new HashSet<CarReceptionRequest>();
+        public virtual ICollection<Expense> Expenses { get; set; } = new HashSet<Expense>();
 
     }
 }

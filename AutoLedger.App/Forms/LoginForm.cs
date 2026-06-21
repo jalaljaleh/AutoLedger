@@ -28,7 +28,7 @@ namespace AutoLedger.App.Forms
                 using (AutoLedgerContext db = new AutoLedgerContext())
                 {
                     if (Program.IsDebugMode() && db.Database.Exists())
-                        ;// db.Database.Delete();
+                         db.Database.Delete();
                     else
                         db.Database.CreateIfNotExists();
                 }
@@ -39,7 +39,7 @@ namespace AutoLedger.App.Forms
             {
                 this.DialogResult = DialogResult.No;
             }
-         //   await Task.Delay(4000);
+            await Task.Delay(4000);
             this.Close();
 
         }

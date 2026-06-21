@@ -129,7 +129,7 @@
             this.dataGridSelectedCar.RowTemplate.Height = 40;
             this.dataGridSelectedCar.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridSelectedCar.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dataGridSelectedCar.Size = new System.Drawing.Size(806, 72);
+            this.dataGridSelectedCar.Size = new System.Drawing.Size(806, 67);
             this.dataGridSelectedCar.TabIndex = 17;
             // 
             // _index
@@ -255,11 +255,11 @@
             this.panelFactor.Controls.Add(this.dgCarReceptions);
             this.panelFactor.Controls.Add(this.BtnActionCurrentUser);
             this.panelFactor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFactor.Location = new System.Drawing.Point(5, 78);
+            this.panelFactor.Location = new System.Drawing.Point(5, 73);
             this.panelFactor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelFactor.Name = "panelFactor";
             this.panelFactor.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.panelFactor.Size = new System.Drawing.Size(806, 827);
+            this.panelFactor.Size = new System.Drawing.Size(806, 832);
             this.panelFactor.TabIndex = 21;
             // 
             // dgCarReceptions
@@ -293,7 +293,7 @@
             this.dgCarReceptions.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgCarReceptions.RowHeadersVisible = false;
             this.dgCarReceptions.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dgCarReceptions.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgCarReceptions.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Vazirmatn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgCarReceptions.RowTemplate.DefaultCellStyle.NullValue = "[تعریف نشده]";
             this.dgCarReceptions.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5);
             this.dgCarReceptions.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
@@ -302,7 +302,7 @@
             this.dgCarReceptions.RowTemplate.Height = 40;
             this.dgCarReceptions.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgCarReceptions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgCarReceptions.Size = new System.Drawing.Size(806, 778);
+            this.dgCarReceptions.Size = new System.Drawing.Size(806, 783);
             this.dgCarReceptions.TabIndex = 10;
             // 
             // Index

@@ -13,7 +13,7 @@ namespace AutoLedger.Data.Mapping
     {
         public CarReceptionRequestsConfiguration()
         {
-            ToTable("ReceptionRequests");
+            ToTable("CarReceptionRequests");
 
             Property(a => a.Id)
                    .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
@@ -21,7 +21,7 @@ namespace AutoLedger.Data.Mapping
             Property(a => a.Title).HasMaxLength(200).IsRequired();
             Property(a => a.Description).HasMaxLength(1000);
 
-            HasIndex(a => a.ReceptionId).HasName("IX_ReceptionRequests_ReceptionId");
+            HasIndex(a => a.ReceptionId).HasName("IX_CarReceptionRequests_ReceptionId");
         }
     }
 }

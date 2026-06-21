@@ -45,7 +45,7 @@
             // 
             // mainPanel
             // 
-            this.mainPanel.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.mainPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.mainPanel.Controls.Add(this.inputProvinceCode);
             this.mainPanel.Controls.Add(this.inputSerialNumber);
             this.mainPanel.Controls.Add(this.inputSuffixCode);

@@ -25,11 +25,17 @@ namespace AutoLedger.App.FormsView
             dgCars.SelectionChanged += DatagridCars_SelectionChanged;
             dgCarReceptions.CellDoubleClick += DgCarReceptions_CellDoubleClick;
             dgCarReceptions.CellFormatting += dgCarReceptions_CellFormatting;
+            dgCarReceptions.RowPostPaint += DgCarReceptions_RowPostPaint;
             dgCarReceptions.DataBindingComplete += dgCarReceptions_DataBindingComplete;
 
             this.btnReceptionDelete.Click += BtnReceptionDelete_Click;
             this.btnReceptionEdit.Click += BtnReceptionEdit_Click;
             this.btnReceptionNew.Click += BtnNewReception_Click;
+        }
+
+        private void DgCarReceptions_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            dgCarReceptions.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
         }
 
         // Selection changed handler (wired in ctor)
