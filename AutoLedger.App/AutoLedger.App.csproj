@@ -340,6 +340,24 @@
   <ItemGroup>
     <None Include="Resources\coin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\restart_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sync_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back_arrow_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward_button_128.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

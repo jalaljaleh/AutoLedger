@@ -35,8 +35,6 @@ namespace AutoLedger.App
             Thread.CurrentThread.CurrentCulture = ci;
             Thread.CurrentThread.CurrentUICulture = ci;
 
-
-
             var loginResult = new LoginForm()
                 .ShowDialog();
 

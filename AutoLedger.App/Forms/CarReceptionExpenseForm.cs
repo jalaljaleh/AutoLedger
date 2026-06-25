@@ -41,9 +41,9 @@ namespace AutoLedger.App.Forms
 
                 using (var db = new AutoLedgerContext())
                 {
-                    var reqs = db.CarReceptionsRequests.Where(a => a.ReceptionId == this._reception.Id).ToList();
-                    foreach (var req in reqs)
-                        dgCarRequests.Rows.Add(req.Id, req.Title, req.Description, req.Cost);
+                    //var reqs = db.CarReceptionsRequests.Where(a => a.ReceptionId == this._reception.Id).ToList();
+                    //foreach (var req in reqs)
+                    //    dgCarRequests.Rows.Add(req.Id, req.Title, req.Description, req.Cost);
 
                     var expenss = db.CarReceptionsExpenses.Where(a => a.ReceptionId == this._reception.Id).ToList();
                     foreach (var exp in expenss)

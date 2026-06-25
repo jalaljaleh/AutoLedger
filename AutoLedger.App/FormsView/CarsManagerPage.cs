@@ -2,6 +2,7 @@
 using AutoLedger.Data;
 using AutoLedger.Domain;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Drawing;
@@ -14,29 +15,140 @@ namespace AutoLedger.App.FormsView
 {
     public partial class CarsManagerPage : UserControl
     {
-        private readonly bool _currentCarsOnly;
+        private System.Windows.Forms.Timer _searchTimer;
+
+
+        private int _receptionsPage = 0;
+        private int _receptionsPageSize = 50;
+
+        private int _carsPage = 0;
+        private int _carsPageSize = 50;
+
         public CarsManagerPage(bool currentCarsOnly = false)
         {
             InitializeComponent();
-            this._currentCarsOnly = currentCarsOnly;
-            // Load all cars (no virtualization)
-            RefreshCars();
+            cbCurrentCars.Checked = currentCarsOnly;
 
-            // Wire events
-            dgCars.SelectionChanged += DatagridCars_SelectionChanged;
-            dgCarReceptions.CellDoubleClick += DgCarReceptions_CellDoubleClick;
-            dgCarReceptions.CellFormatting += dgCarReceptions_CellFormatting;
-            dgCarReceptions.RowPostPaint += DgCarReceptions_RowPostPaint;
-            dgCarReceptions.DataBindingComplete += dgCarReceptions_DataBindingComplete;
+            _searchTimer = new Timer();
+            _searchTimer.Interval = 300;
+            _searchTimer.Tick += SearchTimer_Tick;
+
+            inputSearch.TextChanged += InputSearch_TextChanged;
+
+            this.dgCars.SelectionChanged += DatagridCars_SelectionChanged;
+            this.dgCarReceptions.CellDoubleClick += DgCarReceptions_CellDoubleClick;
+            this.dgCarReceptions.CellFormatting += dgCarReceptions_CellFormatting;
+            this.dgCarReceptions.RowPostPaint += DgCarReceptions_RowPostPaint;
+            this.dgCarReceptions.DataBindingComplete += dgCarReceptions_DataBindingComplete;
 
             this.btnReceptionDelete.Click += BtnReceptionDelete_Click;
             this.btnReceptionEdit.Click += BtnReceptionEdit_Click;
             this.btnReceptionNew.Click += BtnNewReception_Click;
             this.btnCarExpenses.Click += BtnCarExpenses_Click;
+
+
+            this.btnRefreshCarReceptions.Click += BtnRefreshCarReceptions_Click;
+            this.btnRefreshCars.Click += BtnRefreshCars_Click;
+
+            this.btnCarsNextPage.Click += BtnCarsNextPage_Click;
+            this.btnCarsBackPage.Click += BtnCarsBackPage_Click;
+
+            this.btnBackPageCarReceptions.Click += BtnBackPageCarReceptions_Click;
+            this.btnNextPageReceptions.Click += BtnNextPageReceptions_Click;
+
+            this.cbReceptinoCount.SelectedItem = 50;
+            this.cbReceptinoCount.SelectedIndexChanged += CbReceptinoCount_SelectedIndexChanged;
+
+            this.cbCurrentCars.CheckedChanged += CbCurrentCars_CheckedChanged;
+
+            RefreshCars();
+
         }
+
+        private void CbCurrentCars_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshCars();
+        }
+
+        private void InputSearch_TextChanged(object sender, EventArgs e)
+        {
+            _searchTimer.Stop();
+            _searchTimer.Start();
+        }
+
+        private void SearchTimer_Tick(object sender, EventArgs e)
+        {
+            _searchTimer.Stop();
+            RefreshCars();
+        }
+
+        private void CbReceptinoCount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbReceptinoCount.SelectedItem == null) return;
+
+            if (cbReceptinoCount.SelectedItem is int i)
+                _receptionsPageSize = i;
+            else
+            {
+                if (int.TryParse(cbReceptinoCount.SelectedItem.ToString(), out int parsed))
+                    _receptionsPageSize = parsed;
+            }
+            _receptionsPage = 0;
+            RefreshCarReceptions();
+        }
+
+        private void BtnNextPageReceptions_Click(object sender, EventArgs e)
+        {
+            _receptionsPage++;
+            RefreshCarReceptions();
+        }
+
+        private void BtnBackPageCarReceptions_Click(object sender, EventArgs e)
+        {
+            if (_receptionsPage <= 0) return;
+
+            _receptionsPage--;
+            RefreshCarReceptions();
+        }
+
+        private void BtnCarsBackPage_Click(object sender, EventArgs e)
+        {
+            if (_carsPage <= 0) return;
+
+            _carsPage--;
+            RefreshCars();
+            RefreshCarInformation();
+        }
+
+        private void BtnCarsNextPage_Click(object sender, EventArgs e)
+        {
+            _carsPage++;
+            RefreshCars();
+            RefreshCarInformation();
+        }
+
+        private void BtnRefreshCars_Click(object sender, EventArgs e)
+        {
+            _searchTimer.Stop();
+            inputSearch.TextChanged -= InputSearch_TextChanged;
+            inputSearch.Text = string.Empty;
+            inputSearch.TextChanged += InputSearch_TextChanged;
+            _carsPage = 0;
+            RefreshCars();
+            RefreshCarInformation();
+
+        }
+
+        private void BtnRefreshCarReceptions_Click(object sender, EventArgs e)
+        {
+            _receptionsPage = 0;
+            RefreshCarReceptions();
+        }
+
         void RefreshCarReceptions()
         {
             dgCarReceptions.AutoGenerateColumns = false;
+
             if (dgCars.SelectedRows.Count < 1)
             {
                 dgCarReceptions.DataSource = null;
@@ -45,10 +157,27 @@ namespace AutoLedger.App.FormsView
 
             using (AutoLedgerContext db = new AutoLedgerContext())
             {
-                var car = (dgCars.SelectedRows[0].DataBoundItem as Car);
-                dgCarReceptions.DataSource = db.CarReceptions.Where(a => a.CarId == car.Id).ToList();
+                var car = dgCars.SelectedRows[0].DataBoundItem as Car;
+
+                var receptions = db.CarReceptions
+                    .Where(a => a.CarId == car.Id)
+                    .OrderBy(a => a.Id) // FIX
+                    .Skip(_receptionsPage * _receptionsPageSize)
+                    .Take(_receptionsPageSize)
+                    .AsNoTracking()
+                    .ToList();
+
+                // pages
+                btnBackPageCarReceptions.Enabled = (_receptionsPage > 0);
+                btnNextPageReceptions.Enabled = receptions.Count >= _receptionsPageSize;
+
+                dgCarReceptions.DataSource = receptions;
+
+                labelReceptionsDetails.Text = $"تعداد رکوردها: {receptions.Count} | \t";
+                labelReceptionsDetails.Text += $"صفحه {_receptionsPage + 1} | تعداد در صفحه: {_receptionsPageSize}";
             }
         }
+
 
         void RefreshCarInformation()
         {
@@ -67,16 +196,51 @@ namespace AutoLedger.App.FormsView
             {
                 dgCars.AutoGenerateColumns = false;
 
-                if (_currentCarsOnly)
-                    dgCars.DataSource = db.CarReceptions.Where(a => a.IsReleased == false)
+                string search = inputSearch.Text.Trim();
+
+                IQueryable<Car> query;
+
+                if (cbCurrentCars.Checked)
+                {
+                    query = db.CarReceptions
+                        .Where(a => !a.IsReleased || !a.IsExpensesProvided)
                         .Select(a => a.Car)
                         .Distinct()
-                        .OrderByDescending(c => c.UpdatedAt)
-                        .ToList();
+                        .AsNoTracking();
+                }
                 else
-                    dgCars.DataSource = db.Cars.OrderByDescending(c => c.UpdatedAt).ToList();
+                {
+                    query = db.Cars;
+                }
+
+                if (!string.IsNullOrEmpty(search))
+                {
+                    query = query.Where(c =>
+                        c.PlateId.Contains(search) ||
+                        c.OwnerFullName.Contains(search) ||
+                        c.OwnerPhoneNumber.Contains(search) ||
+                        c.OwnerNationalId.Contains(search) ||
+                        c.Brand.Contains(search) ||
+                        c.Color.Contains(search)
+                    );
+                }
+
+                var list = query
+                    .OrderByDescending(c => c.UpdatedAt)
+                    .Skip(_carsPage * _carsPageSize)
+                    .Take(_carsPageSize)
+                    .AsNoTracking()
+                    .ToList();
+
+                // pages
+                btnCarsBackPage.Enabled = (_carsPage > 0);
+                btnCarsNextPage.Enabled = list.Count >= _carsPageSize;
+
+                dgCars.DataSource = list;
             }
         }
+
+
         private void BtnCarExpenses_Click(object sender, EventArgs e)
         {
             var (car, reception) = GetSelectedCarAndReception();
@@ -255,7 +419,7 @@ namespace AutoLedger.App.FormsView
         }
 
 
-       
+
 
 
 
@@ -316,7 +480,8 @@ namespace AutoLedger.App.FormsView
                     e.CellStyle.ForeColor = isTrue ? System.Drawing.Color.Green : System.Drawing.Color.Red;
                     e.FormattingApplied = true;
                 }
-            }else if (cellName == "IsExpensesProvided")
+            }
+            else if (cellName == "IsExpensesProvided")
             {
                 if (e.Value == null)
                 {
@@ -330,7 +495,7 @@ namespace AutoLedger.App.FormsView
                 if (bool.TryParse(e.Value.ToString(), out isTrue))
                 {
                     e.Value = isTrue ? "اعمال شده" : "اعمال نشده";
-                    e.CellStyle.BackColor = isTrue ? System.Drawing.Color.White : System.Drawing.Color.Pink;
+                    e.CellStyle.BackColor = isTrue ? e.CellStyle.BackColor : System.Drawing.Color.Pink;
                     e.FormattingApplied = true;
                 }
             }

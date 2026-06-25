@@ -18,7 +18,6 @@ namespace AutoLedger.App.Forms
 
             btnCarReception.Click += BtnNewCar_Click;
             btnCarsAll.Click += ViewButtons_Click;
-            btnCarsCurrent.Click += ViewButtons_Click;
         }
 
         private void ViewButtons_Click(object sender, EventArgs e)
@@ -32,12 +31,6 @@ namespace AutoLedger.App.Forms
                     if (carsManagerPage == null)
                         carsManagerPage = new CarsManagerPage(false); // all cars
                     ShowControl(carsManagerPage);
-                    break;
-
-                case "btnCarsCurrent":
-                    if (carsManagerCurrentPage == null)
-                        carsManagerCurrentPage = new CarsManagerPage(true); // only unreleased cars
-                    ShowControl(carsManagerCurrentPage);
                     break;
             }
         }
