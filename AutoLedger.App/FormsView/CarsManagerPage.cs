@@ -254,6 +254,18 @@ namespace AutoLedger.App.FormsView
             }
         }
 
+
+       
+
+
+
+
+        private void DgCarReceptions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var (car, reception) = GetSelectedCarAndReception(e.RowIndex);
+            OpenReceptionEditor(car, reception);
+        }
         private void ApplyRowColor(DataGridViewRow row)
         {
             object valReleased = row.Cells["IsReleased"].Value;
@@ -279,18 +291,6 @@ namespace AutoLedger.App.FormsView
 
             row.DefaultCellStyle.BackColor = back;
             row.DefaultCellStyle.ForeColor = fore;
-        }
-
-       
-
-
-
-
-        private void DgCarReceptions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex < 0) return;
-            var (car, reception) = GetSelectedCarAndReception(e.RowIndex);
-            OpenReceptionEditor(car, reception);
         }
 
         private void dgCarReceptions_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -330,7 +330,7 @@ namespace AutoLedger.App.FormsView
                 if (bool.TryParse(e.Value.ToString(), out isTrue))
                 {
                     e.Value = isTrue ? "اعمال شده" : "اعمال نشده";
-                    e.CellStyle.BackColor = isTrue ? System.Drawing.Color.LightGreen : System.Drawing.Color.LightSalmon;
+                    e.CellStyle.BackColor = isTrue ? System.Drawing.Color.White : System.Drawing.Color.Pink;
                     e.FormattingApplied = true;
                 }
             }

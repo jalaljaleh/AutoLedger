@@ -81,7 +81,7 @@
             this.inputProvinceCode.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.inputProvinceCode.ShowClearButton = false;
             this.inputProvinceCode.Size = new System.Drawing.Size(51, 36);
-            this.inputProvinceCode.TabIndex = 18;
+            this.inputProvinceCode.TabIndex = 3;
             this.inputProvinceCode.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputSerialNumber
@@ -103,7 +103,7 @@
             this.inputSerialNumber.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.inputSerialNumber.ShowClearButton = false;
             this.inputSerialNumber.Size = new System.Drawing.Size(57, 36);
-            this.inputSerialNumber.TabIndex = 17;
+            this.inputSerialNumber.TabIndex = 2;
             this.inputSerialNumber.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputSuffixCode
@@ -125,7 +125,7 @@
             this.inputSuffixCode.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.inputSuffixCode.ShowClearButton = false;
             this.inputSuffixCode.Size = new System.Drawing.Size(46, 36);
-            this.inputSuffixCode.TabIndex = 16;
+            this.inputSuffixCode.TabIndex = 1;
             this.inputSuffixCode.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox2
@@ -159,10 +159,10 @@
             this.cbLetter.DropDownHeight = 200;
             this.cbLetter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLetter.DropDownWidth = 60;
-            this.cbLetter.Font = new System.Drawing.Font("Vazirmatn", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbLetter.Font = new System.Drawing.Font("Vazirmatn", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLetter.FormattingEnabled = true;
             this.cbLetter.IntegralHeight = false;
-            this.cbLetter.ItemHeight = 27;
+            this.cbLetter.ItemHeight = 22;
             this.cbLetter.Items.AddRange(new object[] {
             "الف",
             "ب",
@@ -195,10 +195,10 @@
             "D",
             "S",
             "♿"});
-            this.cbLetter.Location = new System.Drawing.Point(98, 32);
+            this.cbLetter.Location = new System.Drawing.Point(98, 34);
             this.cbLetter.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.cbLetter.Name = "cbLetter";
-            this.cbLetter.Size = new System.Drawing.Size(46, 35);
+            this.cbLetter.Size = new System.Drawing.Size(46, 30);
             this.cbLetter.TabIndex = 4;
             this.cbLetter.ValueMember = "ج";
             // 

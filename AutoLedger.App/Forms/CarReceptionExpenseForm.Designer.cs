@@ -28,16 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarReceptionExpenseForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridView dgCarRequests;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarReceptionExpenseForm));
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +47,13 @@
             this.panelFactor = new System.Windows.Forms.Panel();
             this.paneldatagridExpenses = new System.Windows.Forms.Panel();
             this.dgCarExpenses = new System.Windows.Forms.DataGridView();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paneldatagirdReeuests = new System.Windows.Forms.Panel();
             this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
             this.btnDeleteCurrentRequest = new System.Windows.Forms.ToolStripButton();
@@ -58,71 +66,17 @@
             this.btnCancel = new AutoLedger.App.Controls.ModernButton();
             this.btnSubmit = new AutoLedger.App.Controls.ModernButton();
             this.labelTittle = new System.Windows.Forms.Label();
-            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgCarRequests = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(dgCarRequests)).BeginInit();
+            dgCarRequests = new System.Windows.Forms.DataGridView();
             this.panelLeft.SuspendLayout();
             this.panelFactor.SuspendLayout();
             this.paneldatagridExpenses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCarExpenses)).BeginInit();
             this.paneldatagirdReeuests.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(dgCarRequests)).BeginInit();
             this.BtnActionCurrentUser.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panelBottom.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dgCarRequests
-            // 
-            dgCarRequests.AllowUserToAddRows = false;
-            dgCarRequests.AllowUserToDeleteRows = false;
-            dgCarRequests.AllowUserToResizeColumns = false;
-            dgCarRequests.AllowUserToResizeRows = false;
-            dgCarRequests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dgCarRequests.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dgCarRequests.BackgroundColor = System.Drawing.Color.DarkKhaki;
-            dgCarRequests.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dgCarRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgCarRequests.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            dgCarRequests.Dock = System.Windows.Forms.DockStyle.Fill;
-            dgCarRequests.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            dgCarRequests.EnableHeadersVisualStyles = false;
-            dgCarRequests.GridColor = System.Drawing.Color.DimGray;
-            dgCarRequests.Location = new System.Drawing.Point(5, 5);
-            dgCarRequests.Margin = new System.Windows.Forms.Padding(5);
-            dgCarRequests.MultiSelect = false;
-            dgCarRequests.Name = "dgCarRequests";
-            dgCarRequests.ReadOnly = true;
-            dgCarRequests.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            dgCarRequests.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dgCarRequests.RowHeadersVisible = false;
-            dgCarRequests.RowHeadersWidth = 50;
-            dgCarRequests.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dgCarRequests.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dgCarRequests.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5);
-            dgCarRequests.RowTemplate.DividerHeight = 1;
-            dgCarRequests.RowTemplate.Height = 30;
-            dgCarRequests.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            dgCarRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            dgCarRequests.Size = new System.Drawing.Size(877, 177);
-            dgCarRequests.StandardTab = true;
-            dgCarRequests.TabIndex = 18;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -230,14 +184,14 @@
             this.dgCarExpenses.Name = "dgCarExpenses";
             this.dgCarExpenses.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgCarExpenses.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgCarExpenses.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgCarExpenses.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgCarExpenses.RowHeadersVisible = false;
             this.dgCarExpenses.RowHeadersWidth = 50;
             this.dgCarExpenses.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -250,6 +204,90 @@
             this.dgCarExpenses.StandardTab = true;
             this.dgCarExpenses.TabIndex = 10;
             // 
+            // Index
+            // 
+            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle3.NullValue = "[سیستم]";
+            this.Index.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Index.HeaderText = "R";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Index.Width = 56;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Id.DataPropertyName = "Id";
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle4.NullValue = "[سیستم]";
+            this.Id.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Id.HeaderText = "شناسه";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Id.Width = 69;
+            // 
+            // Title
+            // 
+            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Title.DataPropertyName = "Title";
+            this.Title.HeaderText = "بابت";
+            this.Title.Name = "Title";
+            this.Title.Width = 58;
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "شرح";
+            this.Description.Name = "Description";
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Amount.DataPropertyName = "Amount";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Format = "#,0 تومان";
+            dataGridViewCellStyle5.NullValue = "0";
+            this.Amount.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Amount.FillWeight = 200F;
+            this.Amount.HeaderText = "مبلغ";
+            this.Amount.MinimumWidth = 150;
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 150;
+            // 
+            // CreatedAt
+            // 
+            this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CreatedAt.DataPropertyName = "CreatedAt";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Vazirmatn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.NullValue = "[سیستم]";
+            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle6;
+            this.CreatedAt.HeaderText = "تاریخ ثبت";
+            this.CreatedAt.Name = "CreatedAt";
+            this.CreatedAt.ReadOnly = true;
+            this.CreatedAt.Width = 84;
+            // 
+            // UpdatedAt
+            // 
+            this.UpdatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UpdatedAt.DataPropertyName = "UpdatedAt";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Vazirmatn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.NullValue = "[سیستم]";
+            this.UpdatedAt.DefaultCellStyle = dataGridViewCellStyle7;
+            this.UpdatedAt.HeaderText = "آخرین ویرایش";
+            this.UpdatedAt.Name = "UpdatedAt";
+            this.UpdatedAt.ReadOnly = true;
+            this.UpdatedAt.Width = 105;
+            // 
             // paneldatagirdReeuests
             // 
             this.paneldatagirdReeuests.Controls.Add(dgCarRequests);
@@ -259,6 +297,53 @@
             this.paneldatagirdReeuests.Padding = new System.Windows.Forms.Padding(5);
             this.paneldatagirdReeuests.Size = new System.Drawing.Size(887, 187);
             this.paneldatagirdReeuests.TabIndex = 20;
+            // 
+            // dgCarRequests
+            // 
+            dgCarRequests.AllowUserToAddRows = false;
+            dgCarRequests.AllowUserToDeleteRows = false;
+            dgCarRequests.AllowUserToResizeColumns = false;
+            dgCarRequests.AllowUserToResizeRows = false;
+            dgCarRequests.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dgCarRequests.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dgCarRequests.BackgroundColor = System.Drawing.Color.DarkKhaki;
+            dgCarRequests.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dgCarRequests.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgCarRequests.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            dgCarRequests.Dock = System.Windows.Forms.DockStyle.Fill;
+            dgCarRequests.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            dgCarRequests.EnableHeadersVisualStyles = false;
+            dgCarRequests.GridColor = System.Drawing.Color.DimGray;
+            dgCarRequests.Location = new System.Drawing.Point(5, 5);
+            dgCarRequests.Margin = new System.Windows.Forms.Padding(5);
+            dgCarRequests.MultiSelect = false;
+            dgCarRequests.Name = "dgCarRequests";
+            dgCarRequests.ReadOnly = true;
+            dgCarRequests.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Vazirmatn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            dgCarRequests.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dgCarRequests.RowHeadersVisible = false;
+            dgCarRequests.RowHeadersWidth = 50;
+            dgCarRequests.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgCarRequests.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dgCarRequests.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(5);
+            dgCarRequests.RowTemplate.DividerHeight = 1;
+            dgCarRequests.RowTemplate.Height = 30;
+            dgCarRequests.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            dgCarRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            dgCarRequests.Size = new System.Drawing.Size(877, 177);
+            dgCarRequests.StandardTab = true;
+            dgCarRequests.TabIndex = 18;
             // 
             // BtnActionCurrentUser
             // 
@@ -417,90 +502,6 @@
             this.labelTittle.Text = "فهرست خدمات و هزینه ها";
             this.labelTittle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // Index
-            // 
-            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle4.NullValue = "[سیستم]";
-            this.Index.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Index.HeaderText = "R";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Index.Width = 66;
-            // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle5.NullValue = "[سیستم]";
-            this.Id.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Id.HeaderText = "شناسه";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Id.Width = 69;
-            // 
-            // Title
-            // 
-            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Title.DataPropertyName = "Title";
-            this.Title.HeaderText = "بابت";
-            this.Title.Name = "Title";
-            this.Title.Width = 58;
-            // 
-            // Description
-            // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "شرح";
-            this.Description.Name = "Description";
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Amount.DataPropertyName = "Amount";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Format = "#,0 تومان";
-            dataGridViewCellStyle6.NullValue = "0";
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle6;
-            this.Amount.FillWeight = 200F;
-            this.Amount.HeaderText = "مبلغ";
-            this.Amount.MinimumWidth = 150;
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 150;
-            // 
-            // CreatedAt
-            // 
-            this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CreatedAt.DataPropertyName = "CreatedAt";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Vazirmatn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.NullValue = "[سیستم]";
-            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle7;
-            this.CreatedAt.HeaderText = "تاریخ ثبت";
-            this.CreatedAt.Name = "CreatedAt";
-            this.CreatedAt.ReadOnly = true;
-            this.CreatedAt.Width = 84;
-            // 
-            // UpdatedAt
-            // 
-            this.UpdatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UpdatedAt.DataPropertyName = "UpdatedAt";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Vazirmatn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.NullValue = "[سیستم]";
-            this.UpdatedAt.DefaultCellStyle = dataGridViewCellStyle8;
-            this.UpdatedAt.HeaderText = "آخرین ویرایش";
-            this.UpdatedAt.Name = "UpdatedAt";
-            this.UpdatedAt.ReadOnly = true;
-            this.UpdatedAt.Width = 105;
-            // 
             // CarReceptionExpenseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 22F);
@@ -518,13 +519,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "فرم مخارج خودروی پذیرفته شده";
             this.TopMost = true;
-            ((System.ComponentModel.ISupportInitialize)(dgCarRequests)).EndInit();
             this.panelLeft.ResumeLayout(false);
             this.panelFactor.ResumeLayout(false);
             this.panelFactor.PerformLayout();
             this.paneldatagridExpenses.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgCarExpenses)).EndInit();
             this.paneldatagirdReeuests.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(dgCarRequests)).EndInit();
             this.BtnActionCurrentUser.ResumeLayout(false);
             this.BtnActionCurrentUser.PerformLayout();
             this.panelTop.ResumeLayout(false);
@@ -538,7 +539,6 @@
         private System.Windows.Forms.Panel panelLeft;
         private System.Windows.Forms.Panel panelFactor;
         private System.Windows.Forms.DataGridView dgCarExpenses;
-        private System.Windows.Forms.DataGridView dgCarRequests;
         private System.Windows.Forms.ToolStrip BtnActionCurrentUser;
         private System.Windows.Forms.ToolStripButton btnDeleteCurrentRequest;
         private System.Windows.Forms.ToolStripButton btnDeleteAllRequests;
