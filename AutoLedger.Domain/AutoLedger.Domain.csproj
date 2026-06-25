@@ -43,8 +43,8 @@
   <ItemGroup>
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\CarReception.cs" />
+    <Compile Include="Entities\CarReceptionExpense.cs" />
     <Compile Include="Entities\CarReceptionRequest.cs" />
-    <Compile Include="Entities\Expense.cs" />
     <Compile Include="Entities\MonthlySummary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

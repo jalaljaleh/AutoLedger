@@ -3,7 +3,9 @@ using AutoLedger.Data;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,6 +21,21 @@ namespace AutoLedger.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+
+            var ci = new CultureInfo("fa-IR");
+        
+            ci.DateTimeFormat.Calendar = new System.Globalization.PersianCalendar();
+     
+            ci.DateTimeFormat.ShortDatePattern = "yyyy/MM/dd";
+            ci.DateTimeFormat.LongDatePattern = "dd MMMM yyyy";
+
+            CultureInfo.DefaultThreadCurrentCulture = ci;
+            CultureInfo.DefaultThreadCurrentUICulture = ci;
+            Thread.CurrentThread.CurrentCulture = ci;
+            Thread.CurrentThread.CurrentUICulture = ci;
+
+
 
             var loginResult = new LoginForm()
                 .ShowDialog();

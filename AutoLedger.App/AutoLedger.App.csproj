@@ -79,6 +79,9 @@
     <Compile Include="Controls\CarIdControl.Designer.cs">
       <DependentUpon>CarIdControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\PersianDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\ModernButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -100,6 +103,12 @@
     <Compile Include="FormsView\CarsManagerPage.Designer.cs">
       <DependentUpon>CarsManagerPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CarReceptionExpenseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CarReceptionExpenseForm.Designer.cs">
+      <DependentUpon>CarReceptionExpenseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CarReceptionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,12 +120,6 @@
     </Compile>
     <Compile Include="Forms\DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ExpenseForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ExpenseForm.Designer.cs">
-      <DependentUpon>ExpenseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\LoginForm.cs">
       <SubType>Form</SubType>
@@ -135,14 +138,14 @@
     <EmbeddedResource Include="FormsView\CarsManagerPage.resx">
       <DependentUpon>CarsManagerPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CarReceptionExpenseForm.resx">
+      <DependentUpon>CarReceptionExpenseForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CarReceptionForm.resx">
       <DependentUpon>CarReceptionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ExpenseForm.resx">
-      <DependentUpon>ExpenseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -330,6 +333,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\budget.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dollar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

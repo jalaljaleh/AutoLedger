@@ -12,8 +12,12 @@ namespace AutoLedger.Domain
         public int Id { get; set; }
         public int Year { get; set; }
         public int Month { get; set; }
+        public int Day { get; set; }
+
         public decimal TotalRevenue { get; set; } 
         public decimal TotalExpenses { get; set; } 
+        public int TotalReceptions { get; set; }
+
         public DateTime CreatedAt { get; set; } = DateTime.Now;
     }
 

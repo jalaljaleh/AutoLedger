@@ -1,11 +1,8 @@
 ﻿using AutoLedger.Domain;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace AutoLedger.Data.Mapping
 {
@@ -15,30 +12,52 @@ namespace AutoLedger.Data.Mapping
         {
             ToTable("Cars");
 
+            HasKey(a => a.Id);
+
             Property(a => a.Id)
-                   .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            Property(a => a.PlateId).HasMaxLength(20).IsRequired();
-            Property(a => a.Brand).HasMaxLength(50);
-            Property(a => a.Color).HasMaxLength(30);
-            Property(a => a.Tip).HasMaxLength(100);
+            Property(a => a.PlateId)
+                .IsRequired()
+                .HasMaxLength(20)
+                .HasColumnAnnotation(
+                    "Index",
+                    new IndexAnnotation(new IndexAttribute("IX_Receptions_CarPlateId") { IsUnique = false }));
 
-            Property(a => a.OwnerFullName).HasMaxLength(150).IsRequired();
-            Property(a => a.OwnerNationalId).HasMaxLength(10).IsRequired();
-            Property(a => a.OwnerPhoneNumber).HasMaxLength(15).IsRequired();
+            Property(a => a.Brand)
+                .HasMaxLength(50);
 
+            Property(a => a.Color)
+                .HasMaxLength(30);
 
-            HasIndex(a => a.PlateId).HasName("IX_Receptions_CarPlateId");
-            HasIndex(a => a.OwnerNationalId).HasName("IX_Receptions_NationalId");
-            HasIndex(a => a.OwnerPhoneNumber).HasName("IX_Receptions_PhoneNumber");
+            Property(a => a.Tip)
+                .HasMaxLength(100);
 
-            HasIndex(a => a.OwnerFullName).HasName("IX_Receptions_FullName");
+            Property(a => a.OwnerFullName)
+                .IsRequired()
+                .HasMaxLength(150)
+                .HasColumnAnnotation(
+                    "Index",
+                    new IndexAnnotation(new IndexAttribute("IX_Receptions_FullName") { IsUnique = false }));
+
+            Property(a => a.OwnerNationalId)
+                .IsRequired()
+                .HasMaxLength(10)
+                .HasColumnAnnotation(
+                    "Index",
+                    new IndexAnnotation(new IndexAttribute("IX_Receptions_NationalId") { IsUnique = false }));
+
+            Property(a => a.OwnerPhoneNumber)
+                .IsRequired()
+                .HasMaxLength(15)
+                .HasColumnAnnotation(
+                    "Index",
+                    new IndexAnnotation(new IndexAttribute("IX_Receptions_PhoneNumber") { IsUnique = false }));
 
             HasMany(a => a.Receptions)
-                .WithRequired(a => a.Car)
-                .HasForeignKey(a => a.CarId)
+                .WithRequired(r => r.Car)
+                .HasForeignKey(r => r.CarId)
                 .WillCascadeOnDelete(true);
-
         }
     }
 }

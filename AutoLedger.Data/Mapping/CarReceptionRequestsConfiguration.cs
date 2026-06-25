@@ -1,11 +1,7 @@
 ﻿using AutoLedger.Domain;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AutoLedger.Data.Mapping
 {
@@ -15,13 +11,22 @@ namespace AutoLedger.Data.Mapping
         {
             ToTable("CarReceptionRequests");
 
-            Property(a => a.Id)
-                   .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-          
-            Property(a => a.Title).HasMaxLength(200).IsRequired();
-            Property(a => a.Description).HasMaxLength(1000);
+            HasKey(a => a.Id);
 
-            HasIndex(a => a.ReceptionId).HasName("IX_CarReceptionRequests_ReceptionId");
+            Property(a => a.Id)
+                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            Property(a => a.Title)
+                .IsRequired()
+                .HasMaxLength(200);
+
+            Property(a => a.Description)
+                .HasMaxLength(1000);
+
+            Property(a => a.ReceptionId)
+                .HasColumnAnnotation(
+                    "Index",
+                    new IndexAnnotation(new System.ComponentModel.DataAnnotations.Schema.IndexAttribute("IX_CarReceptionRequests_ReceptionId") { IsUnique = false }));
         }
     }
 }

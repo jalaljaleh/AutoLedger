@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridSelectedCar = new System.Windows.Forms.DataGridView();
             this._index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OwnerPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,25 +49,28 @@
             this.OwnerFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelFactor = new System.Windows.Forms.Panel();
             this.dgCarReceptions = new System.Windows.Forms.DataGridView();
+            this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
+            this.btnReceptionNew = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnReceptionEdit = new System.Windows.Forms.ToolStripButton();
+            this.btnReceptionDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCarExpenses = new System.Windows.Forms.ToolStripButton();
+            this.panelRight = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.inputSearch = new AutoLedger.App.Controls.ModernTextBox();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mileage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsRepaired = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsReleased = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsExpensesProvided = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RepairedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReleasedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.extra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
-            this.btnReceptionNew = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnReceptionEdit = new System.Windows.Forms.ToolStripButton();
-            this.btnReceptionDelete = new System.Windows.Forms.ToolStripButton();
-            this.panelRight = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.inputSearch = new AutoLedger.App.Controls.ModernTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSelectedCar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCars)).BeginInit();
             this.panelFactor.SuspendLayout();
@@ -96,15 +99,15 @@
             this.Tip,
             this.Model,
             this.Brand});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.NullValue = "[عبارت پر نشده]";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridSelectedCar.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.NullValue = "[عبارت پر نشده]";
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridSelectedCar.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridSelectedCar.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridSelectedCar.Enabled = false;
             this.dataGridSelectedCar.GridColor = System.Drawing.SystemColors.Control;
@@ -114,18 +117,18 @@
             this.dataGridSelectedCar.Name = "dataGridSelectedCar";
             this.dataGridSelectedCar.ReadOnly = true;
             this.dataGridSelectedCar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSelectedCar.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSelectedCar.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridSelectedCar.RowHeadersVisible = false;
             this.dataGridSelectedCar.RowHeadersWidth = 40;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridSelectedCar.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridSelectedCar.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridSelectedCar.RowTemplate.Height = 40;
             this.dataGridSelectedCar.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridSelectedCar.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -223,8 +226,8 @@
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Vazirmatn", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Id.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Vazirmatn", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Id.DefaultCellStyle = dataGridViewCellStyle11;
             this.Id.HeaderText = "R";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
@@ -234,9 +237,9 @@
             // 
             this.TextBoxName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TextBoxName.DataPropertyName = "PlateId";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxName.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxName.DefaultCellStyle = dataGridViewCellStyle12;
             this.TextBoxName.HeaderText = "پلاک";
             this.TextBoxName.Name = "TextBoxName";
             this.TextBoxName.ReadOnly = true;
@@ -278,6 +281,7 @@
             this.TotalCost,
             this.IsRepaired,
             this.IsReleased,
+            this.IsExpensesProvided,
             this.CreatedAt,
             this.RepairedAt,
             this.ReleasedAt,
@@ -305,114 +309,6 @@
             this.dgCarReceptions.Size = new System.Drawing.Size(806, 783);
             this.dgCarReceptions.TabIndex = 10;
             // 
-            // Index
-            // 
-            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Index.DataPropertyName = "Index";
-            this.Index.HeaderText = "R";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Index.Width = 43;
-            // 
-            // Title
-            // 
-            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Title.DataPropertyName = "Id";
-            this.Title.HeaderText = "شناسه";
-            this.Title.Name = "Title";
-            this.Title.ReadOnly = true;
-            this.Title.Width = 69;
-            // 
-            // Mileage
-            // 
-            this.Mileage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Mileage.DataPropertyName = "Mileage";
-            this.Mileage.HeaderText = "کیلومتر";
-            this.Mileage.Name = "Mileage";
-            this.Mileage.ReadOnly = true;
-            this.Mileage.Width = 73;
-            // 
-            // TotalCost
-            // 
-            this.TotalCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TotalCost.DataPropertyName = "TotalCost";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.Format = "#,0 تومان";
-            dataGridViewCellStyle6.NullValue = "0";
-            this.TotalCost.DefaultCellStyle = dataGridViewCellStyle6;
-            this.TotalCost.FillWeight = 200F;
-            this.TotalCost.HeaderText = "مبلغ فاکتور";
-            this.TotalCost.MinimumWidth = 150;
-            this.TotalCost.Name = "TotalCost";
-            this.TotalCost.ReadOnly = true;
-            this.TotalCost.Width = 150;
-            // 
-            // IsRepaired
-            // 
-            this.IsRepaired.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.IsRepaired.DataPropertyName = "IsRepaired";
-            this.IsRepaired.HeaderText = "تعمیر شده";
-            this.IsRepaired.Name = "IsRepaired";
-            this.IsRepaired.ReadOnly = true;
-            this.IsRepaired.Width = 89;
-            // 
-            // IsReleased
-            // 
-            this.IsReleased.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.IsReleased.DataPropertyName = "IsReleased";
-            this.IsReleased.HeaderText = "ترخیص شده";
-            this.IsReleased.Name = "IsReleased";
-            this.IsReleased.ReadOnly = true;
-            // 
-            // CreatedAt
-            // 
-            this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CreatedAt.DataPropertyName = "CreatedAt";
-            dataGridViewCellStyle7.Format = "D";
-            dataGridViewCellStyle7.NullValue = null;
-            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle7;
-            this.CreatedAt.HeaderText = "تاریخ پذیرش";
-            this.CreatedAt.Name = "CreatedAt";
-            this.CreatedAt.ReadOnly = true;
-            this.CreatedAt.Width = 97;
-            // 
-            // RepairedAt
-            // 
-            this.RepairedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.RepairedAt.DataPropertyName = "RepairedAt";
-            this.RepairedAt.HeaderText = "تاریخ تعمیر";
-            this.RepairedAt.Name = "RepairedAt";
-            this.RepairedAt.ReadOnly = true;
-            this.RepairedAt.Width = 91;
-            // 
-            // ReleasedAt
-            // 
-            this.ReleasedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ReleasedAt.DataPropertyName = "ReleasedAt";
-            this.ReleasedAt.HeaderText = "تاریخ ترخیص";
-            this.ReleasedAt.Name = "ReleasedAt";
-            this.ReleasedAt.ReadOnly = true;
-            this.ReleasedAt.Width = 102;
-            // 
-            // UpdatedAt
-            // 
-            this.UpdatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UpdatedAt.DataPropertyName = "UpdatedAt";
-            this.UpdatedAt.HeaderText = "تاریخ ویرایش";
-            this.UpdatedAt.Name = "UpdatedAt";
-            this.UpdatedAt.ReadOnly = true;
-            // 
-            // extra
-            // 
-            this.extra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.extra.HeaderText = "";
-            this.extra.Name = "extra";
-            this.extra.ReadOnly = true;
-            this.extra.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
             // BtnActionCurrentUser
             // 
             this.BtnActionCurrentUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -421,9 +317,11 @@
             this.BtnActionCurrentUser.ImageScalingSize = new System.Drawing.Size(80, 80);
             this.BtnActionCurrentUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnReceptionNew,
-            this.toolStripSeparator1,
             this.btnReceptionEdit,
-            this.btnReceptionDelete});
+            this.btnReceptionDelete,
+            this.toolStripSeparator2,
+            this.btnCarExpenses,
+            this.toolStripSeparator1});
             this.BtnActionCurrentUser.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.BtnActionCurrentUser.Location = new System.Drawing.Point(0, 6);
             this.BtnActionCurrentUser.Name = "BtnActionCurrentUser";
@@ -468,6 +366,22 @@
             this.btnReceptionDelete.Text = "حذف";
             this.btnReceptionDelete.ToolTipText = "حذف";
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 33);
+            // 
+            // btnCarExpenses
+            // 
+            this.btnCarExpenses.AutoSize = false;
+            this.btnCarExpenses.Image = global::AutoLedger.App.Properties.Resources.dollar;
+            this.btnCarExpenses.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCarExpenses.Name = "btnCarExpenses";
+            this.btnCarExpenses.Size = new System.Drawing.Size(105, 27);
+            this.btnCarExpenses.Text = "درج هزینه ها";
+            this.btnCarExpenses.ToolTipText = "درج هزینه ها";
+            // 
             // panelRight
             // 
             this.panelRight.Controls.Add(this.dgCars);
@@ -508,6 +422,121 @@
             this.inputSearch.TabIndex = 0;
             this.inputSearch.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // Index
+            // 
+            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Index.DataPropertyName = "Index";
+            this.Index.HeaderText = "R";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Index.Width = 43;
+            // 
+            // Title
+            // 
+            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Title.DataPropertyName = "Id";
+            this.Title.HeaderText = "شناسه";
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            this.Title.Width = 69;
+            // 
+            // Mileage
+            // 
+            this.Mileage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Mileage.DataPropertyName = "Mileage";
+            this.Mileage.HeaderText = "کیلومتر";
+            this.Mileage.Name = "Mileage";
+            this.Mileage.ReadOnly = true;
+            this.Mileage.Width = 73;
+            // 
+            // TotalCost
+            // 
+            this.TotalCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TotalCost.DataPropertyName = "TotalCost";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle13.Format = "#,0 تومان";
+            dataGridViewCellStyle13.NullValue = "0";
+            this.TotalCost.DefaultCellStyle = dataGridViewCellStyle13;
+            this.TotalCost.FillWeight = 200F;
+            this.TotalCost.HeaderText = "مبلغ فاکتور";
+            this.TotalCost.MinimumWidth = 150;
+            this.TotalCost.Name = "TotalCost";
+            this.TotalCost.ReadOnly = true;
+            this.TotalCost.Width = 150;
+            // 
+            // IsRepaired
+            // 
+            this.IsRepaired.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IsRepaired.DataPropertyName = "IsRepaired";
+            this.IsRepaired.HeaderText = "تعمیر شده";
+            this.IsRepaired.Name = "IsRepaired";
+            this.IsRepaired.ReadOnly = true;
+            this.IsRepaired.Width = 89;
+            // 
+            // IsReleased
+            // 
+            this.IsReleased.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IsReleased.DataPropertyName = "IsReleased";
+            this.IsReleased.HeaderText = "ترخیص شده";
+            this.IsReleased.Name = "IsReleased";
+            this.IsReleased.ReadOnly = true;
+            // 
+            // IsExpensesProvided
+            // 
+            this.IsExpensesProvided.DataPropertyName = "IsExpensesProvided";
+            this.IsExpensesProvided.HeaderText = "هزینه ها";
+            this.IsExpensesProvided.Name = "IsExpensesProvided";
+            this.IsExpensesProvided.ReadOnly = true;
+            // 
+            // CreatedAt
+            // 
+            this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CreatedAt.DataPropertyName = "CreatedAt";
+            dataGridViewCellStyle14.Format = "D";
+            dataGridViewCellStyle14.NullValue = null;
+            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle14;
+            this.CreatedAt.HeaderText = "تاریخ پذیرش";
+            this.CreatedAt.Name = "CreatedAt";
+            this.CreatedAt.ReadOnly = true;
+            this.CreatedAt.Width = 97;
+            // 
+            // RepairedAt
+            // 
+            this.RepairedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.RepairedAt.DataPropertyName = "RepairedAt";
+            this.RepairedAt.HeaderText = "تاریخ تعمیر";
+            this.RepairedAt.Name = "RepairedAt";
+            this.RepairedAt.ReadOnly = true;
+            this.RepairedAt.Width = 91;
+            // 
+            // ReleasedAt
+            // 
+            this.ReleasedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ReleasedAt.DataPropertyName = "ReleasedAt";
+            this.ReleasedAt.HeaderText = "تاریخ ترخیص";
+            this.ReleasedAt.Name = "ReleasedAt";
+            this.ReleasedAt.ReadOnly = true;
+            this.ReleasedAt.Width = 102;
+            // 
+            // UpdatedAt
+            // 
+            this.UpdatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UpdatedAt.DataPropertyName = "UpdatedAt";
+            this.UpdatedAt.HeaderText = "تاریخ ویرایش";
+            this.UpdatedAt.Name = "UpdatedAt";
+            this.UpdatedAt.ReadOnly = true;
+            // 
+            // extra
+            // 
+            this.extra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.extra.HeaderText = "";
+            this.extra.Name = "extra";
+            this.extra.ReadOnly = true;
+            this.extra.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // CarsManagerPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 22F);
@@ -547,17 +576,6 @@
         private System.Windows.Forms.ToolStripButton btnReceptionDelete;
         private System.Windows.Forms.ToolStripButton btnReceptionEdit;
         private System.Windows.Forms.ToolStripButton btnReceptionNew;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Index;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Mileage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IsRepaired;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IsReleased;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedAt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RepairedAt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReleasedAt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedAt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn extra;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.DataGridViewTextBoxColumn _index;
         private System.Windows.Forms.DataGridViewTextBoxColumn OwnerPhoneNumber;
@@ -568,5 +586,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Brand;
         private System.Windows.Forms.Panel panel1;
         private Controls.ModernTextBox inputSearch;
+        private System.Windows.Forms.ToolStripButton btnCarExpenses;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Index;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Mileage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsRepaired;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsReleased;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsExpensesProvided;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RepairedAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReleasedAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn extra;
     }
 }

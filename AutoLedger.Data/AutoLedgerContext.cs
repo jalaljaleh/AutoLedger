@@ -1,5 +1,4 @@
 ﻿using AutoLedger.Data.Mapping;
-using AutoLedger.Data.Mapping.AutoLedger.Data.Mapping;
 using AutoLedger.Domain;
 using System;
 using System.Collections.Generic;
@@ -32,8 +31,8 @@ namespace AutoLedger.Data
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarReception> CarReceptions { get; set; }
         public DbSet<CarReceptionRequest> CarReceptionsRequests { get; set; }
+        public DbSet<CarReceptionExpense> CarReceptionsExpenses { get; set; }
 
-        public DbSet<Expense> Expenses { get; set; }
         public DbSet<MonthlySummary> MonthlySummaries { get; set; } 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -41,8 +40,8 @@ namespace AutoLedger.Data
             modelBuilder.Configurations.Add(new CarConfiguration());
             modelBuilder.Configurations.Add(new CarReceptionConfiguration());
             modelBuilder.Configurations.Add(new CarReceptionRequestsConfiguration());
+            modelBuilder.Configurations.Add(new CarReceptionExpenseConfiguration());
 
-            modelBuilder.Configurations.Add(new ExpenseConfiguration());
             modelBuilder.Configurations.Add(new MonthlySummaryConfiguration());
 
             this.Configuration.LazyLoadingEnabled = false;

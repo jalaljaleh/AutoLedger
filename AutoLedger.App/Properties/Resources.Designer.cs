@@ -203,6 +203,16 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap coin {
+            get {
+                object obj = ResourceManager.GetObject("coin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap color_wheel_128 {
             get {
                 object obj = ResourceManager.GetObject("color_wheel_128", resourceCulture);
@@ -246,6 +256,16 @@ namespace AutoLedger.App.Properties {
         internal static System.Drawing.Bitmap develop_1 {
             get {
                 object obj = ResourceManager.GetObject("develop_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap dollar {
+            get {
+                object obj = ResourceManager.GetObject("dollar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -63,7 +63,7 @@
     <Compile Include="Mapping\CarConfiguration.cs" />
     <Compile Include="Mapping\CarReceptionRequestsConfiguration.cs" />
     <Compile Include="Mapping\CarReceptionConfiguration.cs" />
-    <Compile Include="Mapping\ExpenseConfiguration.cs" />
+    <Compile Include="Mapping\CarReceptionExpenseConfiguration.cs" />
     <Compile Include="Mapping\MonthlySummaryConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

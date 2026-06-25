@@ -47,6 +47,7 @@ namespace AutoLedger.App.Forms
 
             if (_reception != null)
             {
+                inputReceptionId.Text = _reception.Id.ToString();
                 dateReceptionAt.Value = _reception.CreatedAt;
                 inputMileage.Text = _reception.Mileage.ToString();
                 cbIsReleased.Checked = _reception.IsReleased;
@@ -229,7 +230,7 @@ namespace AutoLedger.App.Forms
                         db.SaveChanges();
                         tx.Commit();
 
-                        MessageBox.Show("پذیرش با موفقیت به‌روزرسانی شد.");
+                 
                     }
                     catch (Exception ex)
                     {

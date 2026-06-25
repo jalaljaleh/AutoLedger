@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,12 +32,81 @@ namespace AutoLedger.App.FormsView
             this.btnReceptionDelete.Click += BtnReceptionDelete_Click;
             this.btnReceptionEdit.Click += BtnReceptionEdit_Click;
             this.btnReceptionNew.Click += BtnNewReception_Click;
+            this.btnCarExpenses.Click += BtnCarExpenses_Click;
+        }
+        void RefreshCarReceptions()
+        {
+            dgCarReceptions.AutoGenerateColumns = false;
+            if (dgCars.SelectedRows.Count < 1)
+            {
+                dgCarReceptions.DataSource = null;
+                return;
+            }
+
+            using (AutoLedgerContext db = new AutoLedgerContext())
+            {
+                var car = (dgCars.SelectedRows[0].DataBoundItem as Car);
+                dgCarReceptions.DataSource = db.CarReceptions.Where(a => a.CarId == car.Id).ToList();
+            }
         }
 
-        private void DgCarReceptions_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        void RefreshCarInformation()
         {
-            dgCarReceptions.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+            dataGridSelectedCar.AutoGenerateColumns = false;
+            if (dgCars.SelectedRows.Count < 1)
+            {
+                dataGridSelectedCar.DataSource = null;
+                return;
+            }
+            dataGridSelectedCar.DataSource = new List<Car>() { dgCars.SelectedRows[0].DataBoundItem as Car };
         }
+
+        public void RefreshCars()
+        {
+            using (var db = new AutoLedgerContext())
+            {
+                dgCars.AutoGenerateColumns = false;
+
+                if (_currentCarsOnly)
+                    dgCars.DataSource = db.CarReceptions.Where(a => a.IsReleased == false)
+                        .Select(a => a.Car)
+                        .Distinct()
+                        .OrderByDescending(c => c.UpdatedAt)
+                        .ToList();
+                else
+                    dgCars.DataSource = db.Cars.OrderByDescending(c => c.UpdatedAt).ToList();
+            }
+        }
+        private void BtnCarExpenses_Click(object sender, EventArgs e)
+        {
+            var (car, reception) = GetSelectedCarAndReception();
+            if (car == null)
+            {
+                MessageBox.Show("ابتدا یک خودرو انتخاب کنید.");
+                return;
+            }
+            if (reception == null)
+            {
+                MessageBox.Show("ابتدا یک پذیرش انتخاب کنید.");
+                return;
+            }
+            try
+            {
+                using (var form = new CarReceptionExpenseForm(reception))
+                {
+                    var result = form.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        RefreshCarReceptions();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("خطا در باز کردن فرم پذیرش: " + ex.Message);
+            }
+        }
+
 
         // Selection changed handler (wired in ctor)
         private void DatagridCars_SelectionChanged(object sender, EventArgs e)
@@ -184,6 +254,38 @@ namespace AutoLedger.App.FormsView
             }
         }
 
+        private void ApplyRowColor(DataGridViewRow row)
+        {
+            object valReleased = row.Cells["IsReleased"].Value;
+            object valRepaired = row.Cells["IsRepaired"].Value;
+
+            bool released = valReleased != null && valReleased != DBNull.Value && Convert.ToBoolean(valReleased);
+            bool repaired = valRepaired != null && valRepaired != DBNull.Value && Convert.ToBoolean(valRepaired);
+
+            Color back = System.Drawing.Color.White;
+            Color fore = System.Drawing.Color.Black;
+
+            if (!released)
+            {
+                back = System.Drawing.Color.DarkSeaGreen;
+                fore = System.Drawing.Color.Black;
+            }
+
+            if (!repaired)
+            {
+                back = System.Drawing.Color.Pink;
+                fore = System.Drawing.Color.Black;
+            }
+
+            row.DefaultCellStyle.BackColor = back;
+            row.DefaultCellStyle.ForeColor = fore;
+        }
+
+       
+
+
+
+
         private void DgCarReceptions_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
@@ -214,6 +316,23 @@ namespace AutoLedger.App.FormsView
                     e.CellStyle.ForeColor = isTrue ? System.Drawing.Color.Green : System.Drawing.Color.Red;
                     e.FormattingApplied = true;
                 }
+            }else if (cellName == "IsExpensesProvided")
+            {
+                if (e.Value == null)
+                {
+                    e.Value = "اعمال نشده";
+                    e.CellStyle.ForeColor = System.Drawing.Color.Red;
+                    e.FormattingApplied = true;
+                    return;
+                }
+
+                bool isTrue;
+                if (bool.TryParse(e.Value.ToString(), out isTrue))
+                {
+                    e.Value = isTrue ? "اعمال شده" : "اعمال نشده";
+                    e.CellStyle.BackColor = isTrue ? System.Drawing.Color.LightGreen : System.Drawing.Color.LightSalmon;
+                    e.FormattingApplied = true;
+                }
             }
         }
 
@@ -224,76 +343,10 @@ namespace AutoLedger.App.FormsView
                 ApplyRowColor(row);
             }
         }
-
-        private void ApplyRowColor(DataGridViewRow row)
+        private void DgCarReceptions_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            object valReleased = row.Cells["IsReleased"].Value;
-            object valRepaired = row.Cells["IsRepaired"].Value;
-
-            bool released = valReleased != null && valReleased != DBNull.Value && Convert.ToBoolean(valReleased);
-            bool repaired = valRepaired != null && valRepaired != DBNull.Value && Convert.ToBoolean(valRepaired);
-
-            Color back = System.Drawing.Color.White;
-            Color fore = System.Drawing.Color.Black;
-
-            if (!released)
-            {
-                back = System.Drawing.Color.DarkSeaGreen;
-                fore = System.Drawing.Color.Black;
-            }
-
-            if (!repaired)
-            {
-                back = System.Drawing.Color.Pink;
-                fore = System.Drawing.Color.Black;
-            }
-
-            row.DefaultCellStyle.BackColor = back;
-            row.DefaultCellStyle.ForeColor = fore;
+            dgCarReceptions.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
         }
 
-        void RefreshCarReceptions()
-        {
-            dgCarReceptions.AutoGenerateColumns = false;
-            if (dgCars.SelectedRows.Count < 1)
-            {
-                dgCarReceptions.DataSource = null;
-                return;
-            }
-
-            using (AutoLedgerContext db = new AutoLedgerContext())
-            {
-                var car = (dgCars.SelectedRows[0].DataBoundItem as Car);
-                dgCarReceptions.DataSource = db.CarReceptions.Where(a => a.CarId == car.Id).ToList();
-            }
-        }
-
-        void RefreshCarInformation()
-        {
-            dataGridSelectedCar.AutoGenerateColumns = false;
-            if (dgCars.SelectedRows.Count < 1)
-            {
-                dataGridSelectedCar.DataSource = null;
-                return;
-            }
-            dataGridSelectedCar.DataSource = new List<Car>() { dgCars.SelectedRows[0].DataBoundItem as Car };
-        }
-
-        public void RefreshCars()
-        {
-            using (var db = new AutoLedgerContext())
-            {
-                dgCars.AutoGenerateColumns = false;
-
-                if (_currentCarsOnly)
-                    dgCars.DataSource = db.CarReceptions.Where(a => a.IsReleased == false)
-                        .Select(a=>a.Car)
-                        .Distinct()
-                        .OrderByDescending(c => c.UpdatedAt)
-                        .ToList();
-                else
-                    dgCars.DataSource = db.Cars.OrderByDescending(c => c.UpdatedAt).ToList();
-            }
-        }
     }
 }

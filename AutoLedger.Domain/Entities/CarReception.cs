@@ -9,14 +9,10 @@ namespace AutoLedger.Domain
     public class CarReception
     {
         public int Id { get; private set; }
-
         public int Mileage { get; set; }
-        public decimal TotalCost { get; set; }
         public bool IsReleased { get; set; }
         public bool IsRepaired { get; set; }
-
-        public int CarId { get; set; }
-        public Car Car { get; set; }
+        public bool IsExpensesProvided { get; set; }
 
         public DateTime RepairedAt { get; set; } = DateTime.MinValue;
         public DateTime ReleasedAt { get; set; } = DateTime.MinValue;
@@ -24,8 +20,15 @@ namespace AutoLedger.Domain
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime UpdatedAt { get; set; } = DateTime.Now;
 
-        public virtual ICollection<CarReceptionRequest> Requests { get; set; } = new HashSet<CarReceptionRequest>();
-        public virtual ICollection<Expense> Expenses { get; set; } = new HashSet<Expense>();
+        public decimal TotalCost { get; set; }
+        public decimal TotalExpenses { get; set; }
 
+        public decimal TotalProfit { get=> TotalCost - TotalExpenses; }
+
+        public virtual ICollection<CarReceptionRequest> Requests { get; set; } = new HashSet<CarReceptionRequest>();
+        public virtual ICollection<CarReceptionExpense> Expenses { get; set; } = new HashSet<CarReceptionExpense>();
+
+        public int CarId { get; set; }
+        public Car Car { get; set; }
     }
 }
