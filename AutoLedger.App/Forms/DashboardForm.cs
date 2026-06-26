@@ -9,8 +9,9 @@ namespace AutoLedger.App.Forms
 {
     public partial class DashboardForm : Form
     {
-        private CarsManagerPage carsManagerPage;
-        private CarsManagerPage carsManagerCurrentPage;
+        private CarsManagerPage _carsManagerPage;
+        private CarsManagerPage _carsManagerCurrentPage;
+        private ExpensesManagerPage _expensesManagerPage;
 
         public DashboardForm()
         {
@@ -18,6 +19,7 @@ namespace AutoLedger.App.Forms
 
             btnCarReception.Click += BtnNewCar_Click;
             btnCarsAll.Click += ViewButtons_Click;
+            btnExpenses.Click += ViewButtons_Click;
         }
 
         private void ViewButtons_Click(object sender, EventArgs e)
@@ -28,9 +30,15 @@ namespace AutoLedger.App.Forms
             switch (btn.Name)
             {
                 case "btnCarsAll":
-                    if (carsManagerPage == null)
-                        carsManagerPage = new CarsManagerPage(false); // all cars
-                    ShowControl(carsManagerPage);
+                    if (_carsManagerPage == null)
+                        _carsManagerPage = new CarsManagerPage(false); // all cars
+                    ShowControl(_carsManagerPage);
+                    break;
+
+                case "btnExpenses":
+                    if (_expensesManagerPage == null)
+                        _expensesManagerPage = new ExpensesManagerPage();
+                    ShowControl(_expensesManagerPage);
                     break;
             }
         }
@@ -65,8 +73,8 @@ namespace AutoLedger.App.Forms
                 if (receptionForm.ShowDialog() == DialogResult.OK)
                 {
                     // Refresh both pages if they exist
-                    carsManagerPage?.RefreshCars();
-                    carsManagerCurrentPage?.RefreshCars();
+                    _carsManagerPage?.RefreshCars();
+                    _carsManagerCurrentPage?.RefreshCars();
                 }
             }
         }

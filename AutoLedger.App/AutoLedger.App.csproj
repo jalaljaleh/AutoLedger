@@ -367,6 +367,33 @@
   <ItemGroup>
     <None Include="Resources\forward_button_128.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\credit_card_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\today_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_7_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clear_filters_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\today_1281.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\new_year_calendar_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_week30_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_1_128.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
