@@ -40,10 +40,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridSelectedCar = new System.Windows.Forms.DataGridView();
             this._index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OwnerPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -53,9 +53,6 @@
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgCars = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OwnerFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TextBoxName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelFactor = new System.Windows.Forms.Panel();
             this.dgCarReceptions = new System.Windows.Forms.DataGridView();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,16 +82,19 @@
             this.labelReceptionsDetails = new System.Windows.Forms.ToolStripLabel();
             this.cbReceptinoCount = new System.Windows.Forms.ToolStripComboBox();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cbCurrentCars = new System.Windows.Forms.CheckBox();
             this.panelToolbar = new System.Windows.Forms.Panel();
+            this.inputSearch = new AutoLedger.App.Controls.ModernTextBox();
+            this.btnRefreshCars = new AutoLedger.App.Controls.ModernButton();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCarsNextPage = new System.Windows.Forms.ToolStripButton();
             this.btnCarsBackPage = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.inputSearch = new AutoLedger.App.Controls.ModernTextBox();
-            this.btnRefreshCars = new AutoLedger.App.Controls.ModernButton();
+            this.panelFilter = new System.Windows.Forms.Panel();
+            this.cbCurrentCars = new System.Windows.Forms.CheckBox();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OwnerFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TextBoxName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSelectedCar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCars)).BeginInit();
             this.panelFactor.SuspendLayout();
@@ -102,9 +102,9 @@
             this.BtnActionCurrentUser.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panelRight.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panelToolbar.SuspendLayout();
             this.toolStrip2.SuspendLayout();
+            this.panelFilter.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridSelectedCar
@@ -249,37 +249,6 @@
             this.dgCars.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgCars.Size = new System.Drawing.Size(245, 667);
             this.dgCars.TabIndex = 15;
-            // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Vazirmatn", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Id.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Id.HeaderText = "R";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 43;
-            // 
-            // OwnerFullName
-            // 
-            this.OwnerFullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.OwnerFullName.DataPropertyName = "OwnerFullName";
-            this.OwnerFullName.HeaderText = "مالک";
-            this.OwnerFullName.Name = "OwnerFullName";
-            this.OwnerFullName.ReadOnly = true;
-            // 
-            // TextBoxName
-            // 
-            this.TextBoxName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TextBoxName.DataPropertyName = "PlateId";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxName.DefaultCellStyle = dataGridViewCellStyle5;
-            this.TextBoxName.HeaderText = "پلاک";
-            this.TextBoxName.Name = "TextBoxName";
-            this.TextBoxName.ReadOnly = true;
-            this.TextBoxName.Width = 58;
             // 
             // panelFactor
             // 
@@ -622,9 +591,9 @@
             // panelRight
             // 
             this.panelRight.Controls.Add(this.dgCars);
-            this.panelRight.Controls.Add(this.panel1);
             this.panelRight.Controls.Add(this.panelToolbar);
             this.panelRight.Controls.Add(this.toolStrip2);
+            this.panelRight.Controls.Add(this.panelFilter);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelRight.Location = new System.Drawing.Point(825, 6);
             this.panelRight.Margin = new System.Windows.Forms.Padding(0);
@@ -633,42 +602,61 @@
             this.panelRight.Size = new System.Drawing.Size(250, 788);
             this.panelRight.TabIndex = 22;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.cbCurrentCars);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(5, 40);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.panel1.Size = new System.Drawing.Size(245, 40);
-            this.panel1.TabIndex = 19;
-            // 
-            // cbCurrentCars
-            // 
-            this.cbCurrentCars.AutoSize = true;
-            this.cbCurrentCars.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.cbCurrentCars.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbCurrentCars.Location = new System.Drawing.Point(0, 0);
-            this.cbCurrentCars.Name = "cbCurrentCars";
-            this.cbCurrentCars.Padding = new System.Windows.Forms.Padding(5);
-            this.cbCurrentCars.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbCurrentCars.Size = new System.Drawing.Size(245, 38);
-            this.cbCurrentCars.TabIndex = 0;
-            this.cbCurrentCars.Text = "فقط خودروهای جاری";
-            this.cbCurrentCars.UseVisualStyleBackColor = false;
-            // 
             // panelToolbar
             // 
             this.panelToolbar.Controls.Add(this.inputSearch);
             this.panelToolbar.Controls.Add(this.btnRefreshCars);
             this.panelToolbar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelToolbar.Location = new System.Drawing.Point(5, 0);
+            this.panelToolbar.Location = new System.Drawing.Point(5, 40);
             this.panelToolbar.Margin = new System.Windows.Forms.Padding(0);
             this.panelToolbar.Name = "panelToolbar";
             this.panelToolbar.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.panelToolbar.Size = new System.Drawing.Size(245, 40);
             this.panelToolbar.TabIndex = 16;
+            // 
+            // inputSearch
+            // 
+            this.inputSearch.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.inputSearch.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.inputSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.inputSearch.CornerRadius = 2;
+            this.inputSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.inputSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.inputSearch.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.inputSearch.Icon = global::AutoLedger.App.Properties.Resources.zoom_to_fit_128;
+            this.inputSearch.Location = new System.Drawing.Point(0, 0);
+            this.inputSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.inputSearch.Name = "inputSearch";
+            this.inputSearch.Placeholder = "جستوجو";
+            this.inputSearch.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.inputSearch.Size = new System.Drawing.Size(164, 38);
+            this.inputSearch.TabIndex = 0;
+            this.inputSearch.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnRefreshCars
+            // 
+            this.btnRefreshCars.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.btnRefreshCars.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRefreshCars.BorderColor = System.Drawing.Color.Transparent;
+            this.btnRefreshCars.CornerRadius = 3;
+            this.btnRefreshCars.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnRefreshCars.FlatAppearance.BorderSize = 0;
+            this.btnRefreshCars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefreshCars.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshCars.ForeColor = System.Drawing.Color.Black;
+            this.btnRefreshCars.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.btnRefreshCars.Icon = global::AutoLedger.App.Properties.Resources.sync_128;
+            this.btnRefreshCars.IconSize = 23;
+            this.btnRefreshCars.IconSpacing = 0;
+            this.btnRefreshCars.Location = new System.Drawing.Point(164, 0);
+            this.btnRefreshCars.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRefreshCars.Name = "btnRefreshCars";
+            this.btnRefreshCars.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnRefreshCars.Size = new System.Drawing.Size(81, 38);
+            this.btnRefreshCars.TabIndex = 1;
+            this.btnRefreshCars.Text = "رفرش";
+            this.btnRefreshCars.UseVisualStyleBackColor = false;
             // 
             // toolStrip2
             // 
@@ -724,49 +712,60 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
             // 
-            // inputSearch
+            // panelFilter
             // 
-            this.inputSearch.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.inputSearch.BackColor = System.Drawing.Color.White;
-            this.inputSearch.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.inputSearch.CornerRadius = 2;
-            this.inputSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inputSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.inputSearch.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.inputSearch.Icon = global::AutoLedger.App.Properties.Resources.zoom_to_fit_128;
-            this.inputSearch.Location = new System.Drawing.Point(0, 0);
-            this.inputSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.inputSearch.Name = "inputSearch";
-            this.inputSearch.Placeholder = "جستوجو";
-            this.inputSearch.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.inputSearch.Size = new System.Drawing.Size(164, 38);
-            this.inputSearch.TabIndex = 0;
-            this.inputSearch.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.panelFilter.Controls.Add(this.cbCurrentCars);
+            this.panelFilter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelFilter.Location = new System.Drawing.Point(5, 0);
+            this.panelFilter.Margin = new System.Windows.Forms.Padding(0);
+            this.panelFilter.Name = "panelFilter";
+            this.panelFilter.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.panelFilter.Size = new System.Drawing.Size(245, 40);
+            this.panelFilter.TabIndex = 19;
             // 
-            // btnRefreshCars
+            // cbCurrentCars
             // 
-            this.btnRefreshCars.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.btnRefreshCars.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRefreshCars.BorderColor = System.Drawing.Color.Transparent;
-            this.btnRefreshCars.CornerRadius = 3;
-            this.btnRefreshCars.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnRefreshCars.FlatAppearance.BorderSize = 0;
-            this.btnRefreshCars.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefreshCars.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefreshCars.ForeColor = System.Drawing.Color.Black;
-            this.btnRefreshCars.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.btnRefreshCars.Icon = global::AutoLedger.App.Properties.Resources.sync_128;
-            this.btnRefreshCars.IconSize = 23;
-            this.btnRefreshCars.IconSpacing = 0;
-            this.btnRefreshCars.Location = new System.Drawing.Point(164, 0);
-            this.btnRefreshCars.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRefreshCars.Name = "btnRefreshCars";
-            this.btnRefreshCars.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnRefreshCars.Size = new System.Drawing.Size(81, 38);
-            this.btnRefreshCars.TabIndex = 1;
-            this.btnRefreshCars.Text = "رفرش";
-            this.btnRefreshCars.UseVisualStyleBackColor = false;
+            this.cbCurrentCars.AutoSize = true;
+            this.cbCurrentCars.BackColor = System.Drawing.Color.Honeydew;
+            this.cbCurrentCars.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbCurrentCars.Location = new System.Drawing.Point(0, 0);
+            this.cbCurrentCars.Name = "cbCurrentCars";
+            this.cbCurrentCars.Padding = new System.Windows.Forms.Padding(5);
+            this.cbCurrentCars.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbCurrentCars.Size = new System.Drawing.Size(245, 38);
+            this.cbCurrentCars.TabIndex = 0;
+            this.cbCurrentCars.Text = "فقط خودروهای جاری";
+            this.cbCurrentCars.UseVisualStyleBackColor = false;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Id.DataPropertyName = "Id";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Vazirmatn", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Id.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Id.HeaderText = "R";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 43;
+            // 
+            // OwnerFullName
+            // 
+            this.OwnerFullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.OwnerFullName.DataPropertyName = "OwnerFullName";
+            this.OwnerFullName.HeaderText = "مالک";
+            this.OwnerFullName.Name = "OwnerFullName";
+            this.OwnerFullName.ReadOnly = true;
+            // 
+            // TextBoxName
+            // 
+            this.TextBoxName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TextBoxName.DataPropertyName = "PlateId";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxName.DefaultCellStyle = dataGridViewCellStyle5;
+            this.TextBoxName.HeaderText = "پلاک";
+            this.TextBoxName.Name = "TextBoxName";
+            this.TextBoxName.ReadOnly = true;
             // 
             // CarsManagerPage
             // 
@@ -792,11 +791,11 @@
             this.toolStrip1.PerformLayout();
             this.panelRight.ResumeLayout(false);
             this.panelRight.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panelToolbar.ResumeLayout(false);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
+            this.panelFilter.ResumeLayout(false);
+            this.panelFilter.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -834,9 +833,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ReleasedAt;
         private System.Windows.Forms.DataGridViewTextBoxColumn UpdatedAt;
         private System.Windows.Forms.DataGridViewTextBoxColumn extra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OwnerFullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TextBoxName;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btnBackPageCarReceptions;
         private System.Windows.Forms.ToolStripButton btnNextPageReceptions;
@@ -851,7 +847,10 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripComboBox cbReceptinoCount;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelFilter;
         private System.Windows.Forms.CheckBox cbCurrentCars;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OwnerFullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TextBoxName;
     }
 }

@@ -103,6 +103,12 @@
     <Compile Include="FormsView\CarsManagerPage.Designer.cs">
       <DependentUpon>CarsManagerPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsView\ExpensesManagerPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormsView\ExpensesManagerPage.Designer.cs">
+      <DependentUpon>ExpensesManagerPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CarReceptionExpenseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormsView\CarsManagerPage.resx">
       <DependentUpon>CarsManagerPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsView\ExpensesManagerPage.resx">
+      <DependentUpon>ExpensesManagerPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CarReceptionExpenseForm.resx">
       <DependentUpon>CarReceptionExpenseForm.cs</DependentUpon>

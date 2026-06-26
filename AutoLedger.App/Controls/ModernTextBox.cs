@@ -116,6 +116,7 @@ namespace AutoLedger.App.Controls
                     _text = _text.Substring(0, _maxLength);
                     caretPosition = Math.Min(caretPosition, _text.Length);
                     ClearSelection();
+                    OnTextChangedInternal();
                 }
                 Invalidate();
             }
@@ -137,6 +138,7 @@ namespace AutoLedger.App.Controls
                         _text = filtered;
                         caretPosition = Math.Min(caretPosition, _text.Length);
                         ClearSelection();
+                        OnTextChangedInternal();
                     }
                 }
                 Invalidate();
@@ -219,11 +221,15 @@ namespace AutoLedger.App.Controls
                 if (_maxLength > 0 && newText.Length > _maxLength)
                     newText = newText.Substring(0, _maxLength);
 
-                _text = newText;
-                caretPosition = Math.Min(caretPosition, _text.Length);
-                ClearSelection();
-                UpdateFloatingTarget();
-                Invalidate();
+                if (_text != newText)
+                {
+                    _text = newText;
+                    caretPosition = Math.Min(caretPosition, _text.Length);
+                    ClearSelection();
+                    UpdateFloatingTarget();
+                    OnTextChangedInternal();
+                    Invalidate();
+                }
             }
         }
 
@@ -232,6 +238,22 @@ namespace AutoLedger.App.Controls
         {
             get => _placeholder;
             set { _placeholder = value ?? string.Empty; UpdateFloatingTarget(); Invalidate(); }
+        }
+
+        #endregion
+
+        #region TextChanged helper
+
+        // Ensure we raise the standard TextChanged event for consumers
+        protected override void OnTextChanged(EventArgs e)
+        {
+            base.OnTextChanged(e);
+        }
+
+        private void OnTextChangedInternal()
+        {
+            // call the virtual method so subscribers get the event
+            OnTextChanged(EventArgs.Empty);
         }
 
         #endregion
@@ -348,7 +370,10 @@ namespace AutoLedger.App.Controls
 
             // draw text (masked if password)
             string displayText = _passwordChar != '\0' ? new string(_passwordChar, _text.Length) : _text;
-            TextRenderer.DrawText(e.Graphics, displayText, Font, textRect, ForeColor, GetTextFormatFlags());
+
+            // Use consistent flags for drawing and measuring
+            var drawFlags = GetTextFormatFlags() | TextFormatFlags.NoPadding;
+            TextRenderer.DrawText(e.Graphics, displayText, Font, textRect, ForeColor, drawFlags);
 
             // caret
             if (isFocused && caretVisible && selectionLength == 0)
@@ -389,7 +414,8 @@ namespace AutoLedger.App.Controls
 
                 // when inline (labelProgress ~ 0) draw at baseY; when floating draw smaller above
                 RectangleF labelRect = new RectangleF(textRect.Left, baseY + floatOffset, textRect.Width, Font.Height);
-                TextRenderer.DrawText(g, label, labelFont, Rectangle.Round(labelRect), labelColor, GetTextFormatFlags());
+                var drawFlags = GetTextFormatFlags() | TextFormatFlags.NoPadding;
+                TextRenderer.DrawText(g, label, labelFont, Rectangle.Round(labelRect), labelColor, drawFlags);
             }
         }
 
@@ -407,7 +433,8 @@ namespace AutoLedger.App.Controls
         private int GetCaretX(Graphics g, Rectangle textRect, int charIndex)
         {
             string s = _passwordChar != '\0' ? new string(_passwordChar, charIndex) : _text.Substring(0, Math.Max(0, Math.Min(charIndex, _text.Length)));
-            Size size = TextRenderer.MeasureText(g, s, Font, Size.Empty, GetTextFormatFlags());
+            var flags = GetTextFormatFlags() | TextFormatFlags.NoPadding;
+            Size size = TextRenderer.MeasureText(g, s, Font, Size.Empty, flags);
             int x = textRect.Left + size.Width;
             return x;
         }
@@ -450,9 +477,12 @@ namespace AutoLedger.App.Controls
                 int left = rect.Left + _padding;
                 if (_icon != null) left += _iconSize + 8;
 
+                var flags = GetTextFormatFlags() | TextFormatFlags.NoPadding;
+
                 for (int i = 0; i <= _text.Length; i++)
                 {
-                    int w = TextRenderer.MeasureText(g, _passwordChar != '\0' ? new string(_passwordChar, i) : _text.Substring(0, i), Font, Size.Empty, GetTextFormatFlags()).Width;
+                    string s = _passwordChar != '\0' ? new string(_passwordChar, i) : _text.Substring(0, i);
+                    int w = TextRenderer.MeasureText(g, s, Font, Size.Empty, flags).Width;
                     int charRight = left + w;
                     if (x <= charRight) return i;
                 }
@@ -476,6 +506,7 @@ namespace AutoLedger.App.Controls
             }
             if (clearRect != Rectangle.Empty && clearRect.Contains(e.Location))
             {
+                // Use the Text property so TextChanged is raised
                 Text = string.Empty;
                 caretPosition = 0;
                 ClearSelection();
@@ -485,6 +516,7 @@ namespace AutoLedger.App.Controls
 
             int newPos = GetCaretIndexFromPoint(e.X);
             caretPosition = Math.Max(0, Math.Min(newPos, _text.Length));
+            // set selection anchor for drag selection
             selectionStart = caretPosition;
             selectionLength = 0;
             Invalidate();
@@ -543,6 +575,7 @@ namespace AutoLedger.App.Controls
                 caretPosition++;
                 ClearSelection();
                 UpdateFloatingTarget();
+                OnTextChangedInternal();
                 Invalidate();
                 e.Handled = true;
             }
@@ -554,11 +587,12 @@ namespace AutoLedger.App.Controls
 
             if (e.KeyCode == Keys.Back)
             {
-                if (selectionLength != 0) DeleteSelectionIfAny();
+                if (selectionLength != 0) { DeleteSelectionIfAny(); OnTextChangedInternal(); }
                 else if (caretPosition > 0)
                 {
                     _text = _text.Remove(caretPosition - 1, 1);
                     caretPosition--;
+                    OnTextChangedInternal();
                 }
                 ClearSelection();
                 UpdateFloatingTarget();
@@ -567,9 +601,12 @@ namespace AutoLedger.App.Controls
             }
             else if (e.KeyCode == Keys.Delete)
             {
-                if (selectionLength != 0) DeleteSelectionIfAny();
+                if (selectionLength != 0) { DeleteSelectionIfAny(); OnTextChangedInternal(); }
                 else if (caretPosition < _text.Length)
+                {
                     _text = _text.Remove(caretPosition, 1);
+                    OnTextChangedInternal();
+                }
 
                 ClearSelection();
                 UpdateFloatingTarget();
@@ -648,6 +685,7 @@ namespace AutoLedger.App.Controls
                             caretPosition += clip.Length;
                             ClearSelection();
                             UpdateFloatingTarget();
+                            OnTextChangedInternal();
                             Invalidate();
                         }
                     }
@@ -670,7 +708,7 @@ namespace AutoLedger.App.Controls
 
         private void ClearSelection()
         {
-            selectionStart = 0;
+            // Keep selectionStart as the anchor; only clear length
             selectionLength = 0;
         }
 

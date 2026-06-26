@@ -86,10 +86,10 @@ namespace AutoLedger.App.Forms
             // 
             this.paneldatagridExpenses.Controls.Add(this.dgCarExpenses);
             this.paneldatagridExpenses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.paneldatagridExpenses.Location = new System.Drawing.Point(5, 53);
+            this.paneldatagridExpenses.Location = new System.Drawing.Point(5, 30);
             this.paneldatagridExpenses.Name = "paneldatagridExpenses";
             this.paneldatagridExpenses.Padding = new System.Windows.Forms.Padding(5);
-            this.paneldatagridExpenses.Size = new System.Drawing.Size(905, 507);
+            this.paneldatagridExpenses.Size = new System.Drawing.Size(905, 530);
             this.paneldatagridExpenses.TabIndex = 19;
             // 
             // dgCarExpenses
@@ -132,7 +132,7 @@ namespace AutoLedger.App.Forms
             this.dgCarExpenses.RowTemplate.Height = 50;
             this.dgCarExpenses.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgCarExpenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgCarExpenses.Size = new System.Drawing.Size(895, 497);
+            this.dgCarExpenses.Size = new System.Drawing.Size(895, 520);
             this.dgCarExpenses.StandardTab = true;
             this.dgCarExpenses.TabIndex = 10;
             // 
@@ -276,7 +276,7 @@ namespace AutoLedger.App.Forms
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(5, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(905, 48);
+            this.panelTop.Size = new System.Drawing.Size(905, 25);
             this.panelTop.TabIndex = 19;
             // 
             // inputReceptionId
@@ -286,16 +286,17 @@ namespace AutoLedger.App.Forms
             this.inputReceptionId.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.inputReceptionId.CornerRadius = 2;
             this.inputReceptionId.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputReceptionId.Dock = System.Windows.Forms.DockStyle.Left;
             this.inputReceptionId.Enabled = false;
             this.inputReceptionId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.inputReceptionId.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputReceptionId.Icon = null;
-            this.inputReceptionId.Location = new System.Drawing.Point(6, 9);
+            this.inputReceptionId.Location = new System.Drawing.Point(0, 0);
             this.inputReceptionId.Name = "inputReceptionId";
             this.inputReceptionId.Placeholder = "[شماره فاکتور]";
             this.inputReceptionId.PlaceholderColor = System.Drawing.Color.Black;
             this.inputReceptionId.ShowClearButton = false;
-            this.inputReceptionId.Size = new System.Drawing.Size(116, 31);
+            this.inputReceptionId.Size = new System.Drawing.Size(95, 25);
             this.inputReceptionId.TabIndex = 11;
             this.inputReceptionId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -305,7 +306,7 @@ namespace AutoLedger.App.Forms
             this.label1.Font = new System.Drawing.Font("Vazirmatn SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(536, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(369, 48);
+            this.label1.Size = new System.Drawing.Size(369, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "فرم ثبت هزینه های تعمیر  تقویت خودرو";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -335,10 +336,10 @@ namespace AutoLedger.App.Forms
             this.btnCancel.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
             this.btnCancel.Icon = global::AutoLedger.App.Properties.Resources.info_128;
             this.btnCancel.IconSize = 25;
-            this.btnCancel.Location = new System.Drawing.Point(608, 6);
+            this.btnCancel.Location = new System.Drawing.Point(626, 8);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnCancel.Size = new System.Drawing.Size(92, 40);
+            this.btnCancel.Size = new System.Drawing.Size(92, 39);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "لغو";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -347,16 +348,16 @@ namespace AutoLedger.App.Forms
             // 
             this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.btnSubmit.BaseBackColor = System.Drawing.Color.Green;
+            this.btnSubmit.BaseBackColor = System.Drawing.Color.SeaGreen;
             this.btnSubmit.BorderColor = System.Drawing.Color.Transparent;
             this.btnSubmit.FlatAppearance.BorderSize = 0;
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.ForeColor = System.Drawing.Color.White;
+            this.btnSubmit.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnSubmit.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
             this.btnSubmit.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
             this.btnSubmit.IconSize = 25;
-            this.btnSubmit.Location = new System.Drawing.Point(706, 6);
+            this.btnSubmit.Location = new System.Drawing.Point(724, 7);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnSubmit.Size = new System.Drawing.Size(181, 40);
