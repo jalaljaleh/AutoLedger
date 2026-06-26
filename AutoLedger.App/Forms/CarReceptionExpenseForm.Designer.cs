@@ -282,9 +282,9 @@ namespace AutoLedger.App.Forms
             // inputReceptionId
             // 
             this.inputReceptionId.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.inputReceptionId.BackColor = System.Drawing.Color.MistyRose;
+            this.inputReceptionId.BackColor = System.Drawing.Color.White;
             this.inputReceptionId.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.inputReceptionId.CornerRadius = 2;
+            this.inputReceptionId.CornerRadius = 0;
             this.inputReceptionId.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputReceptionId.Dock = System.Windows.Forms.DockStyle.Left;
             this.inputReceptionId.Enabled = false;
@@ -327,12 +327,12 @@ namespace AutoLedger.App.Forms
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.btnCancel.BaseBackColor = System.Drawing.Color.MistyRose;
+            this.btnCancel.BaseBackColor = System.Drawing.SystemColors.ScrollBar;
             this.btnCancel.BorderColor = System.Drawing.Color.Transparent;
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnCancel.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
             this.btnCancel.Icon = global::AutoLedger.App.Properties.Resources.info_128;
             this.btnCancel.IconSize = 25;

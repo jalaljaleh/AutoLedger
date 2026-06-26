@@ -17,7 +17,7 @@ namespace AutoLedger.App.FormsView
     {
 
         private int _expensesPage = 0;
-        private int _expensesPageSize = 50;
+        private int _expensesPageSize = 200;
         private int _expensesDaysAgo = 0;
 
         public ExpensesManagerPage()
@@ -35,7 +35,7 @@ namespace AutoLedger.App.FormsView
             this.btnFilterMonth.Click += BtnFilterMonth_Click;
             this.btnFilterAllTimes.Click += BtnFilterAllTimes_Click;
 
-            this.cbCount.SelectedItem = 50;
+            this.cbCount.SelectedItem = 200;
             this.cbCount.SelectedIndexChanged += CbCount_SelectedIndexChanged;
 
             this.dgExpenses.RowPostPaint += DgCarReceptions_RowPostPaint;
@@ -95,8 +95,9 @@ namespace AutoLedger.App.FormsView
                 btnBackPage.Enabled = (_expensesPage > 0);
                 btnNextPage.Enabled = (list.Count >= _expensesPageSize);
 
-                this.labelDetails.Text = $"صفحه: {_expensesPage + 1} | تعداد: {list.Count} | فیلتر: {(_expensesDaysAgo > 0 ? $"گذشته {_expensesDaysAgo} روز" : "همه زمان ها")} | جمع کل هزینه ها: {list.Sum(a=>a.Amount)}";
-               
+                this.labelDetails.Text = $"صفحه: {_expensesPage + 1} | تعداد: {list.Count} | فیلتر: {(_expensesDaysAgo > 0 ? $"گذشته {_expensesDaysAgo} روز" : "همه زمان ها")} ";
+                this.labelTotalExpenses.Text = $"مجموع هزینه ها: {list.Sum(x => x.Amount):N0} تومان";
+
                 dgExpenses.DataSource = list;
             }
         }

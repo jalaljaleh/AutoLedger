@@ -54,7 +54,7 @@ namespace AutoLedger.App.Forms
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-          this.DialogResult = DialogResult.Cancel;
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -186,8 +186,8 @@ namespace AutoLedger.App.Forms
             if (dgCarExpenses.CurrentRow != null && !dgCarExpenses.CurrentRow.IsNewRow)
             {
                 dgCarExpenses.Rows.Remove(dgCarExpenses.CurrentRow);
-                UpdateTotalCostLabel();
             }
+            UpdateTotalCostLabel();
         }
 
         private void BtnDeleteAllRequests_Click(object sender, EventArgs e)
@@ -203,7 +203,7 @@ namespace AutoLedger.App.Forms
         private void dgCarExpenses_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
-            if (dgCarExpenses.Columns[e.ColumnIndex].Name == "Cost")
+            if (dgCarExpenses.Columns[e.ColumnIndex].Name == "Amount")
             {
                 UpdateTotalCostLabel();
             }
@@ -211,7 +211,7 @@ namespace AutoLedger.App.Forms
 
         private void dgCarExpenses_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgCarExpenses.Columns[e.ColumnIndex].Name == "Cost" && e.Value != null)
+            if (dgCarExpenses.Columns[e.ColumnIndex].Name == "Amount" && e.Value != null)
             {
                 long rial;
                 if (long.TryParse(e.Value.ToString(), out rial))
@@ -224,7 +224,7 @@ namespace AutoLedger.App.Forms
 
         private void dgCarExpenses_CellParsing(object sender, DataGridViewCellParsingEventArgs e)
         {
-            if (dgCarExpenses.Columns[e.ColumnIndex].Name == "Cost" && e.Value != null)
+            if (dgCarExpenses.Columns[e.ColumnIndex].Name == "Amount" && e.Value != null)
             {
                 var raw = e.Value.ToString().Replace("تومان", "").Replace(",", "").Trim();
                 long toman;
