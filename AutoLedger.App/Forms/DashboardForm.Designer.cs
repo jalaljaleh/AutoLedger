@@ -63,16 +63,16 @@
             // toolbar
             // 
             this.toolbar.BackColor = System.Drawing.Color.OldLace;
-            this.toolbar.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolbar.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem3,
             this.toolStripMenuItem4});
             this.toolbar.Location = new System.Drawing.Point(0, 0);
             this.toolbar.Name = "toolbar";
-            this.toolbar.Padding = new System.Windows.Forms.Padding(8, 3, 0, 3);
+            this.toolbar.Padding = new System.Windows.Forms.Padding(0);
             this.toolbar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolbar.Size = new System.Drawing.Size(960, 32);
+            this.toolbar.Size = new System.Drawing.Size(960, 25);
             this.toolbar.TabIndex = 8;
             this.toolbar.Text = "menuStrip1";
             // 
@@ -81,31 +81,31 @@
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(44, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(42, 25);
             this.toolStripMenuItem1.Text = "فایل";
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(109, 26);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(106, 26);
             this.toolStripMenuItem2.Text = "خروج";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(59, 26);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(57, 25);
             this.toolStripMenuItem3.Text = "ویرایش";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(51, 26);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(50, 25);
             this.toolStripMenuItem4.Text = "راهنما";
             // 
             // statusStrip
             // 
             this.statusStrip.BackColor = System.Drawing.Color.OldLace;
-            this.statusStrip.Location = new System.Drawing.Point(0, 707);
+            this.statusStrip.Location = new System.Drawing.Point(0, 674);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(960, 22);
             this.statusStrip.SizingGrip = false;
@@ -122,10 +122,10 @@
             this.panelActions.Controls.Add(this.flowLayoutPanel3);
             this.panelActions.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelActions.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panelActions.Location = new System.Drawing.Point(0, 32);
-            this.panelActions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.panelActions.Location = new System.Drawing.Point(0, 25);
+            this.panelActions.Margin = new System.Windows.Forms.Padding(0);
             this.panelActions.Name = "panelActions";
-            this.panelActions.Size = new System.Drawing.Size(960, 81);
+            this.panelActions.Size = new System.Drawing.Size(960, 77);
             this.panelActions.TabIndex = 0;
             this.panelActions.Paint += new System.Windows.Forms.PaintEventHandler(this.panelActions_Paint);
             // 
@@ -139,7 +139,7 @@
             this.panelBtnCarReception.Location = new System.Drawing.Point(869, 3);
             this.panelBtnCarReception.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.panelBtnCarReception.Name = "panelBtnCarReception";
-            this.panelBtnCarReception.Size = new System.Drawing.Size(87, 68);
+            this.panelBtnCarReception.Size = new System.Drawing.Size(87, 65);
             this.panelBtnCarReception.TabIndex = 4;
             // 
             // btnCarReception
@@ -151,17 +151,17 @@
             this.btnCarReception.Location = new System.Drawing.Point(4, 3);
             this.btnCarReception.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCarReception.Name = "btnCarReception";
-            this.btnCarReception.Size = new System.Drawing.Size(79, 42);
+            this.btnCarReception.Size = new System.Drawing.Size(79, 40);
             this.btnCarReception.TabIndex = 2;
             this.btnCarReception.UseVisualStyleBackColor = true;
             // 
             // labelBtnCarReception
             // 
             this.labelBtnCarReception.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.labelBtnCarReception.Location = new System.Drawing.Point(4, 48);
+            this.labelBtnCarReception.Location = new System.Drawing.Point(4, 46);
             this.labelBtnCarReception.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelBtnCarReception.Name = "labelBtnCarReception";
-            this.labelBtnCarReception.Size = new System.Drawing.Size(79, 20);
+            this.labelBtnCarReception.Size = new System.Drawing.Size(79, 19);
             this.labelBtnCarReception.TabIndex = 1;
             this.labelBtnCarReception.Text = "پذیرش خودرو";
             this.labelBtnCarReception.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -176,7 +176,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(774, 3);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(87, 70);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(87, 67);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // btnCarsAll
@@ -188,16 +188,16 @@
             this.btnCarsAll.Location = new System.Drawing.Point(4, 3);
             this.btnCarsAll.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCarsAll.Name = "btnCarsAll";
-            this.btnCarsAll.Size = new System.Drawing.Size(79, 42);
+            this.btnCarsAll.Size = new System.Drawing.Size(79, 40);
             this.btnCarsAll.TabIndex = 2;
             this.btnCarsAll.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(4, 48);
+            this.label1.Location = new System.Drawing.Point(4, 46);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 22);
+            this.label1.Size = new System.Drawing.Size(79, 21);
             this.label1.TabIndex = 1;
             this.label1.Text = "همه خودروها";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -212,7 +212,7 @@
             this.flowLayoutPanel4.Location = new System.Drawing.Point(694, 3);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(72, 71);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(72, 68);
             this.flowLayoutPanel4.TabIndex = 9;
             // 
             // btnExpenses
@@ -224,17 +224,17 @@
             this.btnExpenses.Location = new System.Drawing.Point(4, 3);
             this.btnExpenses.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnExpenses.Name = "btnExpenses";
-            this.btnExpenses.Size = new System.Drawing.Size(64, 43);
+            this.btnExpenses.Size = new System.Drawing.Size(64, 41);
             this.btnExpenses.TabIndex = 2;
             this.btnExpenses.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 49);
+            this.label4.Location = new System.Drawing.Point(4, 47);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 22);
+            this.label4.Size = new System.Drawing.Size(64, 21);
             this.label4.TabIndex = 1;
             this.label4.Text = "هزینه ها";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -249,7 +249,7 @@
             this.flowLayoutPanel5.Location = new System.Drawing.Point(627, 3);
             this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(59, 70);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(59, 67);
             this.flowLayoutPanel5.TabIndex = 10;
             // 
             // button3
@@ -262,16 +262,16 @@
             this.button3.Location = new System.Drawing.Point(4, 3);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 42);
+            this.button3.Size = new System.Drawing.Size(51, 40);
             this.button3.TabIndex = 2;
             this.button3.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(4, 48);
+            this.label5.Location = new System.Drawing.Point(4, 46);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 22);
+            this.label5.Size = new System.Drawing.Size(51, 21);
             this.label5.TabIndex = 1;
             this.label5.Text = "گزارشات حسابداری";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -286,7 +286,7 @@
             this.flowLayoutPanel3.Location = new System.Drawing.Point(548, 3);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(71, 70);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(71, 67);
             this.flowLayoutPanel3.TabIndex = 7;
             // 
             // button1
@@ -299,16 +299,16 @@
             this.button1.Location = new System.Drawing.Point(4, 3);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(63, 42);
+            this.button1.Size = new System.Drawing.Size(63, 40);
             this.button1.TabIndex = 2;
             this.button1.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(4, 48);
+            this.label3.Location = new System.Drawing.Point(4, 46);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 22);
+            this.label3.Size = new System.Drawing.Size(63, 21);
             this.label3.TabIndex = 1;
             this.label3.Text = "تنظیمات";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -317,25 +317,25 @@
             // 
             this.panelView.BackColor = System.Drawing.Color.Transparent;
             this.panelView.BackgroundImage = global::AutoLedger.App.Properties.Resources.background;
-            this.panelView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panelView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panelView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelView.Location = new System.Drawing.Point(0, 113);
+            this.panelView.Location = new System.Drawing.Point(0, 102);
             this.panelView.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(960, 594);
+            this.panelView.Size = new System.Drawing.Size(960, 572);
             this.panelView.TabIndex = 7;
             // 
             // DashboardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OldLace;
-            this.ClientSize = new System.Drawing.Size(960, 729);
+            this.ClientSize = new System.Drawing.Size(960, 696);
             this.Controls.Add(this.panelView);
             this.Controls.Add(this.panelActions);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.toolbar);
-            this.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.Name = "DashboardForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

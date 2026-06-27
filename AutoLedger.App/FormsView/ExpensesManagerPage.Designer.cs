@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelFactor = new System.Windows.Forms.Panel();
             this.dgExpenses = new System.Windows.Forms.DataGridView();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,25 +40,25 @@
             this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.extra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
-            this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnEdit = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.btnFilterAllTimes = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnFilterMonth = new System.Windows.Forms.ToolStripButton();
-            this.btnFilterWeek = new System.Windows.Forms.ToolStripButton();
-            this.btnFilterToday = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.cbCount = new System.Windows.Forms.ToolStripComboBox();
-            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnNextPage = new System.Windows.Forms.ToolStripButton();
-            this.btnBackPage = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.labelDetails = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.labelTotalExpenses = new System.Windows.Forms.ToolStripLabel();
+            this.btnNew = new System.Windows.Forms.ToolStripButton();
+            this.btnEdit = new System.Windows.Forms.ToolStripButton();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.btnFilterAllTimes = new System.Windows.Forms.ToolStripButton();
+            this.btnFilterMonth = new System.Windows.Forms.ToolStripButton();
+            this.btnFilterWeek = new System.Windows.Forms.ToolStripButton();
+            this.btnFilterToday = new System.Windows.Forms.ToolStripButton();
+            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
+            this.btnNextPage = new System.Windows.Forms.ToolStripButton();
+            this.btnBackPage = new System.Windows.Forms.ToolStripButton();
             this.panelFactor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgExpenses)).BeginInit();
             this.BtnActionCurrentUser.SuspendLayout();
@@ -75,7 +75,7 @@
             this.panelFactor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelFactor.Name = "panelFactor";
             this.panelFactor.Padding = new System.Windows.Forms.Padding(5);
-            this.panelFactor.Size = new System.Drawing.Size(1076, 695);
+            this.panelFactor.Size = new System.Drawing.Size(1076, 663);
             this.panelFactor.TabIndex = 22;
             // 
             // dgExpenses
@@ -112,7 +112,7 @@
             this.dgExpenses.RowTemplate.Height = 40;
             this.dgExpenses.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgExpenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgExpenses.Size = new System.Drawing.Size(1066, 599);
+            this.dgExpenses.Size = new System.Drawing.Size(1066, 567);
             this.dgExpenses.TabIndex = 10;
             // 
             // Index
@@ -123,7 +123,7 @@
             this.Index.Name = "Index";
             this.Index.ReadOnly = true;
             this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Index.Width = 43;
+            this.Index.Width = 42;
             // 
             // Id
             // 
@@ -132,7 +132,7 @@
             this.Id.HeaderText = "شناسه";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
-            this.Id.Width = 69;
+            this.Id.Width = 66;
             // 
             // Title
             // 
@@ -141,7 +141,7 @@
             this.Title.HeaderText = "بابت";
             this.Title.Name = "Title";
             this.Title.ReadOnly = true;
-            this.Title.Width = 58;
+            this.Title.Width = 57;
             // 
             // Description
             // 
@@ -150,31 +150,31 @@
             this.Description.HeaderText = "توضیحات";
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
-            this.Description.Width = 84;
+            this.Description.Width = 79;
             // 
             // Amount
             // 
             this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Amount.DataPropertyName = "Amount";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.Format = "#,0 تومان";
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Format = "#,0 تومان";
+            this.Amount.DefaultCellStyle = dataGridViewCellStyle1;
             this.Amount.HeaderText = "مبلغ";
             this.Amount.Name = "Amount";
             this.Amount.ReadOnly = true;
-            this.Amount.Width = 59;
+            this.Amount.Width = 56;
             // 
             // CreatedAt
             // 
             this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CreatedAt.DataPropertyName = "CreatedAt";
-            dataGridViewCellStyle4.Format = "f";
-            dataGridViewCellStyle4.NullValue = null;
-            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Format = "f";
+            dataGridViewCellStyle2.NullValue = null;
+            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle2;
             this.CreatedAt.HeaderText = "تاریخ پرداخت";
             this.CreatedAt.Name = "CreatedAt";
             this.CreatedAt.ReadOnly = true;
-            this.CreatedAt.Width = 101;
+            this.CreatedAt.Width = 97;
             // 
             // extra
             // 
@@ -187,7 +187,7 @@
             // BtnActionCurrentUser
             // 
             this.BtnActionCurrentUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnActionCurrentUser.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.BtnActionCurrentUser.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.BtnActionCurrentUser.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.BtnActionCurrentUser.ImageScalingSize = new System.Drawing.Size(80, 80);
             this.BtnActionCurrentUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -209,6 +209,98 @@
             this.BtnActionCurrentUser.TabIndex = 16;
             this.BtnActionCurrentUser.Text = "toolStrip1";
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 33);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(5);
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 23);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(80, 80);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cbCount,
+            this.btnRefresh,
+            this.toolStripSeparator3,
+            this.btnNextPage,
+            this.btnBackPage,
+            this.toolStripSeparator1,
+            this.labelDetails,
+            this.toolStripSeparator4,
+            this.labelTotalExpenses});
+            this.toolStrip1.Location = new System.Drawing.Point(5, 615);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.toolStrip1.Size = new System.Drawing.Size(1066, 43);
+            this.toolStrip1.TabIndex = 17;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // cbCount
+            // 
+            this.cbCount.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.cbCount.DropDownHeight = 250;
+            this.cbCount.DropDownWidth = 80;
+            this.cbCount.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.cbCount.Font = new System.Drawing.Font("Vazirmatn SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCount.IntegralHeight = false;
+            this.cbCount.Items.AddRange(new object[] {
+            "50",
+            "100",
+            "200",
+            "300",
+            "400",
+            "500",
+            "600"});
+            this.cbCount.MaxDropDownItems = 10;
+            this.cbCount.Name = "cbCount";
+            this.cbCount.Size = new System.Drawing.Size(121, 33);
+            this.cbCount.Text = "تعداد ردیف";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 33);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 33);
+            // 
+            // labelDetails
+            // 
+            this.labelDetails.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.labelDetails.Name = "labelDetails";
+            this.labelDetails.Size = new System.Drawing.Size(20, 30);
+            this.labelDetails.Text = "..";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 33);
+            // 
+            // labelTotalExpenses
+            // 
+            this.labelTotalExpenses.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.labelTotalExpenses.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.labelTotalExpenses.Name = "labelTotalExpenses";
+            this.labelTotalExpenses.Size = new System.Drawing.Size(60, 30);
+            this.labelTotalExpenses.Text = "[جمع کل]";
+            // 
             // btnNew
             // 
             this.btnNew.AutoSize = false;
@@ -218,11 +310,6 @@
             this.btnNew.Size = new System.Drawing.Size(105, 30);
             this.btnNew.Text = "پرداخت جدید";
             this.btnNew.ToolTipText = "خرید جدید";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 33);
             // 
             // btnEdit
             // 
@@ -256,13 +343,6 @@
             this.btnFilterAllTimes.Size = new System.Drawing.Size(105, 30);
             this.btnFilterAllTimes.Text = "همه زمان ها";
             this.btnFilterAllTimes.ToolTipText = "همه";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(5);
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 23);
             // 
             // btnFilterMonth
             // 
@@ -301,52 +381,6 @@
             this.btnFilterToday.Text = "امروز";
             this.btnFilterToday.ToolTipText = "نتایج امروز فقط";
             // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(80, 80);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cbCount,
-            this.btnRefresh,
-            this.toolStripSeparator3,
-            this.btnNextPage,
-            this.btnBackPage,
-            this.toolStripSeparator1,
-            this.labelDetails,
-            this.toolStripSeparator4,
-            this.labelTotalExpenses});
-            this.toolStrip1.Location = new System.Drawing.Point(5, 647);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolStrip1.Size = new System.Drawing.Size(1066, 43);
-            this.toolStrip1.TabIndex = 17;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // cbCount
-            // 
-            this.cbCount.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.cbCount.DropDownHeight = 250;
-            this.cbCount.DropDownWidth = 80;
-            this.cbCount.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.cbCount.Font = new System.Drawing.Font("Vazirmatn SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCount.IntegralHeight = false;
-            this.cbCount.Items.AddRange(new object[] {
-            "50",
-            "100",
-            "200",
-            "300",
-            "400",
-            "500",
-            "600"});
-            this.cbCount.MaxDropDownItems = 10;
-            this.cbCount.Name = "cbCount";
-            this.cbCount.Size = new System.Drawing.Size(121, 33);
-            this.cbCount.Text = "تعداد ردیف";
-            // 
             // btnRefresh
             // 
             this.btnRefresh.AutoSize = false;
@@ -356,12 +390,6 @@
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(90, 30);
             this.btnRefresh.Text = "بروزرسانی";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 33);
             // 
             // btnNextPage
             // 
@@ -385,45 +413,17 @@
             this.btnBackPage.Size = new System.Drawing.Size(94, 30);
             this.btnBackPage.Text = "صفحه قبل";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 33);
-            // 
-            // labelDetails
-            // 
-            this.labelDetails.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.labelDetails.Name = "labelDetails";
-            this.labelDetails.Size = new System.Drawing.Size(20, 30);
-            this.labelDetails.Text = "..";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 33);
-            // 
-            // labelTotalExpenses
-            // 
-            this.labelTotalExpenses.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.labelTotalExpenses.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.labelTotalExpenses.Name = "labelTotalExpenses";
-            this.labelTotalExpenses.Size = new System.Drawing.Size(69, 30);
-            this.labelTotalExpenses.Text = "[جمع کل]";
-            // 
             // ExpensesManagerPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.Controls.Add(this.panelFactor);
-            this.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "ExpensesManagerPage";
             this.Padding = new System.Windows.Forms.Padding(2);
-            this.Size = new System.Drawing.Size(1080, 699);
+            this.Size = new System.Drawing.Size(1080, 667);
             this.panelFactor.ResumeLayout(false);
             this.panelFactor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgExpenses)).EndInit();

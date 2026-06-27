@@ -303,6 +303,16 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap credit_card_1281 {
+            get {
+                object obj = ResourceManager.GetObject("credit_card_1281", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap customer_form_background {
             get {
                 object obj = ResourceManager.GetObject("customer_form_background", resourceCulture);

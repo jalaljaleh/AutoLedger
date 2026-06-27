@@ -66,7 +66,7 @@ namespace AutoLedger.App.Forms
             this.panelLeft.Margin = new System.Windows.Forms.Padding(0);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Padding = new System.Windows.Forms.Padding(5);
-            this.panelLeft.Size = new System.Drawing.Size(925, 657);
+            this.panelLeft.Size = new System.Drawing.Size(839, 573);
             this.panelLeft.TabIndex = 18;
             // 
             // panelFactor
@@ -79,17 +79,17 @@ namespace AutoLedger.App.Forms
             this.panelFactor.Margin = new System.Windows.Forms.Padding(0);
             this.panelFactor.Name = "panelFactor";
             this.panelFactor.Padding = new System.Windows.Forms.Padding(5);
-            this.panelFactor.Size = new System.Drawing.Size(915, 594);
+            this.panelFactor.Size = new System.Drawing.Size(829, 512);
             this.panelFactor.TabIndex = 20;
             // 
             // paneldatagridExpenses
             // 
             this.paneldatagridExpenses.Controls.Add(this.dgCarExpenses);
             this.paneldatagridExpenses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.paneldatagridExpenses.Location = new System.Drawing.Point(5, 30);
+            this.paneldatagridExpenses.Location = new System.Drawing.Point(5, 29);
             this.paneldatagridExpenses.Name = "paneldatagridExpenses";
             this.paneldatagridExpenses.Padding = new System.Windows.Forms.Padding(5);
-            this.paneldatagridExpenses.Size = new System.Drawing.Size(905, 530);
+            this.paneldatagridExpenses.Size = new System.Drawing.Size(819, 449);
             this.paneldatagridExpenses.TabIndex = 19;
             // 
             // dgCarExpenses
@@ -118,7 +118,7 @@ namespace AutoLedger.App.Forms
             this.dgCarExpenses.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -132,7 +132,7 @@ namespace AutoLedger.App.Forms
             this.dgCarExpenses.RowTemplate.Height = 50;
             this.dgCarExpenses.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgCarExpenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgCarExpenses.Size = new System.Drawing.Size(895, 520);
+            this.dgCarExpenses.Size = new System.Drawing.Size(809, 439);
             this.dgCarExpenses.StandardTab = true;
             this.dgCarExpenses.TabIndex = 10;
             // 
@@ -146,7 +146,7 @@ namespace AutoLedger.App.Forms
             this.Index.Name = "Index";
             this.Index.ReadOnly = true;
             this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Index.Width = 56;
+            this.Index.Width = 52;
             // 
             // Id
             // 
@@ -159,7 +159,7 @@ namespace AutoLedger.App.Forms
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
             this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Id.Width = 69;
+            this.Id.Width = 66;
             // 
             // Title
             // 
@@ -167,7 +167,7 @@ namespace AutoLedger.App.Forms
             this.Title.DataPropertyName = "Title";
             this.Title.HeaderText = "بابت";
             this.Title.Name = "Title";
-            this.Title.Width = 58;
+            this.Title.Width = 57;
             // 
             // Description
             // 
@@ -204,7 +204,7 @@ namespace AutoLedger.App.Forms
             this.CreatedAt.HeaderText = "تاریخ ثبت";
             this.CreatedAt.Name = "CreatedAt";
             this.CreatedAt.ReadOnly = true;
-            this.CreatedAt.Width = 84;
+            this.CreatedAt.Width = 80;
             // 
             // UpdatedAt
             // 
@@ -218,7 +218,7 @@ namespace AutoLedger.App.Forms
             this.UpdatedAt.HeaderText = "آخرین ویرایش";
             this.UpdatedAt.Name = "UpdatedAt";
             this.UpdatedAt.ReadOnly = true;
-            this.UpdatedAt.Width = 105;
+            this.UpdatedAt.Width = 102;
             // 
             // BtnActionCurrentUser
             // 
@@ -231,11 +231,11 @@ namespace AutoLedger.App.Forms
             this.btnDeleteCurrentRequest,
             this.btnDeleteAllRequests,
             this.labelTotalCost});
-            this.BtnActionCurrentUser.Location = new System.Drawing.Point(5, 560);
+            this.BtnActionCurrentUser.Location = new System.Drawing.Point(5, 478);
             this.BtnActionCurrentUser.Name = "BtnActionCurrentUser";
             this.BtnActionCurrentUser.Padding = new System.Windows.Forms.Padding(0);
             this.BtnActionCurrentUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BtnActionCurrentUser.Size = new System.Drawing.Size(905, 29);
+            this.BtnActionCurrentUser.Size = new System.Drawing.Size(819, 29);
             this.BtnActionCurrentUser.TabIndex = 16;
             this.BtnActionCurrentUser.Text = "toolStrip1";
             // 
@@ -276,7 +276,7 @@ namespace AutoLedger.App.Forms
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(5, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(905, 25);
+            this.panelTop.Size = new System.Drawing.Size(819, 24);
             this.panelTop.TabIndex = 19;
             // 
             // inputReceptionId
@@ -296,7 +296,7 @@ namespace AutoLedger.App.Forms
             this.inputReceptionId.Placeholder = "[شماره فاکتور]";
             this.inputReceptionId.PlaceholderColor = System.Drawing.Color.Black;
             this.inputReceptionId.ShowClearButton = false;
-            this.inputReceptionId.Size = new System.Drawing.Size(95, 25);
+            this.inputReceptionId.Size = new System.Drawing.Size(95, 24);
             this.inputReceptionId.TabIndex = 11;
             this.inputReceptionId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -304,9 +304,9 @@ namespace AutoLedger.App.Forms
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Font = new System.Drawing.Font("Vazirmatn SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(536, 0);
+            this.label1.Location = new System.Drawing.Point(450, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(369, 25);
+            this.label1.Size = new System.Drawing.Size(369, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "فرم ثبت هزینه های تعمیر  تقویت خودرو";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -317,10 +317,10 @@ namespace AutoLedger.App.Forms
             this.panelBottom.Controls.Add(this.btnCancel);
             this.panelBottom.Controls.Add(this.btnSubmit);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(5, 599);
+            this.panelBottom.Location = new System.Drawing.Point(5, 517);
             this.panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(915, 53);
+            this.panelBottom.Size = new System.Drawing.Size(829, 51);
             this.panelBottom.TabIndex = 142;
             // 
             // btnCancel
@@ -336,10 +336,10 @@ namespace AutoLedger.App.Forms
             this.btnCancel.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
             this.btnCancel.Icon = global::AutoLedger.App.Properties.Resources.info_128;
             this.btnCancel.IconSize = 25;
-            this.btnCancel.Location = new System.Drawing.Point(626, 8);
+            this.btnCancel.Location = new System.Drawing.Point(540, 8);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnCancel.Size = new System.Drawing.Size(92, 39);
+            this.btnCancel.Size = new System.Drawing.Size(92, 37);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "لغو";
             this.btnCancel.UseVisualStyleBackColor = false;
@@ -357,10 +357,10 @@ namespace AutoLedger.App.Forms
             this.btnSubmit.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
             this.btnSubmit.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
             this.btnSubmit.IconSize = 25;
-            this.btnSubmit.Location = new System.Drawing.Point(724, 7);
+            this.btnSubmit.Location = new System.Drawing.Point(638, 7);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnSubmit.Size = new System.Drawing.Size(181, 40);
+            this.btnSubmit.Size = new System.Drawing.Size(181, 38);
             this.btnSubmit.TabIndex = 0;
             this.btnSubmit.Text = "ثبت مخارج خودرو";
             this.btnSubmit.UseVisualStyleBackColor = false;
@@ -381,13 +381,13 @@ namespace AutoLedger.App.Forms
             // 
             // CarReceptionExpenseForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 22F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(925, 657);
+            this.ClientSize = new System.Drawing.Size(839, 573);
             this.ControlBox = false;
             this.Controls.Add(this.panelLeft);
-            this.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MinimizeBox = false;
             this.Name = "CarReceptionExpenseForm";
