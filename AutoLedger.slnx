@@ -2,5 +2,6 @@
   <Project Path="AutoLedger.App/AutoLedger.App.csproj" Id="42e1adfb-a4b9-4aa1-a593-4d3069564303" />
   <Project Path="AutoLedger.Data/AutoLedger.Data.csproj" Id="889f807e-a628-4ca1-ad17-d6d1101f0a3e" />
   <Project Path="AutoLedger.Domain/AutoLedger.Domain.csproj" Id="aad952a5-6f6b-4083-8a39-1eef985b11c1" />
+  <Project Path="AutoLedger.Extensions/AutoLedger.Extensions.csproj" Id="857328f9-2e13-489a-8ca2-1c24023e0015" />
   <Project Path="AutoLedger.Test/AutoLedger.Test.csproj" Id="be9f4228-95b1-4885-a122-ff90c67bc857" />
 </Solution>

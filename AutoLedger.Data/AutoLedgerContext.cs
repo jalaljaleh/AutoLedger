@@ -33,6 +33,11 @@ namespace AutoLedger.Data
         public DbSet<CarReceptionRequest> CarReceptionsRequests { get; set; }
         public DbSet<CarReceptionExpense> CarReceptionsExpenses { get; set; }
 
+        public DbSet<Expense> Expenses { get; set; }
+        public DbSet<ExpenseCategory> ExpenseCategories { get; set; }
+
+
+
         public DbSet<MonthlySummary> MonthlySummaries { get; set; } 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -41,6 +46,10 @@ namespace AutoLedger.Data
             modelBuilder.Configurations.Add(new CarReceptionConfiguration());
             modelBuilder.Configurations.Add(new CarReceptionRequestsConfiguration());
             modelBuilder.Configurations.Add(new CarReceptionExpenseConfiguration());
+
+            modelBuilder.Configurations.Add(new ExpenseConfiguration());
+            modelBuilder.Configurations.Add(new ExpenseCategoryConfiguration());
+
 
             modelBuilder.Configurations.Add(new MonthlySummaryConfiguration());
 

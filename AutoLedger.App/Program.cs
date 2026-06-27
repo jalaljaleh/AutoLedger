@@ -22,28 +22,55 @@ namespace AutoLedger.App
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            using (var loading = new LoginForm()) 
+            {
+                loading.Show();
+                loading.Refresh(); 
 
-            var ci = new CultureInfo("fa-IR");
-        
-            ci.DateTimeFormat.Calendar = new System.Globalization.PersianCalendar();
-     
-            ci.DateTimeFormat.ShortDatePattern = "yyyy/MM/dd";
-            ci.DateTimeFormat.LongDatePattern = "dd MMMM yyyy";
+                bool connected = InitializeDatabaseSync().Result; 
 
-            CultureInfo.DefaultThreadCurrentCulture = ci;
-            CultureInfo.DefaultThreadCurrentUICulture = ci;
-            Thread.CurrentThread.CurrentCulture = ci;
-            Thread.CurrentThread.CurrentUICulture = ci;
+                loading.Close();
 
-            var loginResult = new LoginForm()
-                .ShowDialog();
+                if (!connected)
+                {
+                    MessageBox.Show(
+                        "خطا در اتصال به پایگاه داده رخ داده است.",
+                        "خطا",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error
+                    );
+                    return;
+                }
+            }
 
-            if (loginResult == DialogResult.OK)
-                Application.Run(new DashboardForm());
-            else
-                MessageBox.Show("خطا در اتصال به پایگاه داده رخ داده است. لطفا تنظیمات اتصال را بررسی کنید یا با توسعه دهنده نرم افزار تماس بگیرید..", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Application.Run(new DashboardForm());
         }
+
+        public static Task<bool> InitializeDatabaseSync()
+        {
+            try
+            {
+                using (AutoLedgerContext db = new AutoLedgerContext())
+                {
+                    //if ( db.Database.Exists())
+                    //  db.Database.Delete();
+
+                    db.Database.CreateIfNotExists();
+
+                }
+                return Task.FromResult(true);
+            }
+            catch
+            {
+                return Task.FromResult(false);
+            }
+        }
+
+
+
         public const string Version = "ویرایش بتا نسخه 1.0.0.1";
         public static bool IsDebugMode() => System.Diagnostics.Debugger.IsAttached;
+
+
     }
 }
