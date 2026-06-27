@@ -28,8 +28,6 @@ namespace AutoLedger.Data.Mapping
                 .HasPrecision(18, 2)
                 .IsRequired();
 
-            Property(e => e.IsRepeatAble)
-                .IsRequired();
 
             // FK → Category
             Property(e => e.CategoryId)

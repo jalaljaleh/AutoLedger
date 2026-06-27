@@ -17,8 +17,6 @@ namespace AutoLedger.Domain
         public string PaidTo { get; set; }
         public string PaymentMethod { get; set; }
 
-        public bool IsRepeatAble { get; set; }
-
         public int CategoryId { get; set; }
         public ExpenseCategory Category { get; set; }
 

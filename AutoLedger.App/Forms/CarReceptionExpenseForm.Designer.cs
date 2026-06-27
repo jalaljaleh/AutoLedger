@@ -19,23 +19,16 @@ namespace AutoLedger.App.Forms
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarReceptionExpenseForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarReceptionExpenseForm));
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panelFactor = new System.Windows.Forms.Panel();
             this.paneldatagridExpenses = new System.Windows.Forms.Panel();
             this.dgCarExpenses = new System.Windows.Forms.DataGridView();
-            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
             this.btnDeleteCurrentRequest = new System.Windows.Forms.ToolStripButton();
             this.btnDeleteAllRequests = new System.Windows.Forms.ToolStripButton();
@@ -47,6 +40,15 @@ namespace AutoLedger.App.Forms
             this.btnCancel = new AutoLedger.App.Controls.ModernButton();
             this.btnSubmit = new AutoLedger.App.Controls.ModernButton();
             this.labelTittle = new System.Windows.Forms.Label();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentMethod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelLeft.SuspendLayout();
             this.panelFactor.SuspendLayout();
             this.paneldatagridExpenses.SuspendLayout();
@@ -58,7 +60,6 @@ namespace AutoLedger.App.Forms
             // 
             // panelLeft
             // 
-            this.panelLeft.BackColor = System.Drawing.Color.Transparent;
             this.panelLeft.Controls.Add(this.panelFactor);
             this.panelLeft.Controls.Add(this.panelBottom);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -86,10 +87,10 @@ namespace AutoLedger.App.Forms
             // 
             this.paneldatagridExpenses.Controls.Add(this.dgCarExpenses);
             this.paneldatagridExpenses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.paneldatagridExpenses.Location = new System.Drawing.Point(5, 29);
+            this.paneldatagridExpenses.Location = new System.Drawing.Point(5, 55);
             this.paneldatagridExpenses.Name = "paneldatagridExpenses";
             this.paneldatagridExpenses.Padding = new System.Windows.Forms.Padding(5);
-            this.paneldatagridExpenses.Size = new System.Drawing.Size(819, 449);
+            this.paneldatagridExpenses.Size = new System.Drawing.Size(819, 423);
             this.paneldatagridExpenses.TabIndex = 19;
             // 
             // dgCarExpenses
@@ -105,6 +106,8 @@ namespace AutoLedger.App.Forms
             this.Title,
             this.Description,
             this.Amount,
+            this.PaidTo,
+            this.PaymentMethod,
             this.CreatedAt,
             this.UpdatedAt});
             this.dgCarExpenses.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -132,93 +135,9 @@ namespace AutoLedger.App.Forms
             this.dgCarExpenses.RowTemplate.Height = 50;
             this.dgCarExpenses.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgCarExpenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgCarExpenses.Size = new System.Drawing.Size(809, 439);
+            this.dgCarExpenses.Size = new System.Drawing.Size(809, 413);
             this.dgCarExpenses.StandardTab = true;
             this.dgCarExpenses.TabIndex = 10;
-            // 
-            // Index
-            // 
-            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle1.NullValue = "[سیستم]";
-            this.Index.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Index.HeaderText = "R";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Index.Width = 52;
-            // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle2.NullValue = "[سیستم]";
-            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Id.HeaderText = "شناسه";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Id.Width = 66;
-            // 
-            // Title
-            // 
-            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Title.DataPropertyName = "Title";
-            this.Title.HeaderText = "بابت";
-            this.Title.Name = "Title";
-            this.Title.Width = 57;
-            // 
-            // Description
-            // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "شرح";
-            this.Description.Name = "Description";
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Amount.DataPropertyName = "Amount";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.Format = "#,0 تومان";
-            dataGridViewCellStyle3.NullValue = "0";
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Amount.FillWeight = 200F;
-            this.Amount.HeaderText = "مبلغ";
-            this.Amount.MinimumWidth = 150;
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 150;
-            // 
-            // CreatedAt
-            // 
-            this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CreatedAt.DataPropertyName = "CreatedAt";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Vazirmatn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.NullValue = "[سیستم]";
-            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle4;
-            this.CreatedAt.HeaderText = "تاریخ ثبت";
-            this.CreatedAt.Name = "CreatedAt";
-            this.CreatedAt.ReadOnly = true;
-            this.CreatedAt.Width = 80;
-            // 
-            // UpdatedAt
-            // 
-            this.UpdatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UpdatedAt.DataPropertyName = "UpdatedAt";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.MistyRose;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Vazirmatn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.NullValue = "[سیستم]";
-            this.UpdatedAt.DefaultCellStyle = dataGridViewCellStyle5;
-            this.UpdatedAt.HeaderText = "آخرین ویرایش";
-            this.UpdatedAt.Name = "UpdatedAt";
-            this.UpdatedAt.ReadOnly = true;
-            this.UpdatedAt.Width = 102;
             // 
             // BtnActionCurrentUser
             // 
@@ -276,37 +195,35 @@ namespace AutoLedger.App.Forms
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(5, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(819, 24);
+            this.panelTop.Size = new System.Drawing.Size(819, 50);
             this.panelTop.TabIndex = 19;
             // 
             // inputReceptionId
             // 
-            this.inputReceptionId.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.inputReceptionId.BackColor = System.Drawing.Color.White;
+            this.inputReceptionId.AccentColor = System.Drawing.Color.Empty;
+            this.inputReceptionId.BackColor = System.Drawing.SystemColors.ControlLight;
             this.inputReceptionId.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.inputReceptionId.CornerRadius = 0;
+            this.inputReceptionId.CornerRadius = 5;
             this.inputReceptionId.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputReceptionId.Dock = System.Windows.Forms.DockStyle.Left;
             this.inputReceptionId.Enabled = false;
-            this.inputReceptionId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.inputReceptionId.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.inputReceptionId.HoverColor = System.Drawing.Color.Empty;
             this.inputReceptionId.Icon = null;
-            this.inputReceptionId.Location = new System.Drawing.Point(0, 0);
+            this.inputReceptionId.Location = new System.Drawing.Point(5, 3);
             this.inputReceptionId.Name = "inputReceptionId";
             this.inputReceptionId.Placeholder = "[شماره فاکتور]";
             this.inputReceptionId.PlaceholderColor = System.Drawing.Color.Black;
             this.inputReceptionId.ShowClearButton = false;
-            this.inputReceptionId.Size = new System.Drawing.Size(95, 24);
+            this.inputReceptionId.Size = new System.Drawing.Size(99, 40);
             this.inputReceptionId.TabIndex = 11;
             this.inputReceptionId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Vazirmatn SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(450, 0);
+            this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(369, 24);
+            this.label1.Size = new System.Drawing.Size(819, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "فرم ثبت هزینه های تعمیر  تقویت خودرو";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -379,6 +296,104 @@ namespace AutoLedger.App.Forms
             this.labelTittle.Text = "فهرست خدمات و هزینه ها";
             this.labelTittle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // Index
+            // 
+            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle1.NullValue = "[سیستم]";
+            this.Index.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Index.HeaderText = "R";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Index.Width = 62;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Id.DataPropertyName = "Id";
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle2.NullValue = "[سیستم]";
+            this.Id.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Id.HeaderText = "شناسه";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Id.Width = 66;
+            // 
+            // Title
+            // 
+            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Title.DataPropertyName = "Title";
+            this.Title.HeaderText = "بابت";
+            this.Title.Name = "Title";
+            this.Title.Width = 57;
+            // 
+            // Description
+            // 
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "شرح";
+            this.Description.Name = "Description";
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Amount.DataPropertyName = "Amount";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Format = "#,0 تومان";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.Amount.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Amount.FillWeight = 200F;
+            this.Amount.HeaderText = "مبلغ";
+            this.Amount.MinimumWidth = 150;
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 150;
+            // 
+            // PaidTo
+            // 
+            this.PaidTo.DataPropertyName = "PaidTo";
+            this.PaidTo.HeaderText = "پرداخت شده به";
+            this.PaidTo.Name = "PaidTo";
+            this.PaidTo.Width = 108;
+            // 
+            // PaymentMethod
+            // 
+            this.PaymentMethod.DataPropertyName = "PaymentMethod";
+            this.PaymentMethod.HeaderText = "شیوه پرداخت";
+            this.PaymentMethod.Name = "PaymentMethod";
+            this.PaymentMethod.Width = 99;
+            // 
+            // CreatedAt
+            // 
+            this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CreatedAt.DataPropertyName = "CreatedAt";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Vazirmatn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.NullValue = "[سیستم]";
+            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle4;
+            this.CreatedAt.HeaderText = "تاریخ ثبت";
+            this.CreatedAt.Name = "CreatedAt";
+            this.CreatedAt.ReadOnly = true;
+            this.CreatedAt.Width = 80;
+            // 
+            // UpdatedAt
+            // 
+            this.UpdatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UpdatedAt.DataPropertyName = "UpdatedAt";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.MistyRose;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Vazirmatn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.NullValue = "[سیستم]";
+            this.UpdatedAt.DefaultCellStyle = dataGridViewCellStyle5;
+            this.UpdatedAt.HeaderText = "آخرین ویرایش";
+            this.UpdatedAt.Name = "UpdatedAt";
+            this.UpdatedAt.ReadOnly = true;
+            this.UpdatedAt.Width = 102;
+            // 
             // CarReceptionExpenseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
@@ -440,13 +455,13 @@ namespace AutoLedger.App.Forms
         private ModernButton btnCancel;
         private Label label1;
         private ModernTextBox inputReceptionId;
-
-        // Columns for expenses grid
         private DataGridViewTextBoxColumn Index;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Title;
         private DataGridViewTextBoxColumn Description;
         private DataGridViewTextBoxColumn Amount;
+        private DataGridViewTextBoxColumn PaidTo;
+        private DataGridViewTextBoxColumn PaymentMethod;
         private DataGridViewTextBoxColumn CreatedAt;
         private DataGridViewTextBoxColumn UpdatedAt;
     }

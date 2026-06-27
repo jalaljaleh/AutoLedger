@@ -47,7 +47,7 @@ namespace AutoLedger.App.Forms
 
                     var expenss = db.CarReceptionsExpenses.Where(a => a.ReceptionId == this._reception.Id).ToList();
                     foreach (var exp in expenss)
-                        dgCarExpenses.Rows.Add(null, exp.Id, exp.Title, exp.Description, exp.Amount, exp.CreatedAt, exp.UpdatedAt);
+                        dgCarExpenses.Rows.Add(null, exp.Id, exp.Title, exp.Description, exp.Amount, exp.PaidTo, exp.PaymentMethod, exp.CreatedAt, exp.UpdatedAt);
                 }
             }
         }
@@ -100,6 +100,8 @@ namespace AutoLedger.App.Forms
                                     ex.Title = inc.Title;
                                     ex.Description = inc.Description;
                                     ex.Amount = Math.Max(0, inc.Amount);
+                                    ex.PaidTo = inc.PaidTo;
+                                    ex.PaymentMethod = inc.PaymentMethod;
                                     ex.UpdatedAt = DateTime.Now;
                                     ex.CreatedAt = inc.CreatedAt; // preserve original creation time
                                     db.Entry(ex).State = EntityState.Modified;
@@ -112,7 +114,10 @@ namespace AutoLedger.App.Forms
                                         Title = inc.Title,
                                         Description = inc.Description,
                                         Amount = Math.Max(0, inc.Amount),
+                                        PaidTo = inc.PaidTo,
+                                        PaymentMethod = inc.PaymentMethod,
                                         ReceptionId = reception.Id,
+                                        
                                     };
                                     db.CarReceptionsExpenses.Add(newReq);
                                 }
@@ -125,6 +130,8 @@ namespace AutoLedger.App.Forms
                                     Title = inc.Title,
                                     Description = inc.Description,
                                     Amount = Math.Max(0, inc.Amount),
+                                    PaidTo = inc.PaidTo,
+                                    PaymentMethod = inc.PaymentMethod,
                                     ReceptionId = reception.Id
                                 };
                                 db.CarReceptionsExpenses.Add(newReq);
@@ -167,7 +174,9 @@ namespace AutoLedger.App.Forms
                     CreatedAt = r.Cells["CreatedAt"].Value != null ? Convert.ToDateTime(r.Cells["CreatedAt"].Value) : DateTime.Now,
                     Title = r.Cells["Title"].Value != null ? r.Cells["Title"].Value.ToString().Trim() : "بدون عنوان",
                     Description = r.Cells["Description"].Value != null ? r.Cells["Description"].Value.ToString().Trim() : "بدون توضیح",
-                    Amount = r.Cells["Amount"].Value != null ? Convert.ToInt64(r.Cells["Amount"].Value) : 0
+                    Amount = r.Cells["Amount"].Value != null ? Convert.ToInt64(r.Cells["Amount"].Value) : 0,
+                    PaidTo = r.Cells["PaidTo"].Value != null ? r.Cells["PaidTo"].Value.ToString().Trim() : "[نامشخص]",
+                    PaymentMethod = r.Cells["PaymentMethod"].Value != null ? r.Cells["PaymentMethod"].Value.ToString().Trim() : "[نامعین]"
                 };
                 list.Add(req);
             }

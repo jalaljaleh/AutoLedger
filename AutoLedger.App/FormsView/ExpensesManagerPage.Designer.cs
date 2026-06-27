@@ -32,33 +32,35 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelFactor = new System.Windows.Forms.Panel();
             this.dgExpenses = new System.Windows.Forms.DataGridView();
-            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.extra = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
+            this.btnNew = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnEdit = new System.Windows.Forms.ToolStripButton();
+            this.btnDelete = new System.Windows.Forms.ToolStripButton();
+            this.btnFilterAllTimes = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnFilterMonth = new System.Windows.Forms.ToolStripButton();
+            this.btnFilterWeek = new System.Windows.Forms.ToolStripButton();
+            this.btnFilterToday = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.cbCount = new System.Windows.Forms.ToolStripComboBox();
+            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnNextPage = new System.Windows.Forms.ToolStripButton();
+            this.btnBackPage = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.labelDetails = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.labelTotalExpenses = new System.Windows.Forms.ToolStripLabel();
-            this.btnNew = new System.Windows.Forms.ToolStripButton();
-            this.btnEdit = new System.Windows.Forms.ToolStripButton();
-            this.btnDelete = new System.Windows.Forms.ToolStripButton();
-            this.btnFilterAllTimes = new System.Windows.Forms.ToolStripButton();
-            this.btnFilterMonth = new System.Windows.Forms.ToolStripButton();
-            this.btnFilterWeek = new System.Windows.Forms.ToolStripButton();
-            this.btnFilterToday = new System.Windows.Forms.ToolStripButton();
-            this.btnRefresh = new System.Windows.Forms.ToolStripButton();
-            this.btnNextPage = new System.Windows.Forms.ToolStripButton();
-            this.btnBackPage = new System.Windows.Forms.ToolStripButton();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentMethod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelFactor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgExpenses)).BeginInit();
             this.BtnActionCurrentUser.SuspendLayout();
@@ -88,12 +90,14 @@
             this.dgExpenses.ColumnHeadersHeight = 35;
             this.dgExpenses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Index,
-            this.Id,
+            this.Amount,
             this.Title,
             this.Description,
-            this.Amount,
+            this.PaidTo,
+            this.CategoryName,
+            this.PaymentMethod,
             this.CreatedAt,
-            this.extra});
+            this.Id});
             this.dgExpenses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgExpenses.GridColor = System.Drawing.Color.DimGray;
             this.dgExpenses.Location = new System.Drawing.Point(5, 48);
@@ -114,75 +118,6 @@
             this.dgExpenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgExpenses.Size = new System.Drawing.Size(1066, 567);
             this.dgExpenses.TabIndex = 10;
-            // 
-            // Index
-            // 
-            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Index.DataPropertyName = "Index";
-            this.Index.HeaderText = "R";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Index.Width = 42;
-            // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "شناسه";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 66;
-            // 
-            // Title
-            // 
-            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Title.DataPropertyName = "Title";
-            this.Title.HeaderText = "بابت";
-            this.Title.Name = "Title";
-            this.Title.ReadOnly = true;
-            this.Title.Width = 57;
-            // 
-            // Description
-            // 
-            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "توضیحات";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            this.Description.Width = 79;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Amount.DataPropertyName = "Amount";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.Format = "#,0 تومان";
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Amount.HeaderText = "مبلغ";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            this.Amount.Width = 56;
-            // 
-            // CreatedAt
-            // 
-            this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CreatedAt.DataPropertyName = "CreatedAt";
-            dataGridViewCellStyle2.Format = "f";
-            dataGridViewCellStyle2.NullValue = null;
-            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle2;
-            this.CreatedAt.HeaderText = "تاریخ پرداخت";
-            this.CreatedAt.Name = "CreatedAt";
-            this.CreatedAt.ReadOnly = true;
-            this.CreatedAt.Width = 97;
-            // 
-            // extra
-            // 
-            this.extra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.extra.HeaderText = "";
-            this.extra.Name = "extra";
-            this.extra.ReadOnly = true;
-            this.extra.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // BtnActionCurrentUser
             // 
@@ -209,10 +144,53 @@
             this.BtnActionCurrentUser.TabIndex = 16;
             this.BtnActionCurrentUser.Text = "toolStrip1";
             // 
+            // btnNew
+            // 
+            this.btnNew.AutoSize = false;
+            this.btnNew.Image = global::AutoLedger.App.Properties.Resources.credit_card_128;
+            this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(105, 30);
+            this.btnNew.Text = "پرداخت جدید";
+            this.btnNew.ToolTipText = "خرید جدید";
+            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 33);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.AutoSize = false;
+            this.btnEdit.Image = global::AutoLedger.App.Properties.Resources.four_squares_128;
+            this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(75, 30);
+            this.btnEdit.Text = "ویرایش";
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AutoSize = false;
+            this.btnDelete.Image = global::AutoLedger.App.Properties.Resources.erase_128;
+            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(70, 30);
+            this.btnDelete.Text = "حذف";
+            this.btnDelete.ToolTipText = "حذف";
+            // 
+            // btnFilterAllTimes
+            // 
+            this.btnFilterAllTimes.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnFilterAllTimes.AutoSize = false;
+            this.btnFilterAllTimes.Image = global::AutoLedger.App.Properties.Resources.today_1281;
+            this.btnFilterAllTimes.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFilterAllTimes.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.btnFilterAllTimes.Name = "btnFilterAllTimes";
+            this.btnFilterAllTimes.Size = new System.Drawing.Size(105, 30);
+            this.btnFilterAllTimes.Text = "همه زمان ها";
+            this.btnFilterAllTimes.ToolTipText = "همه";
             // 
             // toolStripSeparator2
             // 
@@ -220,6 +198,43 @@
             this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(5);
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 23);
+            // 
+            // btnFilterMonth
+            // 
+            this.btnFilterMonth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnFilterMonth.AutoSize = false;
+            this.btnFilterMonth.Image = global::AutoLedger.App.Properties.Resources.calendar_week30_128;
+            this.btnFilterMonth.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFilterMonth.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.btnFilterMonth.Name = "btnFilterMonth";
+            this.btnFilterMonth.Size = new System.Drawing.Size(80, 30);
+            this.btnFilterMonth.Text = "ماه اخیر";
+            this.btnFilterMonth.ToolTipText = "ماه اخیر";
+            // 
+            // btnFilterWeek
+            // 
+            this.btnFilterWeek.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnFilterWeek.AutoSize = false;
+            this.btnFilterWeek.Image = global::AutoLedger.App.Properties.Resources.calendar_7_128;
+            this.btnFilterWeek.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFilterWeek.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.btnFilterWeek.Name = "btnFilterWeek";
+            this.btnFilterWeek.Size = new System.Drawing.Size(90, 30);
+            this.btnFilterWeek.Text = "هفته اخیر";
+            this.btnFilterWeek.ToolTipText = "نتایج امروز فقط";
+            // 
+            // btnFilterToday
+            // 
+            this.btnFilterToday.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.btnFilterToday.AutoSize = false;
+            this.btnFilterToday.Image = global::AutoLedger.App.Properties.Resources.calendar_1_128;
+            this.btnFilterToday.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFilterToday.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.btnFilterToday.Name = "btnFilterToday";
+            this.btnFilterToday.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnFilterToday.Size = new System.Drawing.Size(65, 30);
+            this.btnFilterToday.Text = "امروز";
+            this.btnFilterToday.ToolTipText = "نتایج امروز فقط";
             // 
             // toolStrip1
             // 
@@ -267,11 +282,43 @@
             this.cbCount.Size = new System.Drawing.Size(121, 33);
             this.cbCount.Text = "تعداد ردیف";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.AutoSize = false;
+            this.btnRefresh.Image = global::AutoLedger.App.Properties.Resources.sync_128;
+            this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(90, 30);
+            this.btnRefresh.Text = "بروزرسانی";
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 33);
+            // 
+            // btnNextPage
+            // 
+            this.btnNextPage.AutoSize = false;
+            this.btnNextPage.Image = global::AutoLedger.App.Properties.Resources.next;
+            this.btnNextPage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNextPage.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.btnNextPage.Name = "btnNextPage";
+            this.btnNextPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnNextPage.Size = new System.Drawing.Size(92, 30);
+            this.btnNextPage.Text = "صفحه بعد";
+            // 
+            // btnBackPage
+            // 
+            this.btnBackPage.AutoSize = false;
+            this.btnBackPage.Image = global::AutoLedger.App.Properties.Resources.back;
+            this.btnBackPage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBackPage.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.btnBackPage.Name = "btnBackPage";
+            this.btnBackPage.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnBackPage.Size = new System.Drawing.Size(94, 30);
+            this.btnBackPage.Text = "صفحه قبل";
             // 
             // toolStripSeparator1
             // 
@@ -301,117 +348,91 @@
             this.labelTotalExpenses.Size = new System.Drawing.Size(60, 30);
             this.labelTotalExpenses.Text = "[جمع کل]";
             // 
-            // btnNew
+            // Index
             // 
-            this.btnNew.AutoSize = false;
-            this.btnNew.Image = global::AutoLedger.App.Properties.Resources.credit_card_128;
-            this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(105, 30);
-            this.btnNew.Text = "پرداخت جدید";
-            this.btnNew.ToolTipText = "خرید جدید";
+            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Index.HeaderText = "R";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Index.Width = 42;
             // 
-            // btnEdit
+            // Amount
             // 
-            this.btnEdit.AutoSize = false;
-            this.btnEdit.Image = global::AutoLedger.App.Properties.Resources.four_squares_128;
-            this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 30);
-            this.btnEdit.Text = "ویرایش";
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Amount.DataPropertyName = "Amount";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Format = "#,0 تومان";
+            this.Amount.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Amount.HeaderText = "مبلغ";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            this.Amount.Width = 56;
             // 
-            // btnDelete
+            // Title
             // 
-            this.btnDelete.AutoSize = false;
-            this.btnDelete.Image = global::AutoLedger.App.Properties.Resources.erase_128;
-            this.btnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(70, 30);
-            this.btnDelete.Text = "حذف";
-            this.btnDelete.ToolTipText = "حذف";
+            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Title.DataPropertyName = "Title";
+            this.Title.HeaderText = "بابت";
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            this.Title.Width = 57;
             // 
-            // btnFilterAllTimes
+            // Description
             // 
-            this.btnFilterAllTimes.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnFilterAllTimes.AutoSize = false;
-            this.btnFilterAllTimes.Image = global::AutoLedger.App.Properties.Resources.today_1281;
-            this.btnFilterAllTimes.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFilterAllTimes.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnFilterAllTimes.Name = "btnFilterAllTimes";
-            this.btnFilterAllTimes.Size = new System.Drawing.Size(105, 30);
-            this.btnFilterAllTimes.Text = "همه زمان ها";
-            this.btnFilterAllTimes.ToolTipText = "همه";
+            this.Description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "توضیحات";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
             // 
-            // btnFilterMonth
+            // PaidTo
             // 
-            this.btnFilterMonth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnFilterMonth.AutoSize = false;
-            this.btnFilterMonth.Image = global::AutoLedger.App.Properties.Resources.calendar_week30_128;
-            this.btnFilterMonth.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFilterMonth.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnFilterMonth.Name = "btnFilterMonth";
-            this.btnFilterMonth.Size = new System.Drawing.Size(80, 30);
-            this.btnFilterMonth.Text = "ماه اخیر";
-            this.btnFilterMonth.ToolTipText = "ماه اخیر";
+            this.PaidTo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PaidTo.DataPropertyName = "PaidTo";
+            this.PaidTo.HeaderText = "پرداخت به";
+            this.PaidTo.Name = "PaidTo";
+            this.PaidTo.ReadOnly = true;
+            this.PaidTo.Width = 84;
             // 
-            // btnFilterWeek
+            // CategoryName
             // 
-            this.btnFilterWeek.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnFilterWeek.AutoSize = false;
-            this.btnFilterWeek.Image = global::AutoLedger.App.Properties.Resources.calendar_7_128;
-            this.btnFilterWeek.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFilterWeek.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnFilterWeek.Name = "btnFilterWeek";
-            this.btnFilterWeek.Size = new System.Drawing.Size(90, 30);
-            this.btnFilterWeek.Text = "هفته اخیر";
-            this.btnFilterWeek.ToolTipText = "نتایج امروز فقط";
+            this.CategoryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CategoryName.DataPropertyName = "CategoryName";
+            this.CategoryName.HeaderText = "دسته بندی";
+            this.CategoryName.Name = "CategoryName";
+            this.CategoryName.ReadOnly = true;
+            this.CategoryName.Width = 86;
             // 
-            // btnFilterToday
+            // PaymentMethod
             // 
-            this.btnFilterToday.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnFilterToday.AutoSize = false;
-            this.btnFilterToday.Image = global::AutoLedger.App.Properties.Resources.calendar_1_128;
-            this.btnFilterToday.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFilterToday.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnFilterToday.Name = "btnFilterToday";
-            this.btnFilterToday.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnFilterToday.Size = new System.Drawing.Size(65, 30);
-            this.btnFilterToday.Text = "امروز";
-            this.btnFilterToday.ToolTipText = "نتایج امروز فقط";
+            this.PaymentMethod.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.PaymentMethod.DataPropertyName = "PaymentMethod";
+            this.PaymentMethod.HeaderText = "شیوه پرداخت";
+            this.PaymentMethod.Name = "PaymentMethod";
+            this.PaymentMethod.ReadOnly = true;
+            this.PaymentMethod.Width = 99;
             // 
-            // btnRefresh
+            // CreatedAt
             // 
-            this.btnRefresh.AutoSize = false;
-            this.btnRefresh.Image = global::AutoLedger.App.Properties.Resources.sync_128;
-            this.btnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(90, 30);
-            this.btnRefresh.Text = "بروزرسانی";
+            this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CreatedAt.DataPropertyName = "CreatedAt";
+            dataGridViewCellStyle2.Format = "f";
+            dataGridViewCellStyle2.NullValue = null;
+            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle2;
+            this.CreatedAt.HeaderText = "تاریخ پرداخت";
+            this.CreatedAt.Name = "CreatedAt";
+            this.CreatedAt.ReadOnly = true;
+            this.CreatedAt.Width = 97;
             // 
-            // btnNextPage
+            // Id
             // 
-            this.btnNextPage.AutoSize = false;
-            this.btnNextPage.Image = global::AutoLedger.App.Properties.Resources.next;
-            this.btnNextPage.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNextPage.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnNextPage.Name = "btnNextPage";
-            this.btnNextPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnNextPage.Size = new System.Drawing.Size(92, 30);
-            this.btnNextPage.Text = "صفحه بعد";
-            // 
-            // btnBackPage
-            // 
-            this.btnBackPage.AutoSize = false;
-            this.btnBackPage.Image = global::AutoLedger.App.Properties.Resources.back;
-            this.btnBackPage.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBackPage.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnBackPage.Name = "btnBackPage";
-            this.btnBackPage.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnBackPage.Size = new System.Drawing.Size(94, 30);
-            this.btnBackPage.Text = "صفحه قبل";
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "شناسه";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 66;
             // 
             // ExpensesManagerPage
             // 
@@ -456,16 +477,17 @@
         private System.Windows.Forms.ToolStripButton btnFilterWeek;
         private System.Windows.Forms.ToolStripButton btnFilterMonth;
         private System.Windows.Forms.ToolStripButton btnFilterAllTimes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Index;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedAt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn extra;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripLabel labelTotalExpenses;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-
+        private System.Windows.Forms.DataGridViewTextBoxColumn Index;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaidTo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PaymentMethod;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedAt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
     }
 }

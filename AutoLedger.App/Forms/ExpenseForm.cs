@@ -226,7 +226,6 @@ namespace AutoLedger.App.Forms
                             ExpenseDate = DateTime.Now,
                             CreatedAt = DateTime.Now,
                             UpdatedAt = DateTime.Now,
-                            IsRepeatAble = false
                         };
 
                         db.Expenses.Add(expense);
