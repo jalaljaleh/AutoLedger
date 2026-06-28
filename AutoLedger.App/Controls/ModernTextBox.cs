@@ -421,13 +421,20 @@ namespace AutoLedger.App.Controls
 
         private Rectangle GetSelectionRectangle(Graphics g, Rectangle textRect, int selStart, int selLen)
         {
-            if (selLen <= 0) return Rectangle.Empty;
-            string before = _text.Substring(0, selStart);
-            string sel = _text.Substring(selStart, selLen);
+            try
+            {
+                if (selLen <= 0) return Rectangle.Empty;
+                string before = _text.Substring(0, selStart);
+                string sel = _text.Substring(selStart, selLen);
 
-            int x1 = GetCaretX(g, textRect, before.Length);
-            int x2 = GetCaretX(g, textRect, before.Length + sel.Length);
-            return new Rectangle(Math.Min(x1, x2), textRect.Top + 2, Math.Abs(x2 - x1), textRect.Height - 4);
+                int x1 = GetCaretX(g, textRect, before.Length);
+                int x2 = GetCaretX(g, textRect, before.Length + sel.Length);
+                return new Rectangle(Math.Min(x1, x2), textRect.Top + 2, Math.Abs(x2 - x1), textRect.Height - 4);
+            }
+            catch
+            {
+                return Rectangle.Empty;
+            }
         }
 
         private int GetCaretX(Graphics g, Rectangle textRect, int charIndex)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -14,11 +15,12 @@ namespace AutoLedger.Domain
         public int Month { get; set; }
         public int Day { get; set; }
 
-        public decimal TotalRevenue { get; set; } 
-        public decimal TotalExpenses { get; set; } 
-        public int TotalReceptions { get; set; }
+        public decimal Revenue { get; set; }
+        public decimal Expenses { get; set; }
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        public decimal Profit { get => Revenue - Expenses; }
     }
 
 

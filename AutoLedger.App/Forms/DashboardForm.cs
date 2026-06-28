@@ -12,6 +12,7 @@ namespace AutoLedger.App.Forms
         private CarsManagerPage _carsManagerPage;
         private CarsManagerPage _carsManagerCurrentPage;
         private ExpensesManagerPage _expensesManagerPage;
+        private AccountingReportsPage _accountingReportsPage;
 
         public DashboardForm()
         {
@@ -20,6 +21,7 @@ namespace AutoLedger.App.Forms
             btnCarReception.Click += BtnNewCar_Click;
             btnCarsAll.Click += ViewButtons_Click;
             btnExpenses.Click += ViewButtons_Click;
+            btnAccountingReports.Click += ViewButtons_Click;
         }
 
         private void ViewButtons_Click(object sender, EventArgs e)
@@ -40,6 +42,13 @@ namespace AutoLedger.App.Forms
                         _expensesManagerPage = new ExpensesManagerPage();
                     ShowControl(_expensesManagerPage);
                     break;
+
+                case "btnAccountingReports":
+                    if (_accountingReportsPage == null)
+                        _accountingReportsPage = new AccountingReportsPage();
+                    ShowControl(_accountingReportsPage);
+                    break;
+
             }
         }
 

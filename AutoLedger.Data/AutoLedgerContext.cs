@@ -1,8 +1,10 @@
 ﻿using AutoLedger.Data.Mapping;
+using AutoLedger.Data.Services;
 using AutoLedger.Domain;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Data.SQLite.EF6;
 using System.IO;
 using System.Linq;
@@ -13,6 +15,8 @@ namespace AutoLedger.Data
 {
     public class AutoLedgerContext : DbContext
     {
+        private readonly SummaryService _summaryService;
+
         //public AutoLedgerContext()
         //    : base(@"Data Source=.\SQLEXPRESS2014;
         //     Initial Catalog=IronTuning;
@@ -26,7 +30,7 @@ namespace AutoLedger.Data
                       Integrated Security=True;
                       Connect Timeout=30")
         {
-
+            _summaryService = new SummaryService(this);
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarReception> CarReceptions { get; set; }
@@ -35,7 +39,6 @@ namespace AutoLedger.Data
 
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<ExpenseCategory> ExpenseCategories { get; set; }
-
 
 
         public DbSet<MonthlySummary> MonthlySummaries { get; set; } 
@@ -55,7 +58,26 @@ namespace AutoLedger.Data
 
             this.Configuration.LazyLoadingEnabled = false;
 
-            base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(modelBuilder);         
         }
+
+
+        public override int SaveChanges()
+        {
+            var changedEntries = ChangeTracker.Entries()
+                .Where(e =>
+                    (e.Entity is Expense || e.Entity is CarReception) &&
+                    (e.State == EntityState.Added || e.State == EntityState.Modified || e.State == EntityState.Deleted))
+                .ToList();
+
+            foreach (var entry in changedEntries)
+                _summaryService.ApplyEntrySummary(entry);
+
+            return base.SaveChanges();
+        }
+
+
+
+
     }
 }

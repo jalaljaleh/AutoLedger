@@ -19,16 +19,25 @@ namespace AutoLedger.App.Forms
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarReceptionExpenseForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarReceptionExpenseForm));
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panelFactor = new System.Windows.Forms.Panel();
             this.paneldatagridExpenses = new System.Windows.Forms.Panel();
             this.dgCarExpenses = new System.Windows.Forms.DataGridView();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaidTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentMethod = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
             this.btnDeleteCurrentRequest = new System.Windows.Forms.ToolStripButton();
             this.btnDeleteAllRequests = new System.Windows.Forms.ToolStripButton();
@@ -40,15 +49,6 @@ namespace AutoLedger.App.Forms
             this.btnCancel = new AutoLedger.App.Controls.ModernButton();
             this.btnSubmit = new AutoLedger.App.Controls.ModernButton();
             this.labelTittle = new System.Windows.Forms.Label();
-            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaidTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaymentMethod = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelLeft.SuspendLayout();
             this.panelFactor.SuspendLayout();
             this.paneldatagridExpenses.SuspendLayout();
@@ -80,17 +80,17 @@ namespace AutoLedger.App.Forms
             this.panelFactor.Margin = new System.Windows.Forms.Padding(0);
             this.panelFactor.Name = "panelFactor";
             this.panelFactor.Padding = new System.Windows.Forms.Padding(5);
-            this.panelFactor.Size = new System.Drawing.Size(829, 512);
+            this.panelFactor.Size = new System.Drawing.Size(829, 516);
             this.panelFactor.TabIndex = 20;
             // 
             // paneldatagridExpenses
             // 
             this.paneldatagridExpenses.Controls.Add(this.dgCarExpenses);
             this.paneldatagridExpenses.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.paneldatagridExpenses.Location = new System.Drawing.Point(5, 55);
+            this.paneldatagridExpenses.Location = new System.Drawing.Point(5, 41);
             this.paneldatagridExpenses.Name = "paneldatagridExpenses";
             this.paneldatagridExpenses.Padding = new System.Windows.Forms.Padding(5);
-            this.paneldatagridExpenses.Size = new System.Drawing.Size(819, 423);
+            this.paneldatagridExpenses.Size = new System.Drawing.Size(819, 441);
             this.paneldatagridExpenses.TabIndex = 19;
             // 
             // dgCarExpenses
@@ -135,166 +135,9 @@ namespace AutoLedger.App.Forms
             this.dgCarExpenses.RowTemplate.Height = 50;
             this.dgCarExpenses.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgCarExpenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgCarExpenses.Size = new System.Drawing.Size(809, 413);
+            this.dgCarExpenses.Size = new System.Drawing.Size(809, 431);
             this.dgCarExpenses.StandardTab = true;
             this.dgCarExpenses.TabIndex = 10;
-            // 
-            // BtnActionCurrentUser
-            // 
-            this.BtnActionCurrentUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnActionCurrentUser.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnActionCurrentUser.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnActionCurrentUser.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.BtnActionCurrentUser.ImageScalingSize = new System.Drawing.Size(80, 80);
-            this.BtnActionCurrentUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnDeleteCurrentRequest,
-            this.btnDeleteAllRequests,
-            this.labelTotalCost});
-            this.BtnActionCurrentUser.Location = new System.Drawing.Point(5, 478);
-            this.BtnActionCurrentUser.Name = "BtnActionCurrentUser";
-            this.BtnActionCurrentUser.Padding = new System.Windows.Forms.Padding(0);
-            this.BtnActionCurrentUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BtnActionCurrentUser.Size = new System.Drawing.Size(819, 29);
-            this.BtnActionCurrentUser.TabIndex = 16;
-            this.BtnActionCurrentUser.Text = "toolStrip1";
-            // 
-            // btnDeleteCurrentRequest
-            // 
-            this.btnDeleteCurrentRequest.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnDeleteCurrentRequest.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnDeleteCurrentRequest.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnDeleteCurrentRequest.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteCurrentRequest.Image")));
-            this.btnDeleteCurrentRequest.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDeleteCurrentRequest.Name = "btnDeleteCurrentRequest";
-            this.btnDeleteCurrentRequest.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnDeleteCurrentRequest.Size = new System.Drawing.Size(52, 26);
-            this.btnDeleteCurrentRequest.Text = "حذف";
-            // 
-            // btnDeleteAllRequests
-            // 
-            this.btnDeleteAllRequests.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnDeleteAllRequests.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnDeleteAllRequests.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnDeleteAllRequests.Name = "btnDeleteAllRequests";
-            this.btnDeleteAllRequests.Size = new System.Drawing.Size(68, 26);
-            this.btnDeleteAllRequests.Text = "حذف همه";
-            // 
-            // labelTotalCost
-            // 
-            this.labelTotalCost.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.labelTotalCost.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalCost.Name = "labelTotalCost";
-            this.labelTotalCost.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelTotalCost.Size = new System.Drawing.Size(92, 26);
-            this.labelTotalCost.Text = "[جمع کل هزینه]";
-            // 
-            // panelTop
-            // 
-            this.panelTop.Controls.Add(this.inputReceptionId);
-            this.panelTop.Controls.Add(this.label1);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(5, 5);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(819, 50);
-            this.panelTop.TabIndex = 19;
-            // 
-            // inputReceptionId
-            // 
-            this.inputReceptionId.AccentColor = System.Drawing.Color.Empty;
-            this.inputReceptionId.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.inputReceptionId.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.inputReceptionId.CornerRadius = 5;
-            this.inputReceptionId.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputReceptionId.Enabled = false;
-            this.inputReceptionId.HoverColor = System.Drawing.Color.Empty;
-            this.inputReceptionId.Icon = null;
-            this.inputReceptionId.Location = new System.Drawing.Point(5, 3);
-            this.inputReceptionId.Name = "inputReceptionId";
-            this.inputReceptionId.Placeholder = "[شماره فاکتور]";
-            this.inputReceptionId.PlaceholderColor = System.Drawing.Color.Black;
-            this.inputReceptionId.ShowClearButton = false;
-            this.inputReceptionId.Size = new System.Drawing.Size(99, 40);
-            this.inputReceptionId.TabIndex = 11;
-            this.inputReceptionId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Vazirmatn SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(819, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "فرم ثبت هزینه های تعمیر  تقویت خودرو";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // panelBottom
-            // 
-            this.panelBottom.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelBottom.Controls.Add(this.btnCancel);
-            this.panelBottom.Controls.Add(this.btnSubmit);
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(5, 517);
-            this.panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(829, 51);
-            this.panelBottom.TabIndex = 142;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.btnCancel.BaseBackColor = System.Drawing.SystemColors.ScrollBar;
-            this.btnCancel.BorderColor = System.Drawing.Color.Transparent;
-            this.btnCancel.FlatAppearance.BorderSize = 0;
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.btnCancel.Icon = global::AutoLedger.App.Properties.Resources.info_128;
-            this.btnCancel.IconSize = 25;
-            this.btnCancel.Location = new System.Drawing.Point(540, 8);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnCancel.Size = new System.Drawing.Size(92, 37);
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "لغو";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.btnSubmit.BaseBackColor = System.Drawing.Color.SeaGreen;
-            this.btnSubmit.BorderColor = System.Drawing.Color.Transparent;
-            this.btnSubmit.FlatAppearance.BorderSize = 0;
-            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSubmit.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.btnSubmit.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
-            this.btnSubmit.IconSize = 25;
-            this.btnSubmit.Location = new System.Drawing.Point(638, 7);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnSubmit.Size = new System.Drawing.Size(181, 38);
-            this.btnSubmit.TabIndex = 0;
-            this.btnSubmit.Text = "ثبت مخارج خودرو";
-            this.btnSubmit.UseVisualStyleBackColor = false;
-            // 
-            // labelTittle
-            // 
-            this.labelTittle.BackColor = System.Drawing.Color.Transparent;
-            this.labelTittle.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.labelTittle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelTittle.Location = new System.Drawing.Point(429, 1);
-            this.labelTittle.Margin = new System.Windows.Forms.Padding(10, 17, 10, 17);
-            this.labelTittle.Name = "labelTittle";
-            this.labelTittle.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.labelTittle.Size = new System.Drawing.Size(454, 35);
-            this.labelTittle.TabIndex = 17;
-            this.labelTittle.Text = "فهرست خدمات و هزینه ها";
-            this.labelTittle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // Index
             // 
@@ -306,7 +149,7 @@ namespace AutoLedger.App.Forms
             this.Index.Name = "Index";
             this.Index.ReadOnly = true;
             this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Index.Width = 62;
+            this.Index.Width = 52;
             // 
             // Id
             // 
@@ -393,6 +236,164 @@ namespace AutoLedger.App.Forms
             this.UpdatedAt.Name = "UpdatedAt";
             this.UpdatedAt.ReadOnly = true;
             this.UpdatedAt.Width = 102;
+            // 
+            // BtnActionCurrentUser
+            // 
+            this.BtnActionCurrentUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnActionCurrentUser.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnActionCurrentUser.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnActionCurrentUser.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.BtnActionCurrentUser.ImageScalingSize = new System.Drawing.Size(80, 80);
+            this.BtnActionCurrentUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnDeleteCurrentRequest,
+            this.btnDeleteAllRequests,
+            this.labelTotalCost});
+            this.BtnActionCurrentUser.Location = new System.Drawing.Point(5, 482);
+            this.BtnActionCurrentUser.Name = "BtnActionCurrentUser";
+            this.BtnActionCurrentUser.Padding = new System.Windows.Forms.Padding(0);
+            this.BtnActionCurrentUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.BtnActionCurrentUser.Size = new System.Drawing.Size(819, 29);
+            this.BtnActionCurrentUser.TabIndex = 16;
+            this.BtnActionCurrentUser.Text = "toolStrip1";
+            // 
+            // btnDeleteCurrentRequest
+            // 
+            this.btnDeleteCurrentRequest.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnDeleteCurrentRequest.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnDeleteCurrentRequest.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteCurrentRequest.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteCurrentRequest.Image")));
+            this.btnDeleteCurrentRequest.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDeleteCurrentRequest.Name = "btnDeleteCurrentRequest";
+            this.btnDeleteCurrentRequest.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnDeleteCurrentRequest.Size = new System.Drawing.Size(52, 26);
+            this.btnDeleteCurrentRequest.Text = "حذف";
+            // 
+            // btnDeleteAllRequests
+            // 
+            this.btnDeleteAllRequests.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnDeleteAllRequests.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnDeleteAllRequests.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteAllRequests.Name = "btnDeleteAllRequests";
+            this.btnDeleteAllRequests.Size = new System.Drawing.Size(68, 26);
+            this.btnDeleteAllRequests.Text = "حذف همه";
+            // 
+            // labelTotalCost
+            // 
+            this.labelTotalCost.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.labelTotalCost.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalCost.Name = "labelTotalCost";
+            this.labelTotalCost.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelTotalCost.Size = new System.Drawing.Size(92, 26);
+            this.labelTotalCost.Text = "[جمع کل هزینه]";
+            // 
+            // panelTop
+            // 
+            this.panelTop.Controls.Add(this.inputReceptionId);
+            this.panelTop.Controls.Add(this.label1);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(5, 5);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(819, 36);
+            this.panelTop.TabIndex = 19;
+            // 
+            // inputReceptionId
+            // 
+            this.inputReceptionId.AccentColor = System.Drawing.Color.Empty;
+            this.inputReceptionId.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.inputReceptionId.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.inputReceptionId.CornerRadius = 5;
+            this.inputReceptionId.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputReceptionId.Enabled = false;
+            this.inputReceptionId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.inputReceptionId.HoverColor = System.Drawing.Color.Empty;
+            this.inputReceptionId.Icon = null;
+            this.inputReceptionId.Location = new System.Drawing.Point(5, 1);
+            this.inputReceptionId.Name = "inputReceptionId";
+            this.inputReceptionId.Placeholder = "[شماره فاکتور]";
+            this.inputReceptionId.PlaceholderColor = System.Drawing.Color.Black;
+            this.inputReceptionId.ShowClearButton = false;
+            this.inputReceptionId.Size = new System.Drawing.Size(99, 31);
+            this.inputReceptionId.TabIndex = 11;
+            this.inputReceptionId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Vazirmatn SemiBold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(819, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "فرم ثبت هزینه های تعمیر  تقویت خودرو";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // panelBottom
+            // 
+            this.panelBottom.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panelBottom.Controls.Add(this.btnCancel);
+            this.panelBottom.Controls.Add(this.btnSubmit);
+            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBottom.Location = new System.Drawing.Point(5, 521);
+            this.panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Size = new System.Drawing.Size(829, 47);
+            this.panelBottom.TabIndex = 142;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.btnCancel.BaseBackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnCancel.BorderColor = System.Drawing.Color.Transparent;
+            this.btnCancel.FlatAppearance.BorderSize = 0;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.btnCancel.Icon = global::AutoLedger.App.Properties.Resources.info_128;
+            this.btnCancel.IconSize = 25;
+            this.btnCancel.Location = new System.Drawing.Point(574, 5);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnCancel.Size = new System.Drawing.Size(78, 37);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "لغو";
+            this.btnCancel.UseVisualStyleBackColor = false;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.btnSubmit.BaseBackColor = System.Drawing.Color.SeaGreen;
+            this.btnSubmit.BorderColor = System.Drawing.Color.Transparent;
+            this.btnSubmit.FlatAppearance.BorderSize = 0;
+            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmit.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSubmit.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.btnSubmit.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
+            this.btnSubmit.IconSize = 25;
+            this.btnSubmit.Location = new System.Drawing.Point(658, 4);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnSubmit.Size = new System.Drawing.Size(161, 38);
+            this.btnSubmit.TabIndex = 0;
+            this.btnSubmit.Text = "ثبت مخارج خودرو";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            // 
+            // labelTittle
+            // 
+            this.labelTittle.BackColor = System.Drawing.Color.Transparent;
+            this.labelTittle.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.labelTittle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelTittle.Location = new System.Drawing.Point(429, 1);
+            this.labelTittle.Margin = new System.Windows.Forms.Padding(10, 17, 10, 17);
+            this.labelTittle.Name = "labelTittle";
+            this.labelTittle.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.labelTittle.Size = new System.Drawing.Size(454, 35);
+            this.labelTittle.TabIndex = 17;
+            this.labelTittle.Text = "فهرست خدمات و هزینه ها";
+            this.labelTittle.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // CarReceptionExpenseForm
             // 

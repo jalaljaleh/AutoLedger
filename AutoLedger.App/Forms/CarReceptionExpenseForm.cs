@@ -79,11 +79,7 @@ namespace AutoLedger.App.Forms
                             return;
                         }
 
-                        // Update scalar fields
 
-                        reception.TotalExpenses = incomingRequests.Sum(x => Math.Max(0, x.Amount));
-                        reception.UpdatedAt = DateTime.Now;
-                        reception.IsExpensesProvided = true;
 
                         // Existing requests in DB
                         var existing = reception.Expenses.ToList();
@@ -145,6 +141,13 @@ namespace AutoLedger.App.Forms
                         {
                             db.CarReceptionsExpenses.Remove(rem);
                         }
+
+
+                        // Update scalar fields
+
+                        reception.TotalExpenses = incomingRequests.Sum(x => Math.Max(0, x.Amount));
+                        reception.UpdatedAt = DateTime.Now;
+                        reception.IsExpensesProvided = true;
 
                         // Persist changes
                         db.SaveChanges();

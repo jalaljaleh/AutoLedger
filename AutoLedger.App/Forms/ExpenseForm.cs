@@ -211,7 +211,7 @@ namespace AutoLedger.App.Forms
                         expense.CategoryId = category.Id;
                         expense.UpdatedAt = DateTime.Now;
 
-                        await db.SaveChangesAsync();
+                         db.SaveChanges();
                     }
                     else
                     {
@@ -229,7 +229,7 @@ namespace AutoLedger.App.Forms
                         };
 
                         db.Expenses.Add(expense);
-                        await db.SaveChangesAsync();
+                         db.SaveChanges();
                     }
                 }
 

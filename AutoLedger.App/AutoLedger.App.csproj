@@ -97,6 +97,12 @@
     <Compile Include="FormsModal\CarPlateModalForm.Designer.cs">
       <DependentUpon>CarPlateModalForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsView\AccountingReportsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormsView\AccountingReportsPage.Designer.cs">
+      <DependentUpon>AccountingReportsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsView\CarsManagerPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormsModal\CarPlateModalForm.resx">
       <DependentUpon>CarPlateModalForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsView\AccountingReportsPage.resx">
+      <DependentUpon>AccountingReportsPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsView\CarsManagerPage.resx">
       <DependentUpon>CarsManagerPage.cs</DependentUpon>

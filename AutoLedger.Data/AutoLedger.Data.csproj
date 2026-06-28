@@ -68,6 +68,7 @@
     <Compile Include="Mapping\ExpenseConfiguration.cs" />
     <Compile Include="Mapping\MonthlySummaryConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\SummaryService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

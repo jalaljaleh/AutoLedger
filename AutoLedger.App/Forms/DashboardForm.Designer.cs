@@ -45,7 +45,7 @@
             this.btnExpenses = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAccountingReports = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
@@ -243,7 +243,7 @@
             // 
             this.flowLayoutPanel5.AutoSize = true;
             this.flowLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel5.Controls.Add(this.button3);
+            this.flowLayoutPanel5.Controls.Add(this.btnAccountingReports);
             this.flowLayoutPanel5.Controls.Add(this.label5);
             this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel5.Location = new System.Drawing.Point(627, 3);
@@ -252,19 +252,18 @@
             this.flowLayoutPanel5.Size = new System.Drawing.Size(59, 67);
             this.flowLayoutPanel5.TabIndex = 10;
             // 
-            // button3
+            // btnAccountingReports
             // 
-            this.button3.BackgroundImage = global::AutoLedger.App.Properties.Resources.budget;
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Enabled = false;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(4, 3);
-            this.button3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(51, 40);
-            this.button3.TabIndex = 2;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAccountingReports.BackgroundImage = global::AutoLedger.App.Properties.Resources.budget;
+            this.btnAccountingReports.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAccountingReports.FlatAppearance.BorderSize = 0;
+            this.btnAccountingReports.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccountingReports.Location = new System.Drawing.Point(4, 3);
+            this.btnAccountingReports.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnAccountingReports.Name = "btnAccountingReports";
+            this.btnAccountingReports.Size = new System.Drawing.Size(51, 40);
+            this.btnAccountingReports.TabIndex = 2;
+            this.btnAccountingReports.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -377,7 +376,7 @@
         private System.Windows.Forms.Button btnExpenses;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAccountingReports;
         private System.Windows.Forms.Label label5;
     }
 }

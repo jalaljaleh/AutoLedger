@@ -37,13 +37,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridSelectedCar = new System.Windows.Forms.DataGridView();
             this._index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OwnerPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,20 +58,6 @@
             this.TextBoxName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelFactor = new System.Windows.Forms.Panel();
             this.dgCarReceptions = new System.Windows.Forms.DataGridView();
-            this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.labelReceptionsDetails = new System.Windows.Forms.ToolStripLabel();
-            this.cbReceptinoCount = new System.Windows.Forms.ToolStripComboBox();
-            this.panelRight = new System.Windows.Forms.Panel();
-            this.panelToolbar = new System.Windows.Forms.Panel();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.panelFilter = new System.Windows.Forms.Panel();
-            this.cbCurrentCars = new System.Windows.Forms.CheckBox();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Mileage = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,17 +70,31 @@
             this.ReleasedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.extra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
             this.btnReceptionNew = new System.Windows.Forms.ToolStripButton();
             this.btnReceptionEdit = new System.Windows.Forms.ToolStripButton();
             this.btnReceptionDelete = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCarExpenses = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnRefreshCarReceptions = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnNextPageReceptions = new System.Windows.Forms.ToolStripButton();
             this.btnBackPageCarReceptions = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.labelReceptionsDetails = new System.Windows.Forms.ToolStripLabel();
+            this.cbReceptinoCount = new System.Windows.Forms.ToolStripComboBox();
+            this.panelRight = new System.Windows.Forms.Panel();
+            this.panelToolbar = new System.Windows.Forms.Panel();
             this.inputSearch = new AutoLedger.App.Controls.ModernTextBox();
             this.btnRefreshCars = new AutoLedger.App.Controls.ModernButton();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.btnCarsNextPage = new System.Windows.Forms.ToolStripButton();
             this.btnCarsBackPage = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.panelFilter = new System.Windows.Forms.Panel();
+            this.cbCurrentCars = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSelectedCar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCars)).BeginInit();
             this.panelFactor.SuspendLayout();
@@ -126,15 +126,15 @@
             this.Tip,
             this.Model,
             this.Brand});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.NullValue = "[عبارت پر نشده]";
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridSelectedCar.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.NullValue = "[عبارت پر نشده]";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridSelectedCar.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridSelectedCar.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridSelectedCar.Enabled = false;
             this.dataGridSelectedCar.EnableHeadersVisualStyles = false;
@@ -145,18 +145,18 @@
             this.dataGridSelectedCar.Name = "dataGridSelectedCar";
             this.dataGridSelectedCar.ReadOnly = true;
             this.dataGridSelectedCar.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridSelectedCar.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridSelectedCar.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridSelectedCar.RowHeadersVisible = false;
             this.dataGridSelectedCar.RowHeadersWidth = 40;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridSelectedCar.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridSelectedCar.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridSelectedCar.RowTemplate.Height = 40;
             this.dataGridSelectedCar.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridSelectedCar.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -254,8 +254,8 @@
             // 
             this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Vazirmatn", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Id.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Vazirmatn", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Id.DefaultCellStyle = dataGridViewCellStyle4;
             this.Id.HeaderText = "R";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
@@ -273,9 +273,9 @@
             // 
             this.TextBoxName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TextBoxName.DataPropertyName = "PlateId";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxName.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxName.DefaultCellStyle = dataGridViewCellStyle5;
             this.TextBoxName.HeaderText = "پلاک";
             this.TextBoxName.Name = "TextBoxName";
             this.TextBoxName.ReadOnly = true;
@@ -337,6 +337,123 @@
             this.dgCarReceptions.Size = new System.Drawing.Size(820, 620);
             this.dgCarReceptions.TabIndex = 10;
             // 
+            // Index
+            // 
+            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Index.DataPropertyName = "Index";
+            this.Index.HeaderText = "R";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Index.Width = 42;
+            // 
+            // Title
+            // 
+            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Title.DataPropertyName = "Id";
+            this.Title.HeaderText = "شناسه";
+            this.Title.Name = "Title";
+            this.Title.ReadOnly = true;
+            this.Title.Width = 66;
+            // 
+            // Mileage
+            // 
+            this.Mileage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Mileage.DataPropertyName = "Mileage";
+            this.Mileage.HeaderText = "کیلومتر";
+            this.Mileage.Name = "Mileage";
+            this.Mileage.ReadOnly = true;
+            this.Mileage.Width = 68;
+            // 
+            // TotalCost
+            // 
+            this.TotalCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TotalCost.DataPropertyName = "TotalCost";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.Format = "#,0 تومان";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.TotalCost.DefaultCellStyle = dataGridViewCellStyle6;
+            this.TotalCost.FillWeight = 200F;
+            this.TotalCost.HeaderText = "مبلغ فاکتور";
+            this.TotalCost.MinimumWidth = 150;
+            this.TotalCost.Name = "TotalCost";
+            this.TotalCost.ReadOnly = true;
+            this.TotalCost.Width = 150;
+            // 
+            // IsRepaired
+            // 
+            this.IsRepaired.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IsRepaired.DataPropertyName = "IsRepaired";
+            this.IsRepaired.HeaderText = "تعمیر شده";
+            this.IsRepaired.Name = "IsRepaired";
+            this.IsRepaired.ReadOnly = true;
+            this.IsRepaired.Width = 87;
+            // 
+            // IsReleased
+            // 
+            this.IsReleased.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.IsReleased.DataPropertyName = "IsReleased";
+            this.IsReleased.HeaderText = "ترخیص شده";
+            this.IsReleased.Name = "IsReleased";
+            this.IsReleased.ReadOnly = true;
+            this.IsReleased.Width = 94;
+            // 
+            // IsExpensesProvided
+            // 
+            this.IsExpensesProvided.DataPropertyName = "IsExpensesProvided";
+            this.IsExpensesProvided.HeaderText = "هزینه ها";
+            this.IsExpensesProvided.Name = "IsExpensesProvided";
+            this.IsExpensesProvided.ReadOnly = true;
+            // 
+            // CreatedAt
+            // 
+            this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CreatedAt.DataPropertyName = "CreatedAt";
+            dataGridViewCellStyle7.Format = "D";
+            dataGridViewCellStyle7.NullValue = null;
+            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle7;
+            this.CreatedAt.HeaderText = "تاریخ پذیرش";
+            this.CreatedAt.Name = "CreatedAt";
+            this.CreatedAt.ReadOnly = true;
+            this.CreatedAt.Width = 93;
+            // 
+            // RepairedAt
+            // 
+            this.RepairedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.RepairedAt.DataPropertyName = "RepairedAt";
+            this.RepairedAt.HeaderText = "تاریخ تعمیر";
+            this.RepairedAt.Name = "RepairedAt";
+            this.RepairedAt.ReadOnly = true;
+            this.RepairedAt.Width = 89;
+            // 
+            // ReleasedAt
+            // 
+            this.ReleasedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ReleasedAt.DataPropertyName = "ReleasedAt";
+            this.ReleasedAt.HeaderText = "تاریخ ترخیص";
+            this.ReleasedAt.Name = "ReleasedAt";
+            this.ReleasedAt.ReadOnly = true;
+            this.ReleasedAt.Width = 96;
+            // 
+            // UpdatedAt
+            // 
+            this.UpdatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UpdatedAt.DataPropertyName = "UpdatedAt";
+            this.UpdatedAt.HeaderText = "تاریخ ویرایش";
+            this.UpdatedAt.Name = "UpdatedAt";
+            this.UpdatedAt.ReadOnly = true;
+            this.UpdatedAt.Width = 96;
+            // 
+            // extra
+            // 
+            this.extra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.extra.HeaderText = "";
+            this.extra.Name = "extra";
+            this.extra.ReadOnly = true;
+            this.extra.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
             // BtnActionCurrentUser
             // 
             this.BtnActionCurrentUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -358,11 +475,56 @@
             this.BtnActionCurrentUser.TabIndex = 16;
             this.BtnActionCurrentUser.Text = "toolStrip1";
             // 
+            // btnReceptionNew
+            // 
+            this.btnReceptionNew.AutoSize = false;
+            this.btnReceptionNew.Image = global::AutoLedger.App.Properties.Resources.hitfilm_pro_128;
+            this.btnReceptionNew.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnReceptionNew.Name = "btnReceptionNew";
+            this.btnReceptionNew.Size = new System.Drawing.Size(95, 25);
+            this.btnReceptionNew.Text = "پذیرش جدید";
+            this.btnReceptionNew.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReceptionNew.ToolTipText = "پذیرش جدید";
+            // 
+            // btnReceptionEdit
+            // 
+            this.btnReceptionEdit.AutoSize = false;
+            this.btnReceptionEdit.Image = global::AutoLedger.App.Properties.Resources.four_squares_128;
+            this.btnReceptionEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnReceptionEdit.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.btnReceptionEdit.Name = "btnReceptionEdit";
+            this.btnReceptionEdit.Size = new System.Drawing.Size(68, 25);
+            this.btnReceptionEdit.Text = "ویرایش";
+            this.btnReceptionEdit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnReceptionDelete
+            // 
+            this.btnReceptionDelete.AutoSize = false;
+            this.btnReceptionDelete.Image = global::AutoLedger.App.Properties.Resources.erase_128;
+            this.btnReceptionDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnReceptionDelete.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
+            this.btnReceptionDelete.Name = "btnReceptionDelete";
+            this.btnReceptionDelete.Size = new System.Drawing.Size(60, 25);
+            this.btnReceptionDelete.Text = "حذف";
+            this.btnReceptionDelete.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnReceptionDelete.ToolTipText = "حذف";
+            // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 28);
+            // 
+            // btnCarExpenses
+            // 
+            this.btnCarExpenses.AutoSize = false;
+            this.btnCarExpenses.Image = global::AutoLedger.App.Properties.Resources.credit_card_128;
+            this.btnCarExpenses.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCarExpenses.Name = "btnCarExpenses";
+            this.btnCarExpenses.Size = new System.Drawing.Size(90, 25);
+            this.btnCarExpenses.Text = "درج هزینه";
+            this.btnCarExpenses.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCarExpenses.ToolTipText = "درج و ویرایش هزینه ها";
             // 
             // toolStrip1
             // 
@@ -387,11 +549,43 @@
             this.toolStrip1.TabIndex = 17;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // btnRefreshCarReceptions
+            // 
+            this.btnRefreshCarReceptions.AutoSize = false;
+            this.btnRefreshCarReceptions.Image = global::AutoLedger.App.Properties.Resources.sync_128;
+            this.btnRefreshCarReceptions.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRefreshCarReceptions.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRefreshCarReceptions.Name = "btnRefreshCarReceptions";
+            this.btnRefreshCarReceptions.Size = new System.Drawing.Size(85, 30);
+            this.btnRefreshCarReceptions.Text = "بروزرسانی";
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 30);
+            // 
+            // btnNextPageReceptions
+            // 
+            this.btnNextPageReceptions.AutoSize = false;
+            this.btnNextPageReceptions.Image = global::AutoLedger.App.Properties.Resources.next;
+            this.btnNextPageReceptions.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnNextPageReceptions.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNextPageReceptions.Name = "btnNextPageReceptions";
+            this.btnNextPageReceptions.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnNextPageReceptions.Size = new System.Drawing.Size(88, 30);
+            this.btnNextPageReceptions.Text = "صفحه بعد";
+            // 
+            // btnBackPageCarReceptions
+            // 
+            this.btnBackPageCarReceptions.AutoSize = false;
+            this.btnBackPageCarReceptions.Image = global::AutoLedger.App.Properties.Resources.back;
+            this.btnBackPageCarReceptions.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnBackPageCarReceptions.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBackPageCarReceptions.Name = "btnBackPageCarReceptions";
+            this.btnBackPageCarReceptions.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnBackPageCarReceptions.Size = new System.Drawing.Size(88, 30);
+            this.btnBackPageCarReceptions.Text = "صفحه قبل";
             // 
             // toolStripSeparator1
             // 
@@ -456,257 +650,6 @@
             this.panelToolbar.Size = new System.Drawing.Size(245, 38);
             this.panelToolbar.TabIndex = 16;
             // 
-            // toolStrip2
-            // 
-            this.toolStrip2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip2.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(80, 80);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator4,
-            this.btnCarsNextPage,
-            this.btnCarsBackPage,
-            this.toolStripSeparator5});
-            this.toolStrip2.Location = new System.Drawing.Point(5, 711);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.toolStrip2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolStrip2.Size = new System.Drawing.Size(245, 41);
-            this.toolStrip2.TabIndex = 18;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
-            // 
-            // panelFilter
-            // 
-            this.panelFilter.Controls.Add(this.cbCurrentCars);
-            this.panelFilter.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelFilter.Location = new System.Drawing.Point(5, 0);
-            this.panelFilter.Margin = new System.Windows.Forms.Padding(0);
-            this.panelFilter.Name = "panelFilter";
-            this.panelFilter.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
-            this.panelFilter.Size = new System.Drawing.Size(245, 38);
-            this.panelFilter.TabIndex = 19;
-            // 
-            // cbCurrentCars
-            // 
-            this.cbCurrentCars.AutoSize = true;
-            this.cbCurrentCars.BackColor = System.Drawing.Color.Honeydew;
-            this.cbCurrentCars.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cbCurrentCars.Location = new System.Drawing.Point(0, 0);
-            this.cbCurrentCars.Name = "cbCurrentCars";
-            this.cbCurrentCars.Padding = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.cbCurrentCars.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbCurrentCars.Size = new System.Drawing.Size(245, 36);
-            this.cbCurrentCars.TabIndex = 0;
-            this.cbCurrentCars.Text = "فقط خودروهای جاری";
-            this.cbCurrentCars.UseVisualStyleBackColor = false;
-            // 
-            // Index
-            // 
-            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Index.DataPropertyName = "Index";
-            this.Index.HeaderText = "R";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Index.Width = 42;
-            // 
-            // Title
-            // 
-            this.Title.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Title.DataPropertyName = "Id";
-            this.Title.HeaderText = "شناسه";
-            this.Title.Name = "Title";
-            this.Title.ReadOnly = true;
-            this.Title.Width = 66;
-            // 
-            // Mileage
-            // 
-            this.Mileage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Mileage.DataPropertyName = "Mileage";
-            this.Mileage.HeaderText = "کیلومتر";
-            this.Mileage.Name = "Mileage";
-            this.Mileage.ReadOnly = true;
-            this.Mileage.Width = 68;
-            // 
-            // TotalCost
-            // 
-            this.TotalCost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.TotalCost.DataPropertyName = "TotalCost";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle13.Format = "#,0 تومان";
-            dataGridViewCellStyle13.NullValue = "0";
-            this.TotalCost.DefaultCellStyle = dataGridViewCellStyle13;
-            this.TotalCost.FillWeight = 200F;
-            this.TotalCost.HeaderText = "مبلغ فاکتور";
-            this.TotalCost.MinimumWidth = 150;
-            this.TotalCost.Name = "TotalCost";
-            this.TotalCost.ReadOnly = true;
-            this.TotalCost.Width = 150;
-            // 
-            // IsRepaired
-            // 
-            this.IsRepaired.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.IsRepaired.DataPropertyName = "IsRepaired";
-            this.IsRepaired.HeaderText = "تعمیر شده";
-            this.IsRepaired.Name = "IsRepaired";
-            this.IsRepaired.ReadOnly = true;
-            this.IsRepaired.Width = 87;
-            // 
-            // IsReleased
-            // 
-            this.IsReleased.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.IsReleased.DataPropertyName = "IsReleased";
-            this.IsReleased.HeaderText = "ترخیص شده";
-            this.IsReleased.Name = "IsReleased";
-            this.IsReleased.ReadOnly = true;
-            this.IsReleased.Width = 94;
-            // 
-            // IsExpensesProvided
-            // 
-            this.IsExpensesProvided.DataPropertyName = "IsExpensesProvided";
-            this.IsExpensesProvided.HeaderText = "هزینه ها";
-            this.IsExpensesProvided.Name = "IsExpensesProvided";
-            this.IsExpensesProvided.ReadOnly = true;
-            // 
-            // CreatedAt
-            // 
-            this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CreatedAt.DataPropertyName = "CreatedAt";
-            dataGridViewCellStyle14.Format = "D";
-            dataGridViewCellStyle14.NullValue = null;
-            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle14;
-            this.CreatedAt.HeaderText = "تاریخ پذیرش";
-            this.CreatedAt.Name = "CreatedAt";
-            this.CreatedAt.ReadOnly = true;
-            this.CreatedAt.Width = 93;
-            // 
-            // RepairedAt
-            // 
-            this.RepairedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.RepairedAt.DataPropertyName = "RepairedAt";
-            this.RepairedAt.HeaderText = "تاریخ تعمیر";
-            this.RepairedAt.Name = "RepairedAt";
-            this.RepairedAt.ReadOnly = true;
-            this.RepairedAt.Width = 89;
-            // 
-            // ReleasedAt
-            // 
-            this.ReleasedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ReleasedAt.DataPropertyName = "ReleasedAt";
-            this.ReleasedAt.HeaderText = "تاریخ ترخیص";
-            this.ReleasedAt.Name = "ReleasedAt";
-            this.ReleasedAt.ReadOnly = true;
-            this.ReleasedAt.Width = 96;
-            // 
-            // UpdatedAt
-            // 
-            this.UpdatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UpdatedAt.DataPropertyName = "UpdatedAt";
-            this.UpdatedAt.HeaderText = "تاریخ ویرایش";
-            this.UpdatedAt.Name = "UpdatedAt";
-            this.UpdatedAt.ReadOnly = true;
-            this.UpdatedAt.Width = 96;
-            // 
-            // extra
-            // 
-            this.extra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.extra.HeaderText = "";
-            this.extra.Name = "extra";
-            this.extra.ReadOnly = true;
-            this.extra.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // btnReceptionNew
-            // 
-            this.btnReceptionNew.AutoSize = false;
-            this.btnReceptionNew.Image = global::AutoLedger.App.Properties.Resources.hitfilm_pro_128;
-            this.btnReceptionNew.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnReceptionNew.Name = "btnReceptionNew";
-            this.btnReceptionNew.Size = new System.Drawing.Size(95, 25);
-            this.btnReceptionNew.Text = "پذیرش جدید";
-            this.btnReceptionNew.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReceptionNew.ToolTipText = "پذیرش جدید";
-            // 
-            // btnReceptionEdit
-            // 
-            this.btnReceptionEdit.AutoSize = false;
-            this.btnReceptionEdit.Image = global::AutoLedger.App.Properties.Resources.four_squares_128;
-            this.btnReceptionEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnReceptionEdit.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnReceptionEdit.Name = "btnReceptionEdit";
-            this.btnReceptionEdit.Size = new System.Drawing.Size(68, 25);
-            this.btnReceptionEdit.Text = "ویرایش";
-            this.btnReceptionEdit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnReceptionDelete
-            // 
-            this.btnReceptionDelete.AutoSize = false;
-            this.btnReceptionDelete.Image = global::AutoLedger.App.Properties.Resources.erase_128;
-            this.btnReceptionDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnReceptionDelete.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnReceptionDelete.Name = "btnReceptionDelete";
-            this.btnReceptionDelete.Size = new System.Drawing.Size(60, 25);
-            this.btnReceptionDelete.Text = "حذف";
-            this.btnReceptionDelete.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnReceptionDelete.ToolTipText = "حذف";
-            // 
-            // btnCarExpenses
-            // 
-            this.btnCarExpenses.AutoSize = false;
-            this.btnCarExpenses.Image = global::AutoLedger.App.Properties.Resources.credit_card_128;
-            this.btnCarExpenses.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCarExpenses.Name = "btnCarExpenses";
-            this.btnCarExpenses.Size = new System.Drawing.Size(90, 25);
-            this.btnCarExpenses.Text = "درج هزینه";
-            this.btnCarExpenses.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCarExpenses.ToolTipText = "درج و ویرایش هزینه ها";
-            // 
-            // btnRefreshCarReceptions
-            // 
-            this.btnRefreshCarReceptions.AutoSize = false;
-            this.btnRefreshCarReceptions.Image = global::AutoLedger.App.Properties.Resources.sync_128;
-            this.btnRefreshCarReceptions.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnRefreshCarReceptions.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRefreshCarReceptions.Name = "btnRefreshCarReceptions";
-            this.btnRefreshCarReceptions.Size = new System.Drawing.Size(90, 30);
-            this.btnRefreshCarReceptions.Text = "بروزرسانی";
-            // 
-            // btnNextPageReceptions
-            // 
-            this.btnNextPageReceptions.AutoSize = false;
-            this.btnNextPageReceptions.Image = global::AutoLedger.App.Properties.Resources.next;
-            this.btnNextPageReceptions.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnNextPageReceptions.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNextPageReceptions.Name = "btnNextPageReceptions";
-            this.btnNextPageReceptions.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnNextPageReceptions.Size = new System.Drawing.Size(92, 30);
-            this.btnNextPageReceptions.Text = "صفحه بعد";
-            // 
-            // btnBackPageCarReceptions
-            // 
-            this.btnBackPageCarReceptions.AutoSize = false;
-            this.btnBackPageCarReceptions.Image = global::AutoLedger.App.Properties.Resources.back;
-            this.btnBackPageCarReceptions.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnBackPageCarReceptions.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBackPageCarReceptions.Name = "btnBackPageCarReceptions";
-            this.btnBackPageCarReceptions.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnBackPageCarReceptions.Size = new System.Drawing.Size(94, 30);
-            this.btnBackPageCarReceptions.Text = "صفحه قبل";
-            // 
             // inputSearch
             // 
             this.inputSearch.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
@@ -751,6 +694,32 @@
             this.btnRefreshCars.Text = "رفرش";
             this.btnRefreshCars.UseVisualStyleBackColor = false;
             // 
+            // toolStrip2
+            // 
+            this.toolStrip2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip2.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(80, 80);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator4,
+            this.btnCarsNextPage,
+            this.btnCarsBackPage,
+            this.toolStripSeparator5});
+            this.toolStrip2.Location = new System.Drawing.Point(5, 711);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.toolStrip2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.toolStrip2.Size = new System.Drawing.Size(245, 41);
+            this.toolStrip2.TabIndex = 18;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
+            // 
             // btnCarsNextPage
             // 
             this.btnCarsNextPage.AutoSize = false;
@@ -772,6 +741,37 @@
             this.btnCarsBackPage.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnCarsBackPage.Size = new System.Drawing.Size(90, 30);
             this.btnCarsBackPage.Text = "صفحه قبل";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
+            // 
+            // panelFilter
+            // 
+            this.panelFilter.Controls.Add(this.cbCurrentCars);
+            this.panelFilter.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelFilter.Location = new System.Drawing.Point(5, 0);
+            this.panelFilter.Margin = new System.Windows.Forms.Padding(0);
+            this.panelFilter.Name = "panelFilter";
+            this.panelFilter.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
+            this.panelFilter.Size = new System.Drawing.Size(245, 38);
+            this.panelFilter.TabIndex = 19;
+            // 
+            // cbCurrentCars
+            // 
+            this.cbCurrentCars.AutoSize = true;
+            this.cbCurrentCars.BackColor = System.Drawing.Color.Honeydew;
+            this.cbCurrentCars.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbCurrentCars.Location = new System.Drawing.Point(0, 0);
+            this.cbCurrentCars.Name = "cbCurrentCars";
+            this.cbCurrentCars.Padding = new System.Windows.Forms.Padding(5);
+            this.cbCurrentCars.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbCurrentCars.Size = new System.Drawing.Size(245, 36);
+            this.cbCurrentCars.TabIndex = 0;
+            this.cbCurrentCars.Text = "فقط خودروهای جاری";
+            this.cbCurrentCars.UseVisualStyleBackColor = false;
             // 
             // CarsManagerPage
             // 

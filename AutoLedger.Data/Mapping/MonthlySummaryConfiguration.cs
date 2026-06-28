@@ -24,12 +24,12 @@ namespace AutoLedger.Data.Mapping
             Property(m => m.Day)
                 .IsRequired();
 
-            Property(m => m.TotalRevenue)
+            Property(m => m.Revenue)
                 .HasColumnType("decimal")
                 .HasPrecision(18, 2)
                 .IsRequired();
 
-            Property(m => m.TotalExpenses)
+            Property(m => m.Expenses)
                 .HasColumnType("decimal")
                 .HasPrecision(18, 2)
                 .IsRequired();
@@ -37,6 +37,8 @@ namespace AutoLedger.Data.Mapping
             Property(m => m.CreatedAt)
                 .HasColumnType("datetime2")
                 .IsRequired();
+
+            Ignore(a => a.Profit);
         }
     }
 }
