@@ -21,13 +21,14 @@ namespace AutoLedger.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            ApplyPersianCultureSafely();
 
-            using (var loading = new LoginForm()) 
+            using (var loading = new LoginForm())
             {
                 loading.Show();
-                loading.Refresh(); 
+                loading.Refresh();
 
-                bool connected = InitializeDatabaseSync().Result; 
+                bool connected = InitializeDatabaseSync().Result;
 
                 loading.Close();
 
@@ -44,6 +45,38 @@ namespace AutoLedger.App
             }
 
             Application.Run(new DashboardForm());
+        }
+
+
+        private static void ApplyPersianCultureSafely()
+        {
+            var fa = new CultureInfo("fa-IR");
+            var persianCal = new PersianCalendar();
+
+            bool canUsePersianCalendar = fa.OptionalCalendars
+                .Any(c => c.GetType() == typeof(PersianCalendar));
+
+            try
+            {
+                if (canUsePersianCalendar)
+                {
+                    // Safe: OptionalCalendars contains PersianCalendar
+                    fa.DateTimeFormat.Calendar = persianCal;
+                    Thread.CurrentThread.CurrentCulture = fa;
+                    Thread.CurrentThread.CurrentUICulture = fa;
+                }
+                else
+                {
+                    var safe = (CultureInfo)CultureInfo.InvariantCulture.Clone();
+                    safe.NumberFormat = fa.NumberFormat;
+                    Thread.CurrentThread.CurrentCulture = safe;
+                    Thread.CurrentThread.CurrentUICulture = fa; 
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Failed to set fa-IR calendar: " + ex.Message);
+            }
         }
 
         public static Task<bool> InitializeDatabaseSync()

@@ -48,13 +48,13 @@
             this.inputTitle.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.inputTitle.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.inputTitle.Icon = null;
-            this.inputTitle.Location = new System.Drawing.Point(18, 12);
+            this.inputTitle.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
+            this.inputTitle.Location = new System.Drawing.Point(45, 35);
             this.inputTitle.Name = "inputTitle";
             this.inputTitle.Placeholder = "عنوان خرید";
             this.inputTitle.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.inputTitle.Size = new System.Drawing.Size(295, 40);
-            this.inputTitle.TabIndex = 0;
+            this.inputTitle.TabIndex = 1;
             this.inputTitle.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputDescription
@@ -67,12 +67,12 @@
             this.inputDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.inputDescription.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputDescription.Icon = null;
-            this.inputDescription.Location = new System.Drawing.Point(18, 58);
+            this.inputDescription.Location = new System.Drawing.Point(45, 81);
             this.inputDescription.Name = "inputDescription";
             this.inputDescription.Placeholder = "توضیحات";
             this.inputDescription.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.inputDescription.Size = new System.Drawing.Size(295, 101);
-            this.inputDescription.TabIndex = 1;
+            this.inputDescription.TabIndex = 2;
             this.inputDescription.TextAlignment = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // inputAmount
@@ -84,21 +84,21 @@
             this.inputAmount.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.inputAmount.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.inputAmount.Icon = null;
-            this.inputAmount.Location = new System.Drawing.Point(18, 165);
+            this.inputAmount.Icon = global::AutoLedger.App.Properties.Resources.coin;
+            this.inputAmount.Location = new System.Drawing.Point(45, 202);
             this.inputAmount.Name = "inputAmount";
             this.inputAmount.NumbersOnly = true;
             this.inputAmount.Placeholder = "مبلغ";
             this.inputAmount.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
             this.inputAmount.Size = new System.Drawing.Size(295, 40);
-            this.inputAmount.TabIndex = 2;
+            this.inputAmount.TabIndex = 3;
             this.inputAmount.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelAmountPersian
             // 
             this.labelAmountPersian.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelAmountPersian.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAmountPersian.Location = new System.Drawing.Point(18, 209);
+            this.labelAmountPersian.Location = new System.Drawing.Point(45, 246);
             this.labelAmountPersian.Name = "labelAmountPersian";
             this.labelAmountPersian.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.labelAmountPersian.Size = new System.Drawing.Size(294, 31);
@@ -114,8 +114,8 @@
             this.inputPaidTo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputPaidTo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.inputPaidTo.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.inputPaidTo.Icon = null;
-            this.inputPaidTo.Location = new System.Drawing.Point(18, 255);
+            this.inputPaidTo.Icon = global::AutoLedger.App.Properties.Resources.checked_user;
+            this.inputPaidTo.Location = new System.Drawing.Point(45, 280);
             this.inputPaidTo.Name = "inputPaidTo";
             this.inputPaidTo.Placeholder = "نام و نام خانوادگی دریافت کننده";
             this.inputPaidTo.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
@@ -132,8 +132,8 @@
             this.InputPaymentMethod.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.InputPaymentMethod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.InputPaymentMethod.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.InputPaymentMethod.Icon = null;
-            this.InputPaymentMethod.Location = new System.Drawing.Point(18, 301);
+            this.InputPaymentMethod.Icon = global::AutoLedger.App.Properties.Resources.credit_card_128;
+            this.InputPaymentMethod.Location = new System.Drawing.Point(45, 326);
             this.InputPaymentMethod.Name = "InputPaymentMethod";
             this.InputPaymentMethod.Placeholder = "شیوه پرداخت";
             this.InputPaymentMethod.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
@@ -145,7 +145,7 @@
             // 
             this.cbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(18, 362);
+            this.cbCategory.Location = new System.Drawing.Point(45, 378);
             this.cbCategory.Name = "cbCategory";
             this.cbCategory.Size = new System.Drawing.Size(295, 29);
             this.cbCategory.TabIndex = 6;
@@ -163,7 +163,7 @@
             this.btnConfirm.HoverBackColor = System.Drawing.Color.Empty;
             this.btnConfirm.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
             this.btnConfirm.IconSize = 22;
-            this.btnConfirm.Location = new System.Drawing.Point(163, 433);
+            this.btnConfirm.Location = new System.Drawing.Point(204, 455);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnConfirm.Size = new System.Drawing.Size(150, 40);
@@ -182,11 +182,11 @@
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.HoverBackColor = System.Drawing.Color.Empty;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(67, 433);
+            this.btnCancel.Location = new System.Drawing.Point(31, 455);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnCancel.Size = new System.Drawing.Size(90, 40);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "لغو";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -194,7 +194,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 491);
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(376, 516);
             this.ControlBox = false;
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);

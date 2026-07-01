@@ -20,7 +20,14 @@ namespace AutoLedger.Domain
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-        public decimal Profit { get => Revenue - Expenses; }
+        public decimal Profit
+        {
+            get
+            {
+                var res = Revenue - Expenses;
+                return res >= 0 ? res : 0;
+            }
+        }
     }
 
 

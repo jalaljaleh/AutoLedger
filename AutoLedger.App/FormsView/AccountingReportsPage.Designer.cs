@@ -33,7 +33,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideStackedBarSeriesView sideBySideStackedBarSeriesView1 = new DevExpress.XtraCharts.SideBySideStackedBarSeriesView();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideStackedBarSeriesView sideBySideStackedBarSeriesView2 = new DevExpress.XtraCharts.SideBySideStackedBarSeriesView();
+            DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideStackedBarSeriesView sideBySideStackedBarSeriesView3 = new DevExpress.XtraCharts.SideBySideStackedBarSeriesView();
             this.dgExpenses = new System.Windows.Forms.DataGridView();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Day = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Month = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Expenses = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Revenue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Profit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.cbCount = new System.Windows.Forms.ToolStripComboBox();
             this.btnRefresh = new System.Windows.Forms.ToolStripButton();
@@ -43,22 +58,21 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.labelDetails = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.labelTotalExpenses = new System.Windows.Forms.ToolStripLabel();
             this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
-            this.btnFilterMonth = new System.Windows.Forms.ToolStripButton();
-            this.btnFilterWeek = new System.Windows.Forms.ToolStripButton();
-            this.btnFilterToday = new System.Windows.Forms.ToolStripButton();
-            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Day = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Month = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Expenses = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Revenue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Profit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelTitleStatus = new System.Windows.Forms.SplitContainer();
+            this.chartDaily = new DevExpress.XtraCharts.ChartControl();
             ((System.ComponentModel.ISupportInitialize)(this.dgExpenses)).BeginInit();
             this.toolStrip1.SuspendLayout();
-            this.BtnActionCurrentUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelTitleStatus)).BeginInit();
+            this.panelTitleStatus.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDaily)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView3)).BeginInit();
             this.SuspendLayout();
             // 
             // dgExpenses
@@ -80,7 +94,7 @@
             this.Column1});
             this.dgExpenses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgExpenses.GridColor = System.Drawing.Color.DimGray;
-            this.dgExpenses.Location = new System.Drawing.Point(5, 48);
+            this.dgExpenses.Location = new System.Drawing.Point(5, 330);
             this.dgExpenses.Margin = new System.Windows.Forms.Padding(0);
             this.dgExpenses.MultiSelect = false;
             this.dgExpenses.Name = "dgExpenses";
@@ -96,8 +110,90 @@
             this.dgExpenses.RowTemplate.Height = 40;
             this.dgExpenses.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgExpenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgExpenses.Size = new System.Drawing.Size(998, 659);
+            this.dgExpenses.Size = new System.Drawing.Size(998, 591);
             this.dgExpenses.TabIndex = 11;
+            // 
+            // Index
+            // 
+            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Index.DataPropertyName = "Id";
+            this.Index.HeaderText = "R";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Index.Width = 42;
+            // 
+            // CreatedAt
+            // 
+            this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CreatedAt.DataPropertyName = "CreatedAt";
+            dataGridViewCellStyle1.Format = "D";
+            dataGridViewCellStyle1.NullValue = null;
+            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle1;
+            this.CreatedAt.HeaderText = "تاریخ";
+            this.CreatedAt.Name = "CreatedAt";
+            this.CreatedAt.ReadOnly = true;
+            this.CreatedAt.Width = 58;
+            // 
+            // Day
+            // 
+            this.Day.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Day.DataPropertyName = "Day";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Day.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Day.HeaderText = "روز";
+            this.Day.Name = "Day";
+            this.Day.ReadOnly = true;
+            this.Day.Width = 48;
+            // 
+            // Month
+            // 
+            this.Month.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Month.DataPropertyName = "Month";
+            this.Month.HeaderText = "ماه";
+            this.Month.Name = "Month";
+            this.Month.ReadOnly = true;
+            this.Month.Width = 50;
+            // 
+            // Expenses
+            // 
+            this.Expenses.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Expenses.DataPropertyName = "Expenses";
+            dataGridViewCellStyle3.Format = "#,0 تومان";
+            this.Expenses.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Expenses.HeaderText = "هزینه ها";
+            this.Expenses.Name = "Expenses";
+            this.Expenses.ReadOnly = true;
+            this.Expenses.Width = 76;
+            // 
+            // Revenue
+            // 
+            this.Revenue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Revenue.DataPropertyName = "Revenue";
+            dataGridViewCellStyle4.Format = "#,0 تومان";
+            this.Revenue.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Revenue.HeaderText = "درامد ها";
+            this.Revenue.Name = "Revenue";
+            this.Revenue.ReadOnly = true;
+            this.Revenue.Width = 73;
+            // 
+            // Profit
+            // 
+            this.Profit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Profit.DataPropertyName = "Profit";
+            dataGridViewCellStyle5.Format = "#,0 تومان";
+            this.Profit.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Profit.HeaderText = "سود خالص";
+            this.Profit.Name = "Profit";
+            this.Profit.ReadOnly = true;
+            this.Profit.Width = 87;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // toolStrip1
             // 
@@ -114,9 +210,8 @@
             this.btnBackPage,
             this.toolStripSeparator1,
             this.labelDetails,
-            this.toolStripSeparator4,
-            this.labelTotalExpenses});
-            this.toolStrip1.Location = new System.Drawing.Point(5, 707);
+            this.toolStripSeparator4});
+            this.toolStrip1.Location = new System.Drawing.Point(5, 921);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -203,170 +298,108 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 33);
             // 
-            // labelTotalExpenses
-            // 
-            this.labelTotalExpenses.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.labelTotalExpenses.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.labelTotalExpenses.Name = "labelTotalExpenses";
-            this.labelTotalExpenses.Size = new System.Drawing.Size(60, 30);
-            this.labelTotalExpenses.Text = "[جمع کل]";
-            // 
             // BtnActionCurrentUser
             // 
             this.BtnActionCurrentUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.BtnActionCurrentUser.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.BtnActionCurrentUser.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.BtnActionCurrentUser.ImageScalingSize = new System.Drawing.Size(80, 80);
-            this.BtnActionCurrentUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnFilterMonth,
-            this.btnFilterWeek,
-            this.btnFilterToday});
             this.BtnActionCurrentUser.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.BtnActionCurrentUser.Location = new System.Drawing.Point(5, 5);
+            this.BtnActionCurrentUser.Location = new System.Drawing.Point(5, 305);
             this.BtnActionCurrentUser.Name = "BtnActionCurrentUser";
             this.BtnActionCurrentUser.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnActionCurrentUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BtnActionCurrentUser.Size = new System.Drawing.Size(998, 43);
+            this.BtnActionCurrentUser.Size = new System.Drawing.Size(998, 25);
             this.BtnActionCurrentUser.TabIndex = 19;
             this.BtnActionCurrentUser.Text = "toolStrip1";
             // 
-            // btnFilterMonth
+            // panelTitleStatus
             // 
-            this.btnFilterMonth.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnFilterMonth.AutoSize = false;
-            this.btnFilterMonth.Image = global::AutoLedger.App.Properties.Resources.calendar_week30_128;
-            this.btnFilterMonth.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFilterMonth.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnFilterMonth.Name = "btnFilterMonth";
-            this.btnFilterMonth.Size = new System.Drawing.Size(70, 30);
-            this.btnFilterMonth.Text = "ماهانه";
-            this.btnFilterMonth.ToolTipText = "ماه اخیر";
+            this.panelTitleStatus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitleStatus.Location = new System.Drawing.Point(5, 5);
+            this.panelTitleStatus.Name = "panelTitleStatus";
             // 
-            // btnFilterWeek
+            // panelTitleStatus.Panel1
             // 
-            this.btnFilterWeek.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnFilterWeek.AutoSize = false;
-            this.btnFilterWeek.Image = global::AutoLedger.App.Properties.Resources.calendar_7_128;
-            this.btnFilterWeek.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFilterWeek.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnFilterWeek.Name = "btnFilterWeek";
-            this.btnFilterWeek.Size = new System.Drawing.Size(72, 30);
-            this.btnFilterWeek.Text = "هفتگی";
-            this.btnFilterWeek.ToolTipText = "نتایج امروز فقط";
+            this.panelTitleStatus.Panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             // 
-            // btnFilterToday
+            // panelTitleStatus.Panel2
             // 
-            this.btnFilterToday.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.btnFilterToday.AutoSize = false;
-            this.btnFilterToday.Image = global::AutoLedger.App.Properties.Resources.calendar_1_128;
-            this.btnFilterToday.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnFilterToday.Margin = new System.Windows.Forms.Padding(0, 1, 5, 2);
-            this.btnFilterToday.Name = "btnFilterToday";
-            this.btnFilterToday.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnFilterToday.Size = new System.Drawing.Size(64, 30);
-            this.btnFilterToday.Text = "روزانه";
-            this.btnFilterToday.ToolTipText = "نتایج امروز فقط";
+            this.panelTitleStatus.Panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panelTitleStatus.Size = new System.Drawing.Size(998, 100);
+            this.panelTitleStatus.SplitterDistance = 498;
+            this.panelTitleStatus.TabIndex = 0;
             // 
-            // Index
+            // chartDaily
             // 
-            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Index.DataPropertyName = "Id";
-            this.Index.HeaderText = "R";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Index.Width = 42;
-            // 
-            // CreatedAt
-            // 
-            this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CreatedAt.DataPropertyName = "CreatedAt";
-            dataGridViewCellStyle1.Format = "D";
-            dataGridViewCellStyle1.NullValue = null;
-            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle1;
-            this.CreatedAt.HeaderText = "تاریخ";
-            this.CreatedAt.Name = "CreatedAt";
-            this.CreatedAt.ReadOnly = true;
-            this.CreatedAt.Width = 58;
-            // 
-            // Day
-            // 
-            this.Day.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Day.DataPropertyName = "Day";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Day.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Day.HeaderText = "روز";
-            this.Day.Name = "Day";
-            this.Day.ReadOnly = true;
-            this.Day.Width = 48;
-            // 
-            // Month
-            // 
-            this.Month.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Month.DataPropertyName = "Month";
-            this.Month.HeaderText = "ماه";
-            this.Month.Name = "Month";
-            this.Month.ReadOnly = true;
-            this.Month.Width = 50;
-            // 
-            // Expenses
-            // 
-            this.Expenses.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Expenses.DataPropertyName = "Expenses";
-            dataGridViewCellStyle3.Format = "#,0 تومان";
-            this.Expenses.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Expenses.HeaderText = "هزینه ها";
-            this.Expenses.Name = "Expenses";
-            this.Expenses.ReadOnly = true;
-            this.Expenses.Width = 76;
-            // 
-            // Revenue
-            // 
-            this.Revenue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Revenue.DataPropertyName = "Revenue";
-            dataGridViewCellStyle4.Format = "#,0 تومان";
-            this.Revenue.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Revenue.HeaderText = "درامد ها";
-            this.Revenue.Name = "Revenue";
-            this.Revenue.ReadOnly = true;
-            this.Revenue.Width = 73;
-            // 
-            // Profit
-            // 
-            this.Profit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Profit.DataPropertyName = "Profit";
-            dataGridViewCellStyle5.Format = "#,0 تومان";
-            this.Profit.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Profit.HeaderText = "سود خالص";
-            this.Profit.Name = "Profit";
-            this.Profit.ReadOnly = true;
-            this.Profit.Width = 87;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.HeaderText = "";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.chartDaily.BorderOptions.Color = System.Drawing.Color.Transparent;
+            this.chartDaily.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
+            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisY.Alignment = DevExpress.XtraCharts.AxisAlignment.Far;
+            xyDiagram1.AxisY.GridLines.Visible = false;
+            xyDiagram1.AxisY.Title.Text = "";
+            xyDiagram1.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.Default;
+            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartDaily.Diagram = xyDiagram1;
+            this.chartDaily.Dock = System.Windows.Forms.DockStyle.Top;
+            this.chartDaily.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Right;
+            this.chartDaily.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
+            this.chartDaily.Legend.Direction = DevExpress.XtraCharts.LegendDirection.RightToLeft;
+            this.chartDaily.Location = new System.Drawing.Point(5, 105);
+            this.chartDaily.Name = "chartDaily";
+            this.chartDaily.PaletteName = "Blue II";
+            this.chartDaily.SelectionMode = DevExpress.XtraCharts.ElementSelectionMode.Single;
+            series1.Name = "هزینه ها";
+            series1.SeriesID = 12;
+            sideBySideStackedBarSeriesView1.Color = System.Drawing.Color.Brown;
+            sideBySideStackedBarSeriesView1.Transparency = ((byte)(50));
+            series1.View = sideBySideStackedBarSeriesView1;
+            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series2.Name = "درآمد ها";
+            series2.SeriesID = 13;
+            sideBySideStackedBarSeriesView2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(146)))), ((int)(((byte)(60)))));
+            series2.View = sideBySideStackedBarSeriesView2;
+            series3.Name = "سود";
+            series3.SeriesID = 14;
+            sideBySideStackedBarSeriesView3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(214)))), ((int)(((byte)(155)))));
+            sideBySideStackedBarSeriesView3.Transparency = ((byte)(50));
+            series3.View = sideBySideStackedBarSeriesView3;
+            this.chartDaily.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1,
+        series2,
+        series3};
+            this.chartDaily.Size = new System.Drawing.Size(998, 200);
+            this.chartDaily.TabIndex = 0;
             // 
             // AccountingReportsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.MediumPurple;
             this.Controls.Add(this.dgExpenses);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.BtnActionCurrentUser);
+            this.Controls.Add(this.chartDaily);
+            this.Controls.Add(this.panelTitleStatus);
             this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "AccountingReportsPage";
             this.Padding = new System.Windows.Forms.Padding(5);
-            this.Size = new System.Drawing.Size(1008, 755);
+            this.Size = new System.Drawing.Size(1008, 969);
             ((System.ComponentModel.ISupportInitialize)(this.dgExpenses)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.BtnActionCurrentUser.ResumeLayout(false);
-            this.BtnActionCurrentUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelTitleStatus)).EndInit();
+            this.panelTitleStatus.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDaily)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -386,11 +419,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripLabel labelDetails;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripLabel labelTotalExpenses;
         private System.Windows.Forms.ToolStrip BtnActionCurrentUser;
-        private System.Windows.Forms.ToolStripButton btnFilterMonth;
-        private System.Windows.Forms.ToolStripButton btnFilterWeek;
-        private System.Windows.Forms.ToolStripButton btnFilterToday;
         private System.Windows.Forms.DataGridViewTextBoxColumn Index;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedAt;
         private System.Windows.Forms.DataGridViewTextBoxColumn Day;
@@ -399,5 +428,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Revenue;
         private System.Windows.Forms.DataGridViewTextBoxColumn Profit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.SplitContainer panelTitleStatus;
+        private DevExpress.XtraCharts.ChartControl chartDaily;
     }
 }
