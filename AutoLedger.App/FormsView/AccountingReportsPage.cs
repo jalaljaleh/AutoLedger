@@ -58,7 +58,8 @@ namespace AutoLedger.App.FormsView
                     .AsNoTracking()
                     .ToList();
 
-                PopulateChart(list);
+                PopulateDailyChart(list);
+                PopulateTodayChart(list.FirstOrDefault(a => a.CreatedAt.Date == DateTime.Today));
 
                 // 4. Update UI labels and controls
                 btnBackPage.Enabled = (_pageIndex > 0);
@@ -74,45 +75,52 @@ namespace AutoLedger.App.FormsView
 
 
         }
-
-        private void PopulateChart(IList<MonthlySummary> list)
+       
+        private void PopulateTodayChart(MonthlySummary today)
         {
-        
+
+            Series serie = chartToday.Series[0];
+            serie.Points.Clear();
+            serie.Label.TextPattern = "{V:n0} تومان";
+
+            if (today is null)
+                return;
+
+            serie.Points.Add(new SeriesPoint(0, today.Revenue));
+            serie.Points.Add(new SeriesPoint(1, today.Expenses));
+            serie.Points.Add(new SeriesPoint(2, today.Profit));
+
+            chartToday.RefreshData();
+        }
+
+        private void PopulateDailyChart(IList<MonthlySummary> list)
+        {
             var fullList = BuildLast30Days(list);
 
-            Series expensesSeries = chartDaily.Series[0];
-            Series revenueSeries = chartDaily.Series[1];
-            Series profitSeries = chartDaily.Series[2];
 
-            expensesSeries.Points.Clear();
-            revenueSeries.Points.Clear();
-            profitSeries.Points.Clear();
+            Series expensesSeries = Set(chartDaily.Series[0]);
+            Series revenueSeries = Set(chartDaily.Series[1]);
+            Series profitSeries = Set(chartDaily.Series[2]);
+            Series Set(Series serie)
+            {
+                serie.Points.Clear();
+                serie.Label.TextPattern = "{V:n0} تومان";
+                return serie;
+            }
 
-            // format Y axis labels the same way
             var xy = (XYDiagram)chartDaily.Diagram;
             xy.AxisY.Label.TextPattern = "{V:n0} تومان";
 
-            // optional: show months on X axis as Persian month names or short date
             xy.AxisX.DateTimeScaleOptions.MeasureUnit = DateTimeMeasureUnit.Day;
             xy.AxisX.Label.TextPattern = "{A:MM/dd}";
 
-
-            expensesSeries.Label.TextPattern = "{V:n0} تومان";
-            revenueSeries.Label.TextPattern = "{V:n0} تومان";
-            profitSeries.Label.TextPattern = "{V:n0} تومان";
-
-       
             foreach (var item in fullList)
             {
                 DateTime arg = new DateTime(item.Year, item.Month, item.Day);
 
-                double expenses = (double)item.Expenses;
-                double revenue = (double)item.Revenue;
-                double profit = (double)item.Profit;
-
-                expensesSeries.Points.Add(new SeriesPoint(arg, expenses));
-                revenueSeries.Points.Add(new SeriesPoint(arg, revenue));
-                profitSeries.Points.Add(new SeriesPoint(arg, profit));
+                expensesSeries.Points.Add(new SeriesPoint(arg, (double)item.Expenses));
+                revenueSeries.Points.Add(new SeriesPoint(arg, (double)item.Revenue));
+                profitSeries.Points.Add(new SeriesPoint(arg, (double)item.Profit));
             }
 
             chartDaily.RefreshData();
@@ -133,10 +141,7 @@ namespace AutoLedger.App.FormsView
                     x.Month == day.Month &&
                     x.Day == day.Day);
 
-                if (existing != null)
-                {
-                    result.Add(existing);
-                }
+                if (existing != null) result.Add(existing);
                 else
                 {
                     result.Add(new MonthlySummary
