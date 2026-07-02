@@ -1,5 +1,6 @@
 ﻿using AutoLedger.App.Forms;
 using AutoLedger.Data;
+using AutoLedger.Domain;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -27,6 +28,7 @@ namespace AutoLedger.App
             {
                 loading.Show();
                 loading.Refresh();
+                loading.Enabled = false;
 
                 bool connected = InitializeDatabaseSync().Result;
 
@@ -44,7 +46,15 @@ namespace AutoLedger.App
                 }
             }
 
-            Application.Run(new DashboardForm());
+            using (var loginDialog = new LoginForm())
+            {
+               _= loginDialog.InitializeAsync();
+                var dialog = loginDialog.ShowDialog();
+                if (dialog == DialogResult.OK)
+                {
+                    Application.Run(new DashboardForm());
+                }
+            }
         }
 
 
@@ -70,7 +80,7 @@ namespace AutoLedger.App
                     var safe = (CultureInfo)CultureInfo.InvariantCulture.Clone();
                     safe.NumberFormat = fa.NumberFormat;
                     Thread.CurrentThread.CurrentCulture = safe;
-                    Thread.CurrentThread.CurrentUICulture = fa; 
+                    Thread.CurrentThread.CurrentUICulture = fa;
                 }
             }
             catch (Exception ex)
@@ -85,10 +95,27 @@ namespace AutoLedger.App
             {
                 using (AutoLedgerContext db = new AutoLedgerContext())
                 {
-                    //if (db.Database.Exists())
-                    //    db.Database.Delete();
+                    if (db.Database.Exists())
+                        db.Database.Delete();
 
-                    db.Database.CreateIfNotExists();
+                    bool isCreated = db.Database.CreateIfNotExists();
+                    if (isCreated)
+                    {
+                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("هزینه‌های عمومی"));
+                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("مواد مصرفی"));
+                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("اجاره بها"));
+                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("قبوض و خدمات"));
+                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("حمل‌ونقل و جابه‌جایی"));
+                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("حقوق و دستمزد"));
+                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("ابزار و تجهیزات"));
+                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("قطعات و لوازم یدکی"));
+                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("نظافت و بهداشت"));
+                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("مالیات و امور قانونی"));
+                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("بازاریابی و تبلیغات"));
+
+                        db.SaveChanges();
+                    }
+
 
                 }
                 return Task.FromResult(true);

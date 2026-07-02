@@ -23,7 +23,7 @@ namespace AutoLedger.Extensions
 
         private static readonly string[] Sadgan =
         {
-        "", "یکصد", "دویست", "سیصد", "چهارصد",
+        "", "صد", "دویست", "سیصد", "چهارصد",
         "پانصد", "ششصد", "هفتصد", "هشتصد", "نهصد"
     };
 

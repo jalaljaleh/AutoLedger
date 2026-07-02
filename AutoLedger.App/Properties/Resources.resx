@@ -142,6 +142,12 @@
   <data name="speed_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\speed_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="next" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete_table_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete_table_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="info_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,14 +157,11 @@
   <data name="insert_table_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\insert_table_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="3d-setting" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\3d-setting.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="checked_user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\checked_user.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="develop_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\develop_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="new_year_calendar_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\new_year_calendar_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="production_order_320px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\production_order_320px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -166,14 +169,17 @@
   <data name="mercedes_benz_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mercedes_benz_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="delete_table_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\delete_table_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="develop_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\develop_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="credit_card_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\credit_card_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dollar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\dollar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="automotive" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\automotive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -193,6 +199,9 @@
   <data name="today_1281" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\today_1281.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="credit_card_1281" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\credit_card_1281.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="four_squares_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\four_squares_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -202,8 +211,8 @@
   <data name="background1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="autoledge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\autoledge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="forward_button_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forward_button_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="optimizing_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\optimizing_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,14 +226,14 @@
   <data name="color_wheel_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\color_wheel_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="approval_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\approval_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="erase_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\erase_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="optimizing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\optimizing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="background11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\background1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="passbook" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\passbook.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="administrator_male_80px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\administrator_male_80px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,23 +250,20 @@
   <data name="edit_production_order_320px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_production_order_320px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="erase_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\erase_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="autoledge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\autoledge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="insurance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\insurance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="next" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\next.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="new_year_calendar_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\new_year_calendar_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="approval_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\approval_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="budget" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\budget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="develop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\develop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="login_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\login_background2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hitfilm_pro_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hitfilm_pro_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -268,8 +274,8 @@
   <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="forward_button_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\forward_button_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="develop" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\develop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ironTuning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ironTuning.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -286,11 +292,8 @@
   <data name="clear_filters_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clear_filters_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="dollar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\dollar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="passbook" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\passbook.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="sync_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sync_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendar_7_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_7_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -301,16 +304,13 @@
   <data name="calendar_1_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_1_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sync_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sync_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="edit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendar_week30_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_week30_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="credit_card_1281" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\credit_card_1281.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="security_lock_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\security_lock_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -48,6 +48,7 @@
     <Compile Include="Entities\CarReceptionRequest.cs" />
     <Compile Include="Entities\ExpenseCategory.cs" />
     <Compile Include="Entities\MonthlySummary.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

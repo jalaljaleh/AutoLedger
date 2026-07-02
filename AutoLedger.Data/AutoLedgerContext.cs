@@ -32,6 +32,10 @@ namespace AutoLedger.Data
         {
             _summaryService = new SummaryService(this);
         }
+
+        public DbSet<User> Users { get; set; }
+
+
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarReception> CarReceptions { get; set; }
         public DbSet<CarReceptionRequest> CarReceptionsRequests { get; set; }
@@ -45,6 +49,8 @@ namespace AutoLedger.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Configurations.Add(new UserConfiguration());
+
             modelBuilder.Configurations.Add(new CarConfiguration());
             modelBuilder.Configurations.Add(new CarReceptionConfiguration());
             modelBuilder.Configurations.Add(new CarReceptionRequestsConfiguration());

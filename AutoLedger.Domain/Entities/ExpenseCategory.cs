@@ -12,5 +12,12 @@ namespace AutoLedger.Domain
         public string Name { get; set; }
 
         public virtual ICollection<Expense> Expenses { get; set; } = new HashSet<Expense>();
+
+
+        public ExpenseCategory WithName(string name)
+        {
+            Name = name;
+            return this;
+        }
     }
 }

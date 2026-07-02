@@ -437,6 +437,18 @@
   <ItemGroup>
     <None Include="Resources\credit_card_1281.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_background1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_background2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\security_lock_128.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
