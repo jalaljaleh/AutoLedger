@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,7 +23,6 @@ namespace AutoLedger.App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            ApplyPersianCultureSafely();
 
             using (var loading = new LoginForm())
             {
@@ -48,7 +48,7 @@ namespace AutoLedger.App
 
             using (var loginDialog = new LoginForm())
             {
-               _= loginDialog.InitializeAsync();
+                _ = loginDialog.InitializeAsync();
                 var dialog = loginDialog.ShowDialog();
                 if (dialog == DialogResult.OK)
                 {
@@ -58,41 +58,16 @@ namespace AutoLedger.App
         }
 
 
-        private static void ApplyPersianCultureSafely()
-        {
-            var fa = new CultureInfo("fa-IR");
-            var persianCal = new PersianCalendar();
-
-            bool canUsePersianCalendar = fa.OptionalCalendars
-                .Any(c => c.GetType() == typeof(PersianCalendar));
-
-            try
-            {
-                if (canUsePersianCalendar)
-                {
-                    // Safe: OptionalCalendars contains PersianCalendar
-                    fa.DateTimeFormat.Calendar = persianCal;
-                    Thread.CurrentThread.CurrentCulture = fa;
-                    Thread.CurrentThread.CurrentUICulture = fa;
-                }
-                else
-                {
-                    var safe = (CultureInfo)CultureInfo.InvariantCulture.Clone();
-                    safe.NumberFormat = fa.NumberFormat;
-                    Thread.CurrentThread.CurrentCulture = safe;
-                    Thread.CurrentThread.CurrentUICulture = fa;
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine("Failed to set fa-IR calendar: " + ex.Message);
-            }
-        }
 
         public static Task<bool> InitializeDatabaseSync()
         {
-            try
-            {
+            //try
+            //{
+                string express = @"Data Source=.\SQLEXPRESS2014; Initial Catalog=IronTuning; Integrated Security=True; MultipleActiveResultSets=True; Connect Timeout=30";
+                string localDb = $@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IronTuning.mdf")}; Integrated Security=True; Connect Timeout=30";
+
+                Environment.SetEnvironmentVariable("connectionString", localDb);
+
                 using (AutoLedgerContext db = new AutoLedgerContext())
                 {
                     if (db.Database.Exists())
@@ -101,6 +76,16 @@ namespace AutoLedger.App
                     bool isCreated = db.Database.CreateIfNotExists();
                     if (isCreated)
                     {
+                        db.Users.Add(new User()
+                        {
+                            FullName = "محمدجلال ژاله",
+                            Password = "jj"
+                        });
+                        db.Users.Add(new User()
+                        {
+                            FullName = "فرید عزیزی",
+                            Password = "admin"
+                        });
                         db.ExpenseCategories.Add(new ExpenseCategory().WithName("هزینه‌های عمومی"));
                         db.ExpenseCategories.Add(new ExpenseCategory().WithName("مواد مصرفی"));
                         db.ExpenseCategories.Add(new ExpenseCategory().WithName("اجاره بها"));
@@ -119,16 +104,16 @@ namespace AutoLedger.App
 
                 }
                 return Task.FromResult(true);
-            }
-            catch
-            {
-                return Task.FromResult(false);
-            }
+            //}
+            //catch
+            //{
+            //    return Task.FromResult(false);
+            //}
         }
 
 
 
-        public const string Version = "ویرایش بتا نسخه 1.0.0.1";
+        public const string Version = "ویرایش بتا نسخه 1.0.1.20";
         public static bool IsDebugMode() => System.Diagnostics.Debugger.IsAttached;
 
 

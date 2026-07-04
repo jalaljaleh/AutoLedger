@@ -1,7 +1,11 @@
-﻿using AutoLedger.Data;
+﻿using AutoLedger.App.Controls;
+using AutoLedger.Data;
+using AutoLedger.Extensions;
 using DevExpress.XtraEditors;
 using System;
+using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,16 +19,37 @@ namespace AutoLedger.App.Forms
 
             labelVersion.Text = Program.Version;
 
-            inputPassword.Visible = false;
-            cbUsername.Visible = false;
-            btnLogin.Visible = false;
+            panelMenuMain.Visible = false;
+        }
+
+        private void BtnOpenUrl_Click(object sender, EventArgs e)
+        {
+            var btn = (ModernButton)sender;
+            switch (btn.Name)
+            {
+                case "btnDeveloper":
+                    Process.Start("https://github.com/jalaljaleh");
+                    break;
+
+                case "btnSourceCode":
+                    Process.Start("https://github.com/jalaljaleh/AutoLedger");
+                    break;
+
+                case "btnTelegram":
+                    Process.Start("https://t.me/haluntm");
+                    break;
+            }
         }
 
         public async Task InitializeAsync()
         {
-            inputPassword.Visible = true;
-            cbUsername.Visible = true;
-            btnLogin.Visible = true;
+            panelMenuMain.Visible = true;
+        
+            this.labelTime.Text = "تاریخ امروز: " + DateTime.Now.ToShamsiLong();
+
+            this.btnTelegram.Click += BtnOpenUrl_Click;
+            this.btnSourceCode.Click += BtnOpenUrl_Click;
+            this.btnDeveloper.Click += BtnOpenUrl_Click;
 
             try
             {
@@ -34,6 +59,8 @@ namespace AutoLedger.App.Forms
 
                     foreach (var user in users)
                         cbUsername.Properties.Items.Add(user.FullName);
+
+                    cbUsername.SelectedIndex = 1;
                 }
             }
             catch (Exception ex)

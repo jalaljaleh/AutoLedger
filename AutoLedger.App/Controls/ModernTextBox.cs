@@ -51,10 +51,11 @@ namespace AutoLedger.App.Controls
         public ModernTextBox()
         {
             SetStyle(ControlStyles.AllPaintingInWmPaint |
-                     ControlStyles.UserPaint |
-                     ControlStyles.ResizeRedraw |
-                     ControlStyles.OptimizedDoubleBuffer |
-                     ControlStyles.Selectable, true);
+                       ControlStyles.UserPaint |
+                       ControlStyles.ResizeRedraw |
+                       ControlStyles.OptimizedDoubleBuffer |
+                       ControlStyles.Selectable |
+                       ControlStyles.SupportsTransparentBackColor, true);
 
             Size = new Size(260, 40);
             BackColor = Color.White;
@@ -298,7 +299,7 @@ namespace AutoLedger.App.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            e.Graphics.Clear(Parent?.BackColor ?? SystemColors.Control);
+            e.Graphics.Clear(this.Parent != null ? this.Parent.BackColor : this.BackColor);
 
             Rectangle rect = ClientRectangle;
             rect.Inflate(-1, -1);
@@ -371,9 +372,19 @@ namespace AutoLedger.App.Controls
             // draw text (masked if password)
             string displayText = _passwordChar != '\0' ? new string(_passwordChar, _text.Length) : _text;
 
-            // Use consistent flags for drawing and measuring
-            var drawFlags = GetTextFormatFlags() | TextFormatFlags.NoPadding;
-            TextRenderer.DrawText(e.Graphics, displayText, Font, textRect, ForeColor, drawFlags);
+            // Draw using GDI+ for precise character alignment
+            using (StringFormat sf = new StringFormat(StringFormat.GenericTypographic))
+            {
+                sf.Alignment = textAlignment == HorizontalAlignment.Center ? StringAlignment.Center :
+                               textAlignment == HorizontalAlignment.Right ? StringAlignment.Far : StringAlignment.Near;
+                sf.LineAlignment = StringAlignment.Center;
+                sf.FormatFlags |= StringFormatFlags.MeasureTrailingSpaces;
+
+                using (var textBrush = new SolidBrush(ForeColor))
+                {
+                    e.Graphics.DrawString(displayText, Font, textBrush, textRect, sf);
+                }
+            }
 
             // caret
             if (isFocused && caretVisible && selectionLength == 0)
@@ -439,11 +450,27 @@ namespace AutoLedger.App.Controls
 
         private int GetCaretX(Graphics g, Rectangle textRect, int charIndex)
         {
+            string fullText = _passwordChar != '\0' ? new string(_passwordChar, _text.Length) : _text;
             string s = _passwordChar != '\0' ? new string(_passwordChar, charIndex) : _text.Substring(0, Math.Max(0, Math.Min(charIndex, _text.Length)));
-            var flags = GetTextFormatFlags() | TextFormatFlags.NoPadding;
-            Size size = TextRenderer.MeasureText(g, s, Font, Size.Empty, flags);
-            int x = textRect.Left + size.Width;
-            return x;
+
+            using (StringFormat sf = new StringFormat(StringFormat.GenericTypographic))
+            {
+                sf.Alignment = textAlignment == HorizontalAlignment.Center ? StringAlignment.Center :
+                               textAlignment == HorizontalAlignment.Right ? StringAlignment.Far : StringAlignment.Near;
+                sf.FormatFlags |= StringFormatFlags.MeasureTrailingSpaces;
+
+                float fullWidth = string.IsNullOrEmpty(fullText) ? 0 : g.MeasureString(fullText, Font, PointF.Empty, sf).Width;
+                float startX = textRect.Left;
+
+                // محاسبه شروع متن بر اساس چینش
+                if (textAlignment == HorizontalAlignment.Center)
+                    startX = textRect.Left + (textRect.Width - fullWidth) / 2;
+                else if (textAlignment == HorizontalAlignment.Right)
+                    startX = textRect.Right - fullWidth;
+
+                float caretOffset = string.IsNullOrEmpty(s) ? 0 : g.MeasureString(s, Font, PointF.Empty, sf).Width;
+                return (int)(startX + caretOffset);
+            }
         }
 
         private TextFormatFlags GetTextFormatFlags()
@@ -484,14 +511,32 @@ namespace AutoLedger.App.Controls
                 int left = rect.Left + _padding;
                 if (_icon != null) left += _iconSize + 8;
 
-                var flags = GetTextFormatFlags() | TextFormatFlags.NoPadding;
+                int right = rect.Right - _padding;
+                if (_showClearButton && !string.IsNullOrEmpty(_text)) right -= 24;
 
-                for (int i = 0; i <= _text.Length; i++)
+                Rectangle textRect = new Rectangle(left, rect.Top, Math.Max(0, right - left), rect.Height);
+
+                using (StringFormat sf = new StringFormat(StringFormat.GenericTypographic))
                 {
-                    string s = _passwordChar != '\0' ? new string(_passwordChar, i) : _text.Substring(0, i);
-                    int w = TextRenderer.MeasureText(g, s, Font, Size.Empty, flags).Width;
-                    int charRight = left + w;
-                    if (x <= charRight) return i;
+                    sf.Alignment = textAlignment == HorizontalAlignment.Center ? StringAlignment.Center :
+                                   textAlignment == HorizontalAlignment.Right ? StringAlignment.Far : StringAlignment.Near;
+                    sf.FormatFlags |= StringFormatFlags.MeasureTrailingSpaces;
+
+                    string fullText = _passwordChar != '\0' ? new string(_passwordChar, _text.Length) : _text;
+                    float fullWidth = string.IsNullOrEmpty(fullText) ? 0 : g.MeasureString(fullText, Font, PointF.Empty, sf).Width;
+
+                    float startX = textRect.Left;
+                    if (textAlignment == HorizontalAlignment.Center)
+                        startX = textRect.Left + (textRect.Width - fullWidth) / 2;
+                    else if (textAlignment == HorizontalAlignment.Right)
+                        startX = textRect.Right - fullWidth;
+
+                    for (int i = 0; i <= _text.Length; i++)
+                    {
+                        string s = _passwordChar != '\0' ? new string(_passwordChar, i) : _text.Substring(0, i);
+                        float w = string.IsNullOrEmpty(s) ? 0 : g.MeasureString(s, Font, PointF.Empty, sf).Width;
+                        if (x <= startX + w) return i;
+                    }
                 }
                 return _text.Length;
             }

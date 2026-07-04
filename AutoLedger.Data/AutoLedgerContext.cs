@@ -8,6 +8,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.SQLite.EF6;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,20 +17,10 @@ namespace AutoLedger.Data
     public class AutoLedgerContext : DbContext
     {
         private readonly SummaryService _summaryService;
-
-        //public AutoLedgerContext()
-        //    : base(@"Data Source=.\SQLEXPRESS2014;
-        //     Initial Catalog=IronTuning;
-        //     Integrated Security=True;
-        //     MultipleActiveResultSets=True;
-        //     Connect Timeout=30")
-        //{
-        //}
-        public AutoLedgerContext() : base($@"Data Source=(LocalDB)\MSSQLLocalDB;
-                      AttachDbFilename={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IronTuning.mdf")};
-                      Integrated Security=True;
-                      Connect Timeout=30")
+        public AutoLedgerContext() : base(Environment.GetEnvironmentVariable("connectionString"))
         {
+            var s = Environment.GetEnvironmentVariable("connectionString");
+
             _summaryService = new SummaryService(this);
         }
 
@@ -45,7 +36,7 @@ namespace AutoLedger.Data
         public DbSet<ExpenseCategory> ExpenseCategories { get; set; }
 
 
-        public DbSet<MonthlySummary> MonthlySummaries { get; set; } 
+        public DbSet<MonthlySummary> MonthlySummaries { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -64,7 +55,7 @@ namespace AutoLedger.Data
 
             this.Configuration.LazyLoadingEnabled = false;
 
-            base.OnModelCreating(modelBuilder);         
+            base.OnModelCreating(modelBuilder);
         }
 
 

@@ -449,6 +449,18 @@
   <ItemGroup>
     <None Include="Resources\security_lock_128.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coding.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_send_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splashScreen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\black_background.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

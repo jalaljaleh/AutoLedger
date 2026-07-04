@@ -139,7 +139,7 @@
             // 
             // btnCarsAll
             // 
-            this.btnCarsAll.BackgroundImage = global::AutoLedger.App.Properties.Resources.engine_room128;
+            this.btnCarsAll.BackgroundImage = global::AutoLedger.App.Properties.Resources.engine_room;
             this.btnCarsAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCarsAll.FlatAppearance.BorderSize = 0;
             this.btnCarsAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

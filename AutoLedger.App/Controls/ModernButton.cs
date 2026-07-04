@@ -113,10 +113,11 @@ namespace AutoLedger.App.Controls
             Size = new Size(120, 40);
 
             SetStyle(ControlStyles.AllPaintingInWmPaint |
-                     ControlStyles.UserPaint |
-                     ControlStyles.OptimizedDoubleBuffer |
-                     ControlStyles.ResizeRedraw |
-                     ControlStyles.SupportsTransparentBackColor, true);
+                         ControlStyles.UserPaint |
+                         ControlStyles.ResizeRedraw |
+                         ControlStyles.OptimizedDoubleBuffer |
+                         ControlStyles.Selectable |
+                         ControlStyles.SupportsTransparentBackColor, true);
 
             animTimer = new Timer { Interval = 16 };
             animTimer.Tick += AnimTimer_Tick;
@@ -241,7 +242,7 @@ namespace AutoLedger.App.Controls
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            e.Graphics.Clear(Parent?.BackColor ?? SystemColors.Control);
+            e.Graphics.Clear(this.Parent != null ? this.Parent.BackColor : this.BackColor);
 
             Rectangle rect = ClientRectangle;
             rect.Inflate(-1, -1);
