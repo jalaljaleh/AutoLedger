@@ -8,7 +8,7 @@
     <ProjectGuid>{42E1ADFB-A4B9-4AA1-A593-4D3069564303}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>AutoLedger.App</RootNamespace>
-    <AssemblyName>AutoLedger.App</AssemblyName>
+    <AssemblyName>Iron Tuning</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,6 +49,12 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>irontuning_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>AutoLedger.App.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -460,6 +466,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\black_background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="irontuning_icon.ico" />
+    <None Include="Resources\irontuning_icon.png" />
+    <None Include="Resources\irontuning_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

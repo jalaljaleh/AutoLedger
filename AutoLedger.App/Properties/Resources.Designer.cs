@@ -93,16 +93,6 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap autoledge {
-            get {
-                object obj = ResourceManager.GetObject("autoledge", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap automotive {
             get {
                 object obj = ResourceManager.GetObject("automotive", resourceCulture);
@@ -493,9 +483,19 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ironTuning {
+        internal static System.Drawing.Bitmap irontuning_icon {
             get {
-                object obj = ResourceManager.GetObject("ironTuning", resourceCulture);
+                object obj = ResourceManager.GetObject("irontuning_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap irontuning_icon1 {
+            get {
+                object obj = ResourceManager.GetObject("irontuning_icon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
