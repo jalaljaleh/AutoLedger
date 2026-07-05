@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.barLabelUser = new DevExpress.XtraBars.BarStaticItem();
             this.barLabelTime = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -51,28 +53,46 @@
             // 
             // ribbonControl1
             // 
+            this.ribbonControl1.CaptionBarItemLinks.Add(this.barLabelUser);
             this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(30, 31, 30, 31);
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Font = new System.Drawing.Font("Vazirmatn", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.barLabelUser,
             this.ribbonControl1.ExpandCollapseItem,
             this.barLabelTime});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 3;
+            this.ribbonControl1.MaxItemId = 5;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsStubGlyphs.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbonControl1.OptionsStubGlyphs.UseFont = true;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
+            this.ribbonControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ribbonControl1.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.Size = new System.Drawing.Size(960, 49);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            // 
+            // barLabelUser
+            // 
+            this.barLabelUser.Caption = "[کاربر]";
+            this.barLabelUser.Description = "کاربر آنلاین است !";
+            this.barLabelUser.Id = 4;
+            this.barLabelUser.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barLabelUser.ImageOptions.SvgImage")));
+            this.barLabelUser.ItemAppearance.Normal.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barLabelUser.ItemAppearance.Normal.Options.UseFont = true;
+            this.barLabelUser.Name = "barLabelUser";
+            this.barLabelUser.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // barLabelTime
             // 
             this.barLabelTime.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
             this.barLabelTime.Caption = "[زمان]";
             this.barLabelTime.Id = 1;
+            this.barLabelTime.ItemAppearance.Hovered.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barLabelTime.ItemAppearance.Hovered.Options.UseFont = true;
+            this.barLabelTime.ItemAppearance.Normal.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barLabelTime.ItemAppearance.Normal.Options.UseFont = true;
             this.barLabelTime.Name = "barLabelTime";
             // 
             // ribbonPage1
@@ -98,10 +118,10 @@
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.ItemLinks.Add(this.barLabelTime);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 659);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 651);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(960, 37);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(960, 45);
             // 
             // ribbonPage2
             // 
@@ -114,7 +134,7 @@
             this.panelView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelView.Location = new System.Drawing.Point(0, 49);
             this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(756, 610);
+            this.panelView.Size = new System.Drawing.Size(756, 602);
             this.panelView.TabIndex = 12;
             // 
             // Menu
@@ -129,7 +149,7 @@
             this.Menu.Name = "Menu";
             this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Menu.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.Menu.Size = new System.Drawing.Size(204, 610);
+            this.Menu.Size = new System.Drawing.Size(204, 602);
             this.Menu.TabIndex = 0;
             this.Menu.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -256,5 +276,6 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnSummary;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnNewExpens;
         private DevExpress.XtraBars.BarStaticItem barLabelTime;
+        private DevExpress.XtraBars.BarStaticItem barLabelUser;
     }
 }

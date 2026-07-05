@@ -15,6 +15,7 @@ namespace AutoLedger.App
 {
     internal static class Program
     {
+        public static User User { get; set; } = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -48,6 +49,10 @@ namespace AutoLedger.App
 
             if (IsDebugMode())
             {
+                using(var db = new AutoLedgerContext())
+                {
+                    User = db.Users.AsNoTracking().FirstOrDefault();
+                }
                 Application.Run(new DashboardForm());
             }
             else

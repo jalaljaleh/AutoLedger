@@ -1,6 +1,7 @@
 ﻿using AutoLedger.App.FormsModal;
 using AutoLedger.App.FormsView;
 using AutoLedger.Data;
+using AutoLedger.Domain;
 using AutoLedger.Extensions;
 using DevExpress.XtraBars.Navigation;
 using System;
@@ -30,6 +31,8 @@ namespace AutoLedger.App.Forms
             this.btnCurrentCars.Click += ViewButtons_Click;
             this.btnExpenses.Click += ViewButtons_Click;
             this.btnSummary.Click += ViewButtons_Click;
+
+            this.barLabelUser.Caption = Program.User.FullName;
         }
 
       

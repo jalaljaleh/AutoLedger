@@ -122,7 +122,9 @@ namespace AutoLedger.App.Forms
 
             using (var db = new AutoLedgerContext())
             {
-                var user = db.Users.FirstOrDefault(u => u.FullName == username);
+                var user = db.Users
+                    .AsNoTracking()
+                    .FirstOrDefault(u => u.FullName == username);
 
                 if (user == null)
                 {
@@ -136,6 +138,7 @@ namespace AutoLedger.App.Forms
                     labelError.Text = "رمز عبور اشتباه است.";
                     return false;
                 }
+                Program.User = user;
             }
             return true;
         }
