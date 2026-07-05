@@ -52,6 +52,8 @@
             this.carIdControl = new AutoLedger.App.Controls.CarIdControl();
             this.btnNext = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.inputCreatedAt = new AutoLedger.App.Controls.ModernTextBox();
+            this.inputId = new AutoLedger.App.Controls.ModernTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stepProgressBar1)).BeginInit();
@@ -87,7 +89,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 520);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 503);
             this.barDockControlBottom.Manager = this.toolbarFormManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(770, 0);
             // 
@@ -97,7 +99,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 33);
             this.barDockControlLeft.Manager = this.toolbarFormManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 487);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 470);
             // 
             // barDockControlRight
             // 
@@ -105,7 +107,7 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(770, 33);
             this.barDockControlRight.Manager = this.toolbarFormManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 487);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 470);
             // 
             // stepProgressBar1
             // 
@@ -340,13 +342,57 @@
             this.btnCancel.TabIndex = 22;
             this.btnCancel.Text = "لغو";
             // 
+            // inputCreatedAt
+            // 
+            this.inputCreatedAt.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.inputCreatedAt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.inputCreatedAt.BackColor = System.Drawing.SystemColors.Window;
+            this.inputCreatedAt.BorderColor = System.Drawing.Color.LightGray;
+            this.inputCreatedAt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputCreatedAt.Enabled = false;
+            this.inputCreatedAt.ForeColor = System.Drawing.Color.Black;
+            this.inputCreatedAt.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.inputCreatedAt.Icon = global::AutoLedger.App.Properties.Resources.calendar_1_128;
+            this.inputCreatedAt.Location = new System.Drawing.Point(164, 58);
+            this.inputCreatedAt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.inputCreatedAt.MaxLength = 150;
+            this.inputCreatedAt.Name = "inputCreatedAt";
+            this.inputCreatedAt.Placeholder = "تاریخ";
+            this.inputCreatedAt.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.inputCreatedAt.Size = new System.Drawing.Size(189, 33);
+            this.inputCreatedAt.TabIndex = 27;
+            this.inputCreatedAt.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // inputId
+            // 
+            this.inputId.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.inputId.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.inputId.BackColor = System.Drawing.SystemColors.Window;
+            this.inputId.BorderColor = System.Drawing.Color.LightGray;
+            this.inputId.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputId.Enabled = false;
+            this.inputId.ForeColor = System.Drawing.Color.Black;
+            this.inputId.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.inputId.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
+            this.inputId.Location = new System.Drawing.Point(61, 58);
+            this.inputId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.inputId.MaxLength = 150;
+            this.inputId.Name = "inputId";
+            this.inputId.Placeholder = "تاریخ";
+            this.inputId.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.inputId.Size = new System.Drawing.Size(97, 33);
+            this.inputId.TabIndex = 28;
+            this.inputId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // CarForm
             // 
             this.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 520);
+            this.ClientSize = new System.Drawing.Size(770, 503);
+            this.Controls.Add(this.inputId);
+            this.Controls.Add(this.inputCreatedAt);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.inputBrand);
@@ -408,5 +454,7 @@
         private DevExpress.XtraEditors.StepProgressBarItem btnNone;
         private DevExpress.XtraEditors.SimpleButton btnNext;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
+        private Controls.ModernTextBox inputId;
+        private Controls.ModernTextBox inputCreatedAt;
     }
 }

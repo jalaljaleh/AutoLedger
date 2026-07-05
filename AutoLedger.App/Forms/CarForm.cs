@@ -1,5 +1,6 @@
 ﻿using AutoLedger.Data;
 using AutoLedger.Domain;
+using AutoLedger.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -43,6 +44,13 @@ namespace AutoLedger.App.Forms
                 inputPhoneNumber.Text = _car.OwnerPhoneNumber;
                 inputFullName.Text = _car.OwnerFullName;
                 inputUserCardId.Text = _car.OwnerNationalId;
+                inputCreatedAt.Text = _car.CreatedAt.ToShamsiLong();
+                inputId.Text = _car.Id.ToString();
+            }
+            else
+            {
+                inputCreatedAt.Text = DateTime.Now.ToShamsiLong();
+                inputId.Text = "000";
             }
 
             // Initialize step progress bar state
