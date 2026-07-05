@@ -23,6 +23,7 @@ namespace AutoLedger.App.FormsView
 
         private int _carsPage = 0;
         private int _carsPageSize = 50;
+        public void CheckCurrentCars(bool @checked) => cbCurrentCars.Checked = @checked;
 
         public CarsManagerPage(bool currentCarsOnly = false)
         {

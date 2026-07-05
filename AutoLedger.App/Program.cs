@@ -46,13 +46,20 @@ namespace AutoLedger.App
                 }
             }
 
-            using (var loginDialog = new LoginForm())
+            if (IsDebugMode())
             {
-                _ = loginDialog.InitializeAsync();
-                var dialog = loginDialog.ShowDialog();
-                if (dialog == DialogResult.OK)
+                Application.Run(new DashboardForm());
+            }
+            else
+            {
+                using (var loginDialog = new LoginForm())
                 {
-                    Application.Run(new DashboardForm());
+                    _ = loginDialog.InitializeAsync();
+                    var dialog = loginDialog.ShowDialog();
+                    if (dialog == DialogResult.OK)
+                    {
+                        Application.Run(new DashboardForm());
+                    }
                 }
             }
         }
@@ -63,47 +70,47 @@ namespace AutoLedger.App
         {
             //try
             //{
-                string express = @"Data Source=.\SQLEXPRESS2014; Initial Catalog=IronTuning; Integrated Security=True; MultipleActiveResultSets=True; Connect Timeout=30";
-                string localDb = $@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IronTuning.mdf")}; Integrated Security=True; Connect Timeout=30";
+            string express = @"Data Source=.\SQLEXPRESS2014; Initial Catalog=IronTuning; Integrated Security=True; MultipleActiveResultSets=True; Connect Timeout=30";
+            string localDb = $@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IronTuning.mdf")}; Integrated Security=True; Connect Timeout=30";
 
-                Environment.SetEnvironmentVariable("connectionString", localDb);
+            Environment.SetEnvironmentVariable("connectionString", localDb);
 
-                using (AutoLedgerContext db = new AutoLedgerContext())
+            using (AutoLedgerContext db = new AutoLedgerContext())
+            {
+                if (db.Database.Exists())
+                    db.Database.Delete();
+
+                bool isCreated = db.Database.CreateIfNotExists();
+                if (isCreated)
                 {
-                    if (db.Database.Exists())
-                        db.Database.Delete();
-
-                    bool isCreated = db.Database.CreateIfNotExists();
-                    if (isCreated)
+                    db.Users.Add(new User()
                     {
-                        db.Users.Add(new User()
-                        {
-                            FullName = "محمدجلال ژاله",
-                            Password = "jj"
-                        });
-                        db.Users.Add(new User()
-                        {
-                            FullName = "فرید عزیزی",
-                            Password = "admin"
-                        });
-                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("هزینه‌های عمومی"));
-                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("مواد مصرفی"));
-                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("اجاره بها"));
-                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("قبوض و خدمات"));
-                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("حمل‌ونقل و جابه‌جایی"));
-                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("حقوق و دستمزد"));
-                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("ابزار و تجهیزات"));
-                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("قطعات و لوازم یدکی"));
-                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("نظافت و بهداشت"));
-                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("مالیات و امور قانونی"));
-                        db.ExpenseCategories.Add(new ExpenseCategory().WithName("بازاریابی و تبلیغات"));
+                        FullName = "محمدجلال ژاله",
+                        Password = "jj"
+                    });
+                    db.Users.Add(new User()
+                    {
+                        FullName = "فرید عزیزی",
+                        Password = "admin"
+                    });
+                    db.ExpenseCategories.Add(new ExpenseCategory().WithName("هزینه‌های عمومی"));
+                    db.ExpenseCategories.Add(new ExpenseCategory().WithName("مواد مصرفی"));
+                    db.ExpenseCategories.Add(new ExpenseCategory().WithName("اجاره بها"));
+                    db.ExpenseCategories.Add(new ExpenseCategory().WithName("قبوض و خدمات"));
+                    db.ExpenseCategories.Add(new ExpenseCategory().WithName("حمل‌ونقل و جابه‌جایی"));
+                    db.ExpenseCategories.Add(new ExpenseCategory().WithName("حقوق و دستمزد"));
+                    db.ExpenseCategories.Add(new ExpenseCategory().WithName("ابزار و تجهیزات"));
+                    db.ExpenseCategories.Add(new ExpenseCategory().WithName("قطعات و لوازم یدکی"));
+                    db.ExpenseCategories.Add(new ExpenseCategory().WithName("نظافت و بهداشت"));
+                    db.ExpenseCategories.Add(new ExpenseCategory().WithName("مالیات و امور قانونی"));
+                    db.ExpenseCategories.Add(new ExpenseCategory().WithName("بازاریابی و تبلیغات"));
 
-                        db.SaveChanges();
-                    }
-
-
+                    db.SaveChanges();
                 }
-                return Task.FromResult(true);
+
+
+            }
+            return Task.FromResult(true);
             //}
             //catch
             //{

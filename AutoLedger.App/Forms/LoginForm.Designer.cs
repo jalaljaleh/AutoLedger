@@ -31,19 +31,19 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.labelVersion = new System.Windows.Forms.Label();
             this.panelMenuMain = new System.Windows.Forms.Panel();
+            this.labelError = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelTime = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnTelegram = new AutoLedger.App.Controls.ModernButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnSourceCode = new AutoLedger.App.Controls.ModernButton();
             this.btnDeveloper = new AutoLedger.App.Controls.ModernButton();
-            this.labelTime = new DevExpress.XtraEditors.LabelControl();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.cbUsername = new DevExpress.XtraEditors.ComboBoxEdit();
             this.inputPassword = new AutoLedger.App.Controls.ModernTextBox();
-            this.labelLoading = new System.Windows.Forms.Label();
+            this.pbLoading = new DevExpress.XtraWaitForm.ProgressPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelMenuMain.SuspendLayout();
@@ -67,31 +67,17 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.Transparent;
             this.panelMenu.BackgroundImage = global::AutoLedger.App.Properties.Resources.black_background;
-            this.panelMenu.Controls.Add(this.labelVersion);
             this.panelMenu.Controls.Add(this.panelMenuMain);
-            this.panelMenu.Controls.Add(this.labelLoading);
+            this.panelMenu.Controls.Add(this.pbLoading);
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelMenu.Location = new System.Drawing.Point(756, 3);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(321, 674);
             this.panelMenu.TabIndex = 20;
             // 
-            // labelVersion
-            // 
-            this.labelVersion.BackColor = System.Drawing.Color.Transparent;
-            this.labelVersion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.labelVersion.ForeColor = System.Drawing.Color.Cornsilk;
-            this.labelVersion.Location = new System.Drawing.Point(0, 632);
-            this.labelVersion.Margin = new System.Windows.Forms.Padding(10);
-            this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Padding = new System.Windows.Forms.Padding(5);
-            this.labelVersion.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelVersion.Size = new System.Drawing.Size(321, 42);
-            this.labelVersion.TabIndex = 4;
-            this.labelVersion.Text = "Version";
-            // 
             // panelMenuMain
             // 
+            this.panelMenuMain.Controls.Add(this.labelError);
             this.panelMenuMain.Controls.Add(this.label1);
             this.panelMenuMain.Controls.Add(this.labelTime);
             this.panelMenuMain.Controls.Add(this.pictureBox1);
@@ -107,6 +93,45 @@
             this.panelMenuMain.Name = "panelMenuMain";
             this.panelMenuMain.Size = new System.Drawing.Size(321, 674);
             this.panelMenuMain.TabIndex = 20;
+            // 
+            // labelError
+            // 
+            this.labelError.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.labelError.Location = new System.Drawing.Point(20, 497);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(273, 66);
+            this.labelError.TabIndex = 21;
+            this.labelError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Vazirmatn", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.label1.Location = new System.Drawing.Point(34, 194);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(254, 41);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "حسابداری آیرون تیونینگ";
+            // 
+            // labelTime
+            // 
+            this.labelTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTime.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelTime.Appearance.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTime.Appearance.ForeColor = System.Drawing.Color.AliceBlue;
+            this.labelTime.Appearance.Options.UseBackColor = true;
+            this.labelTime.Appearance.Options.UseFont = true;
+            this.labelTime.Appearance.Options.UseForeColor = true;
+            this.labelTime.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.labelTime.Location = new System.Drawing.Point(46, 238);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(235, 33);
+            this.labelTime.TabIndex = 8;
+            this.labelTime.Text = "[تاریخ]";
             // 
             // pictureBox1
             // 
@@ -155,19 +180,6 @@
             this.label2.Size = new System.Drawing.Size(169, 22);
             this.label2.TabIndex = 19;
             this.label2.Text = "نام و رمز کاربری خود را وارد کنید.";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Vazirmatn", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.label1.Location = new System.Drawing.Point(34, 194);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(254, 41);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "حسابداری آیرون تیونینگ";
             // 
             // btnSourceCode
             // 
@@ -223,22 +235,6 @@
             this.btnDeveloper.Text = "توسعه دهنده";
             this.btnDeveloper.UseVisualStyleBackColor = false;
             // 
-            // labelTime
-            // 
-            this.labelTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTime.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.labelTime.Appearance.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTime.Appearance.ForeColor = System.Drawing.Color.AliceBlue;
-            this.labelTime.Appearance.Options.UseBackColor = true;
-            this.labelTime.Appearance.Options.UseFont = true;
-            this.labelTime.Appearance.Options.UseForeColor = true;
-            this.labelTime.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelTime.Location = new System.Drawing.Point(46, 238);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(235, 33);
-            this.labelTime.TabIndex = 8;
-            this.labelTime.Text = "[تاریخ]";
-            // 
             // btnLogin
             // 
             this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -290,16 +286,29 @@
             this.inputPassword.TabIndex = 1;
             this.inputPassword.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // labelLoading
+            // pbLoading
             // 
-            this.labelLoading.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelLoading.ForeColor = System.Drawing.Color.Snow;
-            this.labelLoading.Location = new System.Drawing.Point(0, 0);
-            this.labelLoading.Name = "labelLoading";
-            this.labelLoading.Size = new System.Drawing.Size(321, 674);
-            this.labelLoading.TabIndex = 20;
-            this.labelLoading.Text = "در حال بارگذاری ...";
-            this.labelLoading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pbLoading.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.pbLoading.Appearance.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pbLoading.Appearance.Options.UseBackColor = true;
+            this.pbLoading.Appearance.Options.UseFont = true;
+            this.pbLoading.AppearanceCaption.Font = new System.Drawing.Font("Vazirmatn", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pbLoading.AppearanceCaption.ForeColor = System.Drawing.Color.White;
+            this.pbLoading.AppearanceCaption.Options.UseFont = true;
+            this.pbLoading.AppearanceCaption.Options.UseForeColor = true;
+            this.pbLoading.AppearanceDescription.Font = new System.Drawing.Font("Vazirmatn", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pbLoading.AppearanceDescription.ForeColor = System.Drawing.Color.White;
+            this.pbLoading.AppearanceDescription.Options.UseFont = true;
+            this.pbLoading.AppearanceDescription.Options.UseForeColor = true;
+            this.pbLoading.Caption = ".. حالت انتظار";
+            this.pbLoading.ContentAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.pbLoading.Description = " ..  در حال اتصال به پایگاه داده    ";
+            this.pbLoading.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbLoading.Location = new System.Drawing.Point(0, 0);
+            this.pbLoading.Name = "pbLoading";
+            this.pbLoading.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.pbLoading.Size = new System.Drawing.Size(321, 674);
+            this.pbLoading.TabIndex = 21;
             // 
             // LoginForm
             // 
@@ -331,7 +340,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label labelVersion;
         private Controls.ModernTextBox inputPassword;
         private DevExpress.XtraEditors.ComboBoxEdit cbUsername;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
@@ -344,7 +352,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelMenuMain;
-        private System.Windows.Forms.Label labelLoading;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private DevExpress.XtraWaitForm.ProgressPanel pbLoading;
+        private System.Windows.Forms.Label labelError;
     }
 }

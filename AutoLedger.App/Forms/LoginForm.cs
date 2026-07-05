@@ -5,9 +5,11 @@ using DevExpress.XtraEditors;
 using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace AutoLedger.App.Forms
 {
@@ -17,11 +19,21 @@ namespace AutoLedger.App.Forms
         {
             InitializeComponent();
 
-            labelVersion.Text = Program.Version;
+            //   pbLoading.Dispose();   ??
 
+            HideMenu(".. منتظر بمانید", "در حال اتصال به پایگاه داده !");
+        }
+        void ShowMenu()
+        {
+            panelMenuMain.Visible = true;
+        }
+        void HideMenu(string caption, string descriptin)
+        {
+            
+            pbLoading.Caption = caption;
+            pbLoading.Description = descriptin;
             panelMenuMain.Visible = false;
         }
-
         private void BtnOpenUrl_Click(object sender, EventArgs e)
         {
             var btn = (ModernButton)sender;
@@ -43,8 +55,8 @@ namespace AutoLedger.App.Forms
 
         public async Task InitializeAsync()
         {
-            panelMenuMain.Visible = true;
-        
+            ShowMenu();
+
             this.labelTime.Text = "تاریخ امروز: " + DateTime.Now.ToShamsiLong();
 
             this.btnTelegram.Click += BtnOpenUrl_Click;
@@ -78,21 +90,34 @@ namespace AutoLedger.App.Forms
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
+            HideMenu("در حال ورود", ".. در حال اتصال به حساب کاربری");
+            labelError.Text = "";     
+
+            if (!Login())
+            {
+                ShowMenu();
+                return;
+            }
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+        bool Login()
+        {
+            
             string username = cbUsername.Text?.Trim();
             string password = inputPassword.Text;
 
             if (string.IsNullOrWhiteSpace(username))
             {
-                XtraMessageBox.Show("لطفاً یک کاربر انتخاب کنید.", "هشدار",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                labelError.Text = "لطفاً یک کاربر انتخاب کنید.";
+                return false;
             }
 
             if (string.IsNullOrWhiteSpace(password))
             {
-                XtraMessageBox.Show("لطفاً رمز عبور را وارد کنید.", "هشدار",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                labelError.Text = "لطفاً رمز عبور را وارد کنید.";
+                return false;
             }
 
             using (var db = new AutoLedgerContext())
@@ -101,22 +126,18 @@ namespace AutoLedger.App.Forms
 
                 if (user == null)
                 {
-                    XtraMessageBox.Show("کاربر یافت نشد.", "خطا",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    labelError.Text = "کاربر یافت نشد.";
+                    return false;
                 }
 
-        
+
                 if (!string.Equals(user.Password, password, StringComparison.Ordinal))
                 {
-                    XtraMessageBox.Show("رمز عبور اشتباه است.", "خطا",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    labelError.Text = "رمز عبور اشتباه است.";
+                    return false;
                 }
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
             }
+            return true;
         }
     }
 }
