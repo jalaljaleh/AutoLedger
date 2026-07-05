@@ -9,7 +9,7 @@ using AutoLedger.Extensions;
 
 namespace AutoLedger.App.Forms
 {
-    public partial class ExpenseForm : Form
+    public partial class ExpenseForm : DevExpress.XtraBars.ToolbarForm.ToolbarForm
     {
         private readonly Expense _editingExpense;
         private readonly bool _isEditMode;

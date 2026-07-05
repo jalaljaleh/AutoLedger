@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExpenseForm));
             this.inputTitle = new AutoLedger.App.Controls.ModernTextBox();
             this.inputDescription = new AutoLedger.App.Controls.ModernTextBox();
             this.inputAmount = new AutoLedger.App.Controls.ModernTextBox();
@@ -37,6 +39,16 @@
             this.cbCategory = new System.Windows.Forms.ComboBox();
             this.btnConfirm = new AutoLedger.App.Controls.ModernButton();
             this.btnCancel = new AutoLedger.App.Controls.ModernButton();
+            this.toolbarFormControl1 = new DevExpress.XtraBars.ToolbarForm.ToolbarFormControl();
+            this.toolbarFormManager1 = new DevExpress.XtraBars.ToolbarForm.ToolbarFormManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.inputCreatedAt = new AutoLedger.App.Controls.ModernTextBox();
+            this.inputId = new AutoLedger.App.Controls.ModernTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // inputTitle
@@ -46,10 +58,11 @@
             this.inputTitle.BackColor = System.Drawing.Color.White;
             this.inputTitle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.inputTitle.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputTitle.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.inputTitle.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputTitle.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
-            this.inputTitle.Location = new System.Drawing.Point(45, 35);
+            this.inputTitle.Location = new System.Drawing.Point(394, 61);
             this.inputTitle.Name = "inputTitle";
             this.inputTitle.Placeholder = "عنوان خرید";
             this.inputTitle.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
@@ -67,7 +80,7 @@
             this.inputDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.inputDescription.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputDescription.Icon = null;
-            this.inputDescription.Location = new System.Drawing.Point(45, 81);
+            this.inputDescription.Location = new System.Drawing.Point(394, 122);
             this.inputDescription.Name = "inputDescription";
             this.inputDescription.Placeholder = "توضیحات";
             this.inputDescription.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
@@ -79,18 +92,18 @@
             // 
             this.inputAmount.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
             this.inputAmount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.inputAmount.BackColor = System.Drawing.Color.White;
+            this.inputAmount.BackColor = System.Drawing.Color.Wheat;
             this.inputAmount.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.inputAmount.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.inputAmount.ForeColor = System.Drawing.Color.Black;
             this.inputAmount.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputAmount.Icon = global::AutoLedger.App.Properties.Resources.coin;
-            this.inputAmount.Location = new System.Drawing.Point(45, 202);
+            this.inputAmount.Location = new System.Drawing.Point(394, 233);
             this.inputAmount.Name = "inputAmount";
             this.inputAmount.NumbersOnly = true;
             this.inputAmount.Placeholder = "مبلغ";
-            this.inputAmount.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.inputAmount.Size = new System.Drawing.Size(295, 40);
+            this.inputAmount.PlaceholderColor = System.Drawing.Color.Black;
+            this.inputAmount.Size = new System.Drawing.Size(295, 45);
             this.inputAmount.TabIndex = 3;
             this.inputAmount.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -98,10 +111,10 @@
             // 
             this.labelAmountPersian.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelAmountPersian.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAmountPersian.Location = new System.Drawing.Point(45, 246);
+            this.labelAmountPersian.Location = new System.Drawing.Point(394, 287);
             this.labelAmountPersian.Name = "labelAmountPersian";
             this.labelAmountPersian.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.labelAmountPersian.Size = new System.Drawing.Size(294, 31);
+            this.labelAmountPersian.Size = new System.Drawing.Size(294, 42);
             this.labelAmountPersian.TabIndex = 3;
             this.labelAmountPersian.Text = "0 تومان";
             // 
@@ -109,17 +122,17 @@
             // 
             this.inputPaidTo.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
             this.inputPaidTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.inputPaidTo.BackColor = System.Drawing.Color.White;
+            this.inputPaidTo.BackColor = System.Drawing.Color.AliceBlue;
             this.inputPaidTo.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.inputPaidTo.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputPaidTo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.inputPaidTo.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputPaidTo.Icon = global::AutoLedger.App.Properties.Resources.checked_user;
-            this.inputPaidTo.Location = new System.Drawing.Point(45, 280);
+            this.inputPaidTo.Location = new System.Drawing.Point(27, 122);
             this.inputPaidTo.Name = "inputPaidTo";
             this.inputPaidTo.Placeholder = "نام و نام خانوادگی دریافت کننده";
             this.inputPaidTo.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.inputPaidTo.Size = new System.Drawing.Size(295, 40);
+            this.inputPaidTo.Size = new System.Drawing.Size(334, 40);
             this.inputPaidTo.TabIndex = 4;
             this.inputPaidTo.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -133,11 +146,11 @@
             this.InputPaymentMethod.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.InputPaymentMethod.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.InputPaymentMethod.Icon = global::AutoLedger.App.Properties.Resources.credit_card_128;
-            this.InputPaymentMethod.Location = new System.Drawing.Point(45, 326);
+            this.InputPaymentMethod.Location = new System.Drawing.Point(27, 168);
             this.InputPaymentMethod.Name = "InputPaymentMethod";
             this.InputPaymentMethod.Placeholder = "شیوه پرداخت";
             this.InputPaymentMethod.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.InputPaymentMethod.Size = new System.Drawing.Size(295, 40);
+            this.InputPaymentMethod.Size = new System.Drawing.Size(334, 40);
             this.InputPaymentMethod.TabIndex = 5;
             this.InputPaymentMethod.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -145,9 +158,9 @@
             // 
             this.cbCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCategory.FormattingEnabled = true;
-            this.cbCategory.Location = new System.Drawing.Point(45, 378);
+            this.cbCategory.Location = new System.Drawing.Point(27, 233);
             this.cbCategory.Name = "cbCategory";
-            this.cbCategory.Size = new System.Drawing.Size(295, 29);
+            this.cbCategory.Size = new System.Drawing.Size(334, 29);
             this.cbCategory.TabIndex = 6;
             // 
             // btnConfirm
@@ -156,6 +169,7 @@
             this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.btnConfirm.BaseBackColor = System.Drawing.Color.Green;
             this.btnConfirm.BorderColor = System.Drawing.Color.Transparent;
+            this.btnConfirm.CornerRadius = 2;
             this.btnConfirm.FlatAppearance.BorderSize = 0;
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -163,10 +177,10 @@
             this.btnConfirm.HoverBackColor = System.Drawing.Color.Empty;
             this.btnConfirm.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
             this.btnConfirm.IconSize = 22;
-            this.btnConfirm.Location = new System.Drawing.Point(204, 455);
+            this.btnConfirm.Location = new System.Drawing.Point(519, 334);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnConfirm.Size = new System.Drawing.Size(150, 40);
+            this.btnConfirm.Size = new System.Drawing.Size(170, 48);
             this.btnConfirm.TabIndex = 7;
             this.btnConfirm.Text = "تایید";
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -182,21 +196,117 @@
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.HoverBackColor = System.Drawing.Color.Empty;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(31, 455);
+            this.btnCancel.Location = new System.Drawing.Point(447, 339);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnCancel.Size = new System.Drawing.Size(90, 40);
+            this.btnCancel.Size = new System.Drawing.Size(66, 43);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "لغو";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
+            // toolbarFormControl1
+            // 
+            this.toolbarFormControl1.Location = new System.Drawing.Point(0, 0);
+            this.toolbarFormControl1.Manager = this.toolbarFormManager1;
+            this.toolbarFormControl1.Name = "toolbarFormControl1";
+            this.toolbarFormControl1.Size = new System.Drawing.Size(716, 33);
+            this.toolbarFormControl1.TabIndex = 8;
+            this.toolbarFormControl1.TabStop = false;
+            this.toolbarFormControl1.ToolbarForm = this;
+            // 
+            // toolbarFormManager1
+            // 
+            this.toolbarFormManager1.DockControls.Add(this.barDockControlTop);
+            this.toolbarFormManager1.DockControls.Add(this.barDockControlBottom);
+            this.toolbarFormManager1.DockControls.Add(this.barDockControlLeft);
+            this.toolbarFormManager1.DockControls.Add(this.barDockControlRight);
+            this.toolbarFormManager1.Form = this;
+            this.toolbarFormManager1.MaxItemId = 1;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 33);
+            this.barDockControlTop.Manager = this.toolbarFormManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(716, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 401);
+            this.barDockControlBottom.Manager = this.toolbarFormManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(716, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 33);
+            this.barDockControlLeft.Manager = this.toolbarFormManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 368);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(716, 33);
+            this.barDockControlRight.Manager = this.toolbarFormManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 368);
+            // 
+            // inputCreatedAt
+            // 
+            this.inputCreatedAt.AccentColor = System.Drawing.Color.Empty;
+            this.inputCreatedAt.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.inputCreatedAt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.inputCreatedAt.CornerRadius = 2;
+            this.inputCreatedAt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputCreatedAt.Enabled = false;
+            this.inputCreatedAt.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputCreatedAt.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.inputCreatedAt.HoverColor = System.Drawing.Color.Empty;
+            this.inputCreatedAt.Icon = global::AutoLedger.App.Properties.Resources.calendar_1_128;
+            this.inputCreatedAt.Location = new System.Drawing.Point(27, 287);
+            this.inputCreatedAt.Margin = new System.Windows.Forms.Padding(0);
+            this.inputCreatedAt.Name = "inputCreatedAt";
+            this.inputCreatedAt.Placeholder = "[تاریخ ایجاد]";
+            this.inputCreatedAt.PlaceholderColor = System.Drawing.Color.BlanchedAlmond;
+            this.inputCreatedAt.ShowClearButton = false;
+            this.inputCreatedAt.Size = new System.Drawing.Size(334, 38);
+            this.inputCreatedAt.TabIndex = 36;
+            this.inputCreatedAt.Text = "[تاریخ]";
+            this.inputCreatedAt.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // inputId
+            // 
+            this.inputId.AccentColor = System.Drawing.Color.Empty;
+            this.inputId.BackColor = System.Drawing.Color.DarkRed;
+            this.inputId.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.inputId.CornerRadius = 0;
+            this.inputId.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputId.Enabled = false;
+            this.inputId.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold);
+            this.inputId.ForeColor = System.Drawing.Color.White;
+            this.inputId.HoverColor = System.Drawing.Color.Empty;
+            this.inputId.Icon = global::AutoLedger.App.Properties.Resources.security_lock_128;
+            this.inputId.Location = new System.Drawing.Point(27, 63);
+            this.inputId.Name = "inputId";
+            this.inputId.Placeholder = "[شناسه پذیرش]";
+            this.inputId.PlaceholderColor = System.Drawing.Color.WhiteSmoke;
+            this.inputId.ShowClearButton = false;
+            this.inputId.Size = new System.Drawing.Size(334, 38);
+            this.inputId.TabIndex = 35;
+            this.inputId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // ExpenseForm
             // 
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(376, 516);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(716, 401);
+            this.Controls.Add(this.inputId);
+            this.Controls.Add(this.inputCreatedAt);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.cbCategory);
@@ -206,15 +316,26 @@
             this.Controls.Add(this.inputAmount);
             this.Controls.Add(this.inputDescription);
             this.Controls.Add(this.inputTitle);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
+            this.Controls.Add(this.toolbarFormControl1);
             this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("ExpenseForm.IconOptions.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ExpenseForm";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "فرم مخارج";
+            this.ToolbarFormControl = this.toolbarFormControl1;
             this.TopMost = true;
+            ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -229,5 +350,13 @@
         private System.Windows.Forms.ComboBox cbCategory;
         private Controls.ModernButton btnConfirm;
         private Controls.ModernButton btnCancel;
+        private DevExpress.XtraBars.ToolbarForm.ToolbarFormControl toolbarFormControl1;
+        private DevExpress.XtraBars.ToolbarForm.ToolbarFormManager toolbarFormManager1;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private Controls.ModernTextBox inputId;
+        private Controls.ModernTextBox inputCreatedAt;
     }
 }

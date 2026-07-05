@@ -133,10 +133,12 @@
             // panelView
             // 
             this.panelView.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelView.BackgroundImage = global::AutoLedger.App.Properties.Resources.background;
+            this.panelView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panelView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelView.Location = new System.Drawing.Point(0, 49);
             this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(756, 602);
+            this.panelView.Size = new System.Drawing.Size(737, 602);
             this.panelView.TabIndex = 12;
             // 
             // Menu
@@ -147,11 +149,11 @@
             this.Menu.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement1,
             this.accordionControlElement2});
-            this.Menu.Location = new System.Drawing.Point(756, 49);
+            this.Menu.Location = new System.Drawing.Point(737, 49);
             this.Menu.Name = "Menu";
             this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Menu.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.Menu.Size = new System.Drawing.Size(204, 602);
+            this.Menu.Size = new System.Drawing.Size(223, 602);
             this.Menu.TabIndex = 0;
             this.Menu.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
             // 
@@ -246,6 +248,7 @@
             this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("DashboardForm.IconOptions.Icon")));
             this.IconOptions.Image = global::AutoLedger.App.Properties.Resources.irontuning_icon;
+            this.IconOptions.LargeImage = global::AutoLedger.App.Properties.Resources.irontuning_icon1;
             this.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.Name = "DashboardForm";
             this.Ribbon = this.ribbonControl1;

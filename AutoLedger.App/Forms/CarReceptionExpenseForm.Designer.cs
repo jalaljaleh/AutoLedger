@@ -310,14 +310,14 @@ namespace AutoLedger.App.Forms
             // inputCreatedAt
             // 
             this.inputCreatedAt.AccentColor = System.Drawing.Color.Empty;
-            this.inputCreatedAt.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.inputCreatedAt.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.inputCreatedAt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.inputCreatedAt.CornerRadius = 2;
             this.inputCreatedAt.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputCreatedAt.Dock = System.Windows.Forms.DockStyle.Left;
             this.inputCreatedAt.Enabled = false;
             this.inputCreatedAt.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputCreatedAt.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.inputCreatedAt.ForeColor = System.Drawing.Color.White;
             this.inputCreatedAt.HoverColor = System.Drawing.Color.Empty;
             this.inputCreatedAt.Icon = global::AutoLedger.App.Properties.Resources.calendar_1_128;
             this.inputCreatedAt.Location = new System.Drawing.Point(163, 0);
@@ -334,19 +334,20 @@ namespace AutoLedger.App.Forms
             // inputReceptionId
             // 
             this.inputReceptionId.AccentColor = System.Drawing.Color.Empty;
-            this.inputReceptionId.BackColor = System.Drawing.Color.DarkSalmon;
+            this.inputReceptionId.BackColor = System.Drawing.Color.DarkRed;
             this.inputReceptionId.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.inputReceptionId.CornerRadius = 0;
             this.inputReceptionId.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputReceptionId.Dock = System.Windows.Forms.DockStyle.Left;
             this.inputReceptionId.Enabled = false;
-            this.inputReceptionId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.inputReceptionId.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputReceptionId.ForeColor = System.Drawing.Color.White;
             this.inputReceptionId.HoverColor = System.Drawing.Color.Empty;
             this.inputReceptionId.Icon = global::AutoLedger.App.Properties.Resources.security_lock_128;
             this.inputReceptionId.Location = new System.Drawing.Point(0, 0);
             this.inputReceptionId.Name = "inputReceptionId";
             this.inputReceptionId.Placeholder = "[شماره فاکتور]";
-            this.inputReceptionId.PlaceholderColor = System.Drawing.Color.Black;
+            this.inputReceptionId.PlaceholderColor = System.Drawing.Color.WhiteSmoke;
             this.inputReceptionId.ShowClearButton = false;
             this.inputReceptionId.Size = new System.Drawing.Size(163, 35);
             this.inputReceptionId.TabIndex = 11;
@@ -399,11 +400,11 @@ namespace AutoLedger.App.Forms
             // 
             // btnSubmit
             // 
+            this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.btnSubmit.BaseBackColor = System.Drawing.Color.SeaGreen;
+            this.btnSubmit.BaseBackColor = System.Drawing.Color.DarkGreen;
             this.btnSubmit.BorderColor = System.Drawing.Color.Transparent;
             this.btnSubmit.CornerRadius = 0;
-            this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSubmit.FlatAppearance.BorderSize = 0;
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubmit.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

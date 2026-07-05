@@ -299,7 +299,7 @@ namespace AutoLedger.App.Forms
             // inputCreatedAt
             // 
             this.inputCreatedAt.AccentColor = System.Drawing.Color.Empty;
-            this.inputCreatedAt.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.inputCreatedAt.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.inputCreatedAt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.inputCreatedAt.CornerRadius = 2;
             this.inputCreatedAt.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -323,19 +323,20 @@ namespace AutoLedger.App.Forms
             // inputReceptionId
             // 
             this.inputReceptionId.AccentColor = System.Drawing.Color.Empty;
-            this.inputReceptionId.BackColor = System.Drawing.Color.DarkSalmon;
+            this.inputReceptionId.BackColor = System.Drawing.Color.DarkRed;
             this.inputReceptionId.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.inputReceptionId.CornerRadius = 0;
             this.inputReceptionId.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.inputReceptionId.Dock = System.Windows.Forms.DockStyle.Left;
             this.inputReceptionId.Enabled = false;
+            this.inputReceptionId.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inputReceptionId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.inputReceptionId.HoverColor = System.Drawing.Color.Empty;
             this.inputReceptionId.Icon = global::AutoLedger.App.Properties.Resources.security_lock_128;
             this.inputReceptionId.Location = new System.Drawing.Point(0, 0);
             this.inputReceptionId.Name = "inputReceptionId";
             this.inputReceptionId.Placeholder = "[شماره فاکتور]";
-            this.inputReceptionId.PlaceholderColor = System.Drawing.Color.Black;
+            this.inputReceptionId.PlaceholderColor = System.Drawing.SystemColors.ButtonHighlight;
             this.inputReceptionId.ShowClearButton = false;
             this.inputReceptionId.Size = new System.Drawing.Size(173, 35);
             this.inputReceptionId.TabIndex = 11;
@@ -390,8 +391,8 @@ namespace AutoLedger.App.Forms
             // 
             // btnBack
             // 
-            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnBack.Location = new System.Drawing.Point(578, 14);
+            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBack.Location = new System.Drawing.Point(642, 12);
             this.btnBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(86, 39);
@@ -401,7 +402,7 @@ namespace AutoLedger.App.Forms
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSubmit.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.btnSubmit.BaseBackColor = System.Drawing.Color.DarkGreen;
             this.btnSubmit.BorderColor = System.Drawing.Color.Gray;
@@ -415,7 +416,7 @@ namespace AutoLedger.App.Forms
             this.btnSubmit.HoverBackColor = System.Drawing.Color.LightGray;
             this.btnSubmit.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
             this.btnSubmit.IconSize = 20;
-            this.btnSubmit.Location = new System.Drawing.Point(670, 12);
+            this.btnSubmit.Location = new System.Drawing.Point(734, 10);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.PressedBackColor = System.Drawing.Color.DarkGray;
