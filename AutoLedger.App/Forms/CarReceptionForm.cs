@@ -19,6 +19,7 @@ namespace AutoLedger.App.Forms
             InitializeComponent();
 
             btnSubmit.Click += BtnSubmit_Click;
+            this.btnBack.Click += BtnBack_Click;
             btnDeleteCurrentRequest.Click += BtnDeleteCurrentRequest_Click;
             btnDeleteAllRequests.Click += BtnDeleteAllRequests_Click;
 
@@ -32,23 +33,10 @@ namespace AutoLedger.App.Forms
             this._car = car;
             this._reception = reception;
 
-            if (_car != null)
-            {
-                inputBrand.Text = _car.Brand;
-                inputModel.Text = _car.Model.ToString();
-                inputColor.Text = _car.Color;
-                inputTip.Text = _car.Tip;
-                inputPhoneNumber.Text = _car.OwnerPhoneNumber;
-                inputFullName.Text = _car.OwnerFullName;
-                inputUserCardId.Text = _car.OwnerNationalId;
-
-                panelRight.Enabled = false;
-            }
-
             if (_reception != null)
             {
                 inputReceptionId.Text = _reception.Id.ToString();
-                dateReceptionAt.Value = _reception.CreatedAt;
+            
                 inputMileage.Text = _reception.Mileage.ToString();
                 cbIsReleased.Checked = _reception.IsReleased;
                 cbIsRepaired.Checked = _reception.IsRepaired;
@@ -65,6 +53,12 @@ namespace AutoLedger.App.Forms
 
         }
 
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
         private void CbIsReleased_CheckedChanged(object sender, EventArgs e)
         {
             if (cbIsReleased.Checked)
@@ -78,39 +72,11 @@ namespace AutoLedger.App.Forms
             }
         }
 
-        public CarReceptionForm WithPlateId(string plate)
-        {
-            this.carIdControl.SetOrClearPlate(plate);
-            return this;
-        }
+
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
-            if (_car is null) // insert
-            {
-                int model = 0;
-                int.TryParse(inputModel.Text.Trim(), out model);
 
-                Car newCar = new Car
-                {
-                    PlateId = carIdControl.GetPlate(),
-                    Brand = inputBrand.Text.Trim(),
-                    Model = model,
-                    Color = inputColor.Text.Trim(),
-                    Tip = inputTip.Text.Trim(),
-                    OwnerPhoneNumber = inputPhoneNumber.Text.Trim(),
-                    OwnerFullName = inputFullName.Text.Trim(),
-                    OwnerNationalId = inputUserCardId.Text.Trim(),
-                    UpdatedAt = DateTime.Now,
-                    Receptions = new List<CarReception>() { BuildReceptionRequests() }
-                };
-
-                using (var db = new AutoLedgerContext())
-                {
-                    db.Cars.Add(newCar);
-                    db.SaveChanges();
-                }
-            }
-            else if (_reception is null) // insert new reception
+            if (_reception is null) // insert new reception
             {
                 var newReception = BuildReceptionRequests();
                 if (newReception.Requests.Count < 1)
@@ -163,7 +129,7 @@ namespace AutoLedger.App.Forms
                         }
 
                         // Update scalar fields
-                        reception.CreatedAt = dateReceptionAt.Value;
+             //           reception.CreatedAt = dateReceptionAt.Value;
                         reception.IsReleased = cbIsReleased.Checked;
                         reception.IsRepaired = cbIsRepaired.Checked;
                         reception.Mileage = int.TryParse(inputMileage.Text.Trim(), out var m) ? m : reception.Mileage;
@@ -171,7 +137,7 @@ namespace AutoLedger.App.Forms
                         reception.UpdatedAt = DateTime.Now;
                         reception.RepairedAt = cbIsRepaired.Checked ? DateTime.Now : DateTime.MinValue;
                         reception.ReleasedAt = cbIsReleased.Checked ? DateTime.Now : DateTime.MinValue;
-                     
+
                         // Existing requests in DB
                         var existing = reception.Requests.ToList();
 
@@ -230,7 +196,7 @@ namespace AutoLedger.App.Forms
                         db.SaveChanges();
                         tx.Commit();
 
-                 
+
                     }
                     catch (Exception ex)
                     {
@@ -264,9 +230,10 @@ namespace AutoLedger.App.Forms
             return new CarReception
             {
                 TotalCost = list.Sum(a => a.Cost),
-                CreatedAt = dateReceptionAt.Value,
+              //  CreatedAt = dateReceptionAt.Value,
                 IsReleased = cbIsReleased.Checked,
                 IsRepaired = cbIsRepaired.Checked,
+                Mileage = int.Parse(inputMileage.Text),
                 UpdatedAt = DateTime.Now,
                 Requests = list
             };

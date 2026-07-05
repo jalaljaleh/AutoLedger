@@ -3,6 +3,7 @@ using AutoLedger.App.FormsView;
 using AutoLedger.Data;
 using AutoLedger.Domain;
 using AutoLedger.Extensions;
+using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using System;
 using System.Linq;
@@ -13,7 +14,6 @@ namespace AutoLedger.App.Forms
     public partial class DashboardForm : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         private CarsManagerPage _carsManagerPage;
-        private CarsManagerPage _carsManagerCurrentPage;
         private ExpensesManagerPage _expensesManagerPage;
         private AccountingReportsPage _accountingReportsPage;
 
@@ -25,7 +25,7 @@ namespace AutoLedger.App.Forms
 
             this.btnNewReception.Click += BtnNewCar_Click;
             this.btnNewExpens.Click += BtnNewExpens_Click;
-      
+
 
             this.btnAllCars.Click += ViewButtons_Click;
             this.btnCurrentCars.Click += ViewButtons_Click;
@@ -35,7 +35,7 @@ namespace AutoLedger.App.Forms
             this.barLabelUser.Caption = Program.User.FullName;
         }
 
-      
+
 
         private void ViewButtons_Click(object sender, EventArgs e)
         {
@@ -51,7 +51,7 @@ namespace AutoLedger.App.Forms
                         _carsManagerPage = new CarsManagerPage(btn.Name == "btnCurrentCars"); // all cars
                     else
                         _carsManagerPage.CheckCurrentCars(btn.Name == "btnCurrentCars");
-                   
+
                     ShowControl(_carsManagerPage);
                     break;
 
@@ -110,15 +110,21 @@ namespace AutoLedger.App.Forms
             using (var db = new AutoLedgerContext())
             {
                 var car = db.Cars.FirstOrDefault(a => a.PlateId == carPlate.Plate);
+                if (car is null)
+                {
+                    var carForm = new CarForm(car)
+                      .WithPlateId(carPlate.Plate);
 
-                var receptionForm = new CarReceptionForm(car, null)
-                    .WithPlateId(carPlate.Plate);
+                    if (carForm.ShowDialog() != DialogResult.OK)
+                        return;
+                    
+                        car = carForm.GetCar();
+                }
 
+                var receptionForm = new CarReceptionForm(car);
                 if (receptionForm.ShowDialog() == DialogResult.OK)
                 {
-                    // Refresh both pages if they exist
                     _carsManagerPage?.RefreshCars();
-                    _carsManagerCurrentPage?.RefreshCars();
                 }
             }
         }

@@ -173,6 +173,12 @@
     <Compile Include="FormsView\ExpensesManagerPage.Designer.cs">
       <DependentUpon>ExpensesManagerPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CarForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CarForm.Designer.cs">
+      <DependentUpon>CarForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CarReceptionExpenseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormsView\ExpensesManagerPage.resx">
       <DependentUpon>ExpensesManagerPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CarForm.resx">
+      <DependentUpon>CarForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CarReceptionExpenseForm.resx">
       <DependentUpon>CarReceptionExpenseForm.cs</DependentUpon>

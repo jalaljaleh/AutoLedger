@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraCharts.Series series7 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SeriesPoint seriesPoint4 = new DevExpress.XtraCharts.SeriesPoint(0D, new object[] {
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.StepLineSeriesView stepLineSeriesView1 = new DevExpress.XtraCharts.StepLineSeriesView();
+            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SeriesPoint seriesPoint1 = new DevExpress.XtraCharts.SeriesPoint(0D, new object[] {
             ((object)(10D))}, 0);
-            DevExpress.XtraCharts.SeriesPoint seriesPoint5 = new DevExpress.XtraCharts.SeriesPoint(1D, new object[] {
+            DevExpress.XtraCharts.SeriesPoint seriesPoint2 = new DevExpress.XtraCharts.SeriesPoint(1D, new object[] {
             ((object)(10D))}, 1);
-            DevExpress.XtraCharts.SeriesPoint seriesPoint6 = new DevExpress.XtraCharts.SeriesPoint(2D, new object[] {
+            DevExpress.XtraCharts.SeriesPoint seriesPoint3 = new DevExpress.XtraCharts.SeriesPoint(2D, new object[] {
             ((object)(10D))}, 2);
-            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView2 = new DevExpress.XtraCharts.DoughnutSeriesView();
-            DevExpress.XtraCharts.XYDiagram xyDiagram4 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series8 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SideBySideStackedBarSeriesView sideBySideStackedBarSeriesView4 = new DevExpress.XtraCharts.SideBySideStackedBarSeriesView();
-            DevExpress.XtraCharts.Series series9 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SideBySideStackedBarSeriesView sideBySideStackedBarSeriesView5 = new DevExpress.XtraCharts.SideBySideStackedBarSeriesView();
-            DevExpress.XtraCharts.Series series10 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SideBySideStackedBarSeriesView sideBySideStackedBarSeriesView6 = new DevExpress.XtraCharts.SideBySideStackedBarSeriesView();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.XtraCharts.XYDiagram xyDiagram3 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series6 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.StepLineSeriesView stepLineSeriesView2 = new DevExpress.XtraCharts.StepLineSeriesView();
+            DevExpress.XtraCharts.DoughnutSeriesView doughnutSeriesView1 = new DevExpress.XtraCharts.DoughnutSeriesView();
+            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series3 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideStackedBarSeriesView sideBySideStackedBarSeriesView1 = new DevExpress.XtraCharts.SideBySideStackedBarSeriesView();
+            DevExpress.XtraCharts.Series series4 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideStackedBarSeriesView sideBySideStackedBarSeriesView2 = new DevExpress.XtraCharts.SideBySideStackedBarSeriesView();
+            DevExpress.XtraCharts.Series series5 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SideBySideStackedBarSeriesView sideBySideStackedBarSeriesView3 = new DevExpress.XtraCharts.SideBySideStackedBarSeriesView();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.cbCount = new System.Windows.Forms.ToolStripComboBox();
             this.btnRefresh = new System.Windows.Forms.ToolStripButton();
@@ -61,6 +61,7 @@
             this.labelDetails = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.panelTitleStatus = new System.Windows.Forms.SplitContainer();
+            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.chartToday = new DevExpress.XtraCharts.ChartControl();
             this.chartDaily = new DevExpress.XtraCharts.ChartControl();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,28 +73,27 @@
             this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgExpenses = new System.Windows.Forms.DataGridView();
-            this.chartControl1 = new DevExpress.XtraCharts.ChartControl();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelTitleStatus)).BeginInit();
             this.panelTitleStatus.Panel1.SuspendLayout();
             this.panelTitleStatus.Panel2.SuspendLayout();
             this.panelTitleStatus.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartToday)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartDaily)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgExpenses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(stepLineSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(stepLineSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartToday)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartDaily)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgExpenses)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -218,6 +218,24 @@
             this.panelTitleStatus.SplitterDistance = 498;
             this.panelTitleStatus.TabIndex = 0;
             // 
+            // chartControl1
+            // 
+            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartControl1.Diagram = xyDiagram1;
+            this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chartControl1.Legend.Title.Text = "تعداد پذیرش";
+            this.chartControl1.Legend.Title.Visible = true;
+            this.chartControl1.Location = new System.Drawing.Point(0, 0);
+            this.chartControl1.Name = "chartControl1";
+            series1.Name = "خودروها";
+            series1.SeriesID = 0;
+            series1.View = stepLineSeriesView1;
+            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
+        series1};
+            this.chartControl1.Size = new System.Drawing.Size(498, 189);
+            this.chartControl1.TabIndex = 0;
+            // 
             // chartToday
             // 
             this.chartToday.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -228,22 +246,22 @@
             this.chartToday.Legend.Title.Visible = true;
             this.chartToday.Location = new System.Drawing.Point(0, 0);
             this.chartToday.Name = "chartToday";
-            series7.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series7.Name = "Series 1";
-            seriesPoint4.ColorSerializable = "#C0504D";
-            seriesPoint5.ColorSerializable = "#76923C";
-            seriesPoint6.ColorSerializable = "#D7E3BC";
-            series7.Points.AddRange(new DevExpress.XtraCharts.SeriesPoint[] {
-            seriesPoint4,
-            seriesPoint5,
-            seriesPoint6});
-            series7.SeriesID = 1;
-            doughnutSeriesView2.TotalLabel.DXFont = new DevExpress.Drawing.DXFont("Vazirmatn", 10F);
-            doughnutSeriesView2.TotalLabel.TextPattern = "امروز";
-            doughnutSeriesView2.TotalLabel.Visible = true;
-            series7.View = doughnutSeriesView2;
+            series2.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series2.Name = "Series 1";
+            seriesPoint1.ColorSerializable = "#C0504D";
+            seriesPoint2.ColorSerializable = "#76923C";
+            seriesPoint3.ColorSerializable = "#D7E3BC";
+            series2.Points.AddRange(new DevExpress.XtraCharts.SeriesPoint[] {
+            seriesPoint1,
+            seriesPoint2,
+            seriesPoint3});
+            series2.SeriesID = 1;
+            doughnutSeriesView1.TotalLabel.DXFont = new DevExpress.Drawing.DXFont("Vazirmatn", 10F);
+            doughnutSeriesView1.TotalLabel.TextPattern = "امروز";
+            doughnutSeriesView1.TotalLabel.Visible = true;
+            series2.View = doughnutSeriesView1;
             this.chartToday.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series7};
+        series2};
             this.chartToday.Size = new System.Drawing.Size(496, 189);
             this.chartToday.TabIndex = 0;
             // 
@@ -251,13 +269,13 @@
             // 
             this.chartDaily.BorderOptions.Color = System.Drawing.Color.Transparent;
             this.chartDaily.BorderOptions.Visibility = DevExpress.Utils.DefaultBoolean.True;
-            xyDiagram4.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram4.AxisY.Alignment = DevExpress.XtraCharts.AxisAlignment.Far;
-            xyDiagram4.AxisY.GridLines.Visible = false;
-            xyDiagram4.AxisY.Title.Text = "";
-            xyDiagram4.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.Default;
-            xyDiagram4.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartDaily.Diagram = xyDiagram4;
+            xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram2.AxisY.Alignment = DevExpress.XtraCharts.AxisAlignment.Far;
+            xyDiagram2.AxisY.GridLines.Visible = false;
+            xyDiagram2.AxisY.Title.Text = "";
+            xyDiagram2.AxisY.Title.Visibility = DevExpress.Utils.DefaultBoolean.Default;
+            xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartDaily.Diagram = xyDiagram2;
             this.chartDaily.Dock = System.Windows.Forms.DockStyle.Top;
             this.chartDaily.Legend.AlignmentHorizontal = DevExpress.XtraCharts.LegendAlignmentHorizontal.Right;
             this.chartDaily.Legend.AlignmentVertical = DevExpress.XtraCharts.LegendAlignmentVertical.TopOutside;
@@ -266,25 +284,25 @@
             this.chartDaily.Name = "chartDaily";
             this.chartDaily.PaletteName = "Blue II";
             this.chartDaily.SelectionMode = DevExpress.XtraCharts.ElementSelectionMode.Single;
-            series8.Name = "هزینه ها";
-            series8.SeriesID = 12;
-            sideBySideStackedBarSeriesView4.Color = System.Drawing.Color.Brown;
-            sideBySideStackedBarSeriesView4.Transparency = ((byte)(50));
-            series8.View = sideBySideStackedBarSeriesView4;
-            series9.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
-            series9.Name = "درآمد ها";
-            series9.SeriesID = 13;
-            sideBySideStackedBarSeriesView5.Color = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(146)))), ((int)(((byte)(60)))));
-            series9.View = sideBySideStackedBarSeriesView5;
-            series10.Name = "سود";
-            series10.SeriesID = 14;
-            sideBySideStackedBarSeriesView6.Color = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(214)))), ((int)(((byte)(155)))));
-            sideBySideStackedBarSeriesView6.Transparency = ((byte)(50));
-            series10.View = sideBySideStackedBarSeriesView6;
+            series3.Name = "هزینه ها";
+            series3.SeriesID = 12;
+            sideBySideStackedBarSeriesView1.Color = System.Drawing.Color.Brown;
+            sideBySideStackedBarSeriesView1.Transparency = ((byte)(50));
+            series3.View = sideBySideStackedBarSeriesView1;
+            series4.LabelsVisibility = DevExpress.Utils.DefaultBoolean.True;
+            series4.Name = "درآمد ها";
+            series4.SeriesID = 13;
+            sideBySideStackedBarSeriesView2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(118)))), ((int)(((byte)(146)))), ((int)(((byte)(60)))));
+            series4.View = sideBySideStackedBarSeriesView2;
+            series5.Name = "سود";
+            series5.SeriesID = 14;
+            sideBySideStackedBarSeriesView3.Color = System.Drawing.Color.FromArgb(((int)(((byte)(195)))), ((int)(((byte)(214)))), ((int)(((byte)(155)))));
+            sideBySideStackedBarSeriesView3.Transparency = ((byte)(50));
+            series5.View = sideBySideStackedBarSeriesView3;
             this.chartDaily.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series8,
-        series9,
-        series10};
+        series3,
+        series4,
+        series5};
             this.chartDaily.Size = new System.Drawing.Size(998, 200);
             this.chartDaily.TabIndex = 0;
             // 
@@ -299,8 +317,8 @@
             // 
             this.Profit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Profit.DataPropertyName = "Profit";
-            dataGridViewCellStyle6.Format = "#,0 تومان";
-            this.Profit.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Format = "#,0 تومان";
+            this.Profit.DefaultCellStyle = dataGridViewCellStyle1;
             this.Profit.HeaderText = "سود خالص";
             this.Profit.Name = "Profit";
             this.Profit.ReadOnly = true;
@@ -310,8 +328,8 @@
             // 
             this.Revenue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Revenue.DataPropertyName = "Revenue";
-            dataGridViewCellStyle7.Format = "#,0 تومان";
-            this.Revenue.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Format = "#,0 تومان";
+            this.Revenue.DefaultCellStyle = dataGridViewCellStyle2;
             this.Revenue.HeaderText = "درامد ها";
             this.Revenue.Name = "Revenue";
             this.Revenue.ReadOnly = true;
@@ -321,8 +339,8 @@
             // 
             this.Expenses.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Expenses.DataPropertyName = "Expenses";
-            dataGridViewCellStyle8.Format = "#,0 تومان";
-            this.Expenses.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Format = "#,0 تومان";
+            this.Expenses.DefaultCellStyle = dataGridViewCellStyle3;
             this.Expenses.HeaderText = "هزینه ها";
             this.Expenses.Name = "Expenses";
             this.Expenses.ReadOnly = true;
@@ -341,8 +359,8 @@
             // 
             this.Day.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Day.DataPropertyName = "Day";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Day.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Day.DefaultCellStyle = dataGridViewCellStyle4;
             this.Day.HeaderText = "روز";
             this.Day.Name = "Day";
             this.Day.ReadOnly = true;
@@ -352,9 +370,9 @@
             // 
             this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CreatedAt.DataPropertyName = "CreatedAt";
-            dataGridViewCellStyle10.Format = "D";
-            dataGridViewCellStyle10.NullValue = null;
-            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Format = "D";
+            dataGridViewCellStyle5.NullValue = null;
+            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle5;
             this.CreatedAt.HeaderText = "تاریخ";
             this.CreatedAt.Name = "CreatedAt";
             this.CreatedAt.ReadOnly = true;
@@ -408,24 +426,6 @@
             this.dgExpenses.Size = new System.Drawing.Size(998, 527);
             this.dgExpenses.TabIndex = 11;
             // 
-            // chartControl1
-            // 
-            xyDiagram3.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram3.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartControl1.Diagram = xyDiagram3;
-            this.chartControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartControl1.Legend.Title.Text = "تعداد پذیرش";
-            this.chartControl1.Legend.Title.Visible = true;
-            this.chartControl1.Location = new System.Drawing.Point(0, 0);
-            this.chartControl1.Name = "chartControl1";
-            series6.Name = "خودروها";
-            series6.SeriesID = 0;
-            series6.View = stepLineSeriesView2;
-            this.chartControl1.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series6};
-            this.chartControl1.Size = new System.Drawing.Size(498, 189);
-            this.chartControl1.TabIndex = 0;
-            // 
             // AccountingReportsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
@@ -447,22 +447,22 @@
             this.panelTitleStatus.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelTitleStatus)).EndInit();
             this.panelTitleStatus.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(stepLineSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(doughnutSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartToday)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideStackedBarSeriesView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartDaily)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgExpenses)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(stepLineSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartControl1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

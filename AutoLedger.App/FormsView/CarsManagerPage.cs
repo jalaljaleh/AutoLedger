@@ -402,7 +402,7 @@ namespace AutoLedger.App.FormsView
 
             try
             {
-                using (var form = new CarReceptionForm(car, reception).WithPlateId(car.PlateId))
+                using (var form = new CarReceptionForm(car, reception))
                 {
                     var result = form.ShowDialog();
                     if (result == DialogResult.OK)

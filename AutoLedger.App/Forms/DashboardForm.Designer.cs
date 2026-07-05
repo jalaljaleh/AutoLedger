@@ -79,6 +79,8 @@
             this.barLabelUser.Description = "کاربر آنلاین است !";
             this.barLabelUser.Id = 4;
             this.barLabelUser.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barLabelUser.ImageOptions.SvgImage")));
+            this.barLabelUser.ItemAppearance.Hovered.BackColor = System.Drawing.Color.Silver;
+            this.barLabelUser.ItemAppearance.Hovered.Options.UseBackColor = true;
             this.barLabelUser.ItemAppearance.Normal.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barLabelUser.ItemAppearance.Normal.Options.UseFont = true;
             this.barLabelUser.Name = "barLabelUser";
@@ -242,6 +244,7 @@
             this.Controls.Add(this.ribbonControl1);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("DashboardForm.IconOptions.Icon")));
             this.IconOptions.Image = global::AutoLedger.App.Properties.Resources.irontuning_icon;
             this.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.Name = "DashboardForm";
