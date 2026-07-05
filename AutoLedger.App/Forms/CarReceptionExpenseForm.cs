@@ -1,6 +1,7 @@
 ﻿using AutoLedger.App.Controls;
 using AutoLedger.Data;
 using AutoLedger.Domain;
+using AutoLedger.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +15,7 @@ using System.Windows.Forms;
 
 namespace AutoLedger.App.Forms
 {
-    public partial class CarReceptionExpenseForm : Form
+    public partial class CarReceptionExpenseForm : DevExpress.XtraBars.ToolbarForm.ToolbarForm
     {
         private CarReception _reception;
         public CarReceptionExpenseForm(CarReception reception)
@@ -35,9 +36,8 @@ namespace AutoLedger.App.Forms
 
             if (_reception != null)
             {
-                inputReceptionId.Text = _reception.Id.ToString();
-                //  dateReceptionAt.Value = _reception.CreatedAt;
-
+                inputReceptionId.Text = "شماره فاکتور: " + _reception.Id.ToString();
+                inputCreatedAt.Text = _reception.CreatedAt.ToShamsiLong();
 
                 using (var db = new AutoLedgerContext())
                 {
@@ -49,6 +49,10 @@ namespace AutoLedger.App.Forms
                     foreach (var exp in expenss)
                         dgCarExpenses.Rows.Add(null, exp.Id, exp.Title, exp.Description, exp.Amount, exp.PaidTo, exp.PaymentMethod, exp.CreatedAt, exp.UpdatedAt);
                 }
+            }
+            else
+            {
+                inputCreatedAt.Text = DateTime.Now.ToShamsiLong();
             }
         }
 
@@ -174,7 +178,6 @@ namespace AutoLedger.App.Forms
                 var req = new CarReceptionExpense
                 {
                     Id = r.Cells["Id"].Value != null ? Convert.ToInt32(r.Cells["Id"].Value) : 0,
-                    CreatedAt = r.Cells["CreatedAt"].Value != null ? Convert.ToDateTime(r.Cells["CreatedAt"].Value) : DateTime.Now,
                     Title = r.Cells["Title"].Value != null ? r.Cells["Title"].Value.ToString().Trim() : "بدون عنوان",
                     Description = r.Cells["Description"].Value != null ? r.Cells["Description"].Value.ToString().Trim() : "بدون توضیح",
                     Amount = r.Cells["Amount"].Value != null ? Convert.ToInt64(r.Cells["Amount"].Value) : 0,
@@ -223,7 +226,10 @@ namespace AutoLedger.App.Forms
 
         private void dgCarExpenses_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgCarExpenses.Columns[e.ColumnIndex].Name == "Amount" && e.Value != null)
+            if (e.Value == null) return;
+
+            var target = dgCarExpenses.Columns[e.ColumnIndex].Name;
+            if (target == "Amount")
             {
                 long rial;
                 if (long.TryParse(e.Value.ToString(), out rial))
@@ -232,6 +238,17 @@ namespace AutoLedger.App.Forms
                     e.FormattingApplied = true;
                 }
             }
+            else if (target == "CreatedAt" || target == "UpdatedAt")
+            {
+                DateTime dt;
+                if (DateTime.TryParse(e.Value.ToString(), out dt))
+                {
+                    e.Value = dt.ToShamsiLong();
+                    e.FormattingApplied = true;
+                }
+            }
+
+
         }
 
         private void dgCarExpenses_CellParsing(object sender, DataGridViewCellParsingEventArgs e)

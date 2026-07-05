@@ -1,6 +1,7 @@
 ﻿using AutoLedger.App.Controls;
 using AutoLedger.Data;
 using AutoLedger.Domain;
+using AutoLedger.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -35,8 +36,9 @@ namespace AutoLedger.App.Forms
 
             if (_reception != null)
             {
-                inputReceptionId.Text = _reception.Id.ToString();
-            
+                inputReceptionId.Text = "شماره فاکتور: " + _reception.Id.ToString();
+                inputCreatedAt.Text = _reception.CreatedAt.ToShamsiLong();
+
                 inputMileage.Text = _reception.Mileage.ToString();
                 cbIsReleased.Checked = _reception.IsReleased;
                 cbIsRepaired.Checked = _reception.IsRepaired;
@@ -49,6 +51,10 @@ namespace AutoLedger.App.Forms
                         dgCarRequests.Rows.Add(null, req.Id, req.Title, req.Description, req.Cost, req.CreatedAt, req.UpdatedAt);
                     }
                 }
+            }
+            else
+            {
+                inputCreatedAt.Text = DateTime.Now.ToShamsiLong();
             }
 
         }
@@ -129,7 +135,7 @@ namespace AutoLedger.App.Forms
                         }
 
                         // Update scalar fields
-             //           reception.CreatedAt = dateReceptionAt.Value;
+                        //           reception.CreatedAt = dateReceptionAt.Value;
                         reception.IsReleased = cbIsReleased.Checked;
                         reception.IsRepaired = cbIsRepaired.Checked;
                         reception.Mileage = int.TryParse(inputMileage.Text.Trim(), out var m) ? m : reception.Mileage;
@@ -215,7 +221,7 @@ namespace AutoLedger.App.Forms
                 var req = new CarReceptionRequest
                 {
                     Id = r.Cells["Id"].Value != null ? Convert.ToInt32(r.Cells["Id"].Value) : 0,
-                    CreatedAt = r.Cells["CreatedAt"].Value != null ? Convert.ToDateTime(r.Cells["CreatedAt"].Value) : DateTime.Now,
+
                     Title = r.Cells["Title"].Value != null ? r.Cells["Title"].Value.ToString().Trim() : "بدون عنوان",
                     Description = r.Cells["Description"].Value != null ? r.Cells["Description"].Value.ToString().Trim() : "بدون توضیح",
                     Cost = r.Cells["Cost"].Value != null ? Convert.ToInt64(r.Cells["Cost"].Value) : 0
@@ -230,7 +236,7 @@ namespace AutoLedger.App.Forms
             return new CarReception
             {
                 TotalCost = list.Sum(a => a.Cost),
-              //  CreatedAt = dateReceptionAt.Value,
+                //  CreatedAt = dateReceptionAt.Value,
                 IsReleased = cbIsReleased.Checked,
                 IsRepaired = cbIsRepaired.Checked,
                 Mileage = int.Parse(inputMileage.Text),
@@ -278,12 +284,23 @@ namespace AutoLedger.App.Forms
 
         private void DgCarRequests_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgCarRequests.Columns[e.ColumnIndex].Name == "Cost" && e.Value != null)
+            if (e.Value == null) return;
+            var target = dgCarRequests.Columns[e.ColumnIndex].Name;
+            if (target == "Cost")
             {
                 long rial;
                 if (long.TryParse(e.Value.ToString(), out rial))
                 {
                     e.Value = rial.ToString("#,0 تومان");
+                    e.FormattingApplied = true;
+                }
+            }
+            else if (target == "CreatedAt" || target == "UpdatedAt")
+            {
+                DateTime dt;
+                if (DateTime.TryParse(e.Value.ToString(), out dt))
+                {
+                    e.Value = dt.ToShamsiLong();
                     e.FormattingApplied = true;
                 }
             }

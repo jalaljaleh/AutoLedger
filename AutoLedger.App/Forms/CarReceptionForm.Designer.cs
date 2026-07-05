@@ -31,29 +31,13 @@ namespace AutoLedger.App.Forms
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarReceptionForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarReceptionForm));
             this.dgCarRequests = new System.Windows.Forms.DataGridView();
-            this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
-            this.btnDeleteCurrentRequest = new System.Windows.Forms.ToolStripButton();
-            this.btnDeleteAllRequests = new System.Windows.Forms.ToolStripButton();
-            this.labelTotalCost = new System.Windows.Forms.ToolStripLabel();
-            this.panelLeft = new System.Windows.Forms.Panel();
-            this.panelFactor = new System.Windows.Forms.Panel();
-            this.labelTittle = new System.Windows.Forms.Label();
-            this.panelPayment = new System.Windows.Forms.Panel();
-            this.cbIsReleased = new System.Windows.Forms.CheckBox();
-            this.cbIsRepaired = new System.Windows.Forms.CheckBox();
-            this.panelDetails = new System.Windows.Forms.Panel();
-            this.inputReceptionId = new AutoLedger.App.Controls.ModernTextBox();
-            this.inputMileage = new AutoLedger.App.Controls.ModernTextBox();
-            this.panelBottom = new System.Windows.Forms.Panel();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.btnSubmit = new AutoLedger.App.Controls.ModernButton();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,13 +45,28 @@ namespace AutoLedger.App.Forms
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UpdatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnActionCurrentUser = new System.Windows.Forms.ToolStrip();
+            this.btnDeleteCurrentRequest = new System.Windows.Forms.ToolStripButton();
+            this.btnDeleteAllRequests = new System.Windows.Forms.ToolStripButton();
+            this.labelTotalCost = new System.Windows.Forms.ToolStripLabel();
+            this.panelLeft = new System.Windows.Forms.Panel();
+            this.panelFactor = new System.Windows.Forms.Panel();
+            this.panelPayment = new System.Windows.Forms.Panel();
+            this.cbIsReleased = new System.Windows.Forms.CheckBox();
+            this.cbIsRepaired = new System.Windows.Forms.CheckBox();
+            this.inputMileage = new AutoLedger.App.Controls.ModernTextBox();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnSubmit = new AutoLedger.App.Controls.ModernButton();
+            this.panelTop = new System.Windows.Forms.Panel();
+            this.inputCreatedAt = new AutoLedger.App.Controls.ModernTextBox();
+            this.inputReceptionId = new AutoLedger.App.Controls.ModernTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgCarRequests)).BeginInit();
             this.BtnActionCurrentUser.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panelFactor.SuspendLayout();
             this.panelPayment.SuspendLayout();
-            this.panelDetails.SuspendLayout();
-            this.panelBottom.SuspendLayout();
+            this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgCarRequests
@@ -89,7 +88,7 @@ namespace AutoLedger.App.Forms
             this.dgCarRequests.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgCarRequests.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.dgCarRequests.GridColor = System.Drawing.Color.DimGray;
-            this.dgCarRequests.Location = new System.Drawing.Point(4, 32);
+            this.dgCarRequests.Location = new System.Drawing.Point(4, 5);
             this.dgCarRequests.Margin = new System.Windows.Forms.Padding(0);
             this.dgCarRequests.MultiSelect = false;
             this.dgCarRequests.Name = "dgCarRequests";
@@ -111,245 +110,9 @@ namespace AutoLedger.App.Forms
             this.dgCarRequests.RowTemplate.Height = 50;
             this.dgCarRequests.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgCarRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgCarRequests.Size = new System.Drawing.Size(777, 379);
+            this.dgCarRequests.Size = new System.Drawing.Size(777, 439);
             this.dgCarRequests.StandardTab = true;
             this.dgCarRequests.TabIndex = 10;
-            // 
-            // BtnActionCurrentUser
-            // 
-            this.BtnActionCurrentUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnActionCurrentUser.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnActionCurrentUser.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnActionCurrentUser.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.BtnActionCurrentUser.ImageScalingSize = new System.Drawing.Size(80, 80);
-            this.BtnActionCurrentUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnDeleteCurrentRequest,
-            this.btnDeleteAllRequests,
-            this.labelTotalCost});
-            this.BtnActionCurrentUser.Location = new System.Drawing.Point(4, 411);
-            this.BtnActionCurrentUser.Name = "BtnActionCurrentUser";
-            this.BtnActionCurrentUser.Padding = new System.Windows.Forms.Padding(0);
-            this.BtnActionCurrentUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BtnActionCurrentUser.Size = new System.Drawing.Size(777, 29);
-            this.BtnActionCurrentUser.TabIndex = 16;
-            this.BtnActionCurrentUser.Text = "toolStrip1";
-            // 
-            // btnDeleteCurrentRequest
-            // 
-            this.btnDeleteCurrentRequest.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnDeleteCurrentRequest.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnDeleteCurrentRequest.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnDeleteCurrentRequest.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteCurrentRequest.Image")));
-            this.btnDeleteCurrentRequest.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDeleteCurrentRequest.Name = "btnDeleteCurrentRequest";
-            this.btnDeleteCurrentRequest.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.btnDeleteCurrentRequest.Size = new System.Drawing.Size(51, 26);
-            this.btnDeleteCurrentRequest.Text = "حذف";
-            // 
-            // btnDeleteAllRequests
-            // 
-            this.btnDeleteAllRequests.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnDeleteAllRequests.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btnDeleteAllRequests.ForeColor = System.Drawing.Color.DarkRed;
-            this.btnDeleteAllRequests.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDeleteAllRequests.Name = "btnDeleteAllRequests";
-            this.btnDeleteAllRequests.Size = new System.Drawing.Size(67, 26);
-            this.btnDeleteAllRequests.Text = "حذف همه";
-            // 
-            // labelTotalCost
-            // 
-            this.labelTotalCost.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.labelTotalCost.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalCost.Name = "labelTotalCost";
-            this.labelTotalCost.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.labelTotalCost.Size = new System.Drawing.Size(92, 26);
-            this.labelTotalCost.Text = "[جمع کل هزینه]";
-            // 
-            // panelLeft
-            // 
-            this.panelLeft.BackColor = System.Drawing.Color.Transparent;
-            this.panelLeft.Controls.Add(this.panelFactor);
-            this.panelLeft.Controls.Add(this.panelPayment);
-            this.panelLeft.Controls.Add(this.panelDetails);
-            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLeft.Location = new System.Drawing.Point(9, 10);
-            this.panelLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelLeft.Size = new System.Drawing.Size(793, 543);
-            this.panelLeft.TabIndex = 17;
-            // 
-            // panelFactor
-            // 
-            this.panelFactor.Controls.Add(this.dgCarRequests);
-            this.panelFactor.Controls.Add(this.BtnActionCurrentUser);
-            this.panelFactor.Controls.Add(this.labelTittle);
-            this.panelFactor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFactor.Location = new System.Drawing.Point(4, 44);
-            this.panelFactor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelFactor.Name = "panelFactor";
-            this.panelFactor.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelFactor.Size = new System.Drawing.Size(785, 445);
-            this.panelFactor.TabIndex = 20;
-            // 
-            // labelTittle
-            // 
-            this.labelTittle.BackColor = System.Drawing.SystemColors.Window;
-            this.labelTittle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.labelTittle.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.labelTittle.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.labelTittle.Location = new System.Drawing.Point(4, 5);
-            this.labelTittle.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
-            this.labelTittle.Name = "labelTittle";
-            this.labelTittle.Padding = new System.Windows.Forms.Padding(2);
-            this.labelTittle.Size = new System.Drawing.Size(777, 27);
-            this.labelTittle.TabIndex = 17;
-            this.labelTittle.Text = "فهرست خدمات و هزینه ها";
-            this.labelTittle.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // panelPayment
-            // 
-            this.panelPayment.BackColor = System.Drawing.Color.Beige;
-            this.panelPayment.Controls.Add(this.cbIsReleased);
-            this.panelPayment.Controls.Add(this.cbIsRepaired);
-            this.panelPayment.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelPayment.Location = new System.Drawing.Point(4, 489);
-            this.panelPayment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelPayment.Name = "panelPayment";
-            this.panelPayment.Size = new System.Drawing.Size(785, 49);
-            this.panelPayment.TabIndex = 20;
-            // 
-            // cbIsReleased
-            // 
-            this.cbIsReleased.BackColor = System.Drawing.Color.Beige;
-            this.cbIsReleased.Dock = System.Windows.Forms.DockStyle.Right;
-            this.cbIsReleased.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbIsReleased.ForeColor = System.Drawing.Color.SeaGreen;
-            this.cbIsReleased.Location = new System.Drawing.Point(485, 0);
-            this.cbIsReleased.Margin = new System.Windows.Forms.Padding(0);
-            this.cbIsReleased.Name = "cbIsReleased";
-            this.cbIsReleased.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbIsReleased.Size = new System.Drawing.Size(166, 49);
-            this.cbIsReleased.TabIndex = 10;
-            this.cbIsReleased.Text = "ترخیص و تحویل خودرو";
-            this.cbIsReleased.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbIsReleased.UseVisualStyleBackColor = false;
-            // 
-            // cbIsRepaired
-            // 
-            this.cbIsRepaired.BackColor = System.Drawing.Color.Beige;
-            this.cbIsRepaired.Dock = System.Windows.Forms.DockStyle.Right;
-            this.cbIsRepaired.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cbIsRepaired.Location = new System.Drawing.Point(651, 0);
-            this.cbIsRepaired.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbIsRepaired.Name = "cbIsRepaired";
-            this.cbIsRepaired.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbIsRepaired.Size = new System.Drawing.Size(134, 49);
-            this.cbIsRepaired.TabIndex = 19;
-            this.cbIsRepaired.Text = "پایان تعمیرات";
-            this.cbIsRepaired.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbIsRepaired.UseVisualStyleBackColor = false;
-            // 
-            // panelDetails
-            // 
-            this.panelDetails.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panelDetails.Controls.Add(this.inputReceptionId);
-            this.panelDetails.Controls.Add(this.inputMileage);
-            this.panelDetails.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelDetails.Location = new System.Drawing.Point(4, 5);
-            this.panelDetails.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelDetails.Name = "panelDetails";
-            this.panelDetails.Size = new System.Drawing.Size(785, 39);
-            this.panelDetails.TabIndex = 21;
-            // 
-            // inputReceptionId
-            // 
-            this.inputReceptionId.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.inputReceptionId.BackColor = System.Drawing.Color.MistyRose;
-            this.inputReceptionId.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.inputReceptionId.CornerRadius = 2;
-            this.inputReceptionId.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputReceptionId.Dock = System.Windows.Forms.DockStyle.Left;
-            this.inputReceptionId.Enabled = false;
-            this.inputReceptionId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.inputReceptionId.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.inputReceptionId.Icon = null;
-            this.inputReceptionId.Location = new System.Drawing.Point(0, 0);
-            this.inputReceptionId.Name = "inputReceptionId";
-            this.inputReceptionId.Placeholder = "[شماره فاکتور]";
-            this.inputReceptionId.PlaceholderColor = System.Drawing.Color.Black;
-            this.inputReceptionId.ShowClearButton = false;
-            this.inputReceptionId.Size = new System.Drawing.Size(116, 39);
-            this.inputReceptionId.TabIndex = 10;
-            this.inputReceptionId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // inputMileage
-            // 
-            this.inputMileage.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.inputMileage.BackColor = System.Drawing.SystemColors.Window;
-            this.inputMileage.BorderColor = System.Drawing.Color.LightGray;
-            this.inputMileage.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputMileage.Dock = System.Windows.Forms.DockStyle.Right;
-            this.inputMileage.ForeColor = System.Drawing.Color.Black;
-            this.inputMileage.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.inputMileage.Icon = global::AutoLedger.App.Properties.Resources.speed_128;
-            this.inputMileage.Location = new System.Drawing.Point(626, 0);
-            this.inputMileage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.inputMileage.Name = "inputMileage";
-            this.inputMileage.NumbersOnly = true;
-            this.inputMileage.Placeholder = "کارکرد فعلی (کیلومتر)";
-            this.inputMileage.PlaceholderColor = System.Drawing.SystemColors.Desktop;
-            this.inputMileage.Size = new System.Drawing.Size(159, 39);
-            this.inputMileage.TabIndex = 5;
-            this.inputMileage.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // panelBottom
-            // 
-            this.panelBottom.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelBottom.Controls.Add(this.btnBack);
-            this.panelBottom.Controls.Add(this.btnSubmit);
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(9, 553);
-            this.panelBottom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(793, 51);
-            this.panelBottom.TabIndex = 141;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBack.Location = new System.Drawing.Point(529, 6);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(86, 39);
-            this.btnBack.TabIndex = 15;
-            this.btnBack.Text = "لغو";
-            this.btnBack.UseVisualStyleBackColor = true;
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSubmit.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnSubmit.BaseBackColor = System.Drawing.Color.DarkGreen;
-            this.btnSubmit.BorderColor = System.Drawing.Color.Gray;
-            this.btnSubmit.FlatAppearance.BorderSize = 6;
-            this.btnSubmit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSubmit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.HoverBackColor = System.Drawing.Color.LightGray;
-            this.btnSubmit.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
-            this.btnSubmit.IconSize = 20;
-            this.btnSubmit.Location = new System.Drawing.Point(621, 4);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.PressedBackColor = System.Drawing.Color.DarkGray;
-            this.btnSubmit.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnSubmit.Size = new System.Drawing.Size(161, 43);
-            this.btnSubmit.TabIndex = 14;
-            this.btnSubmit.Text = "ثبت و تایید اطلاعات";
-            this.btnSubmit.UseVisualStyleBackColor = false;
             // 
             // Index
             // 
@@ -361,7 +124,7 @@ namespace AutoLedger.App.Forms
             this.Index.Name = "Index";
             this.Index.ReadOnly = true;
             this.Index.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Index.Width = 62;
+            this.Index.Width = 52;
             // 
             // Id
             // 
@@ -435,14 +198,261 @@ namespace AutoLedger.App.Forms
             this.UpdatedAt.ReadOnly = true;
             this.UpdatedAt.Width = 102;
             // 
+            // BtnActionCurrentUser
+            // 
+            this.BtnActionCurrentUser.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BtnActionCurrentUser.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnActionCurrentUser.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnActionCurrentUser.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.BtnActionCurrentUser.ImageScalingSize = new System.Drawing.Size(80, 80);
+            this.BtnActionCurrentUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnDeleteCurrentRequest,
+            this.btnDeleteAllRequests,
+            this.labelTotalCost});
+            this.BtnActionCurrentUser.Location = new System.Drawing.Point(4, 444);
+            this.BtnActionCurrentUser.Name = "BtnActionCurrentUser";
+            this.BtnActionCurrentUser.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnActionCurrentUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.BtnActionCurrentUser.Size = new System.Drawing.Size(777, 39);
+            this.BtnActionCurrentUser.TabIndex = 16;
+            this.BtnActionCurrentUser.Text = "toolStrip1";
+            // 
+            // btnDeleteCurrentRequest
+            // 
+            this.btnDeleteCurrentRequest.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnDeleteCurrentRequest.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnDeleteCurrentRequest.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteCurrentRequest.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteCurrentRequest.Image")));
+            this.btnDeleteCurrentRequest.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDeleteCurrentRequest.Name = "btnDeleteCurrentRequest";
+            this.btnDeleteCurrentRequest.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.btnDeleteCurrentRequest.Size = new System.Drawing.Size(51, 26);
+            this.btnDeleteCurrentRequest.Text = "حذف";
+            // 
+            // btnDeleteAllRequests
+            // 
+            this.btnDeleteAllRequests.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnDeleteAllRequests.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btnDeleteAllRequests.ForeColor = System.Drawing.Color.DarkRed;
+            this.btnDeleteAllRequests.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDeleteAllRequests.Name = "btnDeleteAllRequests";
+            this.btnDeleteAllRequests.Size = new System.Drawing.Size(67, 26);
+            this.btnDeleteAllRequests.Text = "حذف همه";
+            // 
+            // labelTotalCost
+            // 
+            this.labelTotalCost.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.labelTotalCost.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalCost.Name = "labelTotalCost";
+            this.labelTotalCost.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelTotalCost.Size = new System.Drawing.Size(92, 26);
+            this.labelTotalCost.Text = "[جمع کل هزینه]";
+            // 
+            // panelLeft
+            // 
+            this.panelLeft.BackColor = System.Drawing.Color.Transparent;
+            this.panelLeft.Controls.Add(this.panelFactor);
+            this.panelLeft.Controls.Add(this.panelTop);
+            this.panelLeft.Controls.Add(this.panelPayment);
+            this.panelLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLeft.Location = new System.Drawing.Point(9, 10);
+            this.panelLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelLeft.Name = "panelLeft";
+            this.panelLeft.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelLeft.Size = new System.Drawing.Size(793, 594);
+            this.panelLeft.TabIndex = 17;
+            // 
+            // panelFactor
+            // 
+            this.panelFactor.Controls.Add(this.dgCarRequests);
+            this.panelFactor.Controls.Add(this.BtnActionCurrentUser);
+            this.panelFactor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelFactor.Location = new System.Drawing.Point(4, 40);
+            this.panelFactor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelFactor.Name = "panelFactor";
+            this.panelFactor.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelFactor.Size = new System.Drawing.Size(785, 488);
+            this.panelFactor.TabIndex = 20;
+            // 
+            // panelPayment
+            // 
+            this.panelPayment.BackColor = System.Drawing.Color.Beige;
+            this.panelPayment.Controls.Add(this.btnBack);
+            this.panelPayment.Controls.Add(this.btnSubmit);
+            this.panelPayment.Controls.Add(this.cbIsRepaired);
+            this.panelPayment.Controls.Add(this.cbIsReleased);
+            this.panelPayment.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelPayment.Location = new System.Drawing.Point(4, 528);
+            this.panelPayment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelPayment.Name = "panelPayment";
+            this.panelPayment.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.panelPayment.Size = new System.Drawing.Size(785, 61);
+            this.panelPayment.TabIndex = 20;
+            // 
+            // cbIsReleased
+            // 
+            this.cbIsReleased.BackColor = System.Drawing.Color.Beige;
+            this.cbIsReleased.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cbIsReleased.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbIsReleased.ForeColor = System.Drawing.Color.SeaGreen;
+            this.cbIsReleased.Location = new System.Drawing.Point(20, 0);
+            this.cbIsReleased.Margin = new System.Windows.Forms.Padding(0);
+            this.cbIsReleased.Name = "cbIsReleased";
+            this.cbIsReleased.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbIsReleased.Size = new System.Drawing.Size(166, 61);
+            this.cbIsReleased.TabIndex = 10;
+            this.cbIsReleased.Text = "ترخیص و تحویل خودرو";
+            this.cbIsReleased.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbIsReleased.UseVisualStyleBackColor = false;
+            // 
+            // cbIsRepaired
+            // 
+            this.cbIsRepaired.BackColor = System.Drawing.Color.Beige;
+            this.cbIsRepaired.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cbIsRepaired.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cbIsRepaired.Location = new System.Drawing.Point(186, 0);
+            this.cbIsRepaired.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbIsRepaired.Name = "cbIsRepaired";
+            this.cbIsRepaired.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbIsRepaired.Size = new System.Drawing.Size(134, 61);
+            this.cbIsRepaired.TabIndex = 19;
+            this.cbIsRepaired.Text = "پایان تعمیرات";
+            this.cbIsRepaired.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbIsRepaired.UseVisualStyleBackColor = false;
+            // 
+            // inputMileage
+            // 
+            this.inputMileage.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.inputMileage.BackColor = System.Drawing.SystemColors.Window;
+            this.inputMileage.BorderColor = System.Drawing.Color.LightGray;
+            this.inputMileage.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputMileage.Dock = System.Windows.Forms.DockStyle.Right;
+            this.inputMileage.ForeColor = System.Drawing.Color.Black;
+            this.inputMileage.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.inputMileage.Icon = global::AutoLedger.App.Properties.Resources.speed_128;
+            this.inputMileage.Location = new System.Drawing.Point(508, 0);
+            this.inputMileage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.inputMileage.Name = "inputMileage";
+            this.inputMileage.NumbersOnly = true;
+            this.inputMileage.Placeholder = "کارکرد فعلی (کیلومتر)";
+            this.inputMileage.PlaceholderColor = System.Drawing.SystemColors.Desktop;
+            this.inputMileage.Size = new System.Drawing.Size(159, 35);
+            this.inputMileage.TabIndex = 5;
+            this.inputMileage.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnBack.Location = new System.Drawing.Point(519, 14);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(86, 39);
+            this.btnBack.TabIndex = 15;
+            this.btnBack.Text = "لغو";
+            this.btnBack.UseVisualStyleBackColor = true;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSubmit.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnSubmit.BaseBackColor = System.Drawing.Color.DarkGreen;
+            this.btnSubmit.BorderColor = System.Drawing.Color.Gray;
+            this.btnSubmit.CornerRadius = 2;
+            this.btnSubmit.FlatAppearance.BorderSize = 6;
+            this.btnSubmit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSubmit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmit.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.ForeColor = System.Drawing.Color.White;
+            this.btnSubmit.HoverBackColor = System.Drawing.Color.LightGray;
+            this.btnSubmit.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
+            this.btnSubmit.IconSize = 20;
+            this.btnSubmit.Location = new System.Drawing.Point(611, 12);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.PressedBackColor = System.Drawing.Color.DarkGray;
+            this.btnSubmit.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnSubmit.Size = new System.Drawing.Size(161, 43);
+            this.btnSubmit.TabIndex = 14;
+            this.btnSubmit.Text = "ثبت و تایید اطلاعات";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            // 
+            // panelTop
+            // 
+            this.panelTop.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelTop.Controls.Add(this.inputCreatedAt);
+            this.panelTop.Controls.Add(this.inputReceptionId);
+            this.panelTop.Controls.Add(this.inputMileage);
+            this.panelTop.Controls.Add(this.label1);
+            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTop.Location = new System.Drawing.Point(4, 5);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(785, 35);
+            this.panelTop.TabIndex = 142;
+            // 
+            // inputCreatedAt
+            // 
+            this.inputCreatedAt.AccentColor = System.Drawing.Color.Empty;
+            this.inputCreatedAt.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.inputCreatedAt.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.inputCreatedAt.CornerRadius = 2;
+            this.inputCreatedAt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputCreatedAt.Dock = System.Windows.Forms.DockStyle.Left;
+            this.inputCreatedAt.Enabled = false;
+            this.inputCreatedAt.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.inputCreatedAt.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.inputCreatedAt.HoverColor = System.Drawing.Color.Empty;
+            this.inputCreatedAt.Icon = global::AutoLedger.App.Properties.Resources.calendar_1_128;
+            this.inputCreatedAt.Location = new System.Drawing.Point(116, 0);
+            this.inputCreatedAt.Margin = new System.Windows.Forms.Padding(0);
+            this.inputCreatedAt.Name = "inputCreatedAt";
+            this.inputCreatedAt.Placeholder = "[تاریخ ایجاد]";
+            this.inputCreatedAt.PlaceholderColor = System.Drawing.Color.BlanchedAlmond;
+            this.inputCreatedAt.ShowClearButton = false;
+            this.inputCreatedAt.Size = new System.Drawing.Size(211, 35);
+            this.inputCreatedAt.TabIndex = 12;
+            this.inputCreatedAt.Text = "[تاریخ]";
+            this.inputCreatedAt.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // inputReceptionId
+            // 
+            this.inputReceptionId.AccentColor = System.Drawing.Color.Empty;
+            this.inputReceptionId.BackColor = System.Drawing.Color.DarkSalmon;
+            this.inputReceptionId.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.inputReceptionId.CornerRadius = 0;
+            this.inputReceptionId.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputReceptionId.Dock = System.Windows.Forms.DockStyle.Left;
+            this.inputReceptionId.Enabled = false;
+            this.inputReceptionId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.inputReceptionId.HoverColor = System.Drawing.Color.Empty;
+            this.inputReceptionId.Icon = global::AutoLedger.App.Properties.Resources.security_lock_128;
+            this.inputReceptionId.Location = new System.Drawing.Point(0, 0);
+            this.inputReceptionId.Name = "inputReceptionId";
+            this.inputReceptionId.Placeholder = "[شماره فاکتور]";
+            this.inputReceptionId.PlaceholderColor = System.Drawing.Color.Black;
+            this.inputReceptionId.ShowClearButton = false;
+            this.inputReceptionId.Size = new System.Drawing.Size(116, 35);
+            this.inputReceptionId.TabIndex = 11;
+            this.inputReceptionId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label1.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(667, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 35);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "فرم پذیرش خودرو";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // CarReceptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(811, 614);
             this.Controls.Add(this.panelLeft);
-            this.Controls.Add(this.panelBottom);
             this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "CarReceptionForm";
@@ -456,8 +466,7 @@ namespace AutoLedger.App.Forms
             this.panelFactor.ResumeLayout(false);
             this.panelFactor.PerformLayout();
             this.panelPayment.ResumeLayout(false);
-            this.panelDetails.ResumeLayout(false);
-            this.panelBottom.ResumeLayout(false);
+            this.panelTop.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -468,18 +477,14 @@ namespace AutoLedger.App.Forms
         private System.Windows.Forms.Panel panelLeft;
         private Controls.ModernTextBox inputMileage;
         private Controls.ModernButton btnSubmit;
-        private System.Windows.Forms.Label labelTittle;
         private System.Windows.Forms.ToolStripButton btnDeleteCurrentRequest;
         private System.Windows.Forms.ToolStripButton btnDeleteAllRequests;
-        private Panel panelBottom;
         private Panel panelFactor;
         private CheckBox cbIsReleased;
         private Button btnBack;
         private Panel panelPayment;
         private ToolStripLabel labelTotalCost;
-        private Panel panelDetails;
         private CheckBox cbIsRepaired;
-        private Controls.ModernTextBox inputReceptionId;
         private DataGridViewTextBoxColumn Index;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Title;
@@ -487,5 +492,9 @@ namespace AutoLedger.App.Forms
         private DataGridViewTextBoxColumn Cost;
         private DataGridViewTextBoxColumn CreatedAt;
         private DataGridViewTextBoxColumn UpdatedAt;
+        private Panel panelTop;
+        private Controls.ModernTextBox inputCreatedAt;
+        private Controls.ModernTextBox inputReceptionId;
+        private Label label1;
     }
 }
