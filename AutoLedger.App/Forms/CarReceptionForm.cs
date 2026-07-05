@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace AutoLedger.App.Forms
 {
-    public partial class CarReceptionForm : Form
+    public partial class CarReceptionForm : DevExpress.XtraBars.ToolbarForm.ToolbarForm
     {
         private Car _car;
         private CarReception _reception;
@@ -300,7 +300,7 @@ namespace AutoLedger.App.Forms
                 DateTime dt;
                 if (DateTime.TryParse(e.Value.ToString(), out dt))
                 {
-                    e.Value = dt.ToShamsiLong();
+                    e.Value = dt.ToShamsi();
                     e.FormattingApplied = true;
                 }
             }

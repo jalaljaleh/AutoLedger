@@ -243,7 +243,7 @@ namespace AutoLedger.App.Forms
                 DateTime dt;
                 if (DateTime.TryParse(e.Value.ToString(), out dt))
                 {
-                    e.Value = dt.ToShamsiLong();
+                    e.Value = dt.ToShamsi();
                     e.FormattingApplied = true;
                 }
             }

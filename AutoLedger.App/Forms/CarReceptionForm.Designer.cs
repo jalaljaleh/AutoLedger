@@ -30,6 +30,7 @@ namespace AutoLedger.App.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,22 +52,30 @@ namespace AutoLedger.App.Forms
             this.labelTotalCost = new System.Windows.Forms.ToolStripLabel();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panelFactor = new System.Windows.Forms.Panel();
-            this.panelPayment = new System.Windows.Forms.Panel();
-            this.cbIsReleased = new System.Windows.Forms.CheckBox();
-            this.cbIsRepaired = new System.Windows.Forms.CheckBox();
-            this.inputMileage = new AutoLedger.App.Controls.ModernTextBox();
-            this.btnBack = new System.Windows.Forms.Button();
-            this.btnSubmit = new AutoLedger.App.Controls.ModernButton();
             this.panelTop = new System.Windows.Forms.Panel();
             this.inputCreatedAt = new AutoLedger.App.Controls.ModernTextBox();
             this.inputReceptionId = new AutoLedger.App.Controls.ModernTextBox();
+            this.inputMileage = new AutoLedger.App.Controls.ModernTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panelPayment = new System.Windows.Forms.Panel();
+            this.btnBack = new System.Windows.Forms.Button();
+            this.btnSubmit = new AutoLedger.App.Controls.ModernButton();
+            this.cbIsRepaired = new System.Windows.Forms.CheckBox();
+            this.cbIsReleased = new System.Windows.Forms.CheckBox();
+            this.toolbarFormControl1 = new DevExpress.XtraBars.ToolbarForm.ToolbarFormControl();
+            this.toolbarFormManager1 = new DevExpress.XtraBars.ToolbarForm.ToolbarFormManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.dgCarRequests)).BeginInit();
             this.BtnActionCurrentUser.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panelFactor.SuspendLayout();
-            this.panelPayment.SuspendLayout();
             this.panelTop.SuspendLayout();
+            this.panelPayment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgCarRequests
@@ -110,7 +119,7 @@ namespace AutoLedger.App.Forms
             this.dgCarRequests.RowTemplate.Height = 50;
             this.dgCarRequests.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgCarRequests.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgCarRequests.Size = new System.Drawing.Size(777, 439);
+            this.dgCarRequests.Size = new System.Drawing.Size(895, 422);
             this.dgCarRequests.StandardTab = true;
             this.dgCarRequests.TabIndex = 10;
             // 
@@ -209,11 +218,11 @@ namespace AutoLedger.App.Forms
             this.btnDeleteCurrentRequest,
             this.btnDeleteAllRequests,
             this.labelTotalCost});
-            this.BtnActionCurrentUser.Location = new System.Drawing.Point(4, 444);
+            this.BtnActionCurrentUser.Location = new System.Drawing.Point(4, 427);
             this.BtnActionCurrentUser.Name = "BtnActionCurrentUser";
             this.BtnActionCurrentUser.Padding = new System.Windows.Forms.Padding(5);
             this.BtnActionCurrentUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BtnActionCurrentUser.Size = new System.Drawing.Size(777, 39);
+            this.BtnActionCurrentUser.Size = new System.Drawing.Size(895, 39);
             this.BtnActionCurrentUser.TabIndex = 16;
             this.BtnActionCurrentUser.Text = "toolStrip1";
             // 
@@ -255,11 +264,11 @@ namespace AutoLedger.App.Forms
             this.panelLeft.Controls.Add(this.panelTop);
             this.panelLeft.Controls.Add(this.panelPayment);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLeft.Location = new System.Drawing.Point(9, 10);
+            this.panelLeft.Location = new System.Drawing.Point(0, 33);
             this.panelLeft.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelLeft.Size = new System.Drawing.Size(793, 594);
+            this.panelLeft.Size = new System.Drawing.Size(911, 577);
             this.panelLeft.TabIndex = 17;
             // 
             // panelFactor
@@ -271,115 +280,12 @@ namespace AutoLedger.App.Forms
             this.panelFactor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelFactor.Name = "panelFactor";
             this.panelFactor.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelFactor.Size = new System.Drawing.Size(785, 488);
+            this.panelFactor.Size = new System.Drawing.Size(903, 471);
             this.panelFactor.TabIndex = 20;
-            // 
-            // panelPayment
-            // 
-            this.panelPayment.BackColor = System.Drawing.Color.Beige;
-            this.panelPayment.Controls.Add(this.btnBack);
-            this.panelPayment.Controls.Add(this.btnSubmit);
-            this.panelPayment.Controls.Add(this.cbIsRepaired);
-            this.panelPayment.Controls.Add(this.cbIsReleased);
-            this.panelPayment.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelPayment.Location = new System.Drawing.Point(4, 528);
-            this.panelPayment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panelPayment.Name = "panelPayment";
-            this.panelPayment.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.panelPayment.Size = new System.Drawing.Size(785, 61);
-            this.panelPayment.TabIndex = 20;
-            // 
-            // cbIsReleased
-            // 
-            this.cbIsReleased.BackColor = System.Drawing.Color.Beige;
-            this.cbIsReleased.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cbIsReleased.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbIsReleased.ForeColor = System.Drawing.Color.SeaGreen;
-            this.cbIsReleased.Location = new System.Drawing.Point(20, 0);
-            this.cbIsReleased.Margin = new System.Windows.Forms.Padding(0);
-            this.cbIsReleased.Name = "cbIsReleased";
-            this.cbIsReleased.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbIsReleased.Size = new System.Drawing.Size(166, 61);
-            this.cbIsReleased.TabIndex = 10;
-            this.cbIsReleased.Text = "ترخیص و تحویل خودرو";
-            this.cbIsReleased.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbIsReleased.UseVisualStyleBackColor = false;
-            // 
-            // cbIsRepaired
-            // 
-            this.cbIsRepaired.BackColor = System.Drawing.Color.Beige;
-            this.cbIsRepaired.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cbIsRepaired.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.cbIsRepaired.Location = new System.Drawing.Point(186, 0);
-            this.cbIsRepaired.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.cbIsRepaired.Name = "cbIsRepaired";
-            this.cbIsRepaired.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.cbIsRepaired.Size = new System.Drawing.Size(134, 61);
-            this.cbIsRepaired.TabIndex = 19;
-            this.cbIsRepaired.Text = "پایان تعمیرات";
-            this.cbIsRepaired.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.cbIsRepaired.UseVisualStyleBackColor = false;
-            // 
-            // inputMileage
-            // 
-            this.inputMileage.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.inputMileage.BackColor = System.Drawing.SystemColors.Window;
-            this.inputMileage.BorderColor = System.Drawing.Color.LightGray;
-            this.inputMileage.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputMileage.Dock = System.Windows.Forms.DockStyle.Right;
-            this.inputMileage.ForeColor = System.Drawing.Color.Black;
-            this.inputMileage.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.inputMileage.Icon = global::AutoLedger.App.Properties.Resources.speed_128;
-            this.inputMileage.Location = new System.Drawing.Point(508, 0);
-            this.inputMileage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.inputMileage.Name = "inputMileage";
-            this.inputMileage.NumbersOnly = true;
-            this.inputMileage.Placeholder = "کارکرد فعلی (کیلومتر)";
-            this.inputMileage.PlaceholderColor = System.Drawing.SystemColors.Desktop;
-            this.inputMileage.Size = new System.Drawing.Size(159, 35);
-            this.inputMileage.TabIndex = 5;
-            this.inputMileage.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnBack
-            // 
-            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnBack.Location = new System.Drawing.Point(519, 14);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(86, 39);
-            this.btnBack.TabIndex = 15;
-            this.btnBack.Text = "لغو";
-            this.btnBack.UseVisualStyleBackColor = true;
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSubmit.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.btnSubmit.BaseBackColor = System.Drawing.Color.DarkGreen;
-            this.btnSubmit.BorderColor = System.Drawing.Color.Gray;
-            this.btnSubmit.CornerRadius = 2;
-            this.btnSubmit.FlatAppearance.BorderSize = 6;
-            this.btnSubmit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSubmit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSubmit.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.ForeColor = System.Drawing.Color.White;
-            this.btnSubmit.HoverBackColor = System.Drawing.Color.LightGray;
-            this.btnSubmit.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
-            this.btnSubmit.IconSize = 20;
-            this.btnSubmit.Location = new System.Drawing.Point(611, 12);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.PressedBackColor = System.Drawing.Color.DarkGray;
-            this.btnSubmit.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnSubmit.Size = new System.Drawing.Size(161, 43);
-            this.btnSubmit.TabIndex = 14;
-            this.btnSubmit.Text = "ثبت و تایید اطلاعات";
-            this.btnSubmit.UseVisualStyleBackColor = false;
             // 
             // panelTop
             // 
-            this.panelTop.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panelTop.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panelTop.Controls.Add(this.inputCreatedAt);
             this.panelTop.Controls.Add(this.inputReceptionId);
             this.panelTop.Controls.Add(this.inputMileage);
@@ -387,7 +293,7 @@ namespace AutoLedger.App.Forms
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(4, 5);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(785, 35);
+            this.panelTop.Size = new System.Drawing.Size(903, 35);
             this.panelTop.TabIndex = 142;
             // 
             // inputCreatedAt
@@ -403,7 +309,7 @@ namespace AutoLedger.App.Forms
             this.inputCreatedAt.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.inputCreatedAt.HoverColor = System.Drawing.Color.Empty;
             this.inputCreatedAt.Icon = global::AutoLedger.App.Properties.Resources.calendar_1_128;
-            this.inputCreatedAt.Location = new System.Drawing.Point(116, 0);
+            this.inputCreatedAt.Location = new System.Drawing.Point(173, 0);
             this.inputCreatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.inputCreatedAt.Name = "inputCreatedAt";
             this.inputCreatedAt.Placeholder = "[تاریخ ایجاد]";
@@ -431,43 +337,209 @@ namespace AutoLedger.App.Forms
             this.inputReceptionId.Placeholder = "[شماره فاکتور]";
             this.inputReceptionId.PlaceholderColor = System.Drawing.Color.Black;
             this.inputReceptionId.ShowClearButton = false;
-            this.inputReceptionId.Size = new System.Drawing.Size(116, 35);
+            this.inputReceptionId.Size = new System.Drawing.Size(173, 35);
             this.inputReceptionId.TabIndex = 11;
             this.inputReceptionId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // inputMileage
+            // 
+            this.inputMileage.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.inputMileage.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.inputMileage.BorderColor = System.Drawing.Color.LightGray;
+            this.inputMileage.CornerRadius = 2;
+            this.inputMileage.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputMileage.Dock = System.Windows.Forms.DockStyle.Right;
+            this.inputMileage.ForeColor = System.Drawing.Color.Black;
+            this.inputMileage.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.inputMileage.Icon = global::AutoLedger.App.Properties.Resources.speed_128;
+            this.inputMileage.Location = new System.Drawing.Point(603, 0);
+            this.inputMileage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.inputMileage.Name = "inputMileage";
+            this.inputMileage.NumbersOnly = true;
+            this.inputMileage.Placeholder = "کارکرد فعلی (کیلومتر)";
+            this.inputMileage.PlaceholderColor = System.Drawing.SystemColors.Desktop;
+            this.inputMileage.Size = new System.Drawing.Size(182, 35);
+            this.inputMileage.TabIndex = 5;
+            this.inputMileage.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Right;
             this.label1.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(667, 0);
+            this.label1.Location = new System.Drawing.Point(785, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 35);
             this.label1.TabIndex = 0;
             this.label1.Text = "فرم پذیرش خودرو";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // panelPayment
+            // 
+            this.panelPayment.BackColor = System.Drawing.Color.Beige;
+            this.panelPayment.Controls.Add(this.btnBack);
+            this.panelPayment.Controls.Add(this.btnSubmit);
+            this.panelPayment.Controls.Add(this.cbIsRepaired);
+            this.panelPayment.Controls.Add(this.cbIsReleased);
+            this.panelPayment.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelPayment.Location = new System.Drawing.Point(4, 511);
+            this.panelPayment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelPayment.Name = "panelPayment";
+            this.panelPayment.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.panelPayment.Size = new System.Drawing.Size(903, 61);
+            this.panelPayment.TabIndex = 20;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnBack.Location = new System.Drawing.Point(578, 14);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(86, 39);
+            this.btnBack.TabIndex = 15;
+            this.btnBack.Text = "لغو";
+            this.btnBack.UseVisualStyleBackColor = true;
+            // 
+            // btnSubmit
+            // 
+            this.btnSubmit.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSubmit.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.btnSubmit.BaseBackColor = System.Drawing.Color.DarkGreen;
+            this.btnSubmit.BorderColor = System.Drawing.Color.Gray;
+            this.btnSubmit.CornerRadius = 2;
+            this.btnSubmit.FlatAppearance.BorderSize = 6;
+            this.btnSubmit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSubmit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmit.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.ForeColor = System.Drawing.Color.White;
+            this.btnSubmit.HoverBackColor = System.Drawing.Color.LightGray;
+            this.btnSubmit.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
+            this.btnSubmit.IconSize = 20;
+            this.btnSubmit.Location = new System.Drawing.Point(670, 12);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.PressedBackColor = System.Drawing.Color.DarkGray;
+            this.btnSubmit.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnSubmit.Size = new System.Drawing.Size(161, 43);
+            this.btnSubmit.TabIndex = 14;
+            this.btnSubmit.Text = "ثبت و تایید اطلاعات";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            // 
+            // cbIsRepaired
+            // 
+            this.cbIsRepaired.BackColor = System.Drawing.Color.Beige;
+            this.cbIsRepaired.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cbIsRepaired.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.cbIsRepaired.Location = new System.Drawing.Point(186, 0);
+            this.cbIsRepaired.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cbIsRepaired.Name = "cbIsRepaired";
+            this.cbIsRepaired.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbIsRepaired.Size = new System.Drawing.Size(134, 61);
+            this.cbIsRepaired.TabIndex = 19;
+            this.cbIsRepaired.Text = "پایان تعمیرات";
+            this.cbIsRepaired.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbIsRepaired.UseVisualStyleBackColor = false;
+            // 
+            // cbIsReleased
+            // 
+            this.cbIsReleased.BackColor = System.Drawing.Color.Beige;
+            this.cbIsReleased.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cbIsReleased.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbIsReleased.ForeColor = System.Drawing.Color.SeaGreen;
+            this.cbIsReleased.Location = new System.Drawing.Point(20, 0);
+            this.cbIsReleased.Margin = new System.Windows.Forms.Padding(0);
+            this.cbIsReleased.Name = "cbIsReleased";
+            this.cbIsReleased.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.cbIsReleased.Size = new System.Drawing.Size(166, 61);
+            this.cbIsReleased.TabIndex = 10;
+            this.cbIsReleased.Text = "ترخیص و تحویل خودرو";
+            this.cbIsReleased.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.cbIsReleased.UseVisualStyleBackColor = false;
+            // 
+            // toolbarFormControl1
+            // 
+            this.toolbarFormControl1.Location = new System.Drawing.Point(0, 0);
+            this.toolbarFormControl1.Manager = this.toolbarFormManager1;
+            this.toolbarFormControl1.Name = "toolbarFormControl1";
+            this.toolbarFormControl1.Size = new System.Drawing.Size(911, 33);
+            this.toolbarFormControl1.TabIndex = 18;
+            this.toolbarFormControl1.TabStop = false;
+            this.toolbarFormControl1.ToolbarForm = this;
+            // 
+            // toolbarFormManager1
+            // 
+            this.toolbarFormManager1.DockControls.Add(this.barDockControlTop);
+            this.toolbarFormManager1.DockControls.Add(this.barDockControlBottom);
+            this.toolbarFormManager1.DockControls.Add(this.barDockControlLeft);
+            this.toolbarFormManager1.DockControls.Add(this.barDockControlRight);
+            this.toolbarFormManager1.Form = this;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 33);
+            this.barDockControlTop.Manager = this.toolbarFormManager1;
+            this.barDockControlTop.Size = new System.Drawing.Size(911, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 610);
+            this.barDockControlBottom.Manager = this.toolbarFormManager1;
+            this.barDockControlBottom.Size = new System.Drawing.Size(911, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 33);
+            this.barDockControlLeft.Manager = this.toolbarFormManager1;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 577);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(911, 33);
+            this.barDockControlRight.Manager = this.toolbarFormManager1;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 577);
+            // 
             // CarReceptionForm
             // 
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(811, 614);
+            this.ClientSize = new System.Drawing.Size(911, 610);
             this.Controls.Add(this.panelLeft);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
+            this.Controls.Add(this.toolbarFormControl1);
             this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("CarReceptionForm.IconOptions.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MinimizeBox = false;
             this.Name = "CarReceptionForm";
-            this.Padding = new System.Windows.Forms.Padding(9, 10, 9, 10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "فرم پذیرش خودرو";
+            this.ToolbarFormControl = this.toolbarFormControl1;
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.dgCarRequests)).EndInit();
             this.BtnActionCurrentUser.ResumeLayout(false);
             this.BtnActionCurrentUser.PerformLayout();
             this.panelLeft.ResumeLayout(false);
             this.panelFactor.ResumeLayout(false);
             this.panelFactor.PerformLayout();
-            this.panelPayment.ResumeLayout(false);
             this.panelTop.ResumeLayout(false);
+            this.panelPayment.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -496,5 +568,11 @@ namespace AutoLedger.App.Forms
         private Controls.ModernTextBox inputCreatedAt;
         private Controls.ModernTextBox inputReceptionId;
         private Label label1;
+        private DevExpress.XtraBars.ToolbarForm.ToolbarFormControl toolbarFormControl1;
+        private DevExpress.XtraBars.ToolbarForm.ToolbarFormManager toolbarFormManager1;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
     }
 }
