@@ -1,4 +1,6 @@
-﻿using AutoLedger.Data;
+﻿using AutoLedger.App.Forms;
+using AutoLedger.App.FormsModal;
+using AutoLedger.Data;
 using AutoLedger.Domain;
 using System;
 using System.Data.Entity;
@@ -17,24 +19,72 @@ namespace AutoLedger.App.FormsView
         {
             InitializeComponent();
 
-            // Debounce timer for search input
-            _searchTimer = new Timer
-            {
-                Interval = 2000 // 2 seconds delay after typing
-            };
+            // Debounce search timer
+            _searchTimer = new Timer();
+            _searchTimer.Interval = 2000;
             _searchTimer.Tick += SearchTimer_Tick;
+            inputSearch.TextChanged += InputSearch_TextChanged;
+
 
             // Register UI events
+            btnNewCar.Click += BtnNewCar_Click;
+            btnEditCar.Click += BtnEditCar_Click;
             btnRefreshCars.Click += BtnRefreshCars_Click;
             btnCarsNextPage.Click += BtnCarsNextPage_Click;
             btnCarsBackPage.Click += BtnCarsBackPage_Click;
 
-            inputSearch.TextChanged += InputSearch_TextChanged;
 
             dgCars.RowPostPaint += DgCars_RowPostPaint;
             dgCars.CellFormatting += dgCar_CellFormatting;
+
+            RefreshCars();
         }
 
+        private void BtnEditCar_Click(object sender, EventArgs e)
+        {
+            if (dgCars.SelectedRows.Count < 1)
+            {
+                MessageBox.Show("لطفا یک خودرو را انتخاب کنید.");
+                return;
+            }
+
+            var car = dgCars.SelectedRows[0].DataBoundItem as Car;
+
+            var carForm = new CarForm(car)
+              .WithPlateId(car.PlateId);
+
+            if (carForm.ShowDialog() != DialogResult.OK)
+                return;
+        
+            RefreshCars();
+        }
+
+        private void BtnNewCar_Click(object sender, EventArgs e)
+        {
+            var carPlate = new CarPlateModalForm();
+            if (carPlate.ShowDialog() != DialogResult.OK)
+                return;
+
+            using (var db = new AutoLedgerContext())
+            {
+                var car = db.Cars.FirstOrDefault(a => a.PlateId == carPlate.Plate);
+                if (car is null)
+                {
+                    var carForm = new CarForm(null)
+                      .WithPlateId(carPlate.Plate);
+
+                    if (carForm.ShowDialog() != DialogResult.OK)
+                        return;
+
+                    car = carForm.GetCar();
+                    RefreshCars();
+                }
+                else
+                {
+                    MessageBox.Show("این خودرو قبلا ثبت شده است.");
+                }
+            }
+        }
 
         // Triggered after user stops typing for 2 seconds
         private void SearchTimer_Tick(object sender, EventArgs e)
@@ -61,10 +111,8 @@ namespace AutoLedger.App.FormsView
 
                 string search = inputSearch.Text.Trim();
 
-                // Base query
                 IQueryable<Car> query = db.Cars;
 
-                // Apply search filter
                 if (!string.IsNullOrEmpty(search))
                 {
                     query = query.Where(c =>
@@ -77,7 +125,6 @@ namespace AutoLedger.App.FormsView
                     );
                 }
 
-                // Apply paging
                 var list = query
                     .OrderByDescending(c => c.UpdatedAt)
                     .Skip(_carsPage * PageSize)
@@ -85,11 +132,9 @@ namespace AutoLedger.App.FormsView
                     .AsNoTracking()
                     .ToList();
 
-                // Update paging buttons
                 btnCarsBackPage.Enabled = (_carsPage > 0);
                 btnCarsNextPage.Enabled = (list.Count == PageSize);
 
-                // Bind to grid
                 dgCars.DataSource = list;
             }
         }
@@ -100,12 +145,9 @@ namespace AutoLedger.App.FormsView
         private void BtnRefreshCars_Click(object sender, EventArgs e)
         {
             _searchTimer.Stop();
-
-            // Temporarily detach event to avoid triggering search
             inputSearch.TextChanged -= InputSearch_TextChanged;
             inputSearch.Text = string.Empty;
             inputSearch.TextChanged += InputSearch_TextChanged;
-
             _carsPage = 0;
             RefreshCars();
         }
@@ -127,22 +169,25 @@ namespace AutoLedger.App.FormsView
 
         private void DgCars_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
         {
-            dgCars.Rows[e.RowIndex].Cells[0].Value = (e.RowIndex + 1).ToString();
+            var row = dgCars.Rows[e.RowIndex];
+            if (row.Cells.Count > 0) row.Cells[0].Value = (e.RowIndex + 1);
         }
+
+
         private void dgCar_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (e.ColumnIndex < 0 || e.ColumnIndex >= dgCars.Columns.Count) return;
+            string col = dgCars.Columns[e.ColumnIndex].Name;
 
-            string cellName = dgCars.Columns[e.ColumnIndex].Name;
-            if (e.Value != null && (cellName == "CreatedAt" || cellName == "UpdatedAt"))
+            if (col == "CreatedAt" || col == "UpdatedAt")
             {
-                DateTime dt;
-                if (DateTime.TryParse(e.Value.ToString(), out dt))
+                if (DateTime.TryParse(e.Value?.ToString(), out DateTime dt))
                 {
                     e.Value = dt.ToShamsi();
                     e.FormattingApplied = true;
                 }
             }
         }
+
     }
 }

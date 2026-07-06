@@ -26,6 +26,8 @@ namespace AutoLedger.App.Controls
         private int _maxLength = 0; // 0 = unlimited
         private bool _numbersOnly = false;
         private char _passwordChar = '\0';
+        private bool _useSystemPasswordChar = false;
+        private bool _revealPassword = false; // Toggles password visibility on eye icon click
         private bool _showClearButton = true;
         private Image _icon = null;
 
@@ -100,6 +102,14 @@ namespace AutoLedger.App.Controls
                 if (labelProgress <= 0f) animTimer.Stop();
             }
             Invalidate();
+        }
+
+        // Helper to determine which password character to use based on visibility toggle
+        private char GetActivePasswordChar()
+        {
+            if (_revealPassword) return '\0';
+            if (_useSystemPasswordChar) return '●';
+            return _passwordChar;
         }
 
         #region Properties
@@ -189,6 +199,14 @@ namespace AutoLedger.App.Controls
             set { _passwordChar = value; Invalidate(); }
         }
 
+        [Category("Behavior"), DefaultValue(false),
+         Description("Indicates if the text in the ModernTextBox should appear as the default password character.")]
+        public bool UseSystemPasswordChar
+        {
+            get => _useSystemPasswordChar;
+            set { _useSystemPasswordChar = value; Invalidate(); }
+        }
+
         [Category("Appearance"), DefaultValue(true)]
         public bool ShowClearButton
         {
@@ -245,7 +263,6 @@ namespace AutoLedger.App.Controls
 
         #region TextChanged helper
 
-        // Ensure we raise the standard TextChanged event for consumers
         protected override void OnTextChanged(EventArgs e)
         {
             base.OnTextChanged(e);
@@ -253,7 +270,6 @@ namespace AutoLedger.App.Controls
 
         private void OnTextChangedInternal()
         {
-            // call the virtual method so subscribers get the event
             OnTextChanged(EventArgs.Empty);
         }
 
@@ -350,6 +366,15 @@ namespace AutoLedger.App.Controls
                 right -= 18 + 6;
             }
 
+            // password eye toggle button area
+            Rectangle passwordToggleRect = Rectangle.Empty;
+            char maskChar = GetActivePasswordChar();
+            if (_useSystemPasswordChar || _passwordChar != '\0')
+            {
+                passwordToggleRect = new Rectangle(right - 18, centerY - 9, 18, 18);
+                right -= 18 + 6;
+            }
+
             // text area
             Rectangle textRect = new Rectangle(left, rect.Top, Math.Max(0, right - left), rect.Height);
 
@@ -370,7 +395,7 @@ namespace AutoLedger.App.Controls
             }
 
             // draw text (masked if password)
-            string displayText = _passwordChar != '\0' ? new string(_passwordChar, _text.Length) : _text;
+            string displayText = maskChar != '\0' ? new string(maskChar, _text.Length) : _text;
 
             // Draw using GDI+ for precise character alignment
             using (StringFormat sf = new StringFormat(StringFormat.GenericTypographic))
@@ -406,24 +431,38 @@ namespace AutoLedger.App.Controls
                     e.Graphics.DrawLine(p, clearRect.Right - 3, clearRect.Top + 3, clearRect.Left + 3, clearRect.Bottom - 3);
                 }
             }
+
+            // password eye button icon
+            if (passwordToggleRect != Rectangle.Empty)
+            {
+                using (var p = new Pen(Color.Gray, 1.5f))
+                {
+                    e.Graphics.DrawArc(p, passwordToggleRect.X + 1, passwordToggleRect.Y + 4, passwordToggleRect.Width - 2, passwordToggleRect.Height - 8, 0, 180);
+                    e.Graphics.DrawArc(p, passwordToggleRect.X + 1, passwordToggleRect.Y + 2, passwordToggleRect.Width - 2, passwordToggleRect.Height - 8, 180, 180);
+                    using (var b = new SolidBrush(Color.Gray))
+                    {
+                        e.Graphics.FillEllipse(b, passwordToggleRect.X + 7, passwordToggleRect.Y + 7, 4, 4);
+                    }
+                    if (_revealPassword)
+                    {
+                        e.Graphics.DrawLine(p, passwordToggleRect.Left + 3, passwordToggleRect.Bottom - 3, passwordToggleRect.Right - 3, passwordToggleRect.Top + 3);
+                    }
+                }
+            }
         }
 
         private void DrawFloatingLabel(Graphics g, Rectangle textRect)
         {
-            // label floats up and shrinks when labelProgress -> 1
             float smallScale = 0.75f;
             float scale = 1f - (1f - smallScale) * labelProgress;
             int baseY = textRect.Top + (textRect.Height - Font.Height) / 2;
             int floatOffset = (int)(-(Font.Height + 6) * labelProgress);
 
-            // compute label font
             using (var labelFont = new Font(Font.FontFamily, Font.Size * scale, Font.Style))
             {
-                // placeholder text when empty, otherwise small label above
-                string label = string.IsNullOrEmpty(_text) ? _placeholder : _placeholder;
+                string label = _placeholder;
                 Color labelColor = isFocused ? _accentColor : _placeholderColor;
 
-                // when inline (labelProgress ~ 0) draw at baseY; when floating draw smaller above
                 RectangleF labelRect = new RectangleF(textRect.Left, baseY + floatOffset, textRect.Width, Font.Height);
                 var drawFlags = GetTextFormatFlags() | TextFormatFlags.NoPadding;
                 TextRenderer.DrawText(g, label, labelFont, Rectangle.Round(labelRect), labelColor, drawFlags);
@@ -450,8 +489,9 @@ namespace AutoLedger.App.Controls
 
         private int GetCaretX(Graphics g, Rectangle textRect, int charIndex)
         {
-            string fullText = _passwordChar != '\0' ? new string(_passwordChar, _text.Length) : _text;
-            string s = _passwordChar != '\0' ? new string(_passwordChar, charIndex) : _text.Substring(0, Math.Max(0, Math.Min(charIndex, _text.Length)));
+            char maskChar = GetActivePasswordChar();
+            string fullText = maskChar != '\0' ? new string(maskChar, _text.Length) : _text;
+            string s = maskChar != '\0' ? new string(maskChar, charIndex) : _text.Substring(0, Math.Max(0, Math.Min(charIndex, _text.Length)));
 
             using (StringFormat sf = new StringFormat(StringFormat.GenericTypographic))
             {
@@ -462,7 +502,6 @@ namespace AutoLedger.App.Controls
                 float fullWidth = string.IsNullOrEmpty(fullText) ? 0 : g.MeasureString(fullText, Font, PointF.Empty, sf).Width;
                 float startX = textRect.Left;
 
-                // محاسبه شروع متن بر اساس چینش
                 if (textAlignment == HorizontalAlignment.Center)
                     startX = textRect.Left + (textRect.Width - fullWidth) / 2;
                 else if (textAlignment == HorizontalAlignment.Right)
@@ -513,6 +552,7 @@ namespace AutoLedger.App.Controls
 
                 int right = rect.Right - _padding;
                 if (_showClearButton && !string.IsNullOrEmpty(_text)) right -= 24;
+                if (_useSystemPasswordChar || _passwordChar != '\0') right -= 24;
 
                 Rectangle textRect = new Rectangle(left, rect.Top, Math.Max(0, right - left), rect.Height);
 
@@ -522,7 +562,8 @@ namespace AutoLedger.App.Controls
                                    textAlignment == HorizontalAlignment.Right ? StringAlignment.Far : StringAlignment.Near;
                     sf.FormatFlags |= StringFormatFlags.MeasureTrailingSpaces;
 
-                    string fullText = _passwordChar != '\0' ? new string(_passwordChar, _text.Length) : _text;
+                    char maskChar = GetActivePasswordChar();
+                    string fullText = maskChar != '\0' ? new string(maskChar, _text.Length) : _text;
                     float fullWidth = string.IsNullOrEmpty(fullText) ? 0 : g.MeasureString(fullText, Font, PointF.Empty, sf).Width;
 
                     float startX = textRect.Left;
@@ -533,7 +574,7 @@ namespace AutoLedger.App.Controls
 
                     for (int i = 0; i <= _text.Length; i++)
                     {
-                        string s = _passwordChar != '\0' ? new string(_passwordChar, i) : _text.Substring(0, i);
+                        string s = maskChar != '\0' ? new string(maskChar, i) : _text.Substring(0, i);
                         float w = string.IsNullOrEmpty(s) ? 0 : g.MeasureString(s, Font, PointF.Empty, sf).Width;
                         if (x <= startX + w) return i;
                     }
@@ -547,18 +588,20 @@ namespace AutoLedger.App.Controls
             base.OnMouseDown(e);
             if (!Focused) Focus();
 
-            // check clear button click
             Rectangle rect = ClientRectangle;
             rect.Inflate(-1, -1);
             int right = rect.Right - _padding;
+
+            // check clear button click
             Rectangle clearRect = Rectangle.Empty;
             if (_showClearButton && !string.IsNullOrEmpty(_text))
             {
                 clearRect = new Rectangle(right - 18, rect.Top + (rect.Height - 18) / 2, 18, 18);
+                right -= 24;
             }
+
             if (clearRect != Rectangle.Empty && clearRect.Contains(e.Location))
             {
-                // Use the Text property so TextChanged is raised
                 Text = string.Empty;
                 caretPosition = 0;
                 ClearSelection();
@@ -566,9 +609,22 @@ namespace AutoLedger.App.Controls
                 return;
             }
 
+            // check password toggle button click
+            Rectangle passwordToggleRect = Rectangle.Empty;
+            if (_useSystemPasswordChar || _passwordChar != '\0')
+            {
+                passwordToggleRect = new Rectangle(right - 18, rect.Top + (rect.Height - 18) / 2, 18, 18);
+            }
+
+            if (passwordToggleRect != Rectangle.Empty && passwordToggleRect.Contains(e.Location))
+            {
+                _revealPassword = !_revealPassword;
+                Invalidate();
+                return;
+            }
+
             int newPos = GetCaretIndexFromPoint(e.X);
             caretPosition = Math.Max(0, Math.Min(newPos, _text.Length));
-            // set selection anchor for drag selection
             selectionStart = caretPosition;
             selectionLength = 0;
             Invalidate();
@@ -577,6 +633,23 @@ namespace AutoLedger.App.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
+            Rectangle rect = ClientRectangle;
+            rect.Inflate(-1, -1);
+            int right = rect.Right - _padding;
+
+            Rectangle clearRect = Rectangle.Empty;
+            if (_showClearButton && !string.IsNullOrEmpty(_text))
+            {
+                clearRect = new Rectangle(right - 18, rect.Top + (rect.Height - 18) / 2, 18, 18);
+                right -= 24;
+            }
+
+            Rectangle passwordToggleRect = Rectangle.Empty;
+            if (_useSystemPasswordChar || _passwordChar != '\0')
+            {
+                passwordToggleRect = new Rectangle(right - 18, rect.Top + (rect.Height - 18) / 2, 18, 18);
+            }
+
             if (e.Button == MouseButtons.Left && isFocused)
             {
                 int newPos = GetCaretIndexFromPoint(e.X);
@@ -587,15 +660,10 @@ namespace AutoLedger.App.Controls
             }
             else
             {
-                // change cursor over clear button
-                Rectangle rect = ClientRectangle;
-                rect.Inflate(-1, -1);
-                int right = rect.Right - _padding;
-                Rectangle clearRect = Rectangle.Empty;
-                if (_showClearButton && !string.IsNullOrEmpty(_text))
-                    clearRect = new Rectangle(right - 18, rect.Top + (rect.Height - 18) / 2, 18, 18);
+                bool overClear = clearRect != Rectangle.Empty && clearRect.Contains(e.Location);
+                bool overPassword = passwordToggleRect != Rectangle.Empty && passwordToggleRect.Contains(e.Location);
 
-                Cursor = (clearRect != Rectangle.Empty && clearRect.Contains(e.Location)) ? Cursors.Hand : Cursors.IBeam;
+                Cursor = (overClear || overPassword) ? Cursors.Hand : Cursors.IBeam;
             }
         }
 
@@ -615,13 +683,16 @@ namespace AutoLedger.App.Controls
                     return;
                 }
 
-                DeleteSelectionIfAny();
+                // Calculate upcoming length by excluding current selected text length
+                int projectedLength = _text.Length - Math.Abs(selectionLength);
 
-                if (_maxLength > 0 && _text.Length >= _maxLength)
+                if (_maxLength > 0 && projectedLength >= _maxLength)
                 {
                     e.Handled = true;
                     return;
                 }
+
+                DeleteSelectionIfAny();
 
                 _text = _text.Insert(caretPosition, e.KeyChar.ToString());
                 caretPosition++;
@@ -760,7 +831,6 @@ namespace AutoLedger.App.Controls
 
         private void ClearSelection()
         {
-            // Keep selectionStart as the anchor; only clear length
             selectionLength = 0;
         }
 

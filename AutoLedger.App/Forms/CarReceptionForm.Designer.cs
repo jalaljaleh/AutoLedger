@@ -53,6 +53,9 @@ namespace AutoLedger.App.Forms
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panelFactor = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.gaugeControl1 = new DevExpress.XtraGauges.Win.GaugeControl();
+            this.digitalGauge9 = new DevExpress.XtraGauges.Win.Gauges.Digital.DigitalGauge();
+            this.digitalBackgroundLayerComponent1 = new DevExpress.XtraGauges.Win.Gauges.Digital.DigitalBackgroundLayerComponent();
             this.inputCreatedAt = new AutoLedger.App.Controls.ModernTextBox();
             this.inputReceptionId = new AutoLedger.App.Controls.ModernTextBox();
             this.inputMileage = new AutoLedger.App.Controls.ModernTextBox();
@@ -73,6 +76,8 @@ namespace AutoLedger.App.Forms
             this.panelLeft.SuspendLayout();
             this.panelFactor.SuspendLayout();
             this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.digitalGauge9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.digitalBackgroundLayerComponent1)).BeginInit();
             this.panelPayment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
@@ -286,6 +291,7 @@ namespace AutoLedger.App.Forms
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.panelTop.Controls.Add(this.gaugeControl1);
             this.panelTop.Controls.Add(this.inputCreatedAt);
             this.panelTop.Controls.Add(this.inputReceptionId);
             this.panelTop.Controls.Add(this.inputMileage);
@@ -295,6 +301,39 @@ namespace AutoLedger.App.Forms
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(903, 35);
             this.panelTop.TabIndex = 142;
+            // 
+            // gaugeControl1
+            // 
+            this.gaugeControl1.AutoLayout = false;
+            this.gaugeControl1.BackColor = System.Drawing.Color.Transparent;
+            this.gaugeControl1.ColorScheme.Color = System.Drawing.Color.PaleGoldenrod;
+            this.gaugeControl1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gaugeControl1.Gauges.AddRange(new DevExpress.XtraGauges.Base.IGauge[] {
+            this.digitalGauge9});
+            this.gaugeControl1.Location = new System.Drawing.Point(496, 0);
+            this.gaugeControl1.Name = "gaugeControl1";
+            this.gaugeControl1.Size = new System.Drawing.Size(107, 35);
+            this.gaugeControl1.TabIndex = 13;
+            // 
+            // digitalGauge9
+            // 
+            this.digitalGauge9.AppearanceOff.ContentBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:#F3B030");
+            this.digitalGauge9.AppearanceOn.ContentBrush = new DevExpress.XtraGauges.Core.Drawing.SolidBrushObject("Color:#343A49");
+            this.digitalGauge9.BackgroundLayers.AddRange(new DevExpress.XtraGauges.Win.Gauges.Digital.DigitalBackgroundLayerComponent[] {
+            this.digitalBackgroundLayerComponent1});
+            this.digitalGauge9.Bounds = new System.Drawing.Rectangle(9, 6, 70, 23);
+            this.digitalGauge9.DigitCount = 5;
+            this.digitalGauge9.Name = "digitalGauge9";
+            this.digitalGauge9.Padding = new DevExpress.XtraGauges.Core.Base.TextSpacing(26, 20, 26, 20);
+            this.digitalGauge9.Text = "10000";
+            // 
+            // digitalBackgroundLayerComponent1
+            // 
+            this.digitalBackgroundLayerComponent1.BottomRight = new DevExpress.XtraGauges.Core.Base.PointF2D(265.8125F, 99.9625F);
+            this.digitalBackgroundLayerComponent1.Name = "digitalBackgroundLayerComponent1";
+            this.digitalBackgroundLayerComponent1.ShapeType = DevExpress.XtraGauges.Core.Model.DigitalBackgroundShapeSetType.Style24;
+            this.digitalBackgroundLayerComponent1.TopLeft = new DevExpress.XtraGauges.Core.Base.PointF2D(26F, 0F);
+            this.digitalBackgroundLayerComponent1.ZOrder = 1000;
             // 
             // inputCreatedAt
             // 
@@ -330,7 +369,7 @@ namespace AutoLedger.App.Forms
             this.inputReceptionId.Dock = System.Windows.Forms.DockStyle.Left;
             this.inputReceptionId.Enabled = false;
             this.inputReceptionId.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputReceptionId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.inputReceptionId.ForeColor = System.Drawing.Color.White;
             this.inputReceptionId.HoverColor = System.Drawing.Color.Empty;
             this.inputReceptionId.Icon = global::AutoLedger.App.Properties.Resources.security_lock_128;
             this.inputReceptionId.Location = new System.Drawing.Point(0, 0);
@@ -536,6 +575,8 @@ namespace AutoLedger.App.Forms
             this.panelFactor.ResumeLayout(false);
             this.panelFactor.PerformLayout();
             this.panelTop.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.digitalGauge9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.digitalBackgroundLayerComponent1)).EndInit();
             this.panelPayment.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).EndInit();
@@ -575,5 +616,8 @@ namespace AutoLedger.App.Forms
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraGauges.Win.GaugeControl gaugeControl1;
+        private DevExpress.XtraGauges.Win.Gauges.Digital.DigitalGauge digitalGauge9;
+        private DevExpress.XtraGauges.Win.Gauges.Digital.DigitalBackgroundLayerComponent digitalBackgroundLayerComponent1;
     }
 }

@@ -285,6 +285,7 @@
             this.inputPassword.Size = new System.Drawing.Size(262, 40);
             this.inputPassword.TabIndex = 1;
             this.inputPassword.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.inputPassword.UseSystemPasswordChar = true;
             // 
             // pbLoading
             // 

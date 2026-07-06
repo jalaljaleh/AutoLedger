@@ -28,9 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.barLabelUser = new DevExpress.XtraBars.BarStaticItem();
+            this.barUserName = new DevExpress.XtraBars.BarStaticItem();
+            this.barBtnUser = new DevExpress.XtraBars.BarButtonItem();
             this.barLabelTime = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -55,38 +67,74 @@
             // 
             // ribbonControl1
             // 
-            this.ribbonControl1.CaptionBarItemLinks.Add(this.barLabelUser);
+            this.ribbonControl1.CaptionBarItemLinks.Add(this.barUserName);
+            this.ribbonControl1.CaptionBarItemLinks.Add(this.barBtnUser);
             this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(30, 31, 30, 31);
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
             this.ribbonControl1.Font = new System.Drawing.Font("Vazirmatn", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.barLabelUser,
+            this.barUserName,
+            this.barBtnUser,
             this.ribbonControl1.ExpandCollapseItem,
             this.barLabelTime});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 5;
+            this.ribbonControl1.MaxItemId = 8;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsStubGlyphs.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbonControl1.OptionsStubGlyphs.UseFont = true;
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
+            this.ribbonControl1.RibbonCaptionAlignment = DevExpress.XtraBars.Ribbon.RibbonCaptionAlignment.Left;
+            this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
             this.ribbonControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.ribbonControl1.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl1.Size = new System.Drawing.Size(960, 49);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
-            // barLabelUser
+            // barUserName
             // 
-            this.barLabelUser.Caption = "[کاربر]";
-            this.barLabelUser.Description = "کاربر آنلاین است !";
-            this.barLabelUser.Id = 4;
-            this.barLabelUser.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barLabelUser.ImageOptions.SvgImage")));
-            this.barLabelUser.ItemAppearance.Hovered.BackColor = System.Drawing.Color.Silver;
-            this.barLabelUser.ItemAppearance.Hovered.Options.UseBackColor = true;
-            this.barLabelUser.ItemAppearance.Normal.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barLabelUser.ItemAppearance.Normal.Options.UseFont = true;
-            this.barLabelUser.Name = "barLabelUser";
-            this.barLabelUser.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barUserName.Caption = "کاربر آنلاین می باشد";
+            toolTipTitleItem1.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
+            toolTipTitleItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            this.barUserName.DropDownSuperTip = superToolTip1;
+            this.barUserName.Id = 6;
+            this.barUserName.Name = "barUserName";
+            this.barUserName.ShowImageInToolbar = false;
+            toolTipTitleItem2.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
+            toolTipTitleItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
+            superToolTip2.Items.Add(toolTipSeparatorItem1);
+            this.barUserName.SuperTip = superToolTip2;
+            // 
+            // barBtnUser
+            // 
+            this.barBtnUser.ActAsDropDown = true;
+            this.barBtnUser.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.CheckDropDown;
+            this.barBtnUser.Caption = "حساب کاربری";
+            this.barBtnUser.Description = "حساب کاربری";
+            this.barBtnUser.Id = 5;
+            this.barBtnUser.ImageOptions.AllowStubGlyph = DevExpress.Utils.DefaultBoolean.False;
+            this.barBtnUser.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnUser.ImageOptions.SvgImage")));
+            this.barBtnUser.Name = "barBtnUser";
+            this.barBtnUser.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
+            toolTipTitleItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem3.Appearance.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold);
+            toolTipTitleItem3.Appearance.Options.UseFont = true;
+            toolTipTitleItem3.Appearance.Options.UseTextOptions = true;
+            toolTipTitleItem3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            toolTipTitleItem3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            toolTipTitleItem3.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
+            toolTipTitleItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
+            toolTipTitleItem3.Text = "کاربر انلاین می باشد";
+            toolTipItem3.Text = "کاربر انلاین می باشد";
+            superToolTip3.Items.Add(toolTipTitleItem3);
+            superToolTip3.Items.Add(toolTipItem3);
+            superToolTip3.Items.Add(toolTipSeparatorItem2);
+            this.barBtnUser.SuperTip = superToolTip3;
             // 
             // barLabelTime
             // 
@@ -311,8 +359,9 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnSummary;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnNewExpens;
         private DevExpress.XtraBars.BarStaticItem barLabelTime;
-        private DevExpress.XtraBars.BarStaticItem barLabelUser;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnInformations;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnUsersInformation;
+        private DevExpress.XtraBars.BarButtonItem barBtnUser;
+        private DevExpress.XtraBars.BarStaticItem barUserName;
     }
 }

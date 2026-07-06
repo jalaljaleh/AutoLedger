@@ -18,7 +18,10 @@ namespace AutoLedger.Data.Mapping
 
             Property(a => a.Title)
                 .IsRequired()
-                .HasMaxLength(200);
+                .HasMaxLength(200)
+                   .HasColumnAnnotation(
+                    "Index",
+                    new IndexAnnotation(new IndexAttribute("IX_CarReceptionRequests_Title") { IsUnique = false })); ;
 
             Property(a => a.Description)
                 .HasMaxLength(1000);
@@ -26,7 +29,7 @@ namespace AutoLedger.Data.Mapping
             Property(a => a.ReceptionId)
                 .HasColumnAnnotation(
                     "Index",
-                    new IndexAnnotation(new System.ComponentModel.DataAnnotations.Schema.IndexAttribute("IX_CarReceptionRequests_ReceptionId") { IsUnique = false }));
+                    new IndexAnnotation(new IndexAttribute("IX_CarReceptionRequests_ReceptionId") { IsUnique = false }));
         }
     }
 }

@@ -66,7 +66,7 @@
             this.inputTitle.Name = "inputTitle";
             this.inputTitle.Placeholder = "عنوان خرید";
             this.inputTitle.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.inputTitle.Size = new System.Drawing.Size(295, 40);
+            this.inputTitle.Size = new System.Drawing.Size(295, 48);
             this.inputTitle.TabIndex = 1;
             this.inputTitle.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -128,11 +128,11 @@
             this.inputPaidTo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.inputPaidTo.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputPaidTo.Icon = global::AutoLedger.App.Properties.Resources.checked_user;
-            this.inputPaidTo.Location = new System.Drawing.Point(27, 122);
+            this.inputPaidTo.Location = new System.Drawing.Point(27, 117);
             this.inputPaidTo.Name = "inputPaidTo";
             this.inputPaidTo.Placeholder = "نام و نام خانوادگی دریافت کننده";
             this.inputPaidTo.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.inputPaidTo.Size = new System.Drawing.Size(334, 40);
+            this.inputPaidTo.Size = new System.Drawing.Size(334, 45);
             this.inputPaidTo.TabIndex = 4;
             this.inputPaidTo.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -150,7 +150,7 @@
             this.InputPaymentMethod.Name = "InputPaymentMethod";
             this.InputPaymentMethod.Placeholder = "شیوه پرداخت";
             this.InputPaymentMethod.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.InputPaymentMethod.Size = new System.Drawing.Size(334, 40);
+            this.InputPaymentMethod.Size = new System.Drawing.Size(334, 45);
             this.InputPaymentMethod.TabIndex = 5;
             this.InputPaymentMethod.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 

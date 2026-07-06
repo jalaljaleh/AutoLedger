@@ -28,6 +28,11 @@ namespace AutoLedger.Domain
                 return res >= 0 ? res : 0;
             }
         }
+
+
+        //public int TotallExpensesCount { get; set; }
+        //public int TotallCarReceptionsCount { get; set; }
+        //public int Total { get; set; }
     }
 
 

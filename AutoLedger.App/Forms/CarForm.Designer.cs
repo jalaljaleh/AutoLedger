@@ -318,7 +318,7 @@
             this.inputModel.Icon = global::AutoLedger.App.Properties.Resources.tesla_model_x_128;
             this.inputModel.Location = new System.Drawing.Point(66, 310);
             this.inputModel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.inputModel.MaxLength = 4;
+            this.inputModel.MaxLength = 6;
             this.inputModel.Name = "inputModel";
             this.inputModel.NumbersOnly = true;
             this.inputModel.Placeholder = "مدل";

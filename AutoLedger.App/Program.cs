@@ -16,66 +16,106 @@ namespace AutoLedger.App
     internal static class Program
     {
         public static User User { get; set; } = null;
+        public static DateTime StartupTime { get; set; } = DateTime.Now;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            using (var loading = new LoginForm())
+            try
             {
-                loading.Show();
-                loading.Refresh();
-                loading.Enabled = false;
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-                bool connected = InitializeDatabaseSync().Result;
-
-                loading.Close();
-
-                if (!connected)
+                using (var loading = new LoginForm())
                 {
-                    MessageBox.Show(
-                        "خطا در اتصال به پایگاه داده رخ داده است.",
-                        "خطا",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error
-                    );
-                    return;
-                }
-            }
+                    loading.Show();
+                    loading.Refresh();
+                    loading.Enabled = false;
 
-            if (IsDebugMode())
-            {
-                using(var db = new AutoLedgerContext())
-                {
-                    User = db.Users.AsNoTracking().FirstOrDefault();
-                }
-                Application.Run(new DashboardForm());
-            }
-            else
-            {
-                using (var loginDialog = new LoginForm())
-                {
-                    _ = loginDialog.InitializeAsync();
-                    var dialog = loginDialog.ShowDialog();
-                    if (dialog == DialogResult.OK)
+                    bool connected = InitializeDatabaseSync().Result;
+
+                    loading.Close();
+
+                    if (!connected)
                     {
-                        Application.Run(new DashboardForm());
+                        MessageBox.Show(
+                            "خطا در اتصال به پایگاه داده رخ داده است.",
+                            "خطا",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error
+                        );
+                        return;
+                    }
+
+                    CheckSystemClock();
+                }
+
+                if (IsDebugMode())
+                {
+                    using (var db = new AutoLedgerContext())
+                    {
+                        User = db.Users.AsNoTracking().FirstOrDefault();
+                    }
+                    Application.Run(new DashboardForm());
+                }
+                else
+                {
+                    using (var loginDialog = new LoginForm())
+                    {
+                        _ = loginDialog.InitializeAsync();
+                        var dialog = loginDialog.ShowDialog();
+                        if (dialog == DialogResult.OK)
+                        {
+                            Application.Run(new DashboardForm());
+                        }
                     }
                 }
             }
+            catch
+            {
+                MessageBox.Show("خطای ناشناخته، برنامه باید بسته شود.");
+            }
+        }
+        
+        public static DateTime GetSqlServerTime()
+        {
+            using (var db = new AutoLedgerContext())
+            {
+                return db.Database.SqlQuery<DateTime>("SELECT GETDATE()").FirstOrDefault();
+            }
         }
 
+        public static bool IsSystemTimeValid()
+        {
+            DateTime sqlTime = GetSqlServerTime();
+            DateTime systemTime = DateTime.Now;
 
+
+            TimeSpan diff = (sqlTime - systemTime).Duration();
+
+            return diff < TimeSpan.FromMinutes(5);
+        }
+
+        public static void CheckSystemClock()
+        {
+            if (!IsSystemTimeValid())
+            {
+                MessageBox.Show(
+                    "ساعت سیستم شما دقیق نیست. لطفاً ساعت ویندوز را تنظیم کنید.",
+                    "اخطار ساعت سیستم",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+            }
+        }
 
         public static Task<bool> InitializeDatabaseSync()
         {
             //try
             //{
-            string express = @"Data Source=.\SQLEXPRESS2014; Initial Catalog=IronTuning; Integrated Security=True; MultipleActiveResultSets=True; Connect Timeout=30";
+            //   string express = @"Data Source=.\SQLEXPRESS2014; Initial Catalog=IronTuning; Integrated Security=True; MultipleActiveResultSets=True; Connect Timeout=30";
             string localDb = $@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IronTuning.mdf")}; Integrated Security=True; Connect Timeout=30";
 
             Environment.SetEnvironmentVariable("connectionString", localDb);
@@ -112,8 +152,6 @@ namespace AutoLedger.App
 
                     db.SaveChanges();
                 }
-
-
             }
             return Task.FromResult(true);
             //}

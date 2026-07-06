@@ -13,6 +13,7 @@ namespace AutoLedger.Domain
         public string Title { get; set; }
         public string Description { get; set; }
         public decimal Amount { get; set; }
+
         public string PaidTo { get; set; }
         public string PaymentMethod { get; set; }
 

@@ -28,6 +28,8 @@ namespace AutoLedger.App.Forms
             dgCarRequests.CellValueChanged += DgCarRequests_CellValueChanged;
             dgCarRequests.CellFormatting += DgCarRequests_CellFormatting;
             dgCarRequests.CellParsing += DgCarRequests_CellParsing;
+            dgCarRequests.EditingControlShowing += DgCarRequests_EditingControlShowing;
+
 
             this.cbIsReleased.CheckedChanged += CbIsReleased_CheckedChanged;
 
@@ -57,6 +59,22 @@ namespace AutoLedger.App.Forms
                 inputCreatedAt.Text = DateTime.Now.ToShamsiLong();
             }
 
+        }
+
+        private void DgCarRequests_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            var col = dgCarRequests.Columns[dgCarRequests.CurrentCell.ColumnIndex];
+
+            if (col.Name == "Title")
+            {
+                if (e.Control is TextBox tb)
+                    tb.MaxLength = 200;
+            }
+            if (col.Name == "Description")
+            {
+                if (e.Control is TextBox tb)
+                    tb.MaxLength = 1000;
+            }
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
@@ -259,7 +277,7 @@ namespace AutoLedger.App.Forms
                 TotalCost = list.Sum(a => a.Cost),
                 IsReleased = cbIsReleased.Checked,
                 IsRepaired = cbIsRepaired.Checked,
-                Mileage = int.Parse(inputMileage.Text),
+                Mileage = int.TryParse(inputMileage.Text, out int millage) ? millage :0,
                 UpdatedAt = DateTime.Now,
                 Requests = list
             };

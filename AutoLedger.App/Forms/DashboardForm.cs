@@ -3,6 +3,8 @@ using AutoLedger.App.FormsView;
 using AutoLedger.Data;
 using AutoLedger.Domain;
 using AutoLedger.Extensions;
+using DevExpress.Utils;
+using DevExpress.Utils.Extensions;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using System;
@@ -16,12 +18,15 @@ namespace AutoLedger.App.Forms
         private CarsManagerPage _carsManagerPage;
         private ExpensesManagerPage _expensesManagerPage;
         private AccountingReportsPage _accountingReportsPage;
+        private CustomersInformationPage _customersInformationPage;
 
         public DashboardForm()
         {
             InitializeComponent();
 
             this.barLabelTime.Caption = DateTime.Now.ToShamsiLong();
+
+            barBtnUser.ItemClick += BarBtnUser_ItemClick;
 
             this.btnNewReception.Click += BtnNewCar_Click;
             this.btnNewExpens.Click += BtnNewExpens_Click;
@@ -31,11 +36,34 @@ namespace AutoLedger.App.Forms
             this.btnCurrentCars.Click += ViewButtons_Click;
             this.btnExpenses.Click += ViewButtons_Click;
             this.btnSummary.Click += ViewButtons_Click;
+            this.btnUsersInformation.Click += ViewButtons_Click;
 
-            this.barLabelUser.Caption = Program.User.FullName;
+            RefreshUserInfo();
         }
+        void RefreshUserInfo()
+        {
+            this.barUserName.Caption = Program.User.FullName;
 
+            (this.barBtnUser.SuperTip.Items[0] as ToolTipItem).Text = $"کاربر {Program.User.FullName} انلاین می باشد.";
+            (this.barBtnUser.SuperTip.Items[1] as ToolTipItem).Text = $"+{Program.User.PhoneNumber} \n" +
+                                                                      $"تاریخ عضویت: " + Program.User.CreatedAt.ToShamsiLong();
 
+            (this.barUserName.SuperTip.Items[0] as ToolTipItem).Text = (this.barBtnUser.SuperTip.Items[0] as ToolTipItem).Text;
+            (this.barUserName.SuperTip.Items[1] as ToolTipItem).Text = (this.barBtnUser.SuperTip.Items[1] as ToolTipItem).Text;
+
+        }
+        private void BarBtnUser_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            using (UserForm frm = new UserForm(Program.User))
+            {
+                frm.ShowDialog();
+
+                using (AutoLedgerContext db = new AutoLedgerContext())
+                    Program.User = db.Users.AsNoTracking().FirstOrDefault(u => u.Id == Program.User.Id);
+
+                RefreshUserInfo();
+            }
+        }
 
         private void ViewButtons_Click(object sender, EventArgs e)
         {
@@ -67,6 +95,11 @@ namespace AutoLedger.App.Forms
                     ShowControl(_accountingReportsPage);
                     break;
 
+                case "btnUsersInformation":
+                    if (_customersInformationPage == null)
+                        _customersInformationPage = new CustomersInformationPage();
+                    ShowControl(_customersInformationPage);
+                    break;
             }
         }
 
@@ -117,8 +150,8 @@ namespace AutoLedger.App.Forms
 
                     if (carForm.ShowDialog() != DialogResult.OK)
                         return;
-                    
-                        car = carForm.GetCar();
+
+                    car = carForm.GetCar();
                 }
 
                 var receptionForm = new CarReceptionForm(car);

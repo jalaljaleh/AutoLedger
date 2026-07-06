@@ -331,7 +331,7 @@ namespace AutoLedger.App.Forms
             this.inputCreatedAt.Text = "[تاریخ]";
             this.inputCreatedAt.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // inputReceptionId
+            // inputId
             // 
             this.inputReceptionId.AccentColor = System.Drawing.Color.Empty;
             this.inputReceptionId.BackColor = System.Drawing.Color.DarkRed;
@@ -345,7 +345,7 @@ namespace AutoLedger.App.Forms
             this.inputReceptionId.HoverColor = System.Drawing.Color.Empty;
             this.inputReceptionId.Icon = global::AutoLedger.App.Properties.Resources.security_lock_128;
             this.inputReceptionId.Location = new System.Drawing.Point(0, 0);
-            this.inputReceptionId.Name = "inputReceptionId";
+            this.inputReceptionId.Name = "inputId";
             this.inputReceptionId.Placeholder = "[شماره فاکتور]";
             this.inputReceptionId.PlaceholderColor = System.Drawing.Color.WhiteSmoke;
             this.inputReceptionId.ShowClearButton = false;

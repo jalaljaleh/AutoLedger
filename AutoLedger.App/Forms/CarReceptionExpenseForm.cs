@@ -32,7 +32,7 @@ namespace AutoLedger.App.Forms
             dgCarExpenses.CellValueChanged += dgCarExpenses_CellValueChanged;
             dgCarExpenses.CellFormatting += dgCarExpenses_CellFormatting;
             dgCarExpenses.CellParsing += dgCarExpenses_CellParsing;
-
+            dgCarExpenses.EditingControlShowing += DgCarExpenses_EditingControlShowing;
 
             if (_reception != null)
             {
@@ -53,6 +53,23 @@ namespace AutoLedger.App.Forms
             else
             {
                 inputCreatedAt.Text = DateTime.Now.ToShamsiLong();
+            }
+        }
+
+        private void DgCarExpenses_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            var col = dgCarExpenses.Columns[dgCarExpenses.CurrentCell.ColumnIndex];
+
+            if (col.Name == "Title" || col.Name == "PaymentMethod" || col.Name == "PaidTo")
+            {
+                if (e.Control is TextBox tb)
+                    tb.MaxLength = 100;
+            }
+
+            if (col.Name == "Description")
+            {
+                if (e.Control is TextBox tb)
+                    tb.MaxLength = 200;
             }
         }
 

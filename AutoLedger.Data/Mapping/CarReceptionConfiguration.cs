@@ -1,5 +1,6 @@
 ﻿using AutoLedger.Domain;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 
 namespace AutoLedger.Data.Mapping
@@ -30,11 +31,20 @@ namespace AutoLedger.Data.Mapping
                 .HasPrecision(18, 2)
                 .IsRequired();
 
-            Property(a => a.RepairedAt)
-                .HasColumnType("datetime2");
 
-            Property(a => a.ReleasedAt)
-                .HasColumnType("datetime2");
+            Property(a => a.IsRepaired)
+                .IsRequired()
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                    new IndexAnnotation(new IndexAttribute("IX_CarReceptions_IsRepaired"))
+                );
+
+            Property(a => a.IsReleased)
+                .IsRequired()
+                .HasColumnAnnotation(
+                    IndexAnnotation.AnnotationName,
+                     new IndexAnnotation(new IndexAttribute("IX_CarReceptions_IsReleased"))
+                );
 
             Property(a => a.CreatedAt)
                 .HasColumnType("datetime2");

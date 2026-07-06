@@ -22,10 +22,11 @@ namespace AutoLedger.Data.Mapping
                 .HasMaxLength(20)
                 .HasColumnAnnotation(
                     "Index",
-                    new IndexAnnotation(new IndexAttribute("IX_Receptions_CarPlateId") { IsUnique = false }));
+                    new IndexAnnotation(new IndexAttribute("IX_Car_CarPlateId") { IsUnique = false }));
 
             Property(a => a.Brand)
                 .HasMaxLength(50);
+
 
             Property(a => a.Color)
                 .HasMaxLength(30);
@@ -38,21 +39,21 @@ namespace AutoLedger.Data.Mapping
                 .HasMaxLength(150)
                 .HasColumnAnnotation(
                     "Index",
-                    new IndexAnnotation(new IndexAttribute("IX_Receptions_FullName") { IsUnique = false }));
+                    new IndexAnnotation(new IndexAttribute("IX_Car_FullName") { IsUnique = false }));
 
             Property(a => a.OwnerNationalId)
                 .IsRequired()
                 .HasMaxLength(10)
                 .HasColumnAnnotation(
                     "Index",
-                    new IndexAnnotation(new IndexAttribute("IX_Receptions_NationalId") { IsUnique = false }));
+                    new IndexAnnotation(new IndexAttribute("IX_Car_NationalId") { IsUnique = false}));
 
             Property(a => a.OwnerPhoneNumber)
                 .IsRequired()
                 .HasMaxLength(15)
                 .HasColumnAnnotation(
                     "Index",
-                    new IndexAnnotation(new IndexAttribute("IX_Receptions_PhoneNumber") { IsUnique = false }));
+                    new IndexAnnotation(new IndexAttribute("IX_Car_PhoneNumber") { IsUnique = false }));
 
             HasMany(a => a.Receptions)
                 .WithRequired(r => r.Car)

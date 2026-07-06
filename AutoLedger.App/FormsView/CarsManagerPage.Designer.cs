@@ -17,10 +17,8 @@
             {
                 if (_searchTimer != null)
                 {
-                    _searchTimer.Tick -= SearchTimer_Tick;
                     _searchTimer.Stop();
                     _searchTimer.Dispose();
-                    _searchTimer = null;
                 }
 
                 components.Dispose();
