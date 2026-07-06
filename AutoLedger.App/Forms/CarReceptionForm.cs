@@ -81,29 +81,36 @@ namespace AutoLedger.App.Forms
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
-
-            if (_reception is null) // insert new reception
+            try
             {
-                var newReception = BuildReceptionRequests();
-                if (newReception.Requests.Count < 1)
+                if (_reception is null) // insert new reception
                 {
-                    MessageBox.Show("نمی توان فرم خالی ثبت کرد.");
-                    return;
+                    var newReception = BuildReceptionRequests();
+                    if (newReception.Requests.Count < 1)
+                    {
+                        MessageBox.Show("نمی توان فرم خالی ثبت کرد.");
+                        return;
+                    }
+
+                    using (var db = new AutoLedgerContext())
+                    {
+                        var dbCar = db.Cars.FirstOrDefault(a => a.Id == _car.Id);
+                        dbCar.Receptions.Add(newReception);
+                        db.SaveChanges();
+                    }
+                }
+                else if (_reception != null) // edit reception
+                {
+                    UpdateExistingReceptionWithRequests();
                 }
 
-                using (var db = new AutoLedgerContext())
-                {
-                    var dbCar = db.Cars.FirstOrDefault(a => a.Id == _car.Id);
-                    dbCar.Receptions.Add(newReception);
-                    db.SaveChanges();
-                }
+                DialogResult = DialogResult.OK;
+                Close();
             }
-            else if (_reception != null) // edit reception
+            catch
             {
-                UpdateExistingReceptionWithRequests();
+                MessageBox.Show("مشکلی در ثبت فرم پیش آمده است. مطمئن شوید تمامی اعداد به شکل درست وارد شده اند.");
             }
-            DialogResult = DialogResult.OK;
-            Close();
         }
 
         private void UpdateExistingReceptionWithRequests()
@@ -218,13 +225,27 @@ namespace AutoLedger.App.Forms
             foreach (DataGridViewRow r in dgCarRequests.Rows)
             {
                 if (r.IsNewRow) continue;
+
+                var id = r.Cells["Id"].Value != null ? Convert.ToInt32(r.Cells["Id"].Value) : 0;
+                var title = r.Cells["Title"].Value != null ? r.Cells["Title"].Value.ToString().Trim() : "بدون عنوان";
+                var description = r.Cells["Description"].Value != null ? r.Cells["Description"].Value.ToString().Trim() : "بدون توضیح";
+
+                long cost = 0;
+                var v = r.Cells["Cost"].Value;
+                if (v != null && long.TryParse(v.ToString(), out long parsed))
+                    cost = parsed;
+                else
+                {
+                    cost = 0;
+                    r.Cells["Cost"].Value = "0";
+                }
+
                 var req = new CarReceptionRequest
                 {
-                    Id = r.Cells["Id"].Value != null ? Convert.ToInt32(r.Cells["Id"].Value) : 0,
-
-                    Title = r.Cells["Title"].Value != null ? r.Cells["Title"].Value.ToString().Trim() : "بدون عنوان",
-                    Description = r.Cells["Description"].Value != null ? r.Cells["Description"].Value.ToString().Trim() : "بدون توضیح",
-                    Cost = r.Cells["Cost"].Value != null ? Convert.ToInt64(r.Cells["Cost"].Value) : 0
+                    Id = id,
+                    Title = title,
+                    Description = description,
+                    Cost = cost,
                 };
                 list.Add(req);
             }
@@ -236,7 +257,6 @@ namespace AutoLedger.App.Forms
             return new CarReception
             {
                 TotalCost = list.Sum(a => a.Cost),
-                //  CreatedAt = dateReceptionAt.Value,
                 IsReleased = cbIsReleased.Checked,
                 IsRepaired = cbIsRepaired.Checked,
                 Mileage = int.Parse(inputMileage.Text),

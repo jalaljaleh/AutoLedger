@@ -137,6 +137,12 @@
     <Compile Include="Controls\CarIdControl.Designer.cs">
       <DependentUpon>CarIdControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CustomerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CustomerControl.Designer.cs">
+      <DependentUpon>CustomerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\PersianDateTimePicker.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -166,6 +172,12 @@
     </Compile>
     <Compile Include="FormsView\CarsManagerPage.Designer.cs">
       <DependentUpon>CarsManagerPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsView\CustomersInformationPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormsView\CustomersInformationPage.Designer.cs">
+      <DependentUpon>CustomersInformationPage.cs</DependentUpon>
     </Compile>
     <Compile Include="FormsView\ExpensesManagerPage.cs">
       <SubType>UserControl</SubType>
@@ -214,6 +226,9 @@
     <EmbeddedResource Include="Controls\CarIdControl.resx">
       <DependentUpon>CarIdControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CustomerControl.resx">
+      <DependentUpon>CustomerControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormsModal\CarPlateModalForm.resx">
       <DependentUpon>CarPlateModalForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -222,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormsView\CarsManagerPage.resx">
       <DependentUpon>CarsManagerPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsView\CustomersInformationPage.resx">
+      <DependentUpon>CustomersInformationPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsView\ExpensesManagerPage.resx">
       <DependentUpon>ExpensesManagerPage.cs</DependentUpon>

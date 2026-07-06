@@ -47,6 +47,8 @@
             this.btnNewExpens = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnExpenses = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnSummary = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnInformations = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnUsersInformation = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Menu)).BeginInit();
             this.SuspendLayout();
@@ -148,7 +150,8 @@
             this.Menu.Dock = System.Windows.Forms.DockStyle.Right;
             this.Menu.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement1,
-            this.accordionControlElement2});
+            this.accordionControlElement2,
+            this.btnInformations});
             this.Menu.Location = new System.Drawing.Point(737, 49);
             this.Menu.Name = "Menu";
             this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -166,8 +169,8 @@
             this.btnCurrentCars,
             this.btnAllCars});
             this.accordionControlElement1.Expanded = true;
-            this.accordionControlElement1.ImageOptions.Image = global::AutoLedger.App.Properties.Resources.add_car;
             this.accordionControlElement1.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
+            this.accordionControlElement1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
             this.accordionControlElement1.Name = "accordionControlElement1";
             this.accordionControlElement1.Text = "خودرو";
             // 
@@ -176,6 +179,7 @@
             this.btnNewReception.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewReception.Appearance.Default.Options.UseFont = true;
             this.btnNewReception.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
+            this.btnNewReception.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNewReception.ImageOptions.SvgImage")));
             this.btnNewReception.Name = "btnNewReception";
             this.btnNewReception.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnNewReception.Text = "پذیرش خودرو";
@@ -184,17 +188,19 @@
             // 
             this.btnCurrentCars.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCurrentCars.Appearance.Default.Options.UseFont = true;
+            this.btnCurrentCars.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCurrentCars.ImageOptions.SvgImage")));
             this.btnCurrentCars.Name = "btnCurrentCars";
             this.btnCurrentCars.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnCurrentCars.Text = "خودرو های موجود";
+            this.btnCurrentCars.Text = "پذیرش های جاری";
             // 
             // btnAllCars
             // 
             this.btnAllCars.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAllCars.Appearance.Default.Options.UseFont = true;
+            this.btnAllCars.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAllCars.ImageOptions.SvgImage")));
             this.btnAllCars.Name = "btnAllCars";
             this.btnAllCars.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnAllCars.Text = "همه خودرو ها";
+            this.btnAllCars.Text = "تاریخچه پذیرش ها";
             // 
             // accordionControlElement2
             // 
@@ -205,8 +211,8 @@
             this.btnExpenses,
             this.btnSummary});
             this.accordionControlElement2.Expanded = true;
-            this.accordionControlElement2.ImageOptions.Image = global::AutoLedger.App.Properties.Resources.credit_card_1281;
             this.accordionControlElement2.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
+            this.accordionControlElement2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement2.ImageOptions.SvgImage")));
             this.accordionControlElement2.Name = "accordionControlElement2";
             this.accordionControlElement2.Text = "مالی و حسابداری";
             // 
@@ -214,6 +220,7 @@
             // 
             this.btnNewExpens.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewExpens.Appearance.Default.Options.UseFont = true;
+            this.btnNewExpens.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNewExpens.ImageOptions.SvgImage")));
             this.btnNewExpens.Name = "btnNewExpens";
             this.btnNewExpens.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnNewExpens.Text = "هزینه جدید";
@@ -222,6 +229,7 @@
             // 
             this.btnExpenses.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExpenses.Appearance.Default.Options.UseFont = true;
+            this.btnExpenses.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnExpenses.ImageOptions.SvgImage")));
             this.btnExpenses.Name = "btnExpenses";
             this.btnExpenses.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnExpenses.Text = "تاریخچه مخارج";
@@ -230,9 +238,30 @@
             // 
             this.btnSummary.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSummary.Appearance.Default.Options.UseFont = true;
+            this.btnSummary.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSummary.ImageOptions.SvgImage")));
             this.btnSummary.Name = "btnSummary";
             this.btnSummary.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnSummary.Text = "نمودار ماهانه";
+            // 
+            // btnInformations
+            // 
+            this.btnInformations.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInformations.Appearance.Default.Options.UseFont = true;
+            this.btnInformations.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.btnUsersInformation});
+            this.btnInformations.Expanded = true;
+            this.btnInformations.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnInformations.ImageOptions.SvgImage")));
+            this.btnInformations.Name = "btnInformations";
+            this.btnInformations.Text = "اطلاعات";
+            // 
+            // btnUsersInformation
+            // 
+            this.btnUsersInformation.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsersInformation.Appearance.Default.Options.UseFont = true;
+            this.btnUsersInformation.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnUsersInformation.ImageOptions.SvgImage")));
+            this.btnUsersInformation.Name = "btnUsersInformation";
+            this.btnUsersInformation.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnUsersInformation.Text = "مشتری ها";
             // 
             // DashboardForm
             // 
@@ -283,5 +312,7 @@
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnNewExpens;
         private DevExpress.XtraBars.BarStaticItem barLabelTime;
         private DevExpress.XtraBars.BarStaticItem barLabelUser;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnInformations;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnUsersInformation;
     }
 }

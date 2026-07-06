@@ -64,51 +64,69 @@ namespace AutoLedger.App.Forms
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
-            var incomingRequests = BuildRequests();
-
-            using (var db = new AutoLedgerContext())
+            try
             {
-                using (var tx = db.Database.BeginTransaction())
+                var incomingRequests = BuildRequests();
+
+                using (var db = new AutoLedgerContext())
                 {
-                    try
+                    using (var tx = db.Database.BeginTransaction())
                     {
-                        // Load the reception with its requests (tracked by this context)
-                        var reception = db.CarReceptions
-                            .Include(r => r.Expenses)
-                            .FirstOrDefault(r => r.Id == _reception.Id);
-
-                        if (reception == null)
+                        try
                         {
-                            MessageBox.Show("پذیرش برای ویرایش یافت نشد.");
-                            return;
-                        }
+                            // Load the reception with its requests (tracked by this context)
+                            var reception = db.CarReceptions
+                                .Include(r => r.Expenses)
+                                .FirstOrDefault(r => r.Id == _reception.Id);
 
-
-
-                        // Existing requests in DB
-                        var existing = reception.Expenses.ToList();
-
-                        // Add or update incoming requests
-                        foreach (var inc in incomingRequests)
-                        {
-                            if (inc.Id > 0)
+                            if (reception == null)
                             {
-                                // update existing
-                                var ex = existing.FirstOrDefault(x => x.Id == inc.Id);
-                                if (ex != null)
+                                MessageBox.Show("پذیرش برای ویرایش یافت نشد.");
+                                return;
+                            }
+
+
+
+                            // Existing requests in DB
+                            var existing = reception.Expenses.ToList();
+
+                            // Add or update incoming requests
+                            foreach (var inc in incomingRequests)
+                            {
+                                if (inc.Id > 0)
                                 {
-                                    ex.Title = inc.Title;
-                                    ex.Description = inc.Description;
-                                    ex.Amount = Math.Max(0, inc.Amount);
-                                    ex.PaidTo = inc.PaidTo;
-                                    ex.PaymentMethod = inc.PaymentMethod;
-                                    ex.UpdatedAt = DateTime.Now;
-                                    ex.CreatedAt = inc.CreatedAt; // preserve original creation time
-                                    db.Entry(ex).State = EntityState.Modified;
+                                    // update existing
+                                    var ex = existing.FirstOrDefault(x => x.Id == inc.Id);
+                                    if (ex != null)
+                                    {
+                                        ex.Title = inc.Title;
+                                        ex.Description = inc.Description;
+                                        ex.Amount = Math.Max(0, inc.Amount);
+                                        ex.PaidTo = inc.PaidTo;
+                                        ex.PaymentMethod = inc.PaymentMethod;
+                                        ex.UpdatedAt = DateTime.Now;
+                                        ex.CreatedAt = inc.CreatedAt; // preserve original creation time
+                                        db.Entry(ex).State = EntityState.Modified;
+                                    }
+                                    else
+                                    {
+                                        // Id provided but not found in this reception -> treat as new
+                                        var newReq = new CarReceptionExpense
+                                        {
+                                            Title = inc.Title,
+                                            Description = inc.Description,
+                                            Amount = Math.Max(0, inc.Amount),
+                                            PaidTo = inc.PaidTo,
+                                            PaymentMethod = inc.PaymentMethod,
+                                            ReceptionId = reception.Id,
+
+                                        };
+                                        db.CarReceptionsExpenses.Add(newReq);
+                                    }
                                 }
                                 else
                                 {
-                                    // Id provided but not found in this reception -> treat as new
+                                    // new request
                                     var newReq = new CarReceptionExpense
                                     {
                                         Title = inc.Title,
@@ -116,58 +134,48 @@ namespace AutoLedger.App.Forms
                                         Amount = Math.Max(0, inc.Amount),
                                         PaidTo = inc.PaidTo,
                                         PaymentMethod = inc.PaymentMethod,
-                                        ReceptionId = reception.Id,
-                                        
+                                        ReceptionId = reception.Id
                                     };
                                     db.CarReceptionsExpenses.Add(newReq);
                                 }
                             }
-                            else
+
+                            // Remove deleted requests
+                            var incomingIds = incomingRequests.Where(x => x.Id > 0).Select(x => x.Id).ToHashSet();
+                            var toRemove = existing.Where(x => !incomingIds.Contains(x.Id)).ToList();
+                            foreach (var rem in toRemove)
                             {
-                                // new request
-                                var newReq = new CarReceptionExpense
-                                {
-                                    Title = inc.Title,
-                                    Description = inc.Description,
-                                    Amount = Math.Max(0, inc.Amount),
-                                    PaidTo = inc.PaidTo,
-                                    PaymentMethod = inc.PaymentMethod,
-                                    ReceptionId = reception.Id
-                                };
-                                db.CarReceptionsExpenses.Add(newReq);
+                                db.CarReceptionsExpenses.Remove(rem);
                             }
-                        }
 
-                        // Remove deleted requests
-                        var incomingIds = incomingRequests.Where(x => x.Id > 0).Select(x => x.Id).ToHashSet();
-                        var toRemove = existing.Where(x => !incomingIds.Contains(x.Id)).ToList();
-                        foreach (var rem in toRemove)
+
+                            // Update scalar fields
+
+                            reception.TotalExpenses = incomingRequests.Sum(x => Math.Max(0, x.Amount));
+                            reception.UpdatedAt = DateTime.Now;
+                            reception.IsExpensesProvided = true;
+
+                            // Persist changes
+                            db.SaveChanges();
+                            tx.Commit();
+                        }
+                        catch (Exception ex)
                         {
-                            db.CarReceptionsExpenses.Remove(rem);
+                            try { tx.Rollback(); } catch { }
+                            MessageBox.Show("خطا در ذخیره‌سازی: " + ex.Message);
                         }
-
-
-                        // Update scalar fields
-
-                        reception.TotalExpenses = incomingRequests.Sum(x => Math.Max(0, x.Amount));
-                        reception.UpdatedAt = DateTime.Now;
-                        reception.IsExpensesProvided = true;
-
-                        // Persist changes
-                        db.SaveChanges();
-                        tx.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        try { tx.Rollback(); } catch { }
-                        MessageBox.Show("خطا در ذخیره‌سازی: " + ex.Message);
                     }
                 }
-            }
 
-            DialogResult = DialogResult.OK;
-            Close();
+                DialogResult = DialogResult.OK;
+                Close();
+            }
+            catch
+            {
+                MessageBox.Show("مشکلی در ثبت فرم پیش آمده است. مطمئن شوید تمامی اعداد به شکل درست وارد شده اند.");
+            }
         }
+
 
         private List<CarReceptionExpense> BuildRequests()
         {
@@ -180,10 +188,20 @@ namespace AutoLedger.App.Forms
                     Id = r.Cells["Id"].Value != null ? Convert.ToInt32(r.Cells["Id"].Value) : 0,
                     Title = r.Cells["Title"].Value != null ? r.Cells["Title"].Value.ToString().Trim() : "بدون عنوان",
                     Description = r.Cells["Description"].Value != null ? r.Cells["Description"].Value.ToString().Trim() : "بدون توضیح",
-                    Amount = r.Cells["Amount"].Value != null ? Convert.ToInt64(r.Cells["Amount"].Value) : 0,
                     PaidTo = r.Cells["PaidTo"].Value != null ? r.Cells["PaidTo"].Value.ToString().Trim() : "[نامشخص]",
                     PaymentMethod = r.Cells["PaymentMethod"].Value != null ? r.Cells["PaymentMethod"].Value.ToString().Trim() : "[نامعین]"
                 };
+
+                long amount = 0;
+                var v = r.Cells["Amount"].Value;
+                if (v != null && long.TryParse(v.ToString(), out long parsed))
+                    amount = parsed;
+                else
+                {
+                    amount = 0;
+                    r.Cells["Amount"].Value = "0";
+                }
+                req.Amount = amount;
                 list.Add(req);
             }
             return list;

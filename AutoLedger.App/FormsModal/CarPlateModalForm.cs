@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace AutoLedger.App.FormsModal
 {
-    public partial class CarPlateModalForm : Form
+    public partial class CarPlateModalForm : DevExpress.XtraBars.ToolbarForm.ToolbarForm
     {
         public string Plate { get => this.carIdControl.GetPlate(); }
         public CarPlateModalForm(string carPlate = null)

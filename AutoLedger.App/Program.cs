@@ -82,8 +82,8 @@ namespace AutoLedger.App
 
             using (AutoLedgerContext db = new AutoLedgerContext())
             {
-                if (db.Database.Exists())
-                    db.Database.Delete();
+                //if (db.Database.Exists())
+                //    db.Database.Delete();
 
                 bool isCreated = db.Database.CreateIfNotExists();
                 if (isCreated)

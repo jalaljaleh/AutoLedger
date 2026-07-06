@@ -20,7 +20,8 @@ namespace AutoLedger.App.Forms
             _isEditMode = false;
             WireEvents();
 
-            // اطمینان از اینکه کاربر می‌تواند متن جدید وارد کند
+            this.inputCreatedAt.Text = DateTime.Now.ToShamsiLong();
+
             cbCategory.DropDownStyle = ComboBoxStyle.DropDown;
             cbCategory.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbCategory.AutoCompleteSource = AutoCompleteSource.ListItems;
@@ -40,13 +41,13 @@ namespace AutoLedger.App.Forms
             btnCancel.Click += BtnCancel_Click;
             inputAmount.TextChanged += InputAmount_TextChanged;
 
-            // اگر خواستی Enter در ComboBox دسته، رفتار خاصی داشته باشد:
+        
             cbCategory.KeyDown += CbCategory_KeyDown;
         }
 
         private void CbCategory_KeyDown(object sender, KeyEventArgs e)
         {
-            // اگر کاربر Enter زد، فوکوس را به دکمه تایید منتقل کن تا تجربه کاربری بهتر شود
+         
             if (e.KeyCode == Keys.Enter)
             {
                 btnConfirm.Focus();
@@ -126,7 +127,7 @@ namespace AutoLedger.App.Forms
                     InputPaymentMethod.Text = expense.PaymentMethod;
                     labelAmountPersian.Text = expense.Amount.ToPersianWordsToman();
 
-                    // تلاش برای انتخاب دسته موجود
+       
                     if (cbCategory.Items.Count > 0)
                     {
                         var item = cbCategory.Items.Cast<ExpenseCategory>().FirstOrDefault(c => c.Id == expense.CategoryId);
@@ -136,7 +137,7 @@ namespace AutoLedger.App.Forms
                         }
                         else
                         {
-                            // دسته در لیست نیست (مثلاً حذف شده) — متن دسته را نمایش بده تا کاربر تصمیم بگیرد
+                     
                             var cat = await db.ExpenseCategories.AsNoTracking().FirstOrDefaultAsync(c => c.Id == expense.CategoryId);
                             if (cat != null)
                                 cbCategory.Text = cat.Name;
@@ -169,7 +170,7 @@ namespace AutoLedger.App.Forms
             btnConfirm.Enabled = false;
             try
             {
-                // اعتبارسنجی ساده
+          
                 if (string.IsNullOrWhiteSpace(inputTitle.Text))
                 {
                     MessageBox.Show("عنوان را وارد کنید.", "هشدار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -182,7 +183,7 @@ namespace AutoLedger.App.Forms
                     return;
                 }
 
-                // دریافت یا ایجاد دسته‌بندی از ورودی کاربر
+     
                 var category = await EnsureCategoryAsync(cbCategory.Text?.Trim());
                 if (category == null)
                 {
@@ -251,11 +252,9 @@ namespace AutoLedger.App.Forms
             if (string.IsNullOrWhiteSpace(categoryText))
                 return null;
 
-            // اگر کاربر از لیست انتخاب کرده باشد، cbCategory.SelectedItem را بررسی کن
             if (cbCategory.SelectedItem is ExpenseCategory selected && string.Equals(selected.Name, categoryText, StringComparison.OrdinalIgnoreCase))
                 return selected;
 
-            // در غیر این صورت، سعی کن دسته را در دیتابیس پیدا کنی؛ اگر نبود، ایجاد کن
             try
             {
                 using (var db = new AutoLedgerContext())
@@ -264,16 +263,12 @@ namespace AutoLedger.App.Forms
                     if (existing != null)
                         return existing;
 
-                    // ایجاد دسته جدید
                     var newCat = new ExpenseCategory { Name = categoryText };
                     db.ExpenseCategories.Add(newCat);
                     await db.SaveChangesAsync();
 
-                    // بعد از ایجاد، مقدار جدید را به ComboBox اضافه کن تا دفعه بعدی در لیست باشد
-                    // چون این متد در کانتکست جدید اجرا می‌شود، برای به‌روزرسانی UI باید در ترد UI انجام شود
                     this.Invoke(new Action(() =>
                     {
-                        // اگر DataSource لیست از ExpenseCategory است، آن را به‌روزرسانی کن
                         if (cbCategory.DataSource is System.Collections.IList list)
                         {
                             list.Add(newCat);
@@ -291,7 +286,6 @@ namespace AutoLedger.App.Forms
             }
             catch (Exception ex)
             {
-                // لاگ یا نمایش خطا
                 MessageBox.Show("خطا در ایجاد یا بازیابی دسته‌بندی: " + ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }

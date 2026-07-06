@@ -1,6 +1,7 @@
 ﻿using AutoLedger.App.Forms;
 using AutoLedger.Data;
 using AutoLedger.Domain;
+using AutoLedger.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -36,7 +37,7 @@ namespace AutoLedger.App.FormsView
             InitializeComponent();
 
             dgExpenses.AutoGenerateColumns = false;
-
+            dgExpenses.CellFormatting += DgExpenses_CellFormatting;
             // Wire events compactly
             btnRefresh.Click += async (s, e) => await LoadDataAsync(0);
             btnNextPage.Click += async (s, e) => await LoadDataAsync(_pageIndex + 1);
@@ -63,6 +64,22 @@ namespace AutoLedger.App.FormsView
             // Initialize default values and load data
             cbCount.Text = "200";
             _ = LoadDataAsync(0);
+        }
+
+        private void DgExpenses_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value == null) return;
+            string cellName = dgExpenses.Columns[e.ColumnIndex].Name;
+
+            if ((cellName == "ExpenseDate" || cellName == "CreatedAt" || cellName == "UpdatedAt"))
+            {
+                DateTime dt;
+                if (DateTime.TryParse(e.Value.ToString(), out dt))
+                {
+                    e.Value = dt.ToShamsi();
+                    e.FormattingApplied = true;
+                }
+            }
         }
 
         // -------------------------

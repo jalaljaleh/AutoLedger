@@ -1,6 +1,7 @@
 ﻿using AutoLedger.App.Forms;
 using AutoLedger.Data;
 using AutoLedger.Domain;
+using AutoLedger.Extensions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -160,13 +161,22 @@ namespace AutoLedger.App.FormsView
             {
                 var car = dgCars.SelectedRows[0].DataBoundItem as Car;
 
-                var receptions = db.CarReceptions
-                    .Where(a => a.CarId == car.Id)
-                    .OrderBy(a => a.Id) // FIX
-                    .Skip(_receptionsPage * _receptionsPageSize)
-                    .Take(_receptionsPageSize)
-                    .AsNoTracking()
-                    .ToList();
+                IQueryable<CarReception> qReceptions;
+
+                if (cbCurrentCars.Checked)
+                    qReceptions = db.CarReceptions
+                    .Where(a => a.CarId == car.Id && a.IsReleased != cbCurrentCars.Checked);
+
+                else
+                    qReceptions = db.CarReceptions
+                   .Where(a => a.CarId == car.Id);
+
+
+                var receptions = qReceptions.OrderBy(a => a.Id)
+                   .Skip(_receptionsPage * _receptionsPageSize)
+                   .Take(_receptionsPageSize)
+                   .AsNoTracking()
+                   .ToList();
 
                 // pages
                 btnBackPageCarReceptions.Enabled = (_receptionsPage > 0);
@@ -204,7 +214,7 @@ namespace AutoLedger.App.FormsView
                 if (cbCurrentCars.Checked)
                 {
                     query = db.CarReceptions
-                        .Where(a => !a.IsReleased || !a.IsExpensesProvided)
+                        .Where(a => !a.IsReleased)
                         .Select(a => a.Car)
                         .Distinct()
                         .AsNoTracking();
@@ -497,6 +507,15 @@ namespace AutoLedger.App.FormsView
                 {
                     e.Value = isTrue ? "اعمال شده" : "اعمال نشده";
                     e.CellStyle.BackColor = isTrue ? e.CellStyle.BackColor : System.Drawing.Color.Pink;
+                    e.FormattingApplied = true;
+                }
+            }
+            else if (e.Value != null && (cellName == "CreatedAt" || cellName == "UpdatedAt" || cellName == "RepairedAt" || cellName == "ReleasedAt"))
+            {
+                DateTime dt;
+                if (DateTime.TryParse(e.Value.ToString(), out dt))
+                {
+                    e.Value = dt.ToShamsi();
                     e.FormattingApplied = true;
                 }
             }
