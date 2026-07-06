@@ -16,20 +16,33 @@ namespace AutoLedger.Data.Mapping
             Property(a => a.Id)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
+            Property(a => a.Cost)
+                .HasColumnType("decimal")
+                .HasPrecision(18, 2)
+                .IsRequired();
+
+            Property(a => a.Description)
+                .HasMaxLength(1000);
+
+            Property(e => e.UpdatedAt)
+                .HasColumnType("datetime2")
+                .IsRequired();
+
+            Property(e => e.CreatedAt)
+                .HasColumnType("datetime2")
+                .IsRequired();
+
             Property(a => a.Title)
                 .IsRequired()
                 .HasMaxLength(200)
                    .HasColumnAnnotation(
                     "Index",
-                    new IndexAnnotation(new IndexAttribute("IX_CarReceptionRequests_Title") { IsUnique = false })); ;
-
-            Property(a => a.Description)
-                .HasMaxLength(1000);
+                    new IndexAnnotation(new IndexAttribute("IX_CarReceptionRequests_Title") { IsUnique = false }));
 
             Property(a => a.ReceptionId)
-                .HasColumnAnnotation(
-                    "Index",
-                    new IndexAnnotation(new IndexAttribute("IX_CarReceptionRequests_ReceptionId") { IsUnique = false }));
+                 .HasColumnAnnotation(
+                     "Index",
+                     new IndexAnnotation(new System.ComponentModel.DataAnnotations.Schema.IndexAttribute("IX_CarReceptionRequests_ReceptionId") { IsUnique = false }));
         }
     }
 }

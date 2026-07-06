@@ -184,7 +184,6 @@
             // 
             this.panelView.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panelView.BackgroundImage = global::AutoLedger.App.Properties.Resources.background;
-            this.panelView.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panelView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelView.Location = new System.Drawing.Point(0, 49);
             this.panelView.Name = "panelView";

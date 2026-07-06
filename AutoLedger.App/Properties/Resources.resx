@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="customer_form_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\customer_form_background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="delete_table_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete_table_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,6 +157,9 @@
   <data name="calendar_week30_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_week30_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="coding" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\coding.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,6 +178,9 @@
   <data name="maintenance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\maintenance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="calendar_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="add-car" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add-car.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -193,8 +196,8 @@
   <data name="splashScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\splashScreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="spashscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spashscreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="optimizing_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\optimizing_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="irontuning_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\irontuning_icon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -207,9 +210,6 @@
   </data>
   <data name="erase_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\erase_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="optimizing_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\optimizing_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tesla_model_x_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tesla_model_x_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -259,8 +259,8 @@
   <data name="bussiness-man" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bussiness-man.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendar_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calendar_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="spashscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spashscreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hitfilm_pro_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hitfilm_pro_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -276,6 +276,9 @@
   </data>
   <data name="engine-room" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\engine-room.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="back_arrow_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\back_arrow_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="black_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\black_background.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,11 +298,11 @@
   <data name="forward_button_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\forward_button_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="irontuning_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\irontuning_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mechanic_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mechanic_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="clear_filters_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\clear_filters_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -307,11 +310,11 @@
   <data name="security_lock_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\security_lock_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="back_arrow_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\back_arrow_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="customer_form_background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\customer_form_background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mechanic_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mechanic_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendar_1_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_1_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -319,7 +322,7 @@
   <data name="today_1281" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\today_1281.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="irontuning_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\irontuning_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="halun-logo3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\halun-logo3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

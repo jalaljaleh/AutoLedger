@@ -29,7 +29,7 @@ namespace AutoLedger.App.Forms
         }
         void HideMenu(string caption, string descriptin)
         {
-            
+
             pbLoading.Caption = caption;
             pbLoading.Description = descriptin;
             panelMenuMain.Visible = false;
@@ -41,6 +41,7 @@ namespace AutoLedger.App.Forms
             {
                 case "btnDeveloper":
                     Process.Start("https://github.com/jalaljaleh");
+                    Process.Start("http://jalaljaleh.github.io/");
                     break;
 
                 case "btnSourceCode":
@@ -58,6 +59,7 @@ namespace AutoLedger.App.Forms
             ShowMenu();
 
             this.labelTime.Text = "تاریخ امروز: " + DateTime.Now.ToShamsiLong();
+            this.labelVersion.Text = "ورژن: " + Program.Version;
 
             this.btnTelegram.Click += BtnOpenUrl_Click;
             this.btnSourceCode.Click += BtnOpenUrl_Click;
@@ -86,12 +88,19 @@ namespace AutoLedger.App.Forms
             }
 
             btnLogin.Click += BtnLogin_Click;
+            this.btnExit.Click += BtnExit_Click;
+        }
+
+        private void BtnExit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            _ = Task.Run(() => Environment.Exit(0));
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
             HideMenu("در حال ورود", ".. در حال اتصال به حساب کاربری");
-            labelError.Text = "";     
+            labelError.Text = "";
 
             if (!Login())
             {
@@ -104,7 +113,7 @@ namespace AutoLedger.App.Forms
         }
         bool Login()
         {
-            
+
             string username = cbUsername.Text?.Trim();
             string password = inputPassword.Text;
 

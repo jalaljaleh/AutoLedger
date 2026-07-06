@@ -2,9 +2,11 @@
 using AutoLedger.Data;
 using AutoLedger.Domain;
 using AutoLedger.Extensions;
+using DevExpress.XtraLayout;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -15,6 +17,7 @@ namespace AutoLedger.App.Forms
     {
         private Car _car;
         private CarReception _reception;
+
         public CarReceptionForm(Car car = null, CarReception reception = null)
         {
             InitializeComponent();
@@ -29,7 +32,6 @@ namespace AutoLedger.App.Forms
             dgCarRequests.CellFormatting += DgCarRequests_CellFormatting;
             dgCarRequests.CellParsing += DgCarRequests_CellParsing;
             dgCarRequests.EditingControlShowing += DgCarRequests_EditingControlShowing;
-
 
             this.cbIsReleased.CheckedChanged += CbIsReleased_CheckedChanged;
 
@@ -58,7 +60,6 @@ namespace AutoLedger.App.Forms
             {
                 inputCreatedAt.Text = DateTime.Now.ToShamsiLong();
             }
-
         }
 
         private void DgCarRequests_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -70,7 +71,7 @@ namespace AutoLedger.App.Forms
                 if (e.Control is TextBox tb)
                     tb.MaxLength = 200;
             }
-            if (col.Name == "Description")
+            else if (col.Name == "Description")
             {
                 if (e.Control is TextBox tb)
                     tb.MaxLength = 1000;
@@ -96,39 +97,54 @@ namespace AutoLedger.App.Forms
             }
         }
 
-
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
-            try
+            if (_reception is null) // insert new reception
             {
-                if (_reception is null) // insert new reception
+                var newReception = BuildReceptionRequests();
+                if (newReception.Requests.Count < 1)
                 {
-                    var newReception = BuildReceptionRequests();
-                    if (newReception.Requests.Count < 1)
-                    {
-                        MessageBox.Show("نمی توان فرم خالی ثبت کرد.");
-                        return;
-                    }
+                    MessageBox.Show("نمی توان فرم خالی ثبت کرد.");
+                    return;
+                }
 
-                    using (var db = new AutoLedgerContext())
+                using (var db = new AutoLedgerContext())
+                {
+                    try
                     {
                         var dbCar = db.Cars.FirstOrDefault(a => a.Id == _car.Id);
+                        if (dbCar.Receptions == null)
+                        {
+                            dbCar.Receptions = new List<CarReception>();
+                        }
+
                         dbCar.Receptions.Add(newReception);
                         db.SaveChanges();
                     }
-                }
-                else if (_reception != null) // edit reception
-                {
-                    UpdateExistingReceptionWithRequests();
-                }
+                    catch (DbEntityValidationException ex)
+                    {
+                        var errorMessages = ex.EntityValidationErrors
+                                .SelectMany(x => x.ValidationErrors)
+                                .Select(x => $"{x.PropertyName}: {x.ErrorMessage}");
 
-                DialogResult = DialogResult.OK;
-                Close();
+                        var fullErrorMessage = string.Join(Environment.NewLine, errorMessages);
+                        MessageBox.Show($"خطای اعتبارسنجی مقادیر:\n{fullErrorMessage}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"خطا در ذخیره‌سازی:\n{ex.Message}\n\n{ex.InnerException?.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
             }
-            catch
+            else // edit reception
             {
-                MessageBox.Show("مشکلی در ثبت فرم پیش آمده است. مطمئن شوید تمامی اعداد به شکل درست وارد شده اند.");
+                UpdateExistingReceptionWithRequests();
             }
+
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void UpdateExistingReceptionWithRequests()
@@ -139,7 +155,6 @@ namespace AutoLedger.App.Forms
                 return;
             }
 
-            // Build incoming requests from UI (includes Id if you added hidden Id column)
             var incomingRequests = BuildRequests();
 
             using (var db = new AutoLedgerContext())
@@ -148,7 +163,6 @@ namespace AutoLedger.App.Forms
                 {
                     try
                     {
-                        // Load the reception with its requests (tracked by this context)
                         var reception = db.CarReceptions
                             .Include(r => r.Requests)
                             .FirstOrDefault(r => r.Id == _reception.Id);
@@ -159,25 +173,22 @@ namespace AutoLedger.App.Forms
                             return;
                         }
 
-                        // Update scalar fields
-                        //           reception.CreatedAt = dateReceptionAt.Value;
                         reception.IsReleased = cbIsReleased.Checked;
                         reception.IsRepaired = cbIsRepaired.Checked;
                         reception.Mileage = int.TryParse(inputMileage.Text.Trim(), out var m) ? m : reception.Mileage;
                         reception.TotalCost = incomingRequests.Sum(x => Math.Max(0, x.Cost));
                         reception.UpdatedAt = DateTime.Now;
-                        reception.RepairedAt = cbIsRepaired.Checked ? DateTime.Now : DateTime.MinValue;
-                        reception.ReleasedAt = cbIsReleased.Checked ? DateTime.Now : DateTime.MinValue;
 
-                        // Existing requests in DB
+                        // FIX: Assigns 'null' if unchecked instead of year 0001
+                        reception.RepairedAt = cbIsRepaired.Checked ? DateTime.Now : (DateTime?)null;
+                        reception.ReleasedAt = cbIsReleased.Checked ? DateTime.Now : (DateTime?)null;
+
                         var existing = reception.Requests.ToList();
 
-                        // Add or update incoming requests
                         foreach (var inc in incomingRequests)
                         {
                             if (inc.Id > 0)
                             {
-                                // update existing
                                 var ex = existing.FirstOrDefault(x => x.Id == inc.Id);
                                 if (ex != null)
                                 {
@@ -185,37 +196,37 @@ namespace AutoLedger.App.Forms
                                     ex.Description = inc.Description;
                                     ex.Cost = Math.Max(0, inc.Cost);
                                     ex.UpdatedAt = DateTime.Now;
-                                    ex.CreatedAt = inc.CreatedAt; // preserve original creation time
                                     db.Entry(ex).State = EntityState.Modified;
                                 }
                                 else
                                 {
-                                    // Id provided but not found in this reception -> treat as new
                                     var newReq = new CarReceptionRequest
                                     {
                                         Title = inc.Title,
                                         Description = inc.Description,
                                         Cost = Math.Max(0, inc.Cost),
-                                        ReceptionId = reception.Id
+                                        ReceptionId = reception.Id,
+                                        CreatedAt = DateTime.Now,
+                                        UpdatedAt = DateTime.Now
                                     };
                                     db.CarReceptionsRequests.Add(newReq);
                                 }
                             }
                             else
                             {
-                                // new request
                                 var newReq = new CarReceptionRequest
                                 {
                                     Title = inc.Title,
                                     Description = inc.Description,
                                     Cost = Math.Max(0, inc.Cost),
-                                    ReceptionId = reception.Id
+                                    ReceptionId = reception.Id,
+                                    CreatedAt = DateTime.Now,
+                                    UpdatedAt = DateTime.Now
                                 };
                                 db.CarReceptionsRequests.Add(newReq);
                             }
                         }
 
-                        // Remove deleted requests
                         var incomingIds = incomingRequests.Where(x => x.Id > 0).Select(x => x.Id).ToHashSet();
                         var toRemove = existing.Where(x => !incomingIds.Contains(x.Id)).ToList();
                         foreach (var rem in toRemove)
@@ -223,20 +234,27 @@ namespace AutoLedger.App.Forms
                             db.CarReceptionsRequests.Remove(rem);
                         }
 
-                        // Persist changes
                         db.SaveChanges();
                         tx.Commit();
-
-
+                    }
+                    catch (DbEntityValidationException ex)
+                    {
+                        try { tx.Rollback(); } catch { }
+                        var errorMessages = ex.EntityValidationErrors
+                                .SelectMany(x => x.ValidationErrors)
+                                .Select(x => $"{x.PropertyName}: {x.ErrorMessage}");
+                        var fullErrorMessage = string.Join(Environment.NewLine, errorMessages);
+                        MessageBox.Show($"خطای اعتبارسنجی مقادیر:\n{fullErrorMessage}");
                     }
                     catch (Exception ex)
                     {
                         try { tx.Rollback(); } catch { }
-                        MessageBox.Show("خطا در ذخیره‌سازی: " + ex.Message);
+                        MessageBox.Show("خطا در ذخیره‌سازی: " + ex.Message + "\n" + ex.InnerException?.Message);
                     }
                 }
             }
         }
+
         private List<CarReceptionRequest> BuildRequests()
         {
             var list = new List<CarReceptionRequest>();
@@ -244,18 +262,28 @@ namespace AutoLedger.App.Forms
             {
                 if (r.IsNewRow) continue;
 
-                var id = r.Cells["Id"].Value != null ? Convert.ToInt32(r.Cells["Id"].Value) : 0;
-                var title = r.Cells["Title"].Value != null ? r.Cells["Title"].Value.ToString().Trim() : "بدون عنوان";
-                var description = r.Cells["Description"].Value != null ? r.Cells["Description"].Value.ToString().Trim() : "بدون توضیح";
+                var idCell = r.Cells["Id"].Value;
+                var id = (idCell != null && idCell != DBNull.Value) ? Convert.ToInt32(idCell) : 0;
 
-                long cost = 0;
-                var v = r.Cells["Cost"].Value;
-                if (v != null && long.TryParse(v.ToString(), out long parsed))
-                    cost = parsed;
-                else
+                var titleCell = r.Cells["Title"].Value;
+                var title = (titleCell != null && titleCell != DBNull.Value && !string.IsNullOrWhiteSpace(titleCell.ToString()))
+                    ? titleCell.ToString().Trim()
+                    : "بدون عنوان";
+
+                var descCell = r.Cells["Description"].Value;
+                var description = (descCell != null && descCell != DBNull.Value && !string.IsNullOrWhiteSpace(descCell.ToString()))
+                    ? descCell.ToString().Trim()
+                    : "بدون توضیح";
+
+                decimal cost = 0;
+                var costCell = r.Cells["Cost"].Value;
+
+                if (costCell != null && costCell != DBNull.Value)
                 {
-                    cost = 0;
-                    r.Cells["Cost"].Value = "0";
+                    if (decimal.TryParse(costCell.ToString(), out decimal parsed))
+                    {
+                        cost = parsed;
+                    }
                 }
 
                 var req = new CarReceptionRequest
@@ -264,11 +292,14 @@ namespace AutoLedger.App.Forms
                     Title = title,
                     Description = description,
                     Cost = cost,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
                 };
                 list.Add(req);
             }
             return list;
         }
+
         private CarReception BuildReceptionRequests()
         {
             var list = BuildRequests();
@@ -277,16 +308,19 @@ namespace AutoLedger.App.Forms
                 TotalCost = list.Sum(a => a.Cost),
                 IsReleased = cbIsReleased.Checked,
                 IsRepaired = cbIsRepaired.Checked,
-                Mileage = int.TryParse(inputMileage.Text, out int millage) ? millage :0,
+                Mileage = int.TryParse(inputMileage.Text, out int millage) ? millage : 0,
+                RepairedAt = cbIsRepaired.Checked ? DateTime.Now : (DateTime?)null,  // FIX
+                ReleasedAt = cbIsReleased.Checked ? DateTime.Now : (DateTime?)null,  // FIX
+                CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 Requests = list
             };
         }
 
-        private long UpdateTotalCostLabel()
+        private decimal UpdateTotalCostLabel()
         {
             var list = BuildRequests();
-            long total = list.Sum(a => a.Cost);
+            decimal total = list.Sum(a => a.Cost);
             labelTotalCost.Text = "جمع کل: " + total.ToString("#,0 تومان");
             return total;
         }
@@ -357,7 +391,5 @@ namespace AutoLedger.App.Forms
                 }
             }
         }
-
     }
-
 }

@@ -232,6 +232,7 @@
     <Compile Include="Forms\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\OfflineTimeChecker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\CarIdControl.resx">
@@ -526,6 +527,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="irontuning_icon.ico" />
+    <None Include="Resources\halun-logo3.png" />
     <None Include="Resources\irontuning_icon.png" />
     <None Include="Resources\irontuning_icon.ico" />
   </ItemGroup>

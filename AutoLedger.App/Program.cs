@@ -49,10 +49,11 @@ namespace AutoLedger.App
                         return;
                     }
 
-                    CheckSystemClock();
                 }
 
-                if (IsDebugMode())
+                OfflineTimeChecker.CheckSystemClock();
+
+                if (!IsDebugMode())
                 {
                     using (var db = new AutoLedgerContext())
                     {
@@ -78,46 +79,13 @@ namespace AutoLedger.App
                 MessageBox.Show("خطای ناشناخته، برنامه باید بسته شود.");
             }
         }
-        
-        public static DateTime GetSqlServerTime()
-        {
-            using (var db = new AutoLedgerContext())
-            {
-                return db.Database.SqlQuery<DateTime>("SELECT GETDATE()").FirstOrDefault();
-            }
-        }
 
-        public static bool IsSystemTimeValid()
-        {
-            DateTime sqlTime = GetSqlServerTime();
-            DateTime systemTime = DateTime.Now;
-
-
-            TimeSpan diff = (sqlTime - systemTime).Duration();
-
-            return diff < TimeSpan.FromMinutes(5);
-        }
-
-        public static void CheckSystemClock()
-        {
-            if (!IsSystemTimeValid())
-            {
-                MessageBox.Show(
-                    "ساعت سیستم شما دقیق نیست. لطفاً ساعت ویندوز را تنظیم کنید.",
-                    "اخطار ساعت سیستم",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-            }
-        }
 
         public static Task<bool> InitializeDatabaseSync()
         {
             //try
             //{
-            //   string express = @"Data Source=.\SQLEXPRESS2014; Initial Catalog=IronTuning; Integrated Security=True; MultipleActiveResultSets=True; Connect Timeout=30";
             string localDb = $@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IronTuning.mdf")}; Integrated Security=True; Connect Timeout=30";
-
             Environment.SetEnvironmentVariable("connectionString", localDb);
 
             using (AutoLedgerContext db = new AutoLedgerContext())
@@ -131,13 +99,16 @@ namespace AutoLedger.App
                     db.Users.Add(new User()
                     {
                         FullName = "محمدجلال ژاله",
-                        Password = "jj"
+                        Password = "jj",
+                        NationalId = "[ACCESS_Denied]",
+                        PhoneNumber = "[ACCESS_Denied]",
                     });
                     db.Users.Add(new User()
                     {
                         FullName = "فرید عزیزی",
-                        Password = "admin"
+                        Password = "admin",
                     });
+
                     db.ExpenseCategories.Add(new ExpenseCategory().WithName("هزینه‌های عمومی"));
                     db.ExpenseCategories.Add(new ExpenseCategory().WithName("مواد مصرفی"));
                     db.ExpenseCategories.Add(new ExpenseCategory().WithName("اجاره بها"));
@@ -163,7 +134,7 @@ namespace AutoLedger.App
 
 
 
-        public const string Version = "ویرایش بتا نسخه 1.0.1.20";
+        public const string Version = "ویرایش بتا نسخه 1.0.2.25";
         public static bool IsDebugMode() => System.Diagnostics.Debugger.IsAttached;
 
 

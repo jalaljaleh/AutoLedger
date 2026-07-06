@@ -127,7 +127,7 @@
             this.inputFullName.Placeholder = "نام و نام خانوادگی";
             this.inputFullName.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputFullName.Size = new System.Drawing.Size(256, 43);
-            this.inputFullName.TabIndex = 9;
+            this.inputFullName.TabIndex = 1;
             this.inputFullName.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // InputPhoneNumber
@@ -147,19 +147,19 @@
             this.InputPhoneNumber.Placeholder = "تلفن همراه";
             this.InputPhoneNumber.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.InputPhoneNumber.Size = new System.Drawing.Size(256, 41);
-            this.InputPhoneNumber.TabIndex = 10;
+            this.InputPhoneNumber.TabIndex = 2;
             this.InputPhoneNumber.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureEdit1
             // 
             this.pictureEdit1.EditValue = global::AutoLedger.App.Properties.Resources.administrator_male_80px;
-            this.pictureEdit1.Location = new System.Drawing.Point(651, 55);
+            this.pictureEdit1.Location = new System.Drawing.Point(651, 57);
             this.pictureEdit1.MenuManager = this.toolbarFormManager1;
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Size = new System.Drawing.Size(109, 109);
+            this.pictureEdit1.Size = new System.Drawing.Size(109, 107);
             this.pictureEdit1.TabIndex = 11;
             // 
             // InputAddress
@@ -179,7 +179,7 @@
             this.InputAddress.Placeholder = "آدرس";
             this.InputAddress.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.InputAddress.Size = new System.Drawing.Size(394, 75);
-            this.InputAddress.TabIndex = 12;
+            this.InputAddress.TabIndex = 4;
             this.InputAddress.TextAlignment = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // inputPasswordCurrent
@@ -199,7 +199,7 @@
             this.inputPasswordCurrent.Placeholder = "رمز فعلی";
             this.inputPasswordCurrent.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputPasswordCurrent.Size = new System.Drawing.Size(256, 41);
-            this.inputPasswordCurrent.TabIndex = 13;
+            this.inputPasswordCurrent.TabIndex = 7;
             this.inputPasswordCurrent.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputPasswordNew
@@ -220,7 +220,7 @@
             this.inputPasswordNew.Placeholder = "رمز جدید";
             this.inputPasswordNew.PlaceholderColor = System.Drawing.SystemColors.ButtonHighlight;
             this.inputPasswordNew.Size = new System.Drawing.Size(256, 41);
-            this.inputPasswordNew.TabIndex = 14;
+            this.inputPasswordNew.TabIndex = 8;
             this.inputPasswordNew.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.inputPasswordNew.UseSystemPasswordChar = true;
             // 
@@ -242,7 +242,7 @@
             this.inputPasswordNewRepeat.Placeholder = "تکرار رمز عبور";
             this.inputPasswordNewRepeat.PlaceholderColor = System.Drawing.SystemColors.ButtonHighlight;
             this.inputPasswordNewRepeat.Size = new System.Drawing.Size(256, 43);
-            this.inputPasswordNewRepeat.TabIndex = 15;
+            this.inputPasswordNewRepeat.TabIndex = 9;
             this.inputPasswordNewRepeat.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.inputPasswordNewRepeat.UseSystemPasswordChar = true;
             // 
@@ -307,7 +307,7 @@
             this.inputNationalId.Placeholder = "کد ملی";
             this.inputNationalId.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputNationalId.Size = new System.Drawing.Size(256, 41);
-            this.inputNationalId.TabIndex = 18;
+            this.inputNationalId.TabIndex = 3;
             this.inputNationalId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputDescription
@@ -327,7 +327,7 @@
             this.inputDescription.Placeholder = "توضیحات";
             this.inputDescription.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.inputDescription.Size = new System.Drawing.Size(731, 85);
-            this.inputDescription.TabIndex = 19;
+            this.inputDescription.TabIndex = 5;
             this.inputDescription.TextAlignment = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnCancel
@@ -345,7 +345,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnCancel.Size = new System.Drawing.Size(84, 43);
-            this.btnCancel.TabIndex = 20;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "لغو";
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
@@ -367,7 +367,7 @@
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnConfirm.Size = new System.Drawing.Size(170, 48);
-            this.btnConfirm.TabIndex = 21;
+            this.btnConfirm.TabIndex = 6;
             this.btnConfirm.Text = "تایید";
             this.btnConfirm.UseVisualStyleBackColor = false;
             // 

@@ -75,7 +75,7 @@
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 258);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 274);
             this.barDockControlBottom.Manager = this.toolbarFormManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(460, 0);
             // 
@@ -85,7 +85,7 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 33);
             this.barDockControlLeft.Manager = this.toolbarFormManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 225);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 241);
             // 
             // barDockControlRight
             // 
@@ -93,13 +93,12 @@
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(460, 33);
             this.barDockControlRight.Manager = this.toolbarFormManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 225);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 241);
             // 
             // carIdControl
             // 
-            this.carIdControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.carIdControl.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carIdControl.Location = new System.Drawing.Point(34, 59);
+            this.carIdControl.Location = new System.Drawing.Point(37, 75);
             this.carIdControl.Margin = new System.Windows.Forms.Padding(5, 9, 5, 9);
             this.carIdControl.Name = "carIdControl";
             this.carIdControl.Size = new System.Drawing.Size(272, 89);
@@ -108,7 +107,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::AutoLedger.App.Properties.Resources.search;
-            this.pictureBox1.Location = new System.Drawing.Point(314, 58);
+            this.pictureBox1.Location = new System.Drawing.Point(317, 74);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(101, 90);
@@ -121,7 +120,7 @@
             this.btnCancel.BackColor = System.Drawing.Color.Gainsboro;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCancel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCancel.Location = new System.Drawing.Point(194, 201);
+            this.btnCancel.Location = new System.Drawing.Point(197, 217);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(73, 33);
@@ -135,7 +134,7 @@
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirm.ForeColor = System.Drawing.Color.Cornsilk;
-            this.btnConfirm.Location = new System.Drawing.Point(273, 199);
+            this.btnConfirm.Location = new System.Drawing.Point(276, 215);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(131, 36);
@@ -146,7 +145,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(176, 157);
+            this.label1.Location = new System.Drawing.Point(179, 173);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(232, 21);
@@ -155,10 +154,12 @@
             // 
             // CarPlateModalForm
             // 
+            this.Appearance.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 258);
+            this.ClientSize = new System.Drawing.Size(460, 274);
             this.Controls.Add(this.carIdControl);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCancel);
