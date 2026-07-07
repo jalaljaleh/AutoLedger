@@ -32,7 +32,7 @@ namespace AutoLedger.App.FormsView
             cbCurrentCars.Checked = currentCarsOnly;
 
             _searchTimer = new Timer();
-            _searchTimer.Interval = 2000;
+            _searchTimer.Interval = 500 ;
             _searchTimer.Tick += SearchTimer_Tick;
 
             inputSearch.TextChanged += InputSearch_TextChanged;

@@ -232,6 +232,8 @@
     <Compile Include="Forms\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\CarFactory.cs" />
+    <Compile Include="Helpers\CarReceptionFactory.cs" />
     <Compile Include="Helpers\OfflineTimeChecker.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

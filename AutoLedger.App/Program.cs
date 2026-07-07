@@ -53,7 +53,7 @@ namespace AutoLedger.App
 
                 OfflineTimeChecker.CheckSystemClock();
 
-                if (!IsDebugMode())
+                if (IsDebugMode())
                 {
                     using (var db = new AutoLedgerContext())
                     {
@@ -100,8 +100,6 @@ namespace AutoLedger.App
                     {
                         FullName = "محمدجلال ژاله",
                         Password = "jj",
-                        NationalId = "[ACCESS_Denied]",
-                        PhoneNumber = "[ACCESS_Denied]",
                     });
                     db.Users.Add(new User()
                     {
@@ -123,6 +121,14 @@ namespace AutoLedger.App
 
                     db.SaveChanges();
                 }
+                //var data = CarFactory.Generate(10000);
+                //foreach (var item in data)
+                //{
+                //    var re = CarReceptionFactory.GenerateForCar(item, 1);
+                //    Console.WriteLine($"{data.IndexOf(item)} added");
+                //}
+                //db.Cars.AddRange(data);
+                //db.SaveChanges();
             }
             return Task.FromResult(true);
             //}
