@@ -36,7 +36,7 @@ namespace AutoLedger.Data
         public DbSet<ExpenseCategory> ExpenseCategories { get; set; }
 
 
-        public DbSet<MonthlySummary> MonthlySummaries { get; set; }
+        public DbSet<DailyLedgerSummary> DailySummaries { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -51,7 +51,7 @@ namespace AutoLedger.Data
             modelBuilder.Configurations.Add(new ExpenseCategoryConfiguration());
 
 
-            modelBuilder.Configurations.Add(new MonthlySummaryConfiguration());
+            modelBuilder.Configurations.Add(new DailyLedgerSummaryConfiguration());
 
             this.Configuration.LazyLoadingEnabled = false;
 
@@ -61,14 +61,17 @@ namespace AutoLedger.Data
 
         public override int SaveChanges()
         {
+            var validStates = new[] { EntityState.Added, EntityState.Modified, EntityState.Deleted };
+
             var changedEntries = ChangeTracker.Entries()
-                .Where(e =>
-                    (e.Entity is Expense || e.Entity is CarReception) &&
-                    (e.State == EntityState.Added || e.State == EntityState.Modified || e.State == EntityState.Deleted))
+                .Where(e => (e.Entity is Expense || e.Entity is CarReception || e.Entity is Car) && // <-- ADDED CAR HERE
+                            validStates.Contains(e.State))
                 .ToList();
 
-            foreach (var entry in changedEntries)
-                _summaryService.ApplyEntrySummary(entry);
+            if (changedEntries.Any())
+            {
+                _summaryService.ProcessChanges(changedEntries);
+            }
 
             return base.SaveChanges();
         }

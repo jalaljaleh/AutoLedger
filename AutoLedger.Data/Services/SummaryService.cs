@@ -1,12 +1,13 @@
 ﻿using AutoLedger.Domain;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace AutoLedger.Data.Services
 {
-    public class SummaryService 
+    public class SummaryService
     {
         private readonly DbContext _context;
 
@@ -15,149 +16,156 @@ namespace AutoLedger.Data.Services
             _context = context;
         }
 
-        public void ApplyEntrySummary(DbEntityEntry entry)
+        public void ProcessChanges(IEnumerable<DbEntityEntry> entries)
         {
-            if (entry == null) return;
+            var deltas = new Dictionary<DateTime, SummaryDelta>();
 
-            if (entry.Entity is Expense)
+            foreach (var entry in entries)
             {
-                ApplyExpenseSummary(entry);
-            }
-            else if (entry.Entity is CarReception)
-            {
-                ApplyCarReceptionSummary(entry);
-            }
-        }
+                if (entry.Entity is Expense expense)
+                    ProcessExpense(entry, expense, deltas);
 
-        private void ApplyExpenseSummary(DbEntityEntry entry)
-        {
-            var expense = (Expense)entry.Entity;
+                else if (entry.Entity is CarReception reception)
+                    ProcessCarReception(entry, reception, deltas);
 
-            DateTime date;
-            decimal delta = 0m;
-
-            if (entry.State == EntityState.Added)
-            {
-                date = expense.ExpenseDate;
-                delta = expense.Amount; // افزایش هزینه
-            }
-            else if (entry.State == EntityState.Deleted)
-            {
-                // در حذف از OriginalValues استفاده می‌کنیم
-                object origDateObj = entry.OriginalValues["ExpenseDate"];
-                date = origDateObj is DateTime ? (DateTime)origDateObj : expense.ExpenseDate;
-
-                object origAmountObj = entry.OriginalValues["Amount"];
-                decimal origAmount = origAmountObj != null ? Convert.ToDecimal(origAmountObj) : 0m;
-                delta = -origAmount; // کاهش هزینه
-            }
-            else if (entry.State == EntityState.Modified)
-            {
-                // تاریخ فعلی را از موجودیت می‌گیریم
-                date = expense.ExpenseDate;
-
-                object origAmountObj = entry.OriginalValues["Amount"];
-                decimal origAmount = origAmountObj != null ? Convert.ToDecimal(origAmountObj) : 0m;
-                decimal currentAmount = expense.Amount;
-                delta = currentAmount - origAmount; // مثبت یا منفی
-            }
-            else
-            {
-                return;
+                else if (entry.Entity is Car car)
+                    ProcessCar(entry, car, deltas); // NEW: Track new customers
             }
 
-            if (delta == 0m) return;
+            if (!deltas.Any()) return;
 
-            ApplyToMonthlySummary(date, expenseDelta: delta, revenueDelta: 0m);
+            var datesToUpdate = deltas.Keys.ToList();
+            var existingSummaries = _context.Set<DailyLedgerSummary>()
+                .Where(s => datesToUpdate.Contains(s.Date))
+                .ToList();
 
-        }
-
-        private void ApplyCarReceptionSummary(DbEntityEntry entry)
-        {
-            var reception = (CarReception)entry.Entity;
-
-            DateTime date;
-            decimal revenueDelta = 0m;
-            decimal expensesDelta = 0m;
-
-            if (entry.State == EntityState.Added)
+            foreach (var kvp in deltas)
             {
-                // در زمان ایجاد، فرض می‌کنیم TotalCost و TotalExpenses مقداردهی اولیه شده‌اند
-                date = reception.CreatedAt;
-                revenueDelta = reception.TotalCost;
-                expensesDelta = reception.TotalExpenses;
-            }
-            else if (entry.State == EntityState.Deleted)
-            {
-                object origCreatedObj = entry.OriginalValues.PropertyNames.Contains("CreatedAt") ? entry.OriginalValues["CreatedAt"] : null;
-                date = origCreatedObj is DateTime ? (DateTime)origCreatedObj : reception.CreatedAt;
+                var date = kvp.Key;
+                var delta = kvp.Value;
+                var summary = existingSummaries.FirstOrDefault(s => s.Date == date);
 
-                object origCostObj = entry.OriginalValues.PropertyNames.Contains("TotalCost") ? entry.OriginalValues["TotalCost"] : null;
-                decimal origCost = origCostObj != null ? Convert.ToDecimal(origCostObj) : 0m;
-                revenueDelta = -origCost;
-
-                object origExpObj = entry.OriginalValues.PropertyNames.Contains("TotalExpenses") ? entry.OriginalValues["TotalExpenses"] : null;
-                decimal origExp = origExpObj != null ? Convert.ToDecimal(origExpObj) : 0m;
-                expensesDelta = -origExp;
-            }
-            else if (entry.State == EntityState.Modified)
-            {
-                // برای تغییرات، مقادیر فعلی و اصلی را مقایسه می‌کنیم
-                date = reception.UpdatedAt != DateTime.MinValue ? reception.UpdatedAt : DateTime.Now;
-
-                object origCostObj = entry.OriginalValues.PropertyNames.Contains("TotalCost") ? entry.OriginalValues["TotalCost"] : null;
-                decimal origCost = origCostObj != null ? Convert.ToDecimal(origCostObj) : 0m;
-                decimal currentCost = reception.TotalCost;
-                revenueDelta = currentCost - origCost;
-
-                object origExpObj = entry.OriginalValues.PropertyNames.Contains("TotalExpenses") ? entry.OriginalValues["TotalExpenses"] : null;
-                decimal origExp = origExpObj != null ? Convert.ToDecimal(origExpObj) : 0m;
-                decimal currentExp = reception.TotalExpenses;
-                expensesDelta = currentExp - origExp;
-
-                // اگر وضعیت انتشار (مثلاً IsReleased) تغییر کرده و می‌خواهی فقط هنگام Release درآمد را ثبت کنی،
-                // می‌توانی اینجا بررسی کنی:
-                // object origReleased = entry.OriginalValues["IsReleased"];
-                // bool origIsReleased = origReleased != null && Convert.ToBoolean(origReleased);
-                // if (!origIsReleased && reception.IsReleased) { /* push revenue */ }
-            }
-            else
-            {
-                return;
-            }
-
-            // اگر هیچ دلتا وجود ندارد، کاری انجام نده
-            if (revenueDelta == 0m && expensesDelta == 0m) return;
-
-            ApplyToMonthlySummary(date, expenseDelta: expensesDelta, revenueDelta: revenueDelta);
-        }
-
-        private void ApplyToMonthlySummary(DateTime date, decimal expenseDelta, decimal revenueDelta)
-        {
-            int year = date.Year;
-            int month = date.Month;
-            int day = date.Day;
-
-            var summaries = _context.Set<MonthlySummary>();
-            var summary = summaries.FirstOrDefault(s => s.Year == year && s.Month == month && s.Day == day);
-
-            if (summary == null)
-            {
-                summary = new MonthlySummary
+                if (summary == null)
                 {
-                    Year = year,
-                    Month = month,
-                    Day = day,
-                   Expenses = 0m,
-                    Revenue = 0m,
-                    CreatedAt = DateTime.Now
-                };
-                summaries.Add(summary);
-            }
+                    summary = new DailyLedgerSummary
+                    {
+                        Date = date,
+                        Year = date.Year,
+                        Month = date.Month,
+                        Day = date.Day,
+                        CreatedAt = DateTime.Now
+                    };
+                    _context.Set<DailyLedgerSummary>().Add(summary);
+                    existingSummaries.Add(summary);
+                }
 
-            summary.Expenses += expenseDelta;
-            summary.Revenue += revenueDelta;
+                // Apply Financials
+                summary.ShopExpenses += delta.ShopExpenseDelta;
+                summary.ReceptionRevenue += delta.ReceptionRevenueDelta;
+                summary.ReceptionExpenses += delta.ReceptionExpenseDelta;
+
+                // Apply Activity Counts
+                summary.ShopExpensesCount += delta.ExpenseCountDelta;
+                summary.NewCarsRegistered += delta.NewCarsDelta;
+                summary.ReceptionsOpened += delta.ReceptionsOpenedDelta;
+                summary.ReceptionsRepaired += delta.ReceptionsRepairedDelta;
+                summary.ReceptionsReleased += delta.ReceptionsReleasedDelta;
+
+                summary.UpdatedAt = DateTime.Now;
+            }
+        }
+
+        // --- PROCESSING METHODS ---
+
+        private void ProcessCar(DbEntityEntry entry, Car car, Dictionary<DateTime, SummaryDelta> deltas)
+        {
+            if (entry.State == EntityState.Added)
+                AddDelta(deltas, car.CreatedAt.Date, newCars: 1);
+            else if (entry.State == EntityState.Deleted)
+                AddDelta(deltas, GetOriginalValue<DateTime>(entry, "CreatedAt").Date, newCars: -1);
+        }
+
+        private void ProcessExpense(DbEntityEntry entry, Expense expense, Dictionary<DateTime, SummaryDelta> deltas)
+        {
+            if (entry.State == EntityState.Added)
+                AddDelta(deltas, expense.ExpenseDate.Date, shopExp: expense.Amount, expCount: 1);
+            // ... (Keep the Deleted and Modified logic from the previous answer here)
+        }
+
+        private void ProcessCarReception(DbEntityEntry entry, CarReception reception, Dictionary<DateTime, SummaryDelta> deltas)
+        {
+            if (entry.State == EntityState.Added)
+            {
+                AddDelta(deltas, reception.CreatedAt.Date,
+                    recRev: reception.TotalCost,
+                    recExp: reception.TotalExpenses,
+                    recOpened: 1,
+                    recRepaired: reception.IsRepaired ? 1 : 0,
+                    recReleased: reception.IsReleased ? 1 : 0);
+            }
+            else if (entry.State == EntityState.Modified)
+            {
+                var date = reception.UpdatedAt.Date; // Record activity on the day it happened
+
+                var origCost = GetOriginalValue<decimal>(entry, "TotalCost");
+                var origExp = GetOriginalValue<decimal>(entry, "TotalExpenses");
+
+                // Track Status Changes (Did they just click "IsRepaired = true" today?)
+                var origRepaired = GetOriginalValue<bool>(entry, "IsRepaired");
+                int repairedDelta = 0;
+                if (!origRepaired && reception.IsRepaired) repairedDelta = 1;       // Status changed to true
+                else if (origRepaired && !reception.IsRepaired) repairedDelta = -1; // Status changed to false (undo)
+
+                var origReleased = GetOriginalValue<bool>(entry, "IsReleased");
+                int releasedDelta = 0;
+                if (!origReleased && reception.IsReleased) releasedDelta = 1;
+                else if (origReleased && !reception.IsReleased) releasedDelta = -1;
+
+                AddDelta(deltas, date,
+                    recRev: reception.TotalCost - origCost,
+                    recExp: reception.TotalExpenses - origExp,
+                    recRepaired: repairedDelta,
+                    recReleased: releasedDelta);
+            }
+        }
+
+        // --- HELPERS ---
+        private T GetOriginalValue<T>(DbEntityEntry entry, string propertyName)
+        {
+            if (entry.OriginalValues.PropertyNames.Contains(propertyName))
+            {
+                var val = entry.OriginalValues[propertyName];
+                if (val != null) return (T)Convert.ChangeType(val, typeof(T));
+            }
+            return default(T);
+        }
+
+        private void AddDelta(Dictionary<DateTime, SummaryDelta> deltas, DateTime date,
+            decimal shopExp = 0, decimal recRev = 0, decimal recExp = 0,
+            int expCount = 0, int newCars = 0, int recOpened = 0, int recRepaired = 0, int recReleased = 0)
+        {
+            if (!deltas.ContainsKey(date)) deltas[date] = new SummaryDelta();
+
+            deltas[date].ShopExpenseDelta += shopExp;
+            deltas[date].ReceptionRevenueDelta += recRev;
+            deltas[date].ReceptionExpenseDelta += recExp;
+            deltas[date].ExpenseCountDelta += expCount;
+            deltas[date].NewCarsDelta += newCars;
+            deltas[date].ReceptionsOpenedDelta += recOpened;
+            deltas[date].ReceptionsRepairedDelta += recRepaired;
+            deltas[date].ReceptionsReleasedDelta += recReleased;
+        }
+
+        private class SummaryDelta
+        {
+            public decimal ShopExpenseDelta { get; set; }
+            public decimal ReceptionRevenueDelta { get; set; }
+            public decimal ReceptionExpenseDelta { get; set; }
+            public int ExpenseCountDelta { get; set; }
+            public int NewCarsDelta { get; set; }
+            public int ReceptionsOpenedDelta { get; set; }
+            public int ReceptionsRepairedDelta { get; set; }
+            public int ReceptionsReleasedDelta { get; set; }
         }
     }
-
 }

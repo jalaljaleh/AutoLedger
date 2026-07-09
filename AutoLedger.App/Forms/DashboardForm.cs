@@ -10,6 +10,7 @@ using DevExpress.XtraBars.Navigation;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Media.Animation;
 
 namespace AutoLedger.App.Forms
 {
@@ -92,7 +93,8 @@ namespace AutoLedger.App.Forms
                 case "btnSummary":
                     if (_accountingReportsPage == null)
                         _accountingReportsPage = new AccountingReportsPage();
-                    ShowControl(_accountingReportsPage);
+                    using (AutoLedgerContext db = new AutoLedgerContext())
+                        ShowControl(new DailyDashboardPage(db.DailySummaries.FirstOrDefault()));
                     break;
 
                 case "btnUsersInformation":

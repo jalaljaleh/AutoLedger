@@ -184,6 +184,18 @@
     <Compile Include="FormsView\CustomersInformationPage.Designer.cs">
       <DependentUpon>CustomersInformationPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsView\DailyDashboardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormsView\DailyDashboardPage.Designer.cs">
+      <DependentUpon>DailyDashboardPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormsView\DailyReportPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormsView\DailyReportPage.Designer.cs">
+      <DependentUpon>DailyReportPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsView\ExpensesManagerPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -254,6 +266,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormsView\CustomersInformationPage.resx">
       <DependentUpon>CustomersInformationPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsView\DailyDashboardPage.resx">
+      <DependentUpon>DailyDashboardPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsView\DailyReportPage.resx">
+      <DependentUpon>DailyReportPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsView\ExpensesManagerPage.resx">
       <DependentUpon>ExpensesManagerPage.cs</DependentUpon>

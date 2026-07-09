@@ -4,19 +4,16 @@ using DevExpress.XtraCharts;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraCharts;
-using DevExpress.Charts.Native;
 
 namespace AutoLedger.App.FormsView
 {
     public partial class AccountingReportsPage : UserControl
     {
         private int _pageIndex = 0;
-        private int _pageSize = 200;
+        private int _pageSize = 30;
         private int _daysAgo = -1;
 
         public AccountingReportsPage()
@@ -29,18 +26,17 @@ namespace AutoLedger.App.FormsView
             this.btnNextPage.Click += (s, e) => RefreshData(_pageIndex + 1);
             this.btnBackPage.Click += (s, e) => RefreshData(_pageIndex > 0 ? _pageIndex - 1 : 0);
 
-            cbCount.SelectedIndexChanged += async (s, e) =>
+            cbCount.SelectedIndexChanged += (s, e) =>
             {
                 if (int.TryParse(cbCount.Text, out int size))
                     _pageSize = size;
 
                 RefreshData(0);
             };
-            cbCount.Text = "200";
+            cbCount.Text = "30";
 
             RefreshData(0);
         }
-
 
         public void RefreshData(int pageIndex)
         {
@@ -51,56 +47,53 @@ namespace AutoLedger.App.FormsView
 
             using (var db = new AutoLedgerContext())
             {
-                var list = db.MonthlySummaries
-                    .OrderByDescending(e => e.CreatedAt)
-                        .Skip(skip)
-                        .Take(_pageSize)
+                // UPGRADE: We now order by the actual 'Date' property, not 'CreatedAt'
+                var list = db.DailySummaries
+                    .OrderByDescending(e => e.Date)
+                    .Skip(skip)
+                    .Take(_pageSize)
                     .AsNoTracking()
                     .ToList();
 
                 PopulateDailyChart(list);
-                PopulateTodayChart(list.FirstOrDefault(a => a.CreatedAt.Date == DateTime.Today));
 
-                // 4. Update UI labels and controls
+                // UPGRADE: Match exactly on today's Date
+                PopulateTodayChart(list.FirstOrDefault(a => a.Date == DateTime.Today));
+
                 btnBackPage.Enabled = (_pageIndex > 0);
                 btnNextPage.Enabled = (list.Count == _pageSize);
 
                 string filterLabel = _daysAgo > 0 ? $"{_daysAgo} روز اخیر" : "تمام زمان‌ها";
                 labelDetails.Text = $"صفحه: {_pageIndex + 1} | تعداد: {list.Count} | فیلتر: {filterLabel}";
 
-
                 dgExpenses.DataSource = list;
             }
-
-
-
         }
-       
-        private void PopulateTodayChart(MonthlySummary today)
-        {
 
+        private void PopulateTodayChart(DailyLedgerSummary today)
+        {
             Series serie = chartToday.Series[0];
             serie.Points.Clear();
             serie.Label.TextPattern = "{V:n0} تومان";
 
-            if (today is null)
-                return;
+            if (today == null) return;
 
-            serie.Points.Add(new SeriesPoint(0, today.Revenue));
-            serie.Points.Add(new SeriesPoint(1, today.Expenses));
-            serie.Points.Add(new SeriesPoint(2, today.Profit));
+            // UPGRADE: Using the new Computed Properties and adding Persian string labels
+            serie.Points.Add(new SeriesPoint("درآمد کل", (double)today.TotalRevenue));
+            serie.Points.Add(new SeriesPoint("هزینه‌ها", (double)today.TotalExpenses));
+            serie.Points.Add(new SeriesPoint("سود خالص", (double)today.Profit));
 
             chartToday.RefreshData();
         }
 
-        private void PopulateDailyChart(IList<MonthlySummary> list)
+        private void PopulateDailyChart(IList<DailyLedgerSummary> list)
         {
             var fullList = BuildLast30Days(list);
-
 
             Series expensesSeries = Set(chartDaily.Series[0]);
             Series revenueSeries = Set(chartDaily.Series[1]);
             Series profitSeries = Set(chartDaily.Series[2]);
+
             Series Set(Series serie)
             {
                 serie.Points.Clear();
@@ -111,54 +104,64 @@ namespace AutoLedger.App.FormsView
             var xy = (XYDiagram)chartDaily.Diagram;
             xy.AxisY.Label.TextPattern = "{V:n0} تومان";
 
-            xy.AxisX.DateTimeScaleOptions.MeasureUnit = DateTimeMeasureUnit.Day;
-            xy.AxisX.Label.TextPattern = "{A:MM/dd}";
+            // X-Axis settings for qualitative string dates (since we pass Persian strings now)
+            xy.AxisX.Label.TextPattern = "{A}";
 
             foreach (var item in fullList)
             {
-                DateTime arg = new DateTime(item.Year, item.Month, item.Day);
+                // Convert to beautiful Persian date string: e.g., "1402/05/12"
+                string shamsiDate = ToShamsiDateString(item.Date);
 
-                expensesSeries.Points.Add(new SeriesPoint(arg, (double)item.Expenses));
-                revenueSeries.Points.Add(new SeriesPoint(arg, (double)item.Revenue));
-                profitSeries.Points.Add(new SeriesPoint(arg, (double)item.Profit));
+                // UPGRADE: Map to the new Total properties
+                expensesSeries.Points.Add(new SeriesPoint(shamsiDate, (double)item.TotalExpenses));
+                revenueSeries.Points.Add(new SeriesPoint(shamsiDate, (double)item.TotalRevenue));
+                profitSeries.Points.Add(new SeriesPoint(shamsiDate, (double)item.Profit));
             }
 
             chartDaily.RefreshData();
         }
 
-        private IList<MonthlySummary> BuildLast30Days(IList<MonthlySummary> list)
+        private IList<DailyLedgerSummary> BuildLast30Days(IList<DailyLedgerSummary> list)
         {
-            var result = new List<MonthlySummary>();
-
+            var result = new List<DailyLedgerSummary>();
             DateTime today = DateTime.Today;
 
             for (int i = 0; i < 30; i++)
             {
                 DateTime day = today.AddDays(-i);
 
-                var existing = list.FirstOrDefault(x =>
-                    x.Year == day.Year &&
-                    x.Month == day.Month &&
-                    x.Day == day.Day);
+                var existing = list.FirstOrDefault(x => x.Date == day);
 
-                if (existing != null) result.Add(existing);
+                if (existing != null)
+                {
+                    result.Add(existing);
+                }
                 else
                 {
-                    result.Add(new MonthlySummary
+                    // UPGRADE: Properly initialize an empty day with our new BI properties
+                    result.Add(new DailyLedgerSummary
                     {
+                        Date = day,
                         Year = day.Year,
                         Month = day.Month,
                         Day = day.Day,
-                        Revenue = 0,
-                        Expenses = 0
+                        ReceptionRevenue = 0,
+                        ShopExpenses = 0,
+                        ReceptionExpenses = 0,
+                        NewCarsRegistered = 0,
+                        ReceptionsOpened = 0
                     });
                 }
             }
 
-
-            return result.OrderBy(x => new DateTime(x.Year, x.Month, x.Day)).ToList();
+            return result.OrderBy(x => x.Date).ToList();
         }
 
-
+        // --- HELPER: Fast Persian Date Converter ---
+        private string ToShamsiDateString(DateTime date)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            return $"{pc.GetYear(date):0000}/{pc.GetMonth(date):00}/{pc.GetDayOfMonth(date):00}";
+        }
     }
 }
