@@ -32,18 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelRight = new System.Windows.Forms.Panel();
             this.dgCars = new System.Windows.Forms.DataGridView();
-            this.panelToolbar = new System.Windows.Forms.Panel();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnCarsNextPage = new System.Windows.Forms.ToolStripButton();
-            this.btnCarsBackPage = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.cbReceptinoCount = new System.Windows.Forms.ToolStripComboBox();
-            this.labelReceptionsDetails = new System.Windows.Forms.ToolStripLabel();
-            this.inputSearch = new AutoLedger.App.Controls.ModernTextBox();
-            this.btnRefreshCars = new AutoLedger.App.Controls.ModernButton();
-            this.btnEditCar = new AutoLedger.App.Controls.ModernButton();
-            this.btnNewCar = new AutoLedger.App.Controls.ModernButton();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OwnerFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +42,18 @@
             this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tip = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CreatedAt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelToolbar = new System.Windows.Forms.Panel();
+            this.inputSearch = new AutoLedger.App.Controls.ModernTextBox();
+            this.btnRefreshCars = new AutoLedger.App.Controls.ModernButton();
+            this.btnEditCar = new AutoLedger.App.Controls.ModernButton();
+            this.btnNewCar = new AutoLedger.App.Controls.ModernButton();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnCarsNextPage = new System.Windows.Forms.ToolStripButton();
+            this.btnCarsBackPage = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.cbReceptinoCount = new System.Windows.Forms.ToolStripComboBox();
+            this.labelReceptionsDetails = new System.Windows.Forms.ToolStripLabel();
             this.panelRight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgCars)).BeginInit();
             this.panelToolbar.SuspendLayout();
@@ -115,6 +115,84 @@
             this.dgCars.Size = new System.Drawing.Size(881, 631);
             this.dgCars.TabIndex = 15;
             // 
+            // Index
+            // 
+            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Vazirmatn", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Index.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Index.HeaderText = "R";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Width = 42;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "شناسه";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // OwnerFullName
+            // 
+            this.OwnerFullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.OwnerFullName.DataPropertyName = "OwnerFullName";
+            this.OwnerFullName.HeaderText = "نام و نام خانوادگی";
+            this.OwnerFullName.Name = "OwnerFullName";
+            this.OwnerFullName.ReadOnly = true;
+            // 
+            // OwnerPhoneNumber
+            // 
+            this.OwnerPhoneNumber.DataPropertyName = "OwnerPhoneNumber";
+            this.OwnerPhoneNumber.HeaderText = "شماره تماس";
+            this.OwnerPhoneNumber.Name = "OwnerPhoneNumber";
+            this.OwnerPhoneNumber.ReadOnly = true;
+            // 
+            // OwnerNationalId
+            // 
+            this.OwnerNationalId.DataPropertyName = "OwnerNationalId";
+            this.OwnerNationalId.HeaderText = "کد ملی";
+            this.OwnerNationalId.Name = "OwnerNationalId";
+            this.OwnerNationalId.ReadOnly = true;
+            // 
+            // Brand
+            // 
+            this.Brand.DataPropertyName = "Brand";
+            this.Brand.HeaderText = "خودرو";
+            this.Brand.Name = "Brand";
+            this.Brand.ReadOnly = true;
+            // 
+            // PlateId
+            // 
+            this.PlateId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PlateId.DataPropertyName = "PlateId";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlateId.DefaultCellStyle = dataGridViewCellStyle2;
+            this.PlateId.HeaderText = "پلاک";
+            this.PlateId.Name = "PlateId";
+            this.PlateId.ReadOnly = true;
+            // 
+            // Color
+            // 
+            this.Color.DataPropertyName = "Color";
+            this.Color.HeaderText = "رنگ خودرو";
+            this.Color.Name = "Color";
+            this.Color.ReadOnly = true;
+            // 
+            // Tip
+            // 
+            this.Tip.DataPropertyName = "Tip";
+            this.Tip.HeaderText = "تیپ خودرو";
+            this.Tip.Name = "Tip";
+            this.Tip.ReadOnly = true;
+            // 
+            // CreatedAt
+            // 
+            this.CreatedAt.DataPropertyName = "CreatedAt";
+            this.CreatedAt.HeaderText = "تاریخ ثبت نام";
+            this.CreatedAt.Name = "CreatedAt";
+            this.CreatedAt.ReadOnly = true;
+            // 
             // panelToolbar
             // 
             this.panelToolbar.Controls.Add(this.inputSearch);
@@ -128,93 +206,6 @@
             this.panelToolbar.Padding = new System.Windows.Forms.Padding(0, 0, 0, 2);
             this.panelToolbar.Size = new System.Drawing.Size(881, 38);
             this.panelToolbar.TabIndex = 16;
-            // 
-            // toolStrip2
-            // 
-            this.toolStrip2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip2.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(80, 80);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator4,
-            this.btnCarsNextPage,
-            this.btnCarsBackPage,
-            this.toolStripSeparator5,
-            this.cbReceptinoCount,
-            this.labelReceptionsDetails});
-            this.toolStrip2.Location = new System.Drawing.Point(5, 669);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.toolStrip2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolStrip2.Size = new System.Drawing.Size(881, 41);
-            this.toolStrip2.TabIndex = 18;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
-            // 
-            // btnCarsNextPage
-            // 
-            this.btnCarsNextPage.AutoSize = false;
-            this.btnCarsNextPage.Image = global::AutoLedger.App.Properties.Resources.forward_button_128;
-            this.btnCarsNextPage.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCarsNextPage.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
-            this.btnCarsNextPage.Name = "btnCarsNextPage";
-            this.btnCarsNextPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.btnCarsNextPage.Size = new System.Drawing.Size(90, 30);
-            this.btnCarsNextPage.Text = "صفحه بعد";
-            // 
-            // btnCarsBackPage
-            // 
-            this.btnCarsBackPage.AutoSize = false;
-            this.btnCarsBackPage.Image = global::AutoLedger.App.Properties.Resources.back_arrow_128;
-            this.btnCarsBackPage.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnCarsBackPage.Margin = new System.Windows.Forms.Padding(0, 1, 5, 0);
-            this.btnCarsBackPage.Name = "btnCarsBackPage";
-            this.btnCarsBackPage.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnCarsBackPage.Size = new System.Drawing.Size(90, 30);
-            this.btnCarsBackPage.Text = "صفحه قبل";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
-            // 
-            // cbReceptinoCount
-            // 
-            this.cbReceptinoCount.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.cbReceptinoCount.DropDownHeight = 250;
-            this.cbReceptinoCount.DropDownWidth = 80;
-            this.cbReceptinoCount.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
-            this.cbReceptinoCount.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbReceptinoCount.IntegralHeight = false;
-            this.cbReceptinoCount.Items.AddRange(new object[] {
-            "10",
-            "20",
-            "30",
-            "40",
-            "50",
-            "60",
-            "70",
-            "80",
-            "90",
-            "100"});
-            this.cbReceptinoCount.MaxDropDownItems = 10;
-            this.cbReceptinoCount.Name = "cbReceptinoCount";
-            this.cbReceptinoCount.Size = new System.Drawing.Size(121, 31);
-            this.cbReceptinoCount.Text = "تعداد ردیف";
-            // 
-            // labelReceptionsDetails
-            // 
-            this.labelReceptionsDetails.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.labelReceptionsDetails.Name = "labelReceptionsDetails";
-            this.labelReceptionsDetails.Size = new System.Drawing.Size(20, 28);
-            this.labelReceptionsDetails.Text = "..";
             // 
             // inputSearch
             // 
@@ -308,88 +299,98 @@
             this.btnNewCar.Text = "کاربر جدید";
             this.btnNewCar.UseVisualStyleBackColor = false;
             // 
-            // Index
+            // toolStrip2
             // 
-            this.Index.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Vazirmatn", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Index.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Index.HeaderText = "R";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Width = 42;
+            this.toolStrip2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip2.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(80, 80);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSeparator4,
+            this.btnCarsNextPage,
+            this.btnCarsBackPage,
+            this.toolStripSeparator5,
+            this.cbReceptinoCount,
+            this.labelReceptionsDetails});
+            this.toolStrip2.Location = new System.Drawing.Point(5, 669);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.toolStrip2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.toolStrip2.Size = new System.Drawing.Size(881, 41);
+            this.toolStrip2.TabIndex = 18;
+            this.toolStrip2.Text = "toolStrip2";
             // 
-            // Id
+            // toolStripSeparator4
             // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "شناسه";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
+            this.toolStripSeparator4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
             // 
-            // OwnerFullName
+            // btnCarsNextPage
             // 
-            this.OwnerFullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.OwnerFullName.DataPropertyName = "OwnerFullName";
-            this.OwnerFullName.HeaderText = "نام و نام خانوادگی";
-            this.OwnerFullName.Name = "OwnerFullName";
-            this.OwnerFullName.ReadOnly = true;
+            this.btnCarsNextPage.AutoSize = false;
+            this.btnCarsNextPage.Image = global::AutoLedger.App.Properties.Resources.forward_button_128;
+            this.btnCarsNextPage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCarsNextPage.Margin = new System.Windows.Forms.Padding(0, 1, 0, 0);
+            this.btnCarsNextPage.Name = "btnCarsNextPage";
+            this.btnCarsNextPage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.btnCarsNextPage.Size = new System.Drawing.Size(90, 30);
+            this.btnCarsNextPage.Text = "صفحه بعد";
             // 
-            // OwnerPhoneNumber
+            // btnCarsBackPage
             // 
-            this.OwnerPhoneNumber.DataPropertyName = "OwnerPhoneNumber";
-            this.OwnerPhoneNumber.HeaderText = "شماره تماس";
-            this.OwnerPhoneNumber.Name = "OwnerPhoneNumber";
-            this.OwnerPhoneNumber.ReadOnly = true;
+            this.btnCarsBackPage.AutoSize = false;
+            this.btnCarsBackPage.Image = global::AutoLedger.App.Properties.Resources.back_arrow_128;
+            this.btnCarsBackPage.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnCarsBackPage.Margin = new System.Windows.Forms.Padding(0, 1, 5, 0);
+            this.btnCarsBackPage.Name = "btnCarsBackPage";
+            this.btnCarsBackPage.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnCarsBackPage.Size = new System.Drawing.Size(90, 30);
+            this.btnCarsBackPage.Text = "صفحه قبل";
             // 
-            // OwnerNationalId
+            // toolStripSeparator5
             // 
-            this.OwnerNationalId.DataPropertyName = "OwnerNationalId";
-            this.OwnerNationalId.HeaderText = "کد ملی";
-            this.OwnerNationalId.Name = "OwnerNationalId";
-            this.OwnerNationalId.ReadOnly = true;
+            this.toolStripSeparator5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
             // 
-            // Brand
+            // cbReceptinoCount
             // 
-            this.Brand.DataPropertyName = "Brand";
-            this.Brand.HeaderText = "خودرو";
-            this.Brand.Name = "Brand";
-            this.Brand.ReadOnly = true;
+            this.cbReceptinoCount.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.cbReceptinoCount.DropDownHeight = 250;
+            this.cbReceptinoCount.DropDownWidth = 80;
+            this.cbReceptinoCount.FlatStyle = System.Windows.Forms.FlatStyle.Standard;
+            this.cbReceptinoCount.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbReceptinoCount.IntegralHeight = false;
+            this.cbReceptinoCount.Items.AddRange(new object[] {
+            "10",
+            "20",
+            "30",
+            "40",
+            "50",
+            "60",
+            "70",
+            "80",
+            "90",
+            "100"});
+            this.cbReceptinoCount.MaxDropDownItems = 10;
+            this.cbReceptinoCount.Name = "cbReceptinoCount";
+            this.cbReceptinoCount.Size = new System.Drawing.Size(121, 31);
+            this.cbReceptinoCount.Text = "تعداد ردیف";
             // 
-            // PlateId
+            // labelReceptionsDetails
             // 
-            this.PlateId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PlateId.DataPropertyName = "PlateId";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlateId.DefaultCellStyle = dataGridViewCellStyle2;
-            this.PlateId.HeaderText = "پلاک";
-            this.PlateId.Name = "PlateId";
-            this.PlateId.ReadOnly = true;
-            // 
-            // Color
-            // 
-            this.Color.DataPropertyName = "Color";
-            this.Color.HeaderText = "رنگ خودرو";
-            this.Color.Name = "Color";
-            this.Color.ReadOnly = true;
-            // 
-            // Tip
-            // 
-            this.Tip.DataPropertyName = "Tip";
-            this.Tip.HeaderText = "تیپ خودرو";
-            this.Tip.Name = "Tip";
-            this.Tip.ReadOnly = true;
-            // 
-            // CreatedAt
-            // 
-            this.CreatedAt.DataPropertyName = "CreatedAt";
-            this.CreatedAt.HeaderText = "تاریخ ثبت نام";
-            this.CreatedAt.Name = "CreatedAt";
-            this.CreatedAt.ReadOnly = true;
+            this.labelReceptionsDetails.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.labelReceptionsDetails.Name = "labelReceptionsDetails";
+            this.labelReceptionsDetails.Size = new System.Drawing.Size(20, 28);
+            this.labelReceptionsDetails.Text = "..";
             // 
             // CustomersInformationPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.panelRight);
             this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

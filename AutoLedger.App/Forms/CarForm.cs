@@ -1,4 +1,5 @@
-﻿using AutoLedger.Data;
+﻿using AutoLedger.App.Controls;
+using AutoLedger.Data;
 using AutoLedger.Domain;
 using AutoLedger.Extensions;
 using System;
@@ -57,6 +58,14 @@ namespace AutoLedger.App.Forms
             // Initialize step progress bar state
             UpdateStepProgressBar();
         }
+        private void AutoTabTextBox_TextChanged(object sender, EventArgs e)
+        {
+            ModernTextBox input = (ModernTextBox)sender;
+            if (input.Text.Length >= input.MaxLength && input.MaxLength > 0)
+            {
+                this.SelectNextControl(input, true, true, true, true);
+            }
+        }
         public Car GetCar()
         {
             return _car;
@@ -69,7 +78,22 @@ namespace AutoLedger.App.Forms
 
         private void Inputs_TextChanged(object sender, EventArgs e)
         {
-            UpdateStepProgressBar();
+            try
+            {
+                UpdateStepProgressBar();
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                AutoTabTextBox_TextChanged(sender, e);
+            }
+            catch
+            {
+
+            }
         }
 
         private void BtnNext_Click(object sender, EventArgs e)

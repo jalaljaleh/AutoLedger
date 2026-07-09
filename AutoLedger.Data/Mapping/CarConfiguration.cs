@@ -25,18 +25,18 @@ namespace AutoLedger.Data.Mapping
                     new IndexAnnotation(new IndexAttribute("IX_Car_CarPlateId") { IsUnique = false }));
 
             Property(a => a.Brand)
-                .HasMaxLength(50);
+                .HasMaxLength(20);
 
 
             Property(a => a.Color)
-                .HasMaxLength(30);
+                .HasMaxLength(20);
 
             Property(a => a.Tip)
-                .HasMaxLength(100);
+                .HasMaxLength(20);
 
             Property(a => a.OwnerFullName)
                 .IsRequired()
-                .HasMaxLength(150)
+                .HasMaxLength(25)
                 .HasColumnAnnotation(
                     "Index",
                     new IndexAnnotation(new IndexAttribute("IX_Car_FullName") { IsUnique = false }));

@@ -18,7 +18,6 @@ namespace AutoLedger.App.Forms
     {
         private CarsManagerPage _carsManagerPage;
         private ExpensesManagerPage _expensesManagerPage;
-        private AccountingReportsPage _accountingReportsPage;
         private CustomersInformationPage _customersInformationPage;
 
         public DashboardForm()
@@ -36,8 +35,10 @@ namespace AutoLedger.App.Forms
             this.btnAllCars.Click += ViewButtons_Click;
             this.btnCurrentCars.Click += ViewButtons_Click;
             this.btnExpenses.Click += ViewButtons_Click;
-            this.btnSummary.Click += ViewButtons_Click;
+            this.btnDailySummary.Click += ViewButtons_Click;
             this.btnUsersInformation.Click += ViewButtons_Click;
+
+            this.panelView.Resize += panelView_Resize;
 
             RefreshUserInfo();
         }
@@ -90,10 +91,7 @@ namespace AutoLedger.App.Forms
                     ShowControl(_expensesManagerPage);
                     break;
 
-                case "btnSummary":
-                    if (_accountingReportsPage == null)
-                        _accountingReportsPage = new AccountingReportsPage();
-                    using (AutoLedgerContext db = new AutoLedgerContext())
+                case "btnDailySummary":
                         ShowControl(new DailyDashboardPage());
                     break;
 
@@ -108,15 +106,39 @@ namespace AutoLedger.App.Forms
         private void ShowControl(UserControl control)
         {
             panelView.SuspendLayout();
-            panelView.Controls.Clear();
+
+            if (panelView.Controls.Count > 0)
+                panelView.Controls.Clear();
+            
 
             if (control != null)
             {
+                control.MinimumSize = new System.Drawing.Size(0, panelView.ClientSize.Height);
+
+                if (control.Height < panelView.ClientSize.Height)
+                {
+                    control.Height = panelView.ClientSize.Height;
+                }
+
+                control.Dock = DockStyle.Top;
+
                 panelView.Controls.Add(control);
-                control.Dock = DockStyle.Fill;
+
+                panelView.AutoScroll = true;
+                panelView.HorizontalScroll.Enabled = false;
+                panelView.HorizontalScroll.Visible = false;
+                panelView.HorizontalScroll.Maximum = 0;
             }
 
-            panelView.ResumeLayout();
+            panelView.ResumeLayout(true);
+            panelView.PerformLayout();
+        }
+        private void panelView_Resize(object sender, EventArgs e)
+        {
+            if (panelView.Controls.Count > 0)
+            {
+                panelView.Controls[0].MinimumSize = new System.Drawing.Size(0, panelView.ClientSize.Height);
+            }
         }
         private void BtnNewExpens_Click(object sender, EventArgs e)
         {

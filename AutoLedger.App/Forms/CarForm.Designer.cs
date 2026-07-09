@@ -55,9 +55,11 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnNext = new AutoLedger.App.Controls.ModernButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stepProgressBar1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolbarFormControl1
@@ -65,7 +67,7 @@
             this.toolbarFormControl1.Location = new System.Drawing.Point(0, 0);
             this.toolbarFormControl1.Manager = this.toolbarFormManager1;
             this.toolbarFormControl1.Name = "toolbarFormControl1";
-            this.toolbarFormControl1.Size = new System.Drawing.Size(637, 33);
+            this.toolbarFormControl1.Size = new System.Drawing.Size(694, 33);
             this.toolbarFormControl1.TabIndex = 0;
             this.toolbarFormControl1.TabStop = false;
             this.toolbarFormControl1.ToolbarForm = this;
@@ -84,7 +86,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 33);
             this.barDockControlTop.Manager = this.toolbarFormManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(637, 0);
+            this.barDockControlTop.Size = new System.Drawing.Size(694, 0);
             // 
             // barDockControlBottom
             // 
@@ -92,7 +94,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 667);
             this.barDockControlBottom.Manager = this.toolbarFormManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(637, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(694, 0);
             // 
             // barDockControlLeft
             // 
@@ -106,7 +108,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(637, 33);
+            this.barDockControlRight.Location = new System.Drawing.Point(694, 33);
             this.barDockControlRight.Manager = this.toolbarFormManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 634);
             // 
@@ -125,12 +127,13 @@
             this.stepProgressBar1.Items.Add(this.btnCarOwnerInfo);
             this.stepProgressBar1.Items.Add(this.btnNone);
             this.stepProgressBar1.LayoutMode = DevExpress.XtraEditors.StepProgressBarLayoutMode.FullSize;
-            this.stepProgressBar1.Location = new System.Drawing.Point(345, 167);
+            this.stepProgressBar1.Location = new System.Drawing.Point(249, 12);
             this.stepProgressBar1.Name = "stepProgressBar1";
             this.stepProgressBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.stepProgressBar1.ProgressMode = DevExpress.XtraEditors.Controls.StepProgressBar.ProgressMode.Range;
+            this.stepProgressBar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.stepProgressBar1.ShadowDrawMode = ((DevExpress.XtraEditors.StepProgressBarShadowDrawMode)((DevExpress.XtraEditors.StepProgressBarShadowDrawMode.ActiveElements | DevExpress.XtraEditors.StepProgressBarShadowDrawMode.InactiveElements)));
-            this.stepProgressBar1.Size = new System.Drawing.Size(256, 461);
+            this.stepProgressBar1.Size = new System.Drawing.Size(481, 409);
             this.stepProgressBar1.TabIndex = 20;
             // 
             // btnCarInfo
@@ -167,7 +170,7 @@
             this.btnCarReception.Enabled = false;
             this.btnCarReception.FlatAppearance.BorderSize = 0;
             this.btnCarReception.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCarReception.Location = new System.Drawing.Point(428, 33);
+            this.btnCarReception.Location = new System.Drawing.Point(537, 37);
             this.btnCarReception.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCarReception.Name = "btnCarReception";
             this.btnCarReception.Size = new System.Drawing.Size(135, 129);
@@ -184,14 +187,14 @@
             this.inputBrand.ForeColor = System.Drawing.Color.Black;
             this.inputBrand.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputBrand.Icon = global::AutoLedger.App.Properties.Resources.mercedes_benz_128;
-            this.inputBrand.Location = new System.Drawing.Point(178, 266);
+            this.inputBrand.Location = new System.Drawing.Point(344, 74);
             this.inputBrand.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.inputBrand.MaxLength = 50;
+            this.inputBrand.MaxLength = 20;
             this.inputBrand.Name = "inputBrand";
             this.inputBrand.Placeholder = "برند";
             this.inputBrand.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.inputBrand.Size = new System.Drawing.Size(141, 44);
-            this.inputBrand.TabIndex = 2;
+            this.inputBrand.Size = new System.Drawing.Size(198, 44);
+            this.inputBrand.TabIndex = 1;
             this.inputBrand.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
@@ -200,7 +203,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Font = new System.Drawing.Font("Vazirmatn", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(265, 49);
+            this.label2.Location = new System.Drawing.Point(374, 53);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(168, 38);
             this.label2.TabIndex = 15;
@@ -217,14 +220,14 @@
             this.inputUserCardId.ForeColor = System.Drawing.Color.Black;
             this.inputUserCardId.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputUserCardId.Icon = global::AutoLedger.App.Properties.Resources.verified_badge_128;
-            this.inputUserCardId.Location = new System.Drawing.Point(37, 501);
+            this.inputUserCardId.Location = new System.Drawing.Point(153, 338);
             this.inputUserCardId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.inputUserCardId.MaxLength = 10;
             this.inputUserCardId.Name = "inputUserCardId";
             this.inputUserCardId.Placeholder = "کد ملی";
             this.inputUserCardId.PlaceholderColor = System.Drawing.Color.Black;
-            this.inputUserCardId.Size = new System.Drawing.Size(282, 42);
-            this.inputUserCardId.TabIndex = 6;
+            this.inputUserCardId.Size = new System.Drawing.Size(389, 42);
+            this.inputUserCardId.TabIndex = 7;
             this.inputUserCardId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputFullName
@@ -237,14 +240,14 @@
             this.inputFullName.ForeColor = System.Drawing.Color.Black;
             this.inputFullName.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputFullName.Icon = global::AutoLedger.App.Properties.Resources.bussiness_man;
-            this.inputFullName.Location = new System.Drawing.Point(37, 400);
+            this.inputFullName.Location = new System.Drawing.Point(153, 237);
             this.inputFullName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.inputFullName.MaxLength = 150;
+            this.inputFullName.MaxLength = 25;
             this.inputFullName.Name = "inputFullName";
             this.inputFullName.Placeholder = "نام و نام خانوادگی";
             this.inputFullName.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.inputFullName.Size = new System.Drawing.Size(282, 43);
-            this.inputFullName.TabIndex = 7;
+            this.inputFullName.Size = new System.Drawing.Size(389, 43);
+            this.inputFullName.TabIndex = 5;
             this.inputFullName.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputPhoneNumber
@@ -257,14 +260,14 @@
             this.inputPhoneNumber.ForeColor = System.Drawing.Color.Black;
             this.inputPhoneNumber.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputPhoneNumber.Icon = global::AutoLedger.App.Properties.Resources.phone_128;
-            this.inputPhoneNumber.Location = new System.Drawing.Point(37, 451);
+            this.inputPhoneNumber.Location = new System.Drawing.Point(153, 288);
             this.inputPhoneNumber.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.inputPhoneNumber.MaxLength = 15;
             this.inputPhoneNumber.Name = "inputPhoneNumber";
             this.inputPhoneNumber.Placeholder = "تلفن همراه";
             this.inputPhoneNumber.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.inputPhoneNumber.Size = new System.Drawing.Size(282, 42);
-            this.inputPhoneNumber.TabIndex = 8;
+            this.inputPhoneNumber.Size = new System.Drawing.Size(389, 42);
+            this.inputPhoneNumber.TabIndex = 6;
             this.inputPhoneNumber.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputColor
@@ -277,13 +280,13 @@
             this.inputColor.ForeColor = System.Drawing.Color.Black;
             this.inputColor.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputColor.Icon = global::AutoLedger.App.Properties.Resources.color_wheel_128;
-            this.inputColor.Location = new System.Drawing.Point(178, 323);
+            this.inputColor.Location = new System.Drawing.Point(344, 131);
             this.inputColor.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.inputColor.MaxLength = 30;
+            this.inputColor.MaxLength = 20;
             this.inputColor.Name = "inputColor";
             this.inputColor.Placeholder = "رنگ";
             this.inputColor.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.inputColor.Size = new System.Drawing.Size(141, 42);
+            this.inputColor.Size = new System.Drawing.Size(198, 42);
             this.inputColor.TabIndex = 3;
             this.inputColor.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -297,14 +300,14 @@
             this.inputTip.ForeColor = System.Drawing.Color.Black;
             this.inputTip.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputTip.Icon = global::AutoLedger.App.Properties.Resources.info_128;
-            this.inputTip.Location = new System.Drawing.Point(37, 266);
+            this.inputTip.Location = new System.Drawing.Point(153, 74);
             this.inputTip.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.inputTip.MaxLength = 100;
+            this.inputTip.MaxLength = 20;
             this.inputTip.Name = "inputTip";
             this.inputTip.Placeholder = "تیپ";
             this.inputTip.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.inputTip.Size = new System.Drawing.Size(135, 44);
-            this.inputTip.TabIndex = 4;
+            this.inputTip.Size = new System.Drawing.Size(177, 44);
+            this.inputTip.TabIndex = 2;
             this.inputTip.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // inputModel
@@ -317,15 +320,15 @@
             this.inputModel.ForeColor = System.Drawing.Color.Black;
             this.inputModel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
             this.inputModel.Icon = global::AutoLedger.App.Properties.Resources.tesla_model_x_128;
-            this.inputModel.Location = new System.Drawing.Point(37, 323);
+            this.inputModel.Location = new System.Drawing.Point(153, 131);
             this.inputModel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.inputModel.MaxLength = 6;
             this.inputModel.Name = "inputModel";
             this.inputModel.NumbersOnly = true;
             this.inputModel.Placeholder = "مدل";
             this.inputModel.PlaceholderColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.inputModel.Size = new System.Drawing.Size(135, 44);
-            this.inputModel.TabIndex = 2;
+            this.inputModel.Size = new System.Drawing.Size(177, 44);
+            this.inputModel.TabIndex = 4;
             this.inputModel.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // carIdControl
@@ -334,10 +337,10 @@
             this.carIdControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.carIdControl.Enabled = false;
             this.carIdControl.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.carIdControl.Location = new System.Drawing.Point(37, 176);
+            this.carIdControl.Location = new System.Drawing.Point(40, 138);
             this.carIdControl.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.carIdControl.Name = "carIdControl";
-            this.carIdControl.Size = new System.Drawing.Size(282, 81);
+            this.carIdControl.Size = new System.Drawing.Size(269, 81);
             this.carIdControl.TabIndex = 1;
             // 
             // inputCreatedAt
@@ -352,13 +355,13 @@
             this.inputCreatedAt.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.inputCreatedAt.HoverColor = System.Drawing.Color.Empty;
             this.inputCreatedAt.Icon = global::AutoLedger.App.Properties.Resources.calendar_1_128;
-            this.inputCreatedAt.Location = new System.Drawing.Point(18, 90);
+            this.inputCreatedAt.Location = new System.Drawing.Point(40, 94);
             this.inputCreatedAt.Margin = new System.Windows.Forms.Padding(0);
             this.inputCreatedAt.Name = "inputCreatedAt";
             this.inputCreatedAt.Placeholder = "[تاریخ ایجاد]";
             this.inputCreatedAt.PlaceholderColor = System.Drawing.Color.BlanchedAlmond;
             this.inputCreatedAt.ShowClearButton = false;
-            this.inputCreatedAt.Size = new System.Drawing.Size(211, 38);
+            this.inputCreatedAt.Size = new System.Drawing.Size(269, 38);
             this.inputCreatedAt.TabIndex = 34;
             this.inputCreatedAt.Text = "[تاریخ]";
             this.inputCreatedAt.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -375,22 +378,22 @@
             this.inputId.ForeColor = System.Drawing.Color.White;
             this.inputId.HoverColor = System.Drawing.Color.Empty;
             this.inputId.Icon = global::AutoLedger.App.Properties.Resources.security_lock_128;
-            this.inputId.Location = new System.Drawing.Point(18, 49);
+            this.inputId.Location = new System.Drawing.Point(40, 53);
             this.inputId.Name = "inputId";
             this.inputId.Placeholder = "[شناسه پذیرش]";
             this.inputId.PlaceholderColor = System.Drawing.Color.WhiteSmoke;
             this.inputId.ShowClearButton = false;
-            this.inputId.Size = new System.Drawing.Size(211, 38);
+            this.inputId.Size = new System.Drawing.Size(269, 38);
             this.inputId.TabIndex = 33;
             this.inputId.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnCancel.Location = new System.Drawing.Point(37, 581);
+            this.btnCancel.Location = new System.Drawing.Point(270, 428);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(86, 44);
+            this.btnCancel.Size = new System.Drawing.Size(116, 44);
             this.btnCancel.TabIndex = 36;
             this.btnCancel.Text = "لغو";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -411,13 +414,13 @@
             this.btnNext.HoverBackColor = System.Drawing.Color.LightGray;
             this.btnNext.Icon = global::AutoLedger.App.Properties.Resources.approval_128;
             this.btnNext.IconSize = 20;
-            this.btnNext.Location = new System.Drawing.Point(129, 579);
+            this.btnNext.Location = new System.Drawing.Point(392, 428);
             this.btnNext.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNext.Name = "btnNext";
             this.btnNext.PressedBackColor = System.Drawing.Color.DarkGray;
             this.btnNext.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnNext.Size = new System.Drawing.Size(190, 49);
-            this.btnNext.TabIndex = 35;
+            this.btnNext.TabIndex = 8;
             this.btnNext.Text = "ثبت و تایید اطلاعات";
             this.btnNext.UseVisualStyleBackColor = false;
             // 
@@ -427,12 +430,30 @@
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Font = new System.Drawing.Font("Vazirmatn", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(265, 87);
+            this.label1.Location = new System.Drawing.Point(374, 91);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(168, 38);
             this.label1.TabIndex = 41;
             this.label1.Text = "آیرون تیونینگ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnCancel);
+            this.panel1.Controls.Add(this.btnNext);
+            this.panel1.Controls.Add(this.inputBrand);
+            this.panel1.Controls.Add(this.inputColor);
+            this.panel1.Controls.Add(this.inputTip);
+            this.panel1.Controls.Add(this.inputModel);
+            this.panel1.Controls.Add(this.inputFullName);
+            this.panel1.Controls.Add(this.inputPhoneNumber);
+            this.panel1.Controls.Add(this.inputUserCardId);
+            this.panel1.Controls.Add(this.stepProgressBar1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 163);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(694, 504);
+            this.panel1.TabIndex = 46;
             // 
             // CarForm
             // 
@@ -440,23 +461,14 @@
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 667);
+            this.ClientSize = new System.Drawing.Size(694, 667);
+            this.Controls.Add(this.carIdControl);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.stepProgressBar1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.inputCreatedAt);
             this.Controls.Add(this.inputId);
-            this.Controls.Add(this.inputBrand);
-            this.Controls.Add(this.inputColor);
-            this.Controls.Add(this.inputTip);
-            this.Controls.Add(this.inputModel);
-            this.Controls.Add(this.inputFullName);
-            this.Controls.Add(this.inputPhoneNumber);
-            this.Controls.Add(this.inputUserCardId);
-            this.Controls.Add(this.carIdControl);
             this.Controls.Add(this.btnCarReception);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
@@ -476,6 +488,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toolbarFormManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stepProgressBar1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -508,5 +521,6 @@
         private System.Windows.Forms.Button btnCancel;
         private Controls.ModernButton btnNext;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

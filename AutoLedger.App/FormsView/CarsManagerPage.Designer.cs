@@ -38,10 +38,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridSelectedCar = new System.Windows.Forms.DataGridView();
             this._index = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OwnerPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +51,10 @@
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Brand = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgCars = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CarBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CarColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TextBoxName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelFactor = new System.Windows.Forms.Panel();
             this.dgCarReceptions = new System.Windows.Forms.DataGridView();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,10 +94,6 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.panelFilter = new System.Windows.Forms.Panel();
             this.cbCurrentCars = new System.Windows.Forms.CheckBox();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CarBrand = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CarColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TextBoxName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSelectedCar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCars)).BeginInit();
             this.panelFactor.SuspendLayout();
@@ -159,7 +159,7 @@
             this.dataGridSelectedCar.RowTemplate.Height = 40;
             this.dataGridSelectedCar.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridSelectedCar.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.dataGridSelectedCar.Size = new System.Drawing.Size(820, 54);
+            this.dataGridSelectedCar.Size = new System.Drawing.Size(618, 54);
             this.dataGridSelectedCar.TabIndex = 17;
             // 
             // _index
@@ -247,8 +247,47 @@
             this.dgCars.RowTemplate.Height = 40;
             this.dgCars.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgCars.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgCars.Size = new System.Drawing.Size(245, 635);
+            this.dgCars.Size = new System.Drawing.Size(245, 569);
             this.dgCars.TabIndex = 15;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Id.DataPropertyName = "Id";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Id.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Id.HeaderText = "R";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 42;
+            // 
+            // CarBrand
+            // 
+            this.CarBrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.CarBrand.DataPropertyName = "Brand";
+            this.CarBrand.HeaderText = "خودرو";
+            this.CarBrand.Name = "CarBrand";
+            this.CarBrand.ReadOnly = true;
+            // 
+            // CarColor
+            // 
+            this.CarColor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.CarColor.DataPropertyName = "Color";
+            this.CarColor.HeaderText = "رنگ";
+            this.CarColor.Name = "CarColor";
+            this.CarColor.ReadOnly = true;
+            this.CarColor.Width = 52;
+            // 
+            // TextBoxName
+            // 
+            this.TextBoxName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TextBoxName.DataPropertyName = "PlateId";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextBoxName.DefaultCellStyle = dataGridViewCellStyle5;
+            this.TextBoxName.HeaderText = "پلاک";
+            this.TextBoxName.Name = "TextBoxName";
+            this.TextBoxName.ReadOnly = true;
             // 
             // panelFactor
             // 
@@ -260,7 +299,7 @@
             this.panelFactor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelFactor.Name = "panelFactor";
             this.panelFactor.Padding = new System.Windows.Forms.Padding(0, 6, 0, 0);
-            this.panelFactor.Size = new System.Drawing.Size(820, 698);
+            this.panelFactor.Size = new System.Drawing.Size(618, 632);
             this.panelFactor.TabIndex = 21;
             // 
             // dgCarReceptions
@@ -304,7 +343,7 @@
             this.dgCarReceptions.RowTemplate.Height = 40;
             this.dgCarReceptions.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgCarReceptions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgCarReceptions.Size = new System.Drawing.Size(820, 618);
+            this.dgCarReceptions.Size = new System.Drawing.Size(618, 552);
             this.dgCarReceptions.TabIndex = 10;
             // 
             // Index
@@ -443,7 +482,7 @@
             this.BtnActionCurrentUser.Name = "BtnActionCurrentUser";
             this.BtnActionCurrentUser.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnActionCurrentUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BtnActionCurrentUser.Size = new System.Drawing.Size(820, 40);
+            this.BtnActionCurrentUser.Size = new System.Drawing.Size(618, 40);
             this.BtnActionCurrentUser.TabIndex = 16;
             this.BtnActionCurrentUser.Text = "toolStrip1";
             // 
@@ -528,11 +567,11 @@
             this.toolStripSeparator1,
             this.labelReceptionsDetails,
             this.cbReceptinoCount});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 664);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 598);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(2);
             this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolStrip1.Size = new System.Drawing.Size(820, 34);
+            this.toolStrip1.Size = new System.Drawing.Size(618, 34);
             this.toolStrip1.TabIndex = 17;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -602,11 +641,11 @@
             this.panelRight.Controls.Add(this.toolStrip2);
             this.panelRight.Controls.Add(this.panelFilter);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRight.Location = new System.Drawing.Point(825, 6);
+            this.panelRight.Location = new System.Drawing.Point(623, 6);
             this.panelRight.Margin = new System.Windows.Forms.Padding(0);
             this.panelRight.Name = "panelRight";
             this.panelRight.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
-            this.panelRight.Size = new System.Drawing.Size(250, 752);
+            this.panelRight.Size = new System.Drawing.Size(250, 686);
             this.panelRight.TabIndex = 22;
             // 
             // panelToolbar
@@ -677,7 +716,7 @@
             this.btnCarsNextPage,
             this.btnCarsBackPage,
             this.toolStripSeparator5});
-            this.toolStrip2.Location = new System.Drawing.Point(5, 711);
+            this.toolStrip2.Location = new System.Drawing.Point(5, 645);
             this.toolStrip2.Name = "toolStrip2";
             this.toolStrip2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.toolStrip2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -744,49 +783,11 @@
             this.cbCurrentCars.Text = "فقط خودروهای جاری";
             this.cbCurrentCars.UseVisualStyleBackColor = false;
             // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.Id.DataPropertyName = "Id";
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Id.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Id.HeaderText = "R";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 42;
-            // 
-            // CarBrand
-            // 
-            this.CarBrand.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CarBrand.DataPropertyName = "Brand";
-            this.CarBrand.HeaderText = "خودرو";
-            this.CarBrand.Name = "CarBrand";
-            this.CarBrand.ReadOnly = true;
-            // 
-            // CarColor
-            // 
-            this.CarColor.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.CarColor.DataPropertyName = "Color";
-            this.CarColor.HeaderText = "رنگ";
-            this.CarColor.Name = "CarColor";
-            this.CarColor.ReadOnly = true;
-            this.CarColor.Width = 52;
-            // 
-            // TextBoxName
-            // 
-            this.TextBoxName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TextBoxName.DataPropertyName = "PlateId";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextBoxName.DefaultCellStyle = dataGridViewCellStyle5;
-            this.TextBoxName.HeaderText = "پلاک";
-            this.TextBoxName.Name = "TextBoxName";
-            this.TextBoxName.ReadOnly = true;
-            // 
             // CarsManagerPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.Controls.Add(this.panelFactor);
             this.Controls.Add(this.dataGridSelectedCar);
@@ -795,7 +796,7 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "CarsManagerPage";
             this.Padding = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.Size = new System.Drawing.Size(1080, 764);
+            this.Size = new System.Drawing.Size(878, 698);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridSelectedCar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgCars)).EndInit();
             this.panelFactor.ResumeLayout(false);

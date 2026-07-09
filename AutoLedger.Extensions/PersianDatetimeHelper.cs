@@ -12,6 +12,16 @@ public static class PersianDatetimeHelper
 
         return $"{pc.GetYear(date)}/{pc.GetMonth(date):00}/{pc.GetDayOfMonth(date):00}";
     }
+    public static string ToShamsiDayMonth(this DateTime date)
+    {
+        if (!IsValidPersianDate(date))
+            return "تاریخ نامعتبر";
+
+        int month = pc.GetMonth(date.Date);
+        int day = pc.GetDayOfMonth(date.Date);
+
+        return $"{month:00}/{day:00}";
+    }
 
     public static string ToShamsiLong(this DateTime date)
     {

@@ -17,11 +17,11 @@ namespace AutoLedger.App.FormsView
 
         private void InitializeComponent()
         {
-            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel3 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
-            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel4 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
-            DevExpress.XtraCharts.XYDiagram xyDiagram2 = new DevExpress.XtraCharts.XYDiagram();
-            DevExpress.XtraCharts.Series series2 = new DevExpress.XtraCharts.Series();
-            DevExpress.XtraCharts.SplineSeriesView splineSeriesView2 = new DevExpress.XtraCharts.SplineSeriesView();
+            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel1 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
+            DevExpress.XtraCharts.SideBySideBarSeriesLabel sideBySideBarSeriesLabel2 = new DevExpress.XtraCharts.SideBySideBarSeriesLabel();
+            DevExpress.XtraCharts.XYDiagram xyDiagram1 = new DevExpress.XtraCharts.XYDiagram();
+            DevExpress.XtraCharts.Series series1 = new DevExpress.XtraCharts.Series();
+            DevExpress.XtraCharts.SplineSeriesView splineSeriesView1 = new DevExpress.XtraCharts.SplineSeriesView();
             this.chartFinance = new DevExpress.XtraCharts.ChartControl();
             this.lblHeaderTitle = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
@@ -60,28 +60,31 @@ namespace AutoLedger.App.FormsView
             this.label10 = new System.Windows.Forms.Label();
             this.panelStat = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.chartPerformance = new DevExpress.XtraCharts.ChartControl();
             this.panelPerformance = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.lblOneDayAgo = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.lblThreeDaysAgo = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.lblOneDayAgo = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.lblSevenDaysAgo = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.btnNextDay = new AutoLedger.App.Controls.ModernButton();
+            this.btnRefresh = new AutoLedger.App.Controls.ModernButton();
+            this.btnBackDay = new AutoLedger.App.Controls.ModernButton();
             ((System.ComponentModel.ISupportInitialize)(this.chartFinance)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).BeginInit();
             this.panelHeader.SuspendLayout();
             this.panelProfit.SuspendLayout();
             this.panelExpnese.SuspendLayout();
             this.panelRevence.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartStats)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel2)).BeginInit();
             this.panelFinance.SuspendLayout();
             this.panelCards.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -94,13 +97,13 @@ namespace AutoLedger.App.FormsView
             this.panelStat.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartPerformance)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView1)).BeginInit();
             this.panelPerformance.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,8 +123,8 @@ namespace AutoLedger.App.FormsView
             this.chartFinance.Padding.Right = 15;
             this.chartFinance.Padding.Top = 15;
             this.chartFinance.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            sideBySideBarSeriesLabel3.DXFont = new DevExpress.Drawing.DXFont("Vazirmatin", 8F);
-            this.chartFinance.SeriesTemplate.Label = sideBySideBarSeriesLabel3;
+            sideBySideBarSeriesLabel1.DXFont = new DevExpress.Drawing.DXFont("Vazirmatin", 8F);
+            this.chartFinance.SeriesTemplate.Label = sideBySideBarSeriesLabel1;
             this.chartFinance.Size = new System.Drawing.Size(723, 216);
             this.chartFinance.SmallChartText.DXFont = new DevExpress.Drawing.DXFont("Vazirmatin", 12F);
             this.chartFinance.TabIndex = 0;
@@ -140,6 +143,9 @@ namespace AutoLedger.App.FormsView
             // 
             // panelHeader
             // 
+            this.panelHeader.Controls.Add(this.btnNextDay);
+            this.panelHeader.Controls.Add(this.btnRefresh);
+            this.panelHeader.Controls.Add(this.btnBackDay);
             this.panelHeader.Controls.Add(this.lblHeaderTitle);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
@@ -151,6 +157,7 @@ namespace AutoLedger.App.FormsView
             // 
             this.panelProfit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelProfit.BackColor = System.Drawing.Color.Honeydew;
+            this.panelProfit.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelProfit.Controls.Add(this.lblProfit);
             this.panelProfit.Controls.Add(this.lblProfitTitle);
             this.panelProfit.Location = new System.Drawing.Point(20, 15);
@@ -164,10 +171,10 @@ namespace AutoLedger.App.FormsView
             // 
             this.lblProfit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblProfit.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProfit.Location = new System.Drawing.Point(15, 104);
+            this.lblProfit.Location = new System.Drawing.Point(15, 102);
             this.lblProfit.Name = "lblProfit";
             this.lblProfit.Padding = new System.Windows.Forms.Padding(5);
-            this.lblProfit.Size = new System.Drawing.Size(166, 62);
+            this.lblProfit.Size = new System.Drawing.Size(164, 62);
             this.lblProfit.TabIndex = 1;
             this.lblProfit.Text = "[مبلغ]";
             this.lblProfit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -181,7 +188,7 @@ namespace AutoLedger.App.FormsView
             this.lblProfitTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblProfitTitle.Name = "lblProfitTitle";
             this.lblProfitTitle.Padding = new System.Windows.Forms.Padding(8);
-            this.lblProfitTitle.Size = new System.Drawing.Size(166, 68);
+            this.lblProfitTitle.Size = new System.Drawing.Size(164, 68);
             this.lblProfitTitle.TabIndex = 0;
             this.lblProfitTitle.Text = "مجموع سود";
             this.lblProfitTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -227,7 +234,7 @@ namespace AutoLedger.App.FormsView
             // panelRevence
             // 
             this.panelRevence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelRevence.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.panelRevence.BackColor = System.Drawing.SystemColors.MenuBar;
             this.panelRevence.Controls.Add(this.lblRevence);
             this.panelRevence.Controls.Add(this.lblRevenceTitle);
             this.panelRevence.Location = new System.Drawing.Point(429, 15);
@@ -280,8 +287,8 @@ namespace AutoLedger.App.FormsView
             this.chartStats.Padding.Right = 15;
             this.chartStats.Padding.Top = 15;
             this.chartStats.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
-            sideBySideBarSeriesLabel4.DXFont = new DevExpress.Drawing.DXFont("Vazirmatin", 8F);
-            this.chartStats.SeriesTemplate.Label = sideBySideBarSeriesLabel4;
+            sideBySideBarSeriesLabel2.DXFont = new DevExpress.Drawing.DXFont("Vazirmatin", 8F);
+            this.chartStats.SeriesTemplate.Label = sideBySideBarSeriesLabel2;
             this.chartStats.Size = new System.Drawing.Size(722, 286);
             this.chartStats.SmallChartText.DXFont = new DevExpress.Drawing.DXFont("Vazirmatin", 12F);
             this.chartStats.TabIndex = 2;
@@ -391,7 +398,7 @@ namespace AutoLedger.App.FormsView
             this.panel3.BackColor = System.Drawing.Color.AntiqueWhite;
             this.panel3.Controls.Add(this.lblCarsNewCount);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(226, 23);
+            this.panel3.Location = new System.Drawing.Point(430, 23);
             this.panel3.Name = "panel3";
             this.panel3.Padding = new System.Windows.Forms.Padding(5);
             this.panel3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -469,7 +476,7 @@ namespace AutoLedger.App.FormsView
             this.panel5.BackColor = System.Drawing.Color.AntiqueWhite;
             this.panel5.Controls.Add(this.lblCarsTodayCount);
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Location = new System.Drawing.Point(427, 23);
+            this.panel5.Location = new System.Drawing.Point(430, 106);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(5);
             this.panel5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -508,7 +515,7 @@ namespace AutoLedger.App.FormsView
             this.panel6.BackColor = System.Drawing.Color.AntiqueWhite;
             this.panel6.Controls.Add(this.lblCarsRepairedCount);
             this.panel6.Controls.Add(this.label8);
-            this.panel6.Location = new System.Drawing.Point(226, 189);
+            this.panel6.Location = new System.Drawing.Point(226, 23);
             this.panel6.Name = "panel6";
             this.panel6.Padding = new System.Windows.Forms.Padding(5);
             this.panel6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -586,7 +593,7 @@ namespace AutoLedger.App.FormsView
             this.panelStat.Controls.Add(this.panel9);
             this.panelStat.Controls.Add(this.label11);
             this.panelStat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelStat.Location = new System.Drawing.Point(0, 542);
+            this.panelStat.Location = new System.Drawing.Point(0, 583);
             this.panelStat.Name = "panelStat";
             this.panelStat.Size = new System.Drawing.Size(1363, 333);
             this.panelStat.TabIndex = 12;
@@ -604,31 +611,45 @@ namespace AutoLedger.App.FormsView
             this.panel9.Size = new System.Drawing.Size(641, 286);
             this.panel9.TabIndex = 12;
             // 
+            // label11
+            // 
+            this.label11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label11.Font = new System.Drawing.Font("Vazirmatn SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(0, 0);
+            this.label11.Name = "label11";
+            this.label11.Padding = new System.Windows.Forms.Padding(10);
+            this.label11.Size = new System.Drawing.Size(1363, 47);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "آمار و ارقام عملکردی امروز تعمیرگاه";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // chartPerformance
             // 
-            xyDiagram2.AxisX.VisibleInPanesSerializable = "-1";
-            xyDiagram2.AxisY.VisibleInPanesSerializable = "-1";
-            this.chartPerformance.Diagram = xyDiagram2;
+            xyDiagram1.AxisX.VisibleInPanesSerializable = "-1";
+            xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
+            this.chartPerformance.Diagram = xyDiagram1;
             this.chartPerformance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartPerformance.Location = new System.Drawing.Point(0, 47);
+            this.chartPerformance.Location = new System.Drawing.Point(15, 62);
             this.chartPerformance.Name = "chartPerformance";
-            series2.Name = "Series 1";
-            series2.SeriesID = 0;
-            series2.View = splineSeriesView2;
+            series1.Name = "Series 1";
+            series1.SeriesID = 0;
+            series1.View = splineSeriesView1;
             this.chartPerformance.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
-        series2};
-            this.chartPerformance.Size = new System.Drawing.Size(1043, 227);
+        series1};
+            this.chartPerformance.Size = new System.Drawing.Size(1013, 238);
             this.chartPerformance.TabIndex = 13;
             // 
             // panelPerformance
             // 
+            this.panelPerformance.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelPerformance.Controls.Add(this.chartPerformance);
             this.panelPerformance.Controls.Add(this.panel8);
             this.panelPerformance.Controls.Add(this.label1);
             this.panelPerformance.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPerformance.Location = new System.Drawing.Point(0, 268);
             this.panelPerformance.Name = "panelPerformance";
-            this.panelPerformance.Size = new System.Drawing.Size(1363, 274);
+            this.panelPerformance.Padding = new System.Windows.Forms.Padding(15);
+            this.panelPerformance.Size = new System.Drawing.Size(1363, 315);
             this.panelPerformance.TabIndex = 14;
             // 
             // panel8
@@ -637,10 +658,49 @@ namespace AutoLedger.App.FormsView
             this.panel8.Controls.Add(this.panel10);
             this.panel8.Controls.Add(this.panel12);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(1043, 47);
+            this.panel8.Location = new System.Drawing.Point(1028, 62);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(320, 227);
+            this.panel8.Size = new System.Drawing.Size(320, 238);
             this.panel8.TabIndex = 14;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.AliceBlue;
+            this.panel11.Controls.Add(this.lblThreeDaysAgo);
+            this.panel11.Controls.Add(this.label9);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel11.Location = new System.Drawing.Point(0, 77);
+            this.panel11.Name = "panel11";
+            this.panel11.Padding = new System.Windows.Forms.Padding(5);
+            this.panel11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.panel11.Size = new System.Drawing.Size(320, 84);
+            this.panel11.TabIndex = 12;
+            // 
+            // lblThreeDaysAgo
+            // 
+            this.lblThreeDaysAgo.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblThreeDaysAgo.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThreeDaysAgo.Location = new System.Drawing.Point(5, 40);
+            this.lblThreeDaysAgo.Name = "lblThreeDaysAgo";
+            this.lblThreeDaysAgo.Padding = new System.Windows.Forms.Padding(5);
+            this.lblThreeDaysAgo.Size = new System.Drawing.Size(310, 39);
+            this.lblThreeDaysAgo.TabIndex = 1;
+            this.lblThreeDaysAgo.Text = "[درصد]";
+            this.lblThreeDaysAgo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label9.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label9.Location = new System.Drawing.Point(5, 5);
+            this.label9.Margin = new System.Windows.Forms.Padding(0);
+            this.label9.Name = "label9";
+            this.label9.Padding = new System.Windows.Forms.Padding(8);
+            this.label9.Size = new System.Drawing.Size(310, 35);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "عملکرد نسبت به 3 روز گذشته";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel10
             // 
@@ -681,52 +741,13 @@ namespace AutoLedger.App.FormsView
             this.label7.Text = "عملکرد نسبت به دیروز";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.AliceBlue;
-            this.panel11.Controls.Add(this.lblThreeDaysAgo);
-            this.panel11.Controls.Add(this.label9);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(0, 77);
-            this.panel11.Name = "panel11";
-            this.panel11.Padding = new System.Windows.Forms.Padding(5);
-            this.panel11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel11.Size = new System.Drawing.Size(320, 73);
-            this.panel11.TabIndex = 12;
-            // 
-            // lblThreeDaysAgo
-            // 
-            this.lblThreeDaysAgo.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.lblThreeDaysAgo.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThreeDaysAgo.Location = new System.Drawing.Point(5, 36);
-            this.lblThreeDaysAgo.Name = "lblThreeDaysAgo";
-            this.lblThreeDaysAgo.Padding = new System.Windows.Forms.Padding(5);
-            this.lblThreeDaysAgo.Size = new System.Drawing.Size(310, 32);
-            this.lblThreeDaysAgo.TabIndex = 1;
-            this.lblThreeDaysAgo.Text = "[درصد]";
-            this.lblThreeDaysAgo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label9.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label9.Location = new System.Drawing.Point(5, 5);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(8);
-            this.label9.Size = new System.Drawing.Size(310, 35);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "عملکرد نسبت به 3 روز گذشته";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.AliceBlue;
             this.panel12.Controls.Add(this.lblSevenDaysAgo);
             this.panel12.Controls.Add(this.label12);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(0, 150);
+            this.panel12.Location = new System.Drawing.Point(0, 161);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(5);
             this.panel12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -763,28 +784,89 @@ namespace AutoLedger.App.FormsView
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Vazirmatn SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(10);
-            this.label1.Size = new System.Drawing.Size(1363, 47);
+            this.label1.Size = new System.Drawing.Size(1333, 47);
             this.label1.TabIndex = 15;
             this.label1.Text = "نمودار پیشرفت 7 روزه تعمیرگاه";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label11
+            // btnNextDay
             // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label11.Font = new System.Drawing.Font("Vazirmatn SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(0, 0);
-            this.label11.Name = "label11";
-            this.label11.Padding = new System.Windows.Forms.Padding(10);
-            this.label11.Size = new System.Drawing.Size(1363, 47);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "آمار و ارقام عملکردی امروز تعمیرگاه";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNextDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.btnNextDay.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNextDay.BorderColor = System.Drawing.Color.Transparent;
+            this.btnNextDay.CornerRadius = 3;
+            this.btnNextDay.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnNextDay.FlatAppearance.BorderSize = 0;
+            this.btnNextDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextDay.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNextDay.ForeColor = System.Drawing.Color.Black;
+            this.btnNextDay.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.btnNextDay.Icon = global::AutoLedger.App.Properties.Resources.back;
+            this.btnNextDay.IconSize = 23;
+            this.btnNextDay.IconSpacing = 0;
+            this.btnNextDay.Location = new System.Drawing.Point(761, 0);
+            this.btnNextDay.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNextDay.Name = "btnNextDay";
+            this.btnNextDay.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnNextDay.Size = new System.Drawing.Size(121, 52);
+            this.btnNextDay.TabIndex = 4;
+            this.btnNextDay.Text = "روز بعد";
+            this.btnNextDay.UseVisualStyleBackColor = false;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.btnRefresh.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRefresh.BorderColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.CornerRadius = 3;
+            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.Black;
+            this.btnRefresh.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.btnRefresh.Icon = global::AutoLedger.App.Properties.Resources.sync_128;
+            this.btnRefresh.IconSize = 23;
+            this.btnRefresh.IconSpacing = 0;
+            this.btnRefresh.Location = new System.Drawing.Point(882, 0);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnRefresh.Size = new System.Drawing.Size(121, 52);
+            this.btnRefresh.TabIndex = 2;
+            this.btnRefresh.Text = "تازه سازی";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            // 
+            // btnBackDay
+            // 
+            this.btnBackDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.btnBackDay.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBackDay.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBackDay.CornerRadius = 3;
+            this.btnBackDay.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnBackDay.FlatAppearance.BorderSize = 0;
+            this.btnBackDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackDay.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackDay.ForeColor = System.Drawing.Color.Black;
+            this.btnBackDay.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.btnBackDay.Icon = global::AutoLedger.App.Properties.Resources.next;
+            this.btnBackDay.IconSize = 23;
+            this.btnBackDay.IconSpacing = 0;
+            this.btnBackDay.Location = new System.Drawing.Point(1003, 0);
+            this.btnBackDay.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBackDay.Name = "btnBackDay";
+            this.btnBackDay.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnBackDay.Size = new System.Drawing.Size(121, 52);
+            this.btnBackDay.TabIndex = 3;
+            this.btnBackDay.Text = "روز قبل";
+            this.btnBackDay.UseVisualStyleBackColor = false;
             // 
             // DailyDashboardPage
             // 
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.panelStat);
             this.Controls.Add(this.panelPerformance);
@@ -792,15 +874,15 @@ namespace AutoLedger.App.FormsView
             this.Controls.Add(this.panelHeader);
             this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "DailyDashboardPage";
-            this.Size = new System.Drawing.Size(1363, 2000);
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel3)).EndInit();
+            this.Size = new System.Drawing.Size(1363, 961);
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartFinance)).EndInit();
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelProfit.ResumeLayout(false);
             this.panelExpnese.ResumeLayout(false);
             this.panelRevence.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartStats)).EndInit();
             this.panelFinance.ResumeLayout(false);
             this.panelCards.ResumeLayout(false);
@@ -813,14 +895,14 @@ namespace AutoLedger.App.FormsView
             this.panel7.ResumeLayout(false);
             this.panelStat.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(xyDiagram2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(splineSeriesView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(series2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(xyDiagram1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(splineSeriesView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(series1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartPerformance)).EndInit();
             this.panelPerformance.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel10.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
+            this.panel10.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -878,6 +960,9 @@ namespace AutoLedger.App.FormsView
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label1;
+        private Controls.ModernButton btnNextDay;
+        private Controls.ModernButton btnBackDay;
+        private Controls.ModernButton btnRefresh;
     }
 }
 
