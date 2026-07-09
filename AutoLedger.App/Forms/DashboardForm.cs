@@ -94,7 +94,7 @@ namespace AutoLedger.App.Forms
                     if (_accountingReportsPage == null)
                         _accountingReportsPage = new AccountingReportsPage();
                     using (AutoLedgerContext db = new AutoLedgerContext())
-                        ShowControl(new DailyDashboardPage(db.DailySummaries.FirstOrDefault()));
+                        ShowControl(new DailyDashboardPage());
                     break;
 
                 case "btnUsersInformation":

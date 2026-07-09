@@ -121,10 +121,10 @@ namespace AutoLedger.App
 
                     db.SaveChanges();
                 }
-                //var data = CarFactory.Generate(10000);
+                //var data = CarFactory.Generate(100);
                 //foreach (var item in data)
                 //{
-                //    var re = CarReceptionFactory.GenerateForCar(item, 1);
+                //    var re = CarReceptionFactory.GenerateForCar(item, 5);
                 //    Console.WriteLine($"{data.IndexOf(item)} added");
                 //}
                 //db.Cars.AddRange(data);

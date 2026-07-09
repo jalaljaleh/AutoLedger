@@ -88,8 +88,45 @@ namespace AutoLedger.Data.Services
         private void ProcessExpense(DbEntityEntry entry, Expense expense, Dictionary<DateTime, SummaryDelta> deltas)
         {
             if (entry.State == EntityState.Added)
+            {
                 AddDelta(deltas, expense.ExpenseDate.Date, shopExp: expense.Amount, expCount: 1);
-            // ... (Keep the Deleted and Modified logic from the previous answer here)
+            }
+            else if (entry.State == EntityState.Deleted)
+            {
+                // When deleted, we must subtract the original amount and decrement the count
+                var origDate = GetOriginalValue<DateTime>(entry, "ExpenseDate").Date;
+                var origAmount = GetOriginalValue<decimal>(entry, "Amount");
+
+                AddDelta(deltas, origDate, shopExp: -origAmount, expCount: -1);
+            }
+            else if (entry.State == EntityState.Modified)
+            {
+                var origDate = GetOriginalValue<DateTime>(entry, "ExpenseDate").Date;
+                var origAmount = GetOriginalValue<decimal>(entry, "Amount");
+
+                var newDate = expense.ExpenseDate.Date;
+                var newAmount = expense.Amount;
+
+                if (origDate == newDate)
+                {
+                    // If the date is the same, just calculate the difference in the amount
+                    decimal amountDiff = newAmount - origAmount;
+
+                    if (amountDiff != 0)
+                    {
+                        // Count doesn't change, just the monetary difference
+                        AddDelta(deltas, newDate, shopExp: amountDiff, expCount: 0);
+                    }
+                }
+                else
+                {
+                    // If the date changed, remove the record from the old date entirely...
+                    AddDelta(deltas, origDate, shopExp: -origAmount, expCount: -1);
+
+                    // ...and add it to the new date
+                    AddDelta(deltas, newDate, shopExp: newAmount, expCount: 1);
+                }
+            }
         }
 
         private void ProcessCarReception(DbEntityEntry entry, CarReception reception, Dictionary<DateTime, SummaryDelta> deltas)
