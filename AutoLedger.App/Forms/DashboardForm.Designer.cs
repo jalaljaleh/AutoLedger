@@ -47,6 +47,9 @@
             this.barLabelTime = new DevExpress.XtraBars.BarStaticItem();
             this.lblVersion = new DevExpress.XtraBars.BarStaticItem();
             this.lblSentenceOfDay = new DevExpress.XtraBars.BarStaticItem();
+            this.btnRefreshSentenceOfDay = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
+            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -72,9 +75,6 @@
             this.btnStuff = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
-            this.btnRefreshSentenceOfDay = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
             this.panelView = new DevExpress.XtraEditors.PanelControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Menu)).BeginInit();
@@ -198,6 +198,30 @@
             this.lblSentenceOfDay.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             this.lblSentenceOfDay.RightIndent = 10;
             this.lblSentenceOfDay.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // btnRefreshSentenceOfDay
+            // 
+            this.btnRefreshSentenceOfDay.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.btnRefreshSentenceOfDay.Id = 12;
+            this.btnRefreshSentenceOfDay.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRefreshSentenceOfDay.ImageOptions.SvgImage")));
+            this.btnRefreshSentenceOfDay.Name = "btnRefreshSentenceOfDay";
+            // 
+            // barStaticItem2
+            // 
+            this.barStaticItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.barStaticItem2.Caption = "لایسنس: مادام‌العمر";
+            this.barStaticItem2.Description = "لایسنس تحت نظارت آقای فرید عزیزی بطور مادام المعر ثبت شده است.";
+            this.barStaticItem2.Id = 16;
+            this.barStaticItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barStaticItem2.ImageOptions.SvgImage")));
+            this.barStaticItem2.Name = "barStaticItem2";
+            this.barStaticItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            // 
+            // barStaticItem3
+            // 
+            this.barStaticItem3.Caption = "لایسنس: مادام العمر";
+            this.barStaticItem3.Id = 17;
+            this.barStaticItem3.ImageOptions.Image = global::AutoLedger.App.Properties.Resources.approval_128;
+            this.barStaticItem3.Name = "barStaticItem3";
             // 
             // ribbonPage1
             // 
@@ -346,7 +370,7 @@
             // 
             this.btnDebts.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDebts.Appearance.Default.Options.UseFont = true;
-            this.btnDebts.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDebtsTo.ImageOptions.SvgImage")));
+            this.btnDebts.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDebts.ImageOptions.SvgImage")));
             this.btnDebts.Name = "btnDebts";
             this.btnDebts.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnDebts.Text = "بدهی و طلب";
@@ -446,29 +470,6 @@
             // barStaticItem1
             // 
             this.barStaticItem1.Name = "barStaticItem1";
-            // 
-            // btnRefreshSentenceOfDay
-            // 
-            this.btnRefreshSentenceOfDay.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
-            this.btnRefreshSentenceOfDay.Id = 12;
-            this.btnRefreshSentenceOfDay.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRefreshSentenceOfDay.ImageOptions.SvgImage")));
-            this.btnRefreshSentenceOfDay.Name = "btnRefreshSentenceOfDay";
-            // 
-            // barStaticItem2
-            // 
-            this.barStaticItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
-            this.barStaticItem2.Caption = "لایسنس: مادام‌العمر";
-            this.barStaticItem2.Description = "لایسنس تحت نظارت آقای فرید عزیزی بطور مادام المعر ثبت شده است.";
-            this.barStaticItem2.Id = 16;
-            this.barStaticItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barStaticItem2.ImageOptions.SvgImage")));
-            this.barStaticItem2.Name = "barStaticItem2";
-            this.barStaticItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
-            // 
-            // barStaticItem3
-            // 
-            this.barStaticItem3.Caption = "لایسنس: مادام العمر";
-            this.barStaticItem3.Id = 17;
-            this.barStaticItem3.Name = "barStaticItem3";
             // 
             // panelView
             // 

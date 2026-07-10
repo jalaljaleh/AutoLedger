@@ -22,7 +22,7 @@ namespace AutoLedger.App.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace AutoLedger.App.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AutoLedger.App.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace AutoLedger.App.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,17 +63,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add_car {
-            get {
-                object obj = ResourceManager.GetObject("add-car", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap administrator_male_80px {
+        public static System.Drawing.Bitmap administrator_male_80px {
             get {
                 object obj = ResourceManager.GetObject("administrator_male_80px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -83,7 +73,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap approval_128 {
+        public static System.Drawing.Bitmap approval_128 {
             get {
                 object obj = ResourceManager.GetObject("approval_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,17 +83,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap automotive {
-            get {
-                object obj = ResourceManager.GetObject("automotive", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap back {
+        public static System.Drawing.Bitmap back {
             get {
                 object obj = ResourceManager.GetObject("back", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -113,7 +93,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap back_arrow_128 {
+        public static System.Drawing.Bitmap back_arrow_128 {
             get {
                 object obj = ResourceManager.GetObject("back_arrow_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +103,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap background {
+        public static System.Drawing.Bitmap background {
             get {
                 object obj = ResourceManager.GetObject("background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,17 +113,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap background1 {
-            get {
-                object obj = ResourceManager.GetObject("background1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap black_background {
+        public static System.Drawing.Bitmap black_background {
             get {
                 object obj = ResourceManager.GetObject("black_background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,17 +123,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap budget {
-            get {
-                object obj = ResourceManager.GetObject("budget", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bussiness_man {
+        public static System.Drawing.Bitmap bussiness_man {
             get {
                 object obj = ResourceManager.GetObject("bussiness-man", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -173,7 +133,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap calendar_1_128 {
+        public static System.Drawing.Bitmap calendar_1_128 {
             get {
                 object obj = ResourceManager.GetObject("calendar_1_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -183,17 +143,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap calendar_128 {
-            get {
-                object obj = ResourceManager.GetObject("calendar_128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap calendar_7_128 {
+        public static System.Drawing.Bitmap calendar_7_128 {
             get {
                 object obj = ResourceManager.GetObject("calendar_7_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -203,7 +153,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap calendar_week30_128 {
+        public static System.Drawing.Bitmap calendar_week30_128 {
             get {
                 object obj = ResourceManager.GetObject("calendar_week30_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -213,17 +163,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap car_wash {
-            get {
-                object obj = ResourceManager.GetObject("car-wash", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap checked_user {
+        public static System.Drawing.Bitmap checked_user {
             get {
                 object obj = ResourceManager.GetObject("checked_user", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -233,37 +173,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap checklist {
-            get {
-                object obj = ResourceManager.GetObject("checklist", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap clear_filters_128 {
-            get {
-                object obj = ResourceManager.GetObject("clear_filters_128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap coding {
-            get {
-                object obj = ResourceManager.GetObject("coding", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap coin {
+        public static System.Drawing.Bitmap coin {
             get {
                 object obj = ResourceManager.GetObject("coin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -273,7 +183,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap color_wheel_128 {
+        public static System.Drawing.Bitmap color_wheel_128 {
             get {
                 object obj = ResourceManager.GetObject("color_wheel_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -283,7 +193,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap credit_card_128 {
+        public static System.Drawing.Bitmap credit_card_128 {
             get {
                 object obj = ResourceManager.GetObject("credit_card_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -293,97 +203,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap credit_card_1281 {
-            get {
-                object obj = ResourceManager.GetObject("credit_card_1281", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap customer_form_background {
-            get {
-                object obj = ResourceManager.GetObject("customer_form_background", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap delete_table_128 {
-            get {
-                object obj = ResourceManager.GetObject("delete_table_128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap develop {
-            get {
-                object obj = ResourceManager.GetObject("develop", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap develop_1 {
-            get {
-                object obj = ResourceManager.GetObject("develop_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap dollar {
-            get {
-                object obj = ResourceManager.GetObject("dollar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap edit {
-            get {
-                object obj = ResourceManager.GetObject("edit", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap edit_production_order_320px {
-            get {
-                object obj = ResourceManager.GetObject("edit_production_order_320px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap edit1 {
-            get {
-                object obj = ResourceManager.GetObject("edit1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap email_send_32 {
+        public static System.Drawing.Bitmap email_send_32 {
             get {
                 object obj = ResourceManager.GetObject("email_send_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -393,17 +213,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap engine_room {
-            get {
-                object obj = ResourceManager.GetObject("engine-room", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap erase_128 {
+        public static System.Drawing.Bitmap erase_128 {
             get {
                 object obj = ResourceManager.GetObject("erase_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -413,7 +223,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap forward_button_128 {
+        public static System.Drawing.Bitmap forward_button_128 {
             get {
                 object obj = ResourceManager.GetObject("forward_button_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -423,7 +233,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap four_squares_128 {
+        public static System.Drawing.Bitmap four_squares_128 {
             get {
                 object obj = ResourceManager.GetObject("four_squares_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -433,7 +243,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap halun_logo3 {
+        public static System.Drawing.Bitmap halun_logo3 {
             get {
                 object obj = ResourceManager.GetObject("halun-logo3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -443,7 +253,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hitfilm_pro_128 {
+        public static System.Drawing.Bitmap hitfilm_pro_128 {
             get {
                 object obj = ResourceManager.GetObject("hitfilm_pro_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -453,7 +263,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap info_128 {
+        public static System.Drawing.Bitmap info_128 {
             get {
                 object obj = ResourceManager.GetObject("info_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -463,27 +273,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap insert_table_128 {
-            get {
-                object obj = ResourceManager.GetObject("insert_table_128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap insurance {
-            get {
-                object obj = ResourceManager.GetObject("insurance", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap iran {
+        public static System.Drawing.Bitmap iran {
             get {
                 object obj = ResourceManager.GetObject("iran", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -493,7 +283,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap irontuning_icon {
+        public static System.Drawing.Bitmap irontuning_icon {
             get {
                 object obj = ResourceManager.GetObject("irontuning_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -503,7 +293,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap irontuning_icon1 {
+        public static System.Drawing.Bitmap irontuning_icon1 {
             get {
                 object obj = ResourceManager.GetObject("irontuning_icon1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -513,37 +303,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap login_background {
-            get {
-                object obj = ResourceManager.GetObject("login_background", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap maintenance {
-            get {
-                object obj = ResourceManager.GetObject("maintenance", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap mechanic_1 {
-            get {
-                object obj = ResourceManager.GetObject("mechanic_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap mercedes_benz_128 {
+        public static System.Drawing.Bitmap mercedes_benz_128 {
             get {
                 object obj = ResourceManager.GetObject("mercedes_benz_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -553,17 +313,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new_year_calendar_128 {
-            get {
-                object obj = ResourceManager.GetObject("new_year_calendar_128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap next {
+        public static System.Drawing.Bitmap next {
             get {
                 object obj = ResourceManager.GetObject("next", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -573,37 +323,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap optimizing {
-            get {
-                object obj = ResourceManager.GetObject("optimizing", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap optimizing_1 {
-            get {
-                object obj = ResourceManager.GetObject("optimizing_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap passbook {
-            get {
-                object obj = ResourceManager.GetObject("passbook", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap phone_128 {
+        public static System.Drawing.Bitmap phone_128 {
             get {
                 object obj = ResourceManager.GetObject("phone_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -613,37 +333,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap photo_۲۰۲۶_۰۶_۱۰_۰۸_۰۶_۳۲ {
-            get {
-                object obj = ResourceManager.GetObject("photo_۲۰۲۶-۰۶-۱۰_۰۸-۰۶-۳۲", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap production_order_320px {
-            get {
-                object obj = ResourceManager.GetObject("production_order_320px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap restart_128 {
-            get {
-                object obj = ResourceManager.GetObject("restart_128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap search {
+        public static System.Drawing.Bitmap search {
             get {
                 object obj = ResourceManager.GetObject("search", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -653,7 +343,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap security_lock_128 {
+        public static System.Drawing.Bitmap security_lock_128 {
             get {
                 object obj = ResourceManager.GetObject("security_lock_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -663,17 +353,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap spashscreen {
-            get {
-                object obj = ResourceManager.GetObject("spashscreen", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap speed_128 {
+        public static System.Drawing.Bitmap speed_128 {
             get {
                 object obj = ResourceManager.GetObject("speed_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -683,7 +363,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap splashScreen {
+        public static System.Drawing.Bitmap splashScreen {
             get {
                 object obj = ResourceManager.GetObject("splashScreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -693,7 +373,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sync_128 {
+        public static System.Drawing.Bitmap sync_128 {
             get {
                 object obj = ResourceManager.GetObject("sync_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -703,7 +383,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap tesla_model_x_128 {
+        public static System.Drawing.Bitmap tesla_model_x_128 {
             get {
                 object obj = ResourceManager.GetObject("tesla_model_x_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -713,17 +393,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap today_128 {
-            get {
-                object obj = ResourceManager.GetObject("today_128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap today_1281 {
+        public static System.Drawing.Bitmap today_1281 {
             get {
                 object obj = ResourceManager.GetObject("today_1281", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -733,7 +403,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap transport {
+        public static System.Drawing.Bitmap transport {
             get {
                 object obj = ResourceManager.GetObject("transport", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -743,7 +413,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap verified_badge_128 {
+        public static System.Drawing.Bitmap verified_badge_128 {
             get {
                 object obj = ResourceManager.GetObject("verified_badge_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -753,7 +423,7 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap zoom_to_fit_128 {
+        public static System.Drawing.Bitmap zoom_to_fit_128 {
             get {
                 object obj = ResourceManager.GetObject("zoom_to_fit_128", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
