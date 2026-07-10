@@ -222,6 +222,7 @@
             this.barStaticItem3.Id = 17;
             this.barStaticItem3.ImageOptions.Image = global::AutoLedger.App.Properties.Resources.approval_128;
             this.barStaticItem3.Name = "barStaticItem3";
+            this.barStaticItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
             // ribbonPage1
             // 
@@ -346,8 +347,8 @@
             this.btnExpenses,
             this.accordionControlSeparator1,
             this.btnDailySummary,
-            this.btnMonthlySummary,
-            this.btnWeeklySummary});
+            this.btnWeeklySummary,
+            this.btnMonthlySummary});
             this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
             this.accordionControlElement2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement2.ImageOptions.SvgImage")));

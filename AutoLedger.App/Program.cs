@@ -134,7 +134,7 @@ namespace AutoLedger.App
 
                     db.SaveChanges();
                 }
-                //var data = CarFactory.Generate(100);
+                //var data = CarFactory.Generate(1000);
                 //foreach (var item in data)
                 //{
                 //    var re = CarReceptionFactory.GenerateForCar(item, 5);
