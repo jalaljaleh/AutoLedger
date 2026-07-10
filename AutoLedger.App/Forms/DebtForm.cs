@@ -94,10 +94,10 @@ namespace AutoLedger.App.Forms
                     if (debt.Type == DebtType.Payable)
                         chReciveable.Checked = true;
                     else
-                        chSettled.Checked = true;
+                        chPayable.Checked = true;
 
                     // تنظیم وضعیت تسویه
-                    chPayable.Checked = debt.IsSettled;
+                    chPayable.Checked = debt.Type == DebtType.Payable;
                 }
             }
             catch (Exception ex)
@@ -136,7 +136,7 @@ namespace AutoLedger.App.Forms
                     return;
                 }
 
-                if (!chReciveable.Checked && !chSettled.Checked)
+                if (!chReciveable.Checked && !chPayable.Checked)
                 {
                     MessageBox.Show("لطفاً نوع بدهی/طلب را مشخص کنید.", "هشدار", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -163,7 +163,7 @@ namespace AutoLedger.App.Forms
                         debtInDb.Amount = amount;
                         debtInDb.DebtTo = inputPaidTo.Text?.Trim(); 
                         debtInDb.Type = debtType;
-                        debtInDb.IsSettled = chPayable.Checked;
+                        debtInDb.IsSettled = chSettled.Checked;
                     }
                     else
                     {
@@ -175,7 +175,7 @@ namespace AutoLedger.App.Forms
                             Amount = amount,
                             DebtTo = inputPaidTo.Text?.Trim(),
                             Type = debtType,
-                            IsSettled = chPayable.Checked,
+                            IsSettled = chSettled.Checked,
                             CreatedAt = DateTime.Now
                         };
 
