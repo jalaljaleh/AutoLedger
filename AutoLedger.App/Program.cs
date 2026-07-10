@@ -23,32 +23,26 @@ namespace AutoLedger.App
         [STAThread]
         static void Main()
         {
+
             try
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
+                bool connected = false;
+
                 using (var loading = new LoginForm())
                 {
-                    loading.Show();
-                    loading.Refresh();
                     loading.Enabled = false;
 
-                    bool connected = InitializeDatabaseSync().Result;
-
-                    loading.Close();
-
-                    if (!connected)
+                    loading.Shown += async (sender, e) =>
                     {
-                        MessageBox.Show(
-                            "خطا در اتصال به پایگاه داده رخ داده است.",
-                            "خطا",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Error
-                        );
-                        return;
-                    }
+                        connected = await InitializeDatabaseSync();
 
+                        loading.Close();
+                    };
+
+                    Application.Run(loading);
                 }
 
                 OfflineTimeChecker.CheckSystemClock();
@@ -59,24 +53,43 @@ namespace AutoLedger.App
                     {
                         User = db.Users.AsNoTracking().FirstOrDefault();
                     }
+
                     Application.Run(new DashboardForm());
+                    return;
                 }
-                else
+
+                using (var loginDialog = new LoginForm())
                 {
-                    using (var loginDialog = new LoginForm())
-                    {
-                        _ = loginDialog.InitializeAsync();
-                        var dialog = loginDialog.ShowDialog();
-                        if (dialog == DialogResult.OK)
-                        {
-                            Application.Run(new DashboardForm());
-                        }
-                    }
+                    _ = loginDialog.InitializeAsync();
+                    var dialog = loginDialog.ShowDialog();
+
+                    if (dialog == DialogResult.OK)
+                        Application.Run(new DashboardForm());
+
                 }
+
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("خطای ناشناخته، برنامه باید بسته شود.");
+                try
+                {
+                    // Define a path for the log file (e.g., in the application folder)
+                    string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "error_log.txt");
+
+                    // Format the error message
+                    string logMessage = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ERROR: {ex.Message}{Environment.NewLine}" +
+                                        $"STACK TRACE: {ex.StackTrace}{Environment.NewLine}" +
+                                        $"---------------------------------------------------{Environment.NewLine}";
+
+                    // Write to the file
+                    File.AppendAllText(logPath, logMessage);
+                }
+                catch
+                {
+                    // Silently fail if even the logging fails to avoid crashing the error handler
+                }
+
+                MessageBox.Show("خطای ناشناخته، برنامه باید بسته شود. جزئیات در فایل لاگ ثبت شد.");
             }
         }
 
