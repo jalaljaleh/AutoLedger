@@ -172,6 +172,12 @@
     <Compile Include="FormsView\CarsManagerPage.Designer.cs">
       <DependentUpon>CarsManagerPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsView\DebtsManagerPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormsView\DebtsManagerPage.Designer.cs">
+      <DependentUpon>DebtsManagerPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsView\UsersManagerPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -220,6 +226,12 @@
     <Compile Include="Forms\CarReceptionForm.Designer.cs">
       <DependentUpon>CarReceptionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\DebtForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DebtForm.Designer.cs">
+      <DependentUpon>DebtForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ExpenseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -261,6 +273,9 @@
     <EmbeddedResource Include="FormsView\CarsManagerPage.resx">
       <DependentUpon>CarsManagerPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormsView\DebtsManagerPage.resx">
+      <DependentUpon>DebtsManagerPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormsView\UsersManagerPage.resx">
       <DependentUpon>UsersManagerPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -287,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DashboardForm.resx">
       <DependentUpon>DashboardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DebtForm.resx">
+      <DependentUpon>DebtForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ExpenseForm.resx">
       <DependentUpon>ExpenseForm.cs</DependentUpon>
@@ -547,6 +565,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="irontuning_icon.ico" />
+    <None Include="Resources\photo_۲۰۲۶-۰۶-۱۰_۰۸-۰۶-۳۲.jpg" />
     <None Include="Resources\halun-logo3.png" />
     <None Include="Resources\irontuning_icon.png" />
     <None Include="Resources\irontuning_icon.ico" />

@@ -613,6 +613,16 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap photo_۲۰۲۶_۰۶_۱۰_۰۸_۰۶_۳۲ {
+            get {
+                object obj = ResourceManager.GetObject("photo_۲۰۲۶-۰۶-۱۰_۰۸-۰۶-۳۲", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap production_order_320px {
             get {
                 object obj = ResourceManager.GetObject("production_order_320px", resourceCulture);

@@ -17,9 +17,9 @@ namespace AutoLedger.Domain
         public int Id { get; set; }
         public string Title { get; set; }      
         public decimal Amount { get; set; }
-        public DebtType Type { get; set; }     
         public string Description { get; set; }
         public string DebtTo { get; set; }     
+        public DebtType Type { get; set; }     
         public bool IsSettled { get; set; }
         public DateTime CreatedAt { get; set; }
     }

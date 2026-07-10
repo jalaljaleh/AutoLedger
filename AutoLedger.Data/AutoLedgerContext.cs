@@ -35,6 +35,8 @@ namespace AutoLedger.Data
         public DbSet<Expense> Expenses { get; set; }
         public DbSet<ExpenseCategory> ExpenseCategories { get; set; }
 
+        public DbSet<Debt> Debts { get; set; }
+
 
         public DbSet<DailyLedgerSummary> DailySummaries { get; set; }
 
@@ -50,6 +52,7 @@ namespace AutoLedger.Data
             modelBuilder.Configurations.Add(new ExpenseConfiguration());
             modelBuilder.Configurations.Add(new ExpenseCategoryConfiguration());
 
+            modelBuilder.Configurations.Add(new DebtConfiguration());
 
             modelBuilder.Configurations.Add(new DailyLedgerSummaryConfiguration());
 

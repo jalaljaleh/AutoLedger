@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IslamicContentHelper.cs" />
     <Compile Include="NumberToPersianWords.cs" />
     <Compile Include="PersianDatetimeHelper.cs" />
     <Compile Include="PersianNumberHelper.cs" />

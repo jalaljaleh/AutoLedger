@@ -11,6 +11,7 @@ using AutoLedger.App.FormsView;
 using AutoLedger.Data;
 using AutoLedger.Domain;
 using AutoLedger.Extensions;
+using System.Diagnostics;
 
 namespace AutoLedger.App.Forms
 {
@@ -24,14 +25,15 @@ namespace AutoLedger.App.Forms
         private ReportsMonthlyPage _reportsWeeklyPage;
         private ReportsMonthlyPage _reportsMonthlyPage;
         private UsersManagerPage _usersManagerPage;
+        private DebtsManagerPage _debtsManagerPage;
 
         public DashboardForm()
         {
             InitializeComponent();
             SetupEventHandlers();
 
-            this.barLabelTime.Caption = DateTime.Now.ToShamsiLong();
             this.lblVersion.Caption = Program.Version;
+            this.lblPrayOfDay.Caption = IslamicContentHelper.GetTodayZikr();
 
             RefreshUserInfo();
         }
@@ -52,13 +54,22 @@ namespace AutoLedger.App.Forms
             this.btnMonthlySummary.Click += ViewButtons_Click;
             this.btnUsersInformation.Click += ViewButtons_Click;
             this.btnStuff.Click += ViewButtons_Click;
+            this.btnDebts.Click += ViewButtons_Click;
+            this.btnDashboard.Click += ViewButtons_Click;
+            this.btnRefreshSentenceOfDay.ItemClick += (s, e) => RefreshSentences();
 
             // UI events
             this.panelView.Resize += PanelView_Resize;
         }
-
+        private void RefreshSentences()
+        {
+            this.barLabelTime.Caption = "تاریخ امروز: " + DateTime.Now.ToShamsiLong();
+            this.lblSentenceOfDay.Caption = IslamicContentHelper.GetRandomQuranVerse();
+        }
         private void RefreshUserInfo()
         {
+            RefreshSentences();
+
             if (Program.User == null) return;
 
             this.barUserName.Caption = Program.User.FullName;
@@ -96,11 +107,17 @@ namespace AutoLedger.App.Forms
 
         private void ViewButtons_Click(object sender, EventArgs e)
         {
+            RefreshSentences();
+
             if (!(sender is AccordionControlElement btn)) return;
 
-            // 3. Lazy initialization of cached pages
+        
             switch (btn.Name)
             {
+                case "btnDashboard":
+                    ShowControl(null);
+                    break;
+
                 case "btnAllCars":
                 case "btnCurrentCars":
                     bool isCurrent = btn.Name == "btnCurrentCars";
@@ -111,6 +128,10 @@ namespace AutoLedger.App.Forms
                     ShowControl(_carsManagerPage);
                     break;
 
+                case "btnDebts":
+                    if (_debtsManagerPage == null) _debtsManagerPage = new DebtsManagerPage();
+                    ShowControl(_debtsManagerPage);
+                    break;
                 case "btnExpenses":
                     if (_expensesManagerPage == null) _expensesManagerPage = new ExpensesManagerPage();
                     ShowControl(_expensesManagerPage);
@@ -145,26 +166,28 @@ namespace AutoLedger.App.Forms
 
         private void ShowControl(UserControl control)
         {
-            if (control == null || panelView.Controls.Contains(control)) return;
-
             panelView.SuspendLayout();
-
-            // Clear does not dispose, which is perfect since we are caching the controls now.
             panelView.Controls.Clear();
 
-            control.MinimumSize = new System.Drawing.Size(0, panelView.ClientSize.Height);
-            if (control.Height < panelView.ClientSize.Height)
+            if (control != null)
             {
-                control.Height = panelView.ClientSize.Height;
+                control.MinimumSize = new System.Drawing.Size(0, panelView.ClientSize.Height);
+                control.MaximumSize = new System.Drawing.Size(panelView.ClientSize.Width, 0);
+
+                if (control.Height < panelView.ClientSize.Height)
+                {
+                    control.Height = panelView.ClientSize.Height;
+                }
+
+                control.Dock = DockStyle.Top;
+                panelView.Controls.Add(control);
+
+                panelView.AutoScroll = true;
+                panelView.HorizontalScroll.Enabled = false;
+                panelView.HorizontalScroll.Visible = false;
+                panelView.HorizontalScroll.Maximum = 0;
+
             }
-
-            control.Dock = DockStyle.Top;
-            panelView.Controls.Add(control);
-
-            panelView.AutoScroll = true;
-            panelView.HorizontalScroll.Enabled = false;
-            panelView.HorizontalScroll.Visible = false;
-            panelView.HorizontalScroll.Maximum = 0;
 
             panelView.ResumeLayout(true);
             panelView.PerformLayout();
@@ -175,6 +198,7 @@ namespace AutoLedger.App.Forms
             if (panelView.Controls.Count > 0)
             {
                 panelView.Controls[0].MinimumSize = new System.Drawing.Size(0, panelView.ClientSize.Height);
+                panelView.Controls[0].MaximumSize = new System.Drawing.Size(panelView.ClientSize.Width, 0);
             }
         }
 
