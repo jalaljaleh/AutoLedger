@@ -227,7 +227,7 @@
             this.inputSearch.TabIndex = 0;
             this.inputSearch.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnRefreshCars
+            // btnRefresh
             // 
             this.btnRefreshCars.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.btnRefreshCars.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -244,14 +244,14 @@
             this.btnRefreshCars.IconSpacing = 0;
             this.btnRefreshCars.Location = new System.Drawing.Point(563, 0);
             this.btnRefreshCars.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRefreshCars.Name = "btnRefreshCars";
+            this.btnRefreshCars.Name = "btnRefresh";
             this.btnRefreshCars.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnRefreshCars.Size = new System.Drawing.Size(110, 36);
             this.btnRefreshCars.TabIndex = 1;
             this.btnRefreshCars.Text = "رفرش";
             this.btnRefreshCars.UseVisualStyleBackColor = false;
             // 
-            // btnEditCar
+            // btnEditUser
             // 
             this.btnEditCar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.btnEditCar.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -268,14 +268,14 @@
             this.btnEditCar.IconSpacing = 0;
             this.btnEditCar.Location = new System.Drawing.Point(673, 0);
             this.btnEditCar.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEditCar.Name = "btnEditCar";
+            this.btnEditCar.Name = "btnEditUser";
             this.btnEditCar.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnEditCar.Size = new System.Drawing.Size(97, 36);
             this.btnEditCar.TabIndex = 3;
             this.btnEditCar.Text = "ویرایش";
             this.btnEditCar.UseVisualStyleBackColor = false;
             // 
-            // btnNewCar
+            // btnNewUser
             // 
             this.btnNewCar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.btnNewCar.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -292,7 +292,7 @@
             this.btnNewCar.IconSpacing = 0;
             this.btnNewCar.Location = new System.Drawing.Point(770, 0);
             this.btnNewCar.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNewCar.Name = "btnNewCar";
+            this.btnNewCar.Name = "btnNewUser";
             this.btnNewCar.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnNewCar.Size = new System.Drawing.Size(111, 36);
             this.btnNewCar.TabIndex = 2;

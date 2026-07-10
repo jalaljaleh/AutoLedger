@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelFactor = new System.Windows.Forms.Panel();
             this.dgExpenses = new System.Windows.Forms.DataGridView();
             this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,11 +73,10 @@
             this.panelFactor.Controls.Add(this.BtnActionCurrentUser);
             this.panelFactor.Controls.Add(this.toolStrip1);
             this.panelFactor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelFactor.Location = new System.Drawing.Point(2, 2);
-            this.panelFactor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelFactor.Location = new System.Drawing.Point(0, 0);
+            this.panelFactor.Margin = new System.Windows.Forms.Padding(0);
             this.panelFactor.Name = "panelFactor";
-            this.panelFactor.Padding = new System.Windows.Forms.Padding(5);
-            this.panelFactor.Size = new System.Drawing.Size(702, 663);
+            this.panelFactor.Size = new System.Drawing.Size(1062, 667);
             this.panelFactor.TabIndex = 22;
             // 
             // dgExpenses
@@ -100,7 +99,7 @@
             this.Id});
             this.dgExpenses.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgExpenses.GridColor = System.Drawing.Color.DimGray;
-            this.dgExpenses.Location = new System.Drawing.Point(5, 48);
+            this.dgExpenses.Location = new System.Drawing.Point(0, 43);
             this.dgExpenses.Margin = new System.Windows.Forms.Padding(0);
             this.dgExpenses.MultiSelect = false;
             this.dgExpenses.Name = "dgExpenses";
@@ -116,7 +115,7 @@
             this.dgExpenses.RowTemplate.Height = 40;
             this.dgExpenses.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dgExpenses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgExpenses.Size = new System.Drawing.Size(692, 567);
+            this.dgExpenses.Size = new System.Drawing.Size(1062, 581);
             this.dgExpenses.TabIndex = 10;
             // 
             // Index
@@ -132,9 +131,9 @@
             // 
             this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.Amount.DataPropertyName = "Amount";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.Format = "#,0 تومان";
-            this.Amount.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Format = "#,0 تومان";
+            this.Amount.DefaultCellStyle = dataGridViewCellStyle3;
             this.Amount.HeaderText = "مبلغ";
             this.Amount.Name = "Amount";
             this.Amount.ReadOnly = true;
@@ -188,9 +187,9 @@
             // 
             this.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.CreatedAt.DataPropertyName = "CreatedAt";
-            dataGridViewCellStyle2.Format = "f";
-            dataGridViewCellStyle2.NullValue = null;
-            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Format = "f";
+            dataGridViewCellStyle4.NullValue = null;
+            this.CreatedAt.DefaultCellStyle = dataGridViewCellStyle4;
             this.CreatedAt.HeaderText = "تاریخ پرداخت";
             this.CreatedAt.Name = "CreatedAt";
             this.CreatedAt.ReadOnly = true;
@@ -222,11 +221,11 @@
             this.btnFilterWeek,
             this.btnFilterToday});
             this.BtnActionCurrentUser.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.BtnActionCurrentUser.Location = new System.Drawing.Point(5, 5);
+            this.BtnActionCurrentUser.Location = new System.Drawing.Point(0, 0);
             this.BtnActionCurrentUser.Name = "BtnActionCurrentUser";
             this.BtnActionCurrentUser.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.BtnActionCurrentUser.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.BtnActionCurrentUser.Size = new System.Drawing.Size(692, 43);
+            this.BtnActionCurrentUser.Size = new System.Drawing.Size(1062, 43);
             this.BtnActionCurrentUser.TabIndex = 16;
             this.BtnActionCurrentUser.Text = "toolStrip1";
             // 
@@ -339,11 +338,11 @@
             this.labelDetails,
             this.toolStripSeparator4,
             this.labelTotalExpenses});
-            this.toolStrip1.Location = new System.Drawing.Point(5, 615);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 624);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolStrip1.Size = new System.Drawing.Size(692, 43);
+            this.toolStrip1.Size = new System.Drawing.Size(1062, 43);
             this.toolStrip1.TabIndex = 17;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -442,10 +441,9 @@
             this.BackColor = System.Drawing.Color.DarkSalmon;
             this.Controls.Add(this.panelFactor);
             this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "ExpensesManagerPage";
-            this.Padding = new System.Windows.Forms.Padding(2);
-            this.Size = new System.Drawing.Size(706, 667);
+            this.Size = new System.Drawing.Size(1062, 667);
             this.panelFactor.ResumeLayout(false);
             this.panelFactor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgExpenses)).EndInit();

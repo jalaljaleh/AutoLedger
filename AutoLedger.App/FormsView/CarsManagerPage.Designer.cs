@@ -680,7 +680,7 @@
             this.inputSearch.TabIndex = 0;
             this.inputSearch.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnRefreshCars
+            // btnRefresh
             // 
             this.btnRefreshCars.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
             this.btnRefreshCars.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -697,7 +697,7 @@
             this.btnRefreshCars.IconSpacing = 0;
             this.btnRefreshCars.Location = new System.Drawing.Point(164, 0);
             this.btnRefreshCars.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRefreshCars.Name = "btnRefreshCars";
+            this.btnRefreshCars.Name = "btnRefresh";
             this.btnRefreshCars.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
             this.btnRefreshCars.Size = new System.Drawing.Size(81, 36);
             this.btnRefreshCars.TabIndex = 1;

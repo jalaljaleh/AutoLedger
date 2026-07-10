@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barUserName = new DevExpress.XtraBars.BarStaticItem();
             this.barBtnUser = new DevExpress.XtraBars.BarButtonItem();
             this.barLabelTime = new DevExpress.XtraBars.BarStaticItem();
+            this.lblVersion = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -51,7 +52,6 @@
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.panelView = new System.Windows.Forms.Panel();
             this.Menu = new DevExpress.XtraBars.Navigation.AccordionControl();
-            this.btnDailySummary = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement1 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnNewReception = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnCurrentCars = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -59,10 +59,17 @@
             this.accordionControlElement2 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnNewExpens = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnExpenses = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator1 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.btnDailySummary = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnMonthlySummary = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnWeeklySummary = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnInformations = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnUsersInformation = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnWeeklySummary = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.btnMonthlySummary = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnStuff = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnDebtsTo = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnDebtsFrom = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Menu)).BeginInit();
             this.SuspendLayout();
@@ -78,9 +85,10 @@
             this.barUserName,
             this.barBtnUser,
             this.ribbonControl1.ExpandCollapseItem,
-            this.barLabelTime});
+            this.barLabelTime,
+            this.lblVersion});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 8;
+            this.ribbonControl1.MaxItemId = 9;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsStubGlyphs.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbonControl1.OptionsStubGlyphs.UseFont = true;
@@ -96,20 +104,20 @@
             // barUserName
             // 
             this.barUserName.Caption = "کاربر آنلاین می باشد";
-            toolTipTitleItem1.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
-            toolTipTitleItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.barUserName.DropDownSuperTip = superToolTip1;
+            toolTipTitleItem4.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
+            toolTipTitleItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            superToolTip4.Items.Add(toolTipTitleItem4);
+            superToolTip4.Items.Add(toolTipItem4);
+            this.barUserName.DropDownSuperTip = superToolTip4;
             this.barUserName.Id = 6;
             this.barUserName.Name = "barUserName";
             this.barUserName.ShowImageInToolbar = false;
-            toolTipTitleItem2.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
-            toolTipTitleItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
-            superToolTip2.Items.Add(toolTipTitleItem2);
-            superToolTip2.Items.Add(toolTipItem2);
-            superToolTip2.Items.Add(toolTipSeparatorItem1);
-            this.barUserName.SuperTip = superToolTip2;
+            toolTipTitleItem5.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
+            toolTipTitleItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
+            superToolTip5.Items.Add(toolTipTitleItem5);
+            superToolTip5.Items.Add(toolTipItem5);
+            superToolTip5.Items.Add(toolTipSeparatorItem3);
+            this.barUserName.SuperTip = superToolTip5;
             // 
             // barBtnUser
             // 
@@ -123,20 +131,20 @@
             this.barBtnUser.Name = "barBtnUser";
             this.barBtnUser.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            toolTipTitleItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem3.Appearance.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold);
-            toolTipTitleItem3.Appearance.Options.UseFont = true;
-            toolTipTitleItem3.Appearance.Options.UseTextOptions = true;
-            toolTipTitleItem3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            toolTipTitleItem3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            toolTipTitleItem3.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
-            toolTipTitleItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
-            toolTipTitleItem3.Text = "کاربر انلاین می باشد";
-            toolTipItem3.Text = "کاربر انلاین می باشد";
-            superToolTip3.Items.Add(toolTipTitleItem3);
-            superToolTip3.Items.Add(toolTipItem3);
-            superToolTip3.Items.Add(toolTipSeparatorItem2);
-            this.barBtnUser.SuperTip = superToolTip3;
+            toolTipTitleItem6.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem6.Appearance.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold);
+            toolTipTitleItem6.Appearance.Options.UseFont = true;
+            toolTipTitleItem6.Appearance.Options.UseTextOptions = true;
+            toolTipTitleItem6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            toolTipTitleItem6.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            toolTipTitleItem6.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
+            toolTipTitleItem6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
+            toolTipTitleItem6.Text = "کاربر انلاین می باشد";
+            toolTipItem6.Text = "کاربر انلاین می باشد";
+            superToolTip6.Items.Add(toolTipTitleItem6);
+            superToolTip6.Items.Add(toolTipItem6);
+            superToolTip6.Items.Add(toolTipSeparatorItem4);
+            this.barBtnUser.SuperTip = superToolTip6;
             // 
             // barLabelTime
             // 
@@ -148,6 +156,12 @@
             this.barLabelTime.ItemAppearance.Normal.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.barLabelTime.ItemAppearance.Normal.Options.UseFont = true;
             this.barLabelTime.Name = "barLabelTime";
+            // 
+            // lblVersion
+            // 
+            this.lblVersion.Caption = "[ورژن]";
+            this.lblVersion.Id = 8;
+            this.lblVersion.Name = "lblVersion";
             // 
             // ribbonPage1
             // 
@@ -172,7 +186,8 @@
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.ItemLinks.Add(this.barLabelTime);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 651);
+            this.ribbonStatusBar1.ItemLinks.Add(this.lblVersion);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 788);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
             this.ribbonStatusBar1.Size = new System.Drawing.Size(960, 45);
@@ -190,7 +205,7 @@
             this.panelView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelView.Location = new System.Drawing.Point(0, 49);
             this.panelView.Name = "panelView";
-            this.panelView.Size = new System.Drawing.Size(737, 602);
+            this.panelView.Size = new System.Drawing.Size(737, 739);
             this.panelView.TabIndex = 12;
             // 
             // Menu
@@ -201,24 +216,16 @@
             this.Menu.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.accordionControlElement1,
             this.accordionControlElement2,
-            this.btnInformations});
+            this.btnInformations,
+            this.accordionControlElement3,
+            this.accordionControlSeparator2});
             this.Menu.Location = new System.Drawing.Point(737, 49);
             this.Menu.Name = "Menu";
             this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Menu.ShowFilterControl = DevExpress.XtraBars.Navigation.ShowFilterControl.Always;
-            this.Menu.Size = new System.Drawing.Size(223, 602);
+            this.Menu.Size = new System.Drawing.Size(223, 739);
             this.Menu.TabIndex = 0;
             this.Menu.ViewType = DevExpress.XtraBars.Navigation.AccordionControlViewType.HamburgerMenu;
-            // 
-            // btnDailySummary
-            // 
-            this.btnDailySummary.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDailySummary.Appearance.Default.Options.UseFont = true;
-            this.btnDailySummary.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
-            this.btnDailySummary.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDailySummary.ImageOptions.SvgImage")));
-            this.btnDailySummary.Name = "btnDailySummary";
-            this.btnDailySummary.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnDailySummary.Text = "عملکرد روزانه";
             // 
             // accordionControlElement1
             // 
@@ -254,7 +261,7 @@
             this.btnCurrentCars.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnCurrentCars.ImageOptions.SvgImage")));
             this.btnCurrentCars.Name = "btnCurrentCars";
             this.btnCurrentCars.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnCurrentCars.Text = "پذیرش های جاری";
+            this.btnCurrentCars.Text = "خودرو های جاری";
             // 
             // btnAllCars
             // 
@@ -264,7 +271,7 @@
             this.btnAllCars.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAllCars.ImageOptions.SvgImage")));
             this.btnAllCars.Name = "btnAllCars";
             this.btnAllCars.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnAllCars.Text = "تاریخچه پذیرش ها";
+            this.btnAllCars.Text = "مدیریت پذیرش ها";
             // 
             // accordionControlElement2
             // 
@@ -272,7 +279,13 @@
             this.accordionControlElement2.Appearance.Default.Options.UseFont = true;
             this.accordionControlElement2.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.btnNewExpens,
-            this.btnExpenses});
+            this.btnDebtsTo,
+            this.btnDebtsFrom,
+            this.btnExpenses,
+            this.accordionControlSeparator1,
+            this.btnDailySummary,
+            this.btnMonthlySummary,
+            this.btnWeeklySummary});
             this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
             this.accordionControlElement2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement2.ImageOptions.SvgImage")));
@@ -301,14 +314,45 @@
             this.btnExpenses.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnExpenses.Text = "مدیریت مخارج";
             // 
+            // accordionControlSeparator1
+            // 
+            this.accordionControlSeparator1.Name = "accordionControlSeparator1";
+            // 
+            // btnDailySummary
+            // 
+            this.btnDailySummary.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDailySummary.Appearance.Default.Options.UseFont = true;
+            this.btnDailySummary.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
+            this.btnDailySummary.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDailySummary.ImageOptions.SvgImage")));
+            this.btnDailySummary.Name = "btnDailySummary";
+            this.btnDailySummary.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnDailySummary.Text = "عملکرد روزانه";
+            // 
+            // btnMonthlySummary
+            // 
+            this.btnMonthlySummary.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMonthlySummary.Appearance.Default.Options.UseFont = true;
+            this.btnMonthlySummary.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
+            this.btnMonthlySummary.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMonthlySummary.ImageOptions.SvgImage")));
+            this.btnMonthlySummary.Name = "btnMonthlySummary";
+            this.btnMonthlySummary.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnMonthlySummary.Text = "عملکرد ماهانه";
+            // 
+            // btnWeeklySummary
+            // 
+            this.btnWeeklySummary.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnWeeklySummary.Appearance.Default.Options.UseFont = true;
+            this.btnWeeklySummary.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
+            this.btnWeeklySummary.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnWeeklySummary.ImageOptions.SvgImage")));
+            this.btnWeeklySummary.Name = "btnWeeklySummary";
+            this.btnWeeklySummary.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnWeeklySummary.Text = "عملکرد هفتگی";
+            // 
             // btnInformations
             // 
             this.btnInformations.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInformations.Appearance.Default.Options.UseFont = true;
             this.btnInformations.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
-            this.btnDailySummary,
-            this.btnWeeklySummary,
-            this.btnMonthlySummary,
             this.btnUsersInformation});
             this.btnInformations.Expanded = true;
             this.btnInformations.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
@@ -326,25 +370,49 @@
             this.btnUsersInformation.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnUsersInformation.Text = "مشتری ها";
             // 
-            // btnWeeklySummary
+            // accordionControlElement3
             // 
-            this.btnWeeklySummary.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWeeklySummary.Appearance.Default.Options.UseFont = true;
-            this.btnWeeklySummary.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
-            this.btnWeeklySummary.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnWeeklySummary.ImageOptions.SvgImage")));
-            this.btnWeeklySummary.Name = "btnWeeklySummary";
-            this.btnWeeklySummary.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnWeeklySummary.Text = "عملکرد هفتگی";
+            this.accordionControlElement3.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.accordionControlElement3.Appearance.Default.Options.UseFont = true;
+            this.accordionControlElement3.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.btnStuff});
+            this.accordionControlElement3.Expanded = true;
+            this.accordionControlElement3.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
+            this.accordionControlElement3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement3.ImageOptions.SvgImage")));
+            this.accordionControlElement3.Name = "accordionControlElement3";
+            this.accordionControlElement3.Text = "تعمیرگاه";
             // 
-            // btnMonthlySummary
+            // btnStuff
             // 
-            this.btnMonthlySummary.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMonthlySummary.Appearance.Default.Options.UseFont = true;
-            this.btnMonthlySummary.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
-            this.btnMonthlySummary.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMonthlySummary.ImageOptions.SvgImage")));
-            this.btnMonthlySummary.Name = "btnMonthlySummary";
-            this.btnMonthlySummary.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnMonthlySummary.Text = "عملکرد ماهانه";
+            this.btnStuff.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStuff.Appearance.Default.Options.UseFont = true;
+            this.btnStuff.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
+            this.btnStuff.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnStuff.ImageOptions.SvgImage")));
+            this.btnStuff.Name = "btnStuff";
+            this.btnStuff.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnStuff.Text = "کارکنان";
+            // 
+            // btnDebtsTo
+            // 
+            this.btnDebtsTo.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDebtsTo.Appearance.Default.Options.UseFont = true;
+            this.btnDebtsTo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDebts.ImageOptions.SvgImage")));
+            this.btnDebtsTo.Name = "btnDebtsTo";
+            this.btnDebtsTo.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnDebtsTo.Text = "بدهکاری";
+            // 
+            // btnDebtsFrom
+            // 
+            this.btnDebtsFrom.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDebtsFrom.Appearance.Default.Options.UseFont = true;
+            this.btnDebtsFrom.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDebtsFrom.ImageOptions.SvgImage")));
+            this.btnDebtsFrom.Name = "btnDebtsFrom";
+            this.btnDebtsFrom.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnDebtsFrom.Text = "طلب کاری";
+            // 
+            // accordionControlSeparator2
+            // 
+            this.accordionControlSeparator2.Name = "accordionControlSeparator2";
             // 
             // DashboardForm
             // 
@@ -352,7 +420,7 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 696);
+            this.ClientSize = new System.Drawing.Size(960, 833);
             this.Controls.Add(this.panelView);
             this.Controls.Add(this.Menu);
             this.Controls.Add(this.ribbonControl1);
@@ -400,5 +468,12 @@
         private DevExpress.XtraBars.BarStaticItem barUserName;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnWeeklySummary;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnMonthlySummary;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator1;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement3;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnStuff;
+        private DevExpress.XtraBars.BarStaticItem lblVersion;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnDebtsTo;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnDebtsFrom;
+        private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator2;
     }
 }

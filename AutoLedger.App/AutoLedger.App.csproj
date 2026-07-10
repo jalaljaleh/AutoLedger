@@ -172,6 +172,12 @@
     <Compile Include="FormsView\CarsManagerPage.Designer.cs">
       <DependentUpon>CarsManagerPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsView\UsersManagerPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FormsView\UsersManagerPage.Designer.cs">
+      <DependentUpon>UsersManagerPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormsView\CustomersInformationPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormsView\CarsManagerPage.resx">
       <DependentUpon>CarsManagerPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormsView\UsersManagerPage.resx">
+      <DependentUpon>UsersManagerPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormsView\CustomersInformationPage.resx">
       <DependentUpon>CustomersInformationPage.cs</DependentUpon>
