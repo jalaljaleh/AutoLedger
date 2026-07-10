@@ -2,7 +2,7 @@
 
 namespace AutoLedger.App.FormsView
 {
-    partial class DailyDashboardPage
+    partial class ReportsDailyPage
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -25,6 +25,9 @@ namespace AutoLedger.App.FormsView
             this.chartFinance = new DevExpress.XtraCharts.ChartControl();
             this.lblHeaderTitle = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.btnBackDay = new AutoLedger.App.Controls.ModernButton();
+            this.btnRefresh = new AutoLedger.App.Controls.ModernButton();
+            this.btnNextDay = new AutoLedger.App.Controls.ModernButton();
             this.panelProfit = new System.Windows.Forms.Panel();
             this.lblProfit = new System.Windows.Forms.Label();
             this.lblProfitTitle = new System.Windows.Forms.Label();
@@ -74,9 +77,6 @@ namespace AutoLedger.App.FormsView
             this.lblSevenDaysAgo = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnNextDay = new AutoLedger.App.Controls.ModernButton();
-            this.btnRefresh = new AutoLedger.App.Controls.ModernButton();
-            this.btnBackDay = new AutoLedger.App.Controls.ModernButton();
             ((System.ComponentModel.ISupportInitialize)(this.chartFinance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).BeginInit();
             this.panelHeader.SuspendLayout();
@@ -125,7 +125,7 @@ namespace AutoLedger.App.FormsView
             this.chartFinance.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
             sideBySideBarSeriesLabel1.DXFont = new DevExpress.Drawing.DXFont("Vazirmatin", 8F);
             this.chartFinance.SeriesTemplate.Label = sideBySideBarSeriesLabel1;
-            this.chartFinance.Size = new System.Drawing.Size(723, 216);
+            this.chartFinance.Size = new System.Drawing.Size(723, 274);
             this.chartFinance.SmallChartText.DXFont = new DevExpress.Drawing.DXFont("Vazirmatin", 12F);
             this.chartFinance.TabIndex = 0;
             // 
@@ -143,15 +143,87 @@ namespace AutoLedger.App.FormsView
             // 
             // panelHeader
             // 
-            this.panelHeader.Controls.Add(this.btnNextDay);
-            this.panelHeader.Controls.Add(this.btnRefresh);
             this.panelHeader.Controls.Add(this.btnBackDay);
+            this.panelHeader.Controls.Add(this.btnRefresh);
             this.panelHeader.Controls.Add(this.lblHeaderTitle);
+            this.panelHeader.Controls.Add(this.btnNextDay);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(1363, 52);
             this.panelHeader.TabIndex = 4;
+            // 
+            // btnBackDay
+            // 
+            this.btnBackDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.btnBackDay.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnBackDay.BorderColor = System.Drawing.Color.Transparent;
+            this.btnBackDay.CornerRadius = 3;
+            this.btnBackDay.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBackDay.FlatAppearance.BorderSize = 0;
+            this.btnBackDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackDay.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackDay.ForeColor = System.Drawing.Color.Black;
+            this.btnBackDay.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.btnBackDay.Icon = global::AutoLedger.App.Properties.Resources.next;
+            this.btnBackDay.IconSize = 23;
+            this.btnBackDay.IconSpacing = 0;
+            this.btnBackDay.Location = new System.Drawing.Point(242, 0);
+            this.btnBackDay.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBackDay.Name = "btnBackDay";
+            this.btnBackDay.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnBackDay.Size = new System.Drawing.Size(121, 52);
+            this.btnBackDay.TabIndex = 3;
+            this.btnBackDay.Text = "روز قبل";
+            this.btnBackDay.UseVisualStyleBackColor = false;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.btnRefresh.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnRefresh.BorderColor = System.Drawing.Color.Transparent;
+            this.btnRefresh.CornerRadius = 3;
+            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnRefresh.FlatAppearance.BorderSize = 0;
+            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefresh.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.ForeColor = System.Drawing.Color.Black;
+            this.btnRefresh.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.btnRefresh.Icon = global::AutoLedger.App.Properties.Resources.sync_128;
+            this.btnRefresh.IconSize = 23;
+            this.btnRefresh.IconSpacing = 0;
+            this.btnRefresh.Location = new System.Drawing.Point(121, 0);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnRefresh.Size = new System.Drawing.Size(121, 52);
+            this.btnRefresh.TabIndex = 2;
+            this.btnRefresh.Text = "تازه سازی";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            // 
+            // btnNextDay
+            // 
+            this.btnNextDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
+            this.btnNextDay.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNextDay.BorderColor = System.Drawing.Color.Transparent;
+            this.btnNextDay.CornerRadius = 3;
+            this.btnNextDay.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnNextDay.FlatAppearance.BorderSize = 0;
+            this.btnNextDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextDay.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNextDay.ForeColor = System.Drawing.Color.Black;
+            this.btnNextDay.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.btnNextDay.Icon = global::AutoLedger.App.Properties.Resources.back;
+            this.btnNextDay.IconSize = 23;
+            this.btnNextDay.IconSpacing = 0;
+            this.btnNextDay.Location = new System.Drawing.Point(0, 0);
+            this.btnNextDay.Margin = new System.Windows.Forms.Padding(0);
+            this.btnNextDay.Name = "btnNextDay";
+            this.btnNextDay.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
+            this.btnNextDay.Size = new System.Drawing.Size(121, 52);
+            this.btnNextDay.TabIndex = 4;
+            this.btnNextDay.Text = "روز بعد";
+            this.btnNextDay.UseVisualStyleBackColor = false;
             // 
             // panelProfit
             // 
@@ -164,14 +236,14 @@ namespace AutoLedger.App.FormsView
             this.panelProfit.Name = "panelProfit";
             this.panelProfit.Padding = new System.Windows.Forms.Padding(15);
             this.panelProfit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panelProfit.Size = new System.Drawing.Size(196, 181);
+            this.panelProfit.Size = new System.Drawing.Size(196, 231);
             this.panelProfit.TabIndex = 5;
             // 
             // lblProfit
             // 
             this.lblProfit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblProfit.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProfit.Location = new System.Drawing.Point(15, 102);
+            this.lblProfit.Location = new System.Drawing.Point(15, 152);
             this.lblProfit.Name = "lblProfit";
             this.lblProfit.Padding = new System.Windows.Forms.Padding(5);
             this.lblProfit.Size = new System.Drawing.Size(164, 62);
@@ -199,17 +271,17 @@ namespace AutoLedger.App.FormsView
             this.panelExpnese.BackColor = System.Drawing.Color.Coral;
             this.panelExpnese.Controls.Add(this.lblExpenses);
             this.panelExpnese.Controls.Add(this.lblExpensesTitle);
-            this.panelExpnese.Location = new System.Drawing.Point(227, 72);
+            this.panelExpnese.Location = new System.Drawing.Point(227, 89);
             this.panelExpnese.Name = "panelExpnese";
             this.panelExpnese.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panelExpnese.Size = new System.Drawing.Size(196, 68);
+            this.panelExpnese.Size = new System.Drawing.Size(196, 88);
             this.panelExpnese.TabIndex = 4;
             // 
             // lblExpenses
             // 
             this.lblExpenses.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblExpenses.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpenses.Location = new System.Drawing.Point(0, 32);
+            this.lblExpenses.Location = new System.Drawing.Point(0, 52);
             this.lblExpenses.Name = "lblExpenses";
             this.lblExpenses.Padding = new System.Windows.Forms.Padding(5);
             this.lblExpenses.Size = new System.Drawing.Size(196, 36);
@@ -235,13 +307,14 @@ namespace AutoLedger.App.FormsView
             // 
             this.panelRevence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelRevence.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.panelRevence.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelRevence.Controls.Add(this.lblRevence);
             this.panelRevence.Controls.Add(this.lblRevenceTitle);
             this.panelRevence.Location = new System.Drawing.Point(429, 15);
             this.panelRevence.Name = "panelRevence";
             this.panelRevence.Padding = new System.Windows.Forms.Padding(15);
             this.panelRevence.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panelRevence.Size = new System.Drawing.Size(196, 181);
+            this.panelRevence.Size = new System.Drawing.Size(196, 231);
             this.panelRevence.TabIndex = 1;
             // 
             // lblRevence
@@ -249,10 +322,10 @@ namespace AutoLedger.App.FormsView
             this.lblRevence.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblRevence.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRevence.ForeColor = System.Drawing.Color.Black;
-            this.lblRevence.Location = new System.Drawing.Point(15, 104);
+            this.lblRevence.Location = new System.Drawing.Point(15, 152);
             this.lblRevence.Name = "lblRevence";
             this.lblRevence.Padding = new System.Windows.Forms.Padding(5);
-            this.lblRevence.Size = new System.Drawing.Size(166, 62);
+            this.lblRevence.Size = new System.Drawing.Size(164, 62);
             this.lblRevence.TabIndex = 1;
             this.lblRevence.Text = "[مبلغ]";
             this.lblRevence.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,7 +339,7 @@ namespace AutoLedger.App.FormsView
             this.lblRevenceTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblRevenceTitle.Name = "lblRevenceTitle";
             this.lblRevenceTitle.Padding = new System.Windows.Forms.Padding(8);
-            this.lblRevenceTitle.Size = new System.Drawing.Size(166, 68);
+            this.lblRevenceTitle.Size = new System.Drawing.Size(164, 68);
             this.lblRevenceTitle.TabIndex = 0;
             this.lblRevenceTitle.Text = "مجموعه درآمد ها";
             this.lblRevenceTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -289,7 +362,7 @@ namespace AutoLedger.App.FormsView
             this.chartStats.SeriesSerializable = new DevExpress.XtraCharts.Series[0];
             sideBySideBarSeriesLabel2.DXFont = new DevExpress.Drawing.DXFont("Vazirmatin", 8F);
             this.chartStats.SeriesTemplate.Label = sideBySideBarSeriesLabel2;
-            this.chartStats.Size = new System.Drawing.Size(722, 286);
+            this.chartStats.Size = new System.Drawing.Size(722, 355);
             this.chartStats.SmallChartText.DXFont = new DevExpress.Drawing.DXFont("Vazirmatin", 12F);
             this.chartStats.TabIndex = 2;
             // 
@@ -300,7 +373,7 @@ namespace AutoLedger.App.FormsView
             this.panelFinance.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelFinance.Location = new System.Drawing.Point(0, 52);
             this.panelFinance.Name = "panelFinance";
-            this.panelFinance.Size = new System.Drawing.Size(1363, 216);
+            this.panelFinance.Size = new System.Drawing.Size(1363, 274);
             this.panelFinance.TabIndex = 6;
             // 
             // panelCards
@@ -313,7 +386,7 @@ namespace AutoLedger.App.FormsView
             this.panelCards.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelCards.Location = new System.Drawing.Point(723, 0);
             this.panelCards.Name = "panelCards";
-            this.panelCards.Size = new System.Drawing.Size(640, 216);
+            this.panelCards.Size = new System.Drawing.Size(640, 274);
             this.panelCards.TabIndex = 6;
             // 
             // panel2
@@ -325,7 +398,7 @@ namespace AutoLedger.App.FormsView
             this.panel2.Location = new System.Drawing.Point(227, 15);
             this.panel2.Name = "panel2";
             this.panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel2.Size = new System.Drawing.Size(196, 54);
+            this.panel2.Size = new System.Drawing.Size(196, 68);
             this.panel2.TabIndex = 7;
             // 
             // label4
@@ -337,7 +410,7 @@ namespace AutoLedger.App.FormsView
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(2);
-            this.label4.Size = new System.Drawing.Size(196, 22);
+            this.label4.Size = new System.Drawing.Size(196, 36);
             this.label4.TabIndex = 0;
             this.label4.Text = "هزینه های تعمیرات";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -346,7 +419,7 @@ namespace AutoLedger.App.FormsView
             // 
             this.lblReceptionExpenses.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblReceptionExpenses.Font = new System.Drawing.Font("Vazirmatn", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReceptionExpenses.Location = new System.Drawing.Point(0, 22);
+            this.lblReceptionExpenses.Location = new System.Drawing.Point(0, 36);
             this.lblReceptionExpenses.Name = "lblReceptionExpenses";
             this.lblReceptionExpenses.Padding = new System.Windows.Forms.Padding(2);
             this.lblReceptionExpenses.Size = new System.Drawing.Size(196, 32);
@@ -360,17 +433,17 @@ namespace AutoLedger.App.FormsView
             this.panel1.BackColor = System.Drawing.Color.MistyRose;
             this.panel1.Controls.Add(this.lblShopExpenses);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Location = new System.Drawing.Point(227, 143);
+            this.panel1.Location = new System.Drawing.Point(227, 183);
             this.panel1.Name = "panel1";
             this.panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel1.Size = new System.Drawing.Size(196, 53);
+            this.panel1.Size = new System.Drawing.Size(196, 63);
             this.panel1.TabIndex = 6;
             // 
             // lblShopExpenses
             // 
             this.lblShopExpenses.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblShopExpenses.Font = new System.Drawing.Font("Vazirmatn", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShopExpenses.Location = new System.Drawing.Point(0, 21);
+            this.lblShopExpenses.Location = new System.Drawing.Point(0, 31);
             this.lblShopExpenses.Name = "lblShopExpenses";
             this.lblShopExpenses.Padding = new System.Windows.Forms.Padding(5);
             this.lblShopExpenses.Size = new System.Drawing.Size(196, 32);
@@ -593,9 +666,9 @@ namespace AutoLedger.App.FormsView
             this.panelStat.Controls.Add(this.panel9);
             this.panelStat.Controls.Add(this.label11);
             this.panelStat.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelStat.Location = new System.Drawing.Point(0, 583);
+            this.panelStat.Location = new System.Drawing.Point(0, 682);
             this.panelStat.Name = "panelStat";
-            this.panelStat.Size = new System.Drawing.Size(1363, 333);
+            this.panelStat.Size = new System.Drawing.Size(1363, 402);
             this.panelStat.TabIndex = 12;
             // 
             // panel9
@@ -608,7 +681,7 @@ namespace AutoLedger.App.FormsView
             this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel9.Location = new System.Drawing.Point(722, 47);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(641, 286);
+            this.panel9.Size = new System.Drawing.Size(641, 355);
             this.panel9.TabIndex = 12;
             // 
             // label11
@@ -629,14 +702,14 @@ namespace AutoLedger.App.FormsView
             xyDiagram1.AxisY.VisibleInPanesSerializable = "-1";
             this.chartPerformance.Diagram = xyDiagram1;
             this.chartPerformance.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chartPerformance.Location = new System.Drawing.Point(15, 62);
+            this.chartPerformance.Location = new System.Drawing.Point(15, 59);
             this.chartPerformance.Name = "chartPerformance";
             series1.Name = "Series 1";
             series1.SeriesID = 0;
             series1.View = splineSeriesView1;
             this.chartPerformance.SeriesSerializable = new DevExpress.XtraCharts.Series[] {
         series1};
-            this.chartPerformance.Size = new System.Drawing.Size(1013, 238);
+            this.chartPerformance.Size = new System.Drawing.Size(1013, 282);
             this.chartPerformance.TabIndex = 13;
             // 
             // panelPerformance
@@ -646,10 +719,10 @@ namespace AutoLedger.App.FormsView
             this.panelPerformance.Controls.Add(this.panel8);
             this.panelPerformance.Controls.Add(this.label1);
             this.panelPerformance.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPerformance.Location = new System.Drawing.Point(0, 268);
+            this.panelPerformance.Location = new System.Drawing.Point(0, 326);
             this.panelPerformance.Name = "panelPerformance";
             this.panelPerformance.Padding = new System.Windows.Forms.Padding(15);
-            this.panelPerformance.Size = new System.Drawing.Size(1363, 315);
+            this.panelPerformance.Size = new System.Drawing.Size(1363, 356);
             this.panelPerformance.TabIndex = 14;
             // 
             // panel8
@@ -658,9 +731,9 @@ namespace AutoLedger.App.FormsView
             this.panel8.Controls.Add(this.panel10);
             this.panel8.Controls.Add(this.panel12);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(1028, 62);
+            this.panel8.Location = new System.Drawing.Point(1028, 59);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(320, 238);
+            this.panel8.Size = new System.Drawing.Size(320, 282);
             this.panel8.TabIndex = 14;
             // 
             // panel11
@@ -669,21 +742,21 @@ namespace AutoLedger.App.FormsView
             this.panel11.Controls.Add(this.lblThreeDaysAgo);
             this.panel11.Controls.Add(this.label9);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(0, 77);
+            this.panel11.Location = new System.Drawing.Point(0, 90);
             this.panel11.Name = "panel11";
             this.panel11.Padding = new System.Windows.Forms.Padding(5);
             this.panel11.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel11.Size = new System.Drawing.Size(320, 84);
+            this.panel11.Size = new System.Drawing.Size(320, 99);
             this.panel11.TabIndex = 12;
             // 
             // lblThreeDaysAgo
             // 
             this.lblThreeDaysAgo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblThreeDaysAgo.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThreeDaysAgo.Location = new System.Drawing.Point(5, 40);
+            this.lblThreeDaysAgo.Location = new System.Drawing.Point(5, 41);
             this.lblThreeDaysAgo.Name = "lblThreeDaysAgo";
             this.lblThreeDaysAgo.Padding = new System.Windows.Forms.Padding(5);
-            this.lblThreeDaysAgo.Size = new System.Drawing.Size(310, 39);
+            this.lblThreeDaysAgo.Size = new System.Drawing.Size(310, 53);
             this.lblThreeDaysAgo.TabIndex = 1;
             this.lblThreeDaysAgo.Text = "[درصد]";
             this.lblThreeDaysAgo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -697,7 +770,7 @@ namespace AutoLedger.App.FormsView
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(8);
-            this.label9.Size = new System.Drawing.Size(310, 35);
+            this.label9.Size = new System.Drawing.Size(310, 53);
             this.label9.TabIndex = 0;
             this.label9.Text = "عملکرد نسبت به 3 روز گذشته";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -712,14 +785,14 @@ namespace AutoLedger.App.FormsView
             this.panel10.Name = "panel10";
             this.panel10.Padding = new System.Windows.Forms.Padding(5);
             this.panel10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel10.Size = new System.Drawing.Size(320, 77);
+            this.panel10.Size = new System.Drawing.Size(320, 90);
             this.panel10.TabIndex = 11;
             // 
             // lblOneDayAgo
             // 
             this.lblOneDayAgo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblOneDayAgo.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOneDayAgo.Location = new System.Drawing.Point(5, 40);
+            this.lblOneDayAgo.Location = new System.Drawing.Point(5, 53);
             this.lblOneDayAgo.Name = "lblOneDayAgo";
             this.lblOneDayAgo.Padding = new System.Windows.Forms.Padding(5);
             this.lblOneDayAgo.Size = new System.Drawing.Size(310, 32);
@@ -736,7 +809,7 @@ namespace AutoLedger.App.FormsView
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(8);
-            this.label7.Size = new System.Drawing.Size(310, 35);
+            this.label7.Size = new System.Drawing.Size(310, 40);
             this.label7.TabIndex = 0;
             this.label7.Text = "عملکرد نسبت به دیروز";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -747,18 +820,18 @@ namespace AutoLedger.App.FormsView
             this.panel12.Controls.Add(this.lblSevenDaysAgo);
             this.panel12.Controls.Add(this.label12);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel12.Location = new System.Drawing.Point(0, 161);
+            this.panel12.Location = new System.Drawing.Point(0, 189);
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(5);
             this.panel12.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel12.Size = new System.Drawing.Size(320, 77);
+            this.panel12.Size = new System.Drawing.Size(320, 93);
             this.panel12.TabIndex = 13;
             // 
             // lblSevenDaysAgo
             // 
             this.lblSevenDaysAgo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.lblSevenDaysAgo.Font = new System.Drawing.Font("Vazirmatn", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSevenDaysAgo.Location = new System.Drawing.Point(5, 40);
+            this.lblSevenDaysAgo.Location = new System.Drawing.Point(5, 56);
             this.lblSevenDaysAgo.Name = "lblSevenDaysAgo";
             this.lblSevenDaysAgo.Padding = new System.Windows.Forms.Padding(5);
             this.lblSevenDaysAgo.Size = new System.Drawing.Size(310, 32);
@@ -787,84 +860,12 @@ namespace AutoLedger.App.FormsView
             this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(10);
-            this.label1.Size = new System.Drawing.Size(1333, 47);
+            this.label1.Size = new System.Drawing.Size(1333, 44);
             this.label1.TabIndex = 15;
             this.label1.Text = "نمودار پیشرفت 7 روزه تعمیرگاه";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // btnNextDay
-            // 
-            this.btnNextDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.btnNextDay.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnNextDay.BorderColor = System.Drawing.Color.Transparent;
-            this.btnNextDay.CornerRadius = 3;
-            this.btnNextDay.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnNextDay.FlatAppearance.BorderSize = 0;
-            this.btnNextDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNextDay.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNextDay.ForeColor = System.Drawing.Color.Black;
-            this.btnNextDay.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.btnNextDay.Icon = global::AutoLedger.App.Properties.Resources.back;
-            this.btnNextDay.IconSize = 23;
-            this.btnNextDay.IconSpacing = 0;
-            this.btnNextDay.Location = new System.Drawing.Point(761, 0);
-            this.btnNextDay.Margin = new System.Windows.Forms.Padding(0);
-            this.btnNextDay.Name = "btnNextDay";
-            this.btnNextDay.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnNextDay.Size = new System.Drawing.Size(121, 52);
-            this.btnNextDay.TabIndex = 4;
-            this.btnNextDay.Text = "روز بعد";
-            this.btnNextDay.UseVisualStyleBackColor = false;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.btnRefresh.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnRefresh.BorderColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.CornerRadius = 3;
-            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnRefresh.FlatAppearance.BorderSize = 0;
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefresh.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefresh.ForeColor = System.Drawing.Color.Black;
-            this.btnRefresh.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.btnRefresh.Icon = global::AutoLedger.App.Properties.Resources.sync_128;
-            this.btnRefresh.IconSize = 23;
-            this.btnRefresh.IconSpacing = 0;
-            this.btnRefresh.Location = new System.Drawing.Point(882, 0);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnRefresh.Size = new System.Drawing.Size(121, 52);
-            this.btnRefresh.TabIndex = 2;
-            this.btnRefresh.Text = "تازه سازی";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            // 
-            // btnBackDay
-            // 
-            this.btnBackDay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(212)))));
-            this.btnBackDay.BaseBackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnBackDay.BorderColor = System.Drawing.Color.Transparent;
-            this.btnBackDay.CornerRadius = 3;
-            this.btnBackDay.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnBackDay.FlatAppearance.BorderSize = 0;
-            this.btnBackDay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackDay.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackDay.ForeColor = System.Drawing.Color.Black;
-            this.btnBackDay.HoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
-            this.btnBackDay.Icon = global::AutoLedger.App.Properties.Resources.next;
-            this.btnBackDay.IconSize = 23;
-            this.btnBackDay.IconSpacing = 0;
-            this.btnBackDay.Location = new System.Drawing.Point(1003, 0);
-            this.btnBackDay.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBackDay.Name = "btnBackDay";
-            this.btnBackDay.PressedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(204)))));
-            this.btnBackDay.Size = new System.Drawing.Size(121, 52);
-            this.btnBackDay.TabIndex = 3;
-            this.btnBackDay.Text = "روز قبل";
-            this.btnBackDay.UseVisualStyleBackColor = false;
-            // 
-            // DailyDashboardPage
+            // ReportsDailyPage
             // 
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -873,8 +874,8 @@ namespace AutoLedger.App.FormsView
             this.Controls.Add(this.panelFinance);
             this.Controls.Add(this.panelHeader);
             this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "DailyDashboardPage";
-            this.Size = new System.Drawing.Size(1363, 961);
+            this.Name = "ReportsDailyPage";
+            this.Size = new System.Drawing.Size(1363, 1084);
             ((System.ComponentModel.ISupportInitialize)(sideBySideBarSeriesLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartFinance)).EndInit();
             this.panelHeader.ResumeLayout(false);

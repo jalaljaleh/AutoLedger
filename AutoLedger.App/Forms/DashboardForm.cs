@@ -35,7 +35,11 @@ namespace AutoLedger.App.Forms
             this.btnAllCars.Click += ViewButtons_Click;
             this.btnCurrentCars.Click += ViewButtons_Click;
             this.btnExpenses.Click += ViewButtons_Click;
+
             this.btnDailySummary.Click += ViewButtons_Click;
+            this.btnWeeklySummary.Click += ViewButtons_Click;
+            this.btnMonthlySummary.Click += ViewButtons_Click;
+
             this.btnUsersInformation.Click += ViewButtons_Click;
 
             this.panelView.Resize += panelView_Resize;
@@ -91,9 +95,17 @@ namespace AutoLedger.App.Forms
                     ShowControl(_expensesManagerPage);
                     break;
 
+
                 case "btnDailySummary":
-                        ShowControl(new DailyDashboardPage());
+                    ShowControl(new ReportsDailyPage());
                     break;
+                case "btnWeeklySummary":
+                    ShowControl(new ReportsMonthlyPage(false));
+                    break;
+                case "btnMonthlySummary":
+                    ShowControl(new ReportsMonthlyPage(true));
+                    break;
+
 
                 case "btnUsersInformation":
                     if (_customersInformationPage == null)

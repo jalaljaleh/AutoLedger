@@ -11,13 +11,13 @@ using System.Data.Entity;
 
 namespace AutoLedger.App.FormsView
 {
-    public partial class DailyDashboardPage : UserControl
+    public partial class ReportsDailyPage : UserControl
     {
         private DailyLedgerSummary _ledger;
         private List<DailyLedgerSummary> _ledgers;
         private double _totalWeeklyScore = 0;
         private DateTime _currentViewDate;
-        public DailyDashboardPage()
+        public ReportsDailyPage()
         {
             InitializeComponent();
 
