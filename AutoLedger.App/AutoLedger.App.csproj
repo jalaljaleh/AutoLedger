@@ -256,6 +256,7 @@
     <Compile Include="Forms\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DatabaseSeeder.cs" />
     <Compile Include="Helpers\CarFactory.cs" />
     <Compile Include="Helpers\CarReceptionFactory.cs" />
     <Compile Include="Helpers\OfflineTimeChecker.cs" />

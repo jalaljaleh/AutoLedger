@@ -5,7 +5,7 @@ using DevExpress.Utils;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Navigation;
 using DevExpress.XtraBars.Ribbon;
-
+using DevExpress.Utils.Animation;
 using AutoLedger.App.FormsModal;
 using AutoLedger.App.FormsView;
 using AutoLedger.Data;
@@ -17,7 +17,7 @@ namespace AutoLedger.App.Forms
 {
     public partial class DashboardForm : RibbonForm
     {
-        // 1. Cache all pages to prevent memory leaks and maintain state
+    
         private CarsManagerPage _carsManagerPage;
         private ExpensesManagerPage _expensesManagerPage;
         private CustomersInformationPage _customersInformationPage;
@@ -26,18 +26,29 @@ namespace AutoLedger.App.Forms
         private ReportsMonthlyPage _reportsMonthlyPage;
         private UsersManagerPage _usersManagerPage;
         private DebtsManagerPage _debtsManagerPage;
-
+        private TransitionManager _transitionManager;
         public DashboardForm()
         {
             InitializeComponent();
-            SetupEventHandlers();
+            SetupAnimation();
 
+            SetupEventHandlers();
             this.lblVersion.Caption = Program.Version;
             this.lblPrayOfDay.Caption = IslamicContentHelper.GetTodayZikr();
-
             RefreshUserInfo();
         }
+        private void SetupAnimation()
+        {
+            _transitionManager = new TransitionManager();
 
+            var transition = new Transition();
+            transition.Control = panelView; 
+
+            var effect = new FadeTransition();
+
+            transition.TransitionType = effect;
+            _transitionManager.Transitions.Add(transition);
+        }
         private void SetupEventHandlers()
         {
             // User actions
@@ -166,31 +177,48 @@ namespace AutoLedger.App.Forms
 
         private void ShowControl(UserControl control)
         {
-            panelView.SuspendLayout();
-            panelView.Controls.Clear();
+     
+            if (_transitionManager != null)
+                _transitionManager.StartTransition(panelView);
 
-            if (control != null)
+            try
             {
-                control.MinimumSize = new System.Drawing.Size(0, panelView.ClientSize.Height);
-                control.MaximumSize = new System.Drawing.Size(panelView.ClientSize.Width, 0);
+                panelView.SuspendLayout();
 
-                if (control.Height < panelView.ClientSize.Height)
+     
+                if (panelView.Controls.Count > 0 && panelView.Controls[0] == control)
+                    return;
+
+                panelView.Controls.Clear();
+
+                if (control != null)
                 {
-                    control.Height = panelView.ClientSize.Height;
+                    control.MinimumSize = new System.Drawing.Size(0, panelView.ClientSize.Height);
+                    control.MaximumSize = new System.Drawing.Size(panelView.ClientSize.Width, 0);
+
+                    if (control.Height < panelView.ClientSize.Height)
+                    {
+                        control.Height = panelView.ClientSize.Height;
+                    }
+
+                    control.Dock = DockStyle.Top;
+                    panelView.Controls.Add(control);
+
+                    panelView.AutoScroll = true;
+                    panelView.HorizontalScroll.Enabled = false;
+                    panelView.HorizontalScroll.Visible = false;
+                    panelView.HorizontalScroll.Maximum = 0;
                 }
 
-                control.Dock = DockStyle.Top;
-                panelView.Controls.Add(control);
-
-                panelView.AutoScroll = true;
-                panelView.HorizontalScroll.Enabled = false;
-                panelView.HorizontalScroll.Visible = false;
-                panelView.HorizontalScroll.Maximum = 0;
-
+                panelView.ResumeLayout(true);
+                panelView.PerformLayout();
             }
-
-            panelView.ResumeLayout(true);
-            panelView.PerformLayout();
+            finally
+            {
+        
+                if (_transitionManager != null)
+                    _transitionManager.EndTransition();
+            }
         }
 
         private void PanelView_Resize(object sender, EventArgs e)
@@ -210,8 +238,7 @@ namespace AutoLedger.App.Forms
                 {
                     if (form.ShowDialog() == DialogResult.OK && _expensesManagerPage != null)
                     {
-                        // TODO: Call your refresh method here
-                        // _expensesManagerPage.RefreshData();
+
                     }
                 }
             }
