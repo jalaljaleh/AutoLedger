@@ -3,6 +3,7 @@ using AutoLedger.Data;
 using AutoLedger.Domain;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
@@ -35,11 +36,8 @@ namespace AutoLedger.App
                     {
                         await Task.Delay(150);
 
-                        if (!await InitializeDatabaseSync())
-                        {
-                            MessageBox.Show("خطای اتصال دیتابیس؛ برنامه باید بسته شود. فایل لاگ را مشاهده کنید.");
-                            Environment.Exit(0);
-                        }
+                        await InitializeDatabaseSync();
+
                         loading.Close();
                     };
 
@@ -84,46 +82,21 @@ namespace AutoLedger.App
         {
             return await Task.Run(() =>
             {
-                string localDb = $@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IronTuning.mdf")}; Integrated Security=True; Connect Timeout=30; Context Connection=false;"; Environment.SetEnvironmentVariable("connectionString", localDb);
-                try
+                Database.SetInitializer(new MigrateDatabaseToLatestVersion<AutoLedgerContext, AutoLedger.Data.Migrations.Configuration>());
+
+                using (AutoLedgerContext db = new AutoLedgerContext())
                 {
-                    using (AutoLedgerContext db = new AutoLedgerContext())
+                    db.Database.Initialize(force: true);
+
+                    if (!db.Users.Any())
                     {
-                        //if (db.Database.Exists())
-                        //    db.Database.Delete();
+                        DatabaseSeeder.SeedExpenseCategories(db);
+                        DatabaseSeeder.SeedUsers(db);
 
-                        if (db.Database.CreateIfNotExists())
-                        {
-                            DatabaseSeeder.SeedExpenseCategories(db);
-                            DatabaseSeeder.SeedUsers(db);
-                            //   DatabaseSeeder.SeedCarsAndCarReceptions(db, 100, 5);
-
-                            db.SaveChanges();
-                        }
-
+                        db.SaveChanges();
                     }
-                    return Task.FromResult(true);
                 }
-                catch (Exception ex)
-                {
-                    try
-                    {
-                        string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "error_log.txt");
-
-                        string logMessage = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ERROR: {ex.Message}{Environment.NewLine}" +
-                                            $"STACK TRACE: {ex.StackTrace}{Environment.NewLine}" +
-                                            $"---------------------------------------------------{Environment.NewLine}";
-
-                        File.AppendAllText(logPath, logMessage);
-                    }
-                    catch
-                    {
-                    }
-
-                    MessageBox.Show("خطای اتصال دیتابیس؛ در فایل لاگ ذخیره شد.");
-
-                    return Task.FromResult(false);
-                }
+                return true;
 
             });
         }

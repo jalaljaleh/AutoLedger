@@ -17,10 +17,8 @@ namespace AutoLedger.Data
     public class AutoLedgerContext : DbContext
     {
         private readonly SummaryService _summaryService;
-        public AutoLedgerContext() : base(Environment.GetEnvironmentVariable("connectionString"))
+        public AutoLedgerContext() : base($@"Data Source=(LocalDB)\MSSQLLocalDB; AttachDbFilename={Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "IronTuning.mdf")}; Integrated Security=True; Connect Timeout=30; Context Connection=false;")
         {
-            var s = Environment.GetEnvironmentVariable("connectionString");
-
             _summaryService = new SummaryService(this);
         }
 
