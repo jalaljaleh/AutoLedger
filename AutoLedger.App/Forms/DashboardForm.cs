@@ -12,12 +12,13 @@ using AutoLedger.Data;
 using AutoLedger.Domain;
 using AutoLedger.Extensions;
 using System.Diagnostics;
+using System.IO;
 
 namespace AutoLedger.App.Forms
 {
     public partial class DashboardForm : RibbonForm
     {
-    
+
         private CarsManagerPage _carsManagerPage;
         private ExpensesManagerPage _expensesManagerPage;
         private CustomersInformationPage _customersInformationPage;
@@ -42,7 +43,7 @@ namespace AutoLedger.App.Forms
             _transitionManager = new TransitionManager();
 
             var transition = new Transition();
-            transition.Control = panelView; 
+            transition.Control = panelView;
 
             var effect = new FadeTransition();
 
@@ -67,11 +68,77 @@ namespace AutoLedger.App.Forms
             this.btnStuff.Click += ViewButtons_Click;
             this.btnDebts.Click += ViewButtons_Click;
             this.btnDashboard.Click += ViewButtons_Click;
-            this.btnRefreshSentenceOfDay.ItemClick += (s, e) => RefreshSentences();
 
-            // UI events
+
+
+            this.btnSevenDiag.Click += BtnSevenDiag_Click;
+
+            this.btnDeveloper.Click += (s, e) => Process.Start(Global.JalalJalehGithub);
+     
+
+
+            this.btnRefreshSentenceOfDay.ItemClick += (s, e) => RefreshSentences();
             this.panelView.Resize += PanelView_Resize;
         }
+
+
+        private void BtnSevenDiag_Click(object sender, EventArgs e)
+        {
+
+            string exePath = Properties.Settings.Default.SevenDiagPath;
+
+
+            if (string.IsNullOrWhiteSpace(exePath) || !File.Exists(exePath))
+            {
+
+                DialogResult result = MessageBox.Show(
+                    "مسیر فایل برنامه (SevenDiag) مشخص نیست یا فایل یافت نشد.\nآیا می‌خواهید فایل اجرایی (.exe) برنامه را انتخاب کنید؟",
+                    "جستجوی برنامه",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+
+                    using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                    {
+                        openFileDialog.Title = "لطفاً فایل اجرایی برنامه (SevenDiag.exe) را انتخاب کنید";
+                        openFileDialog.Filter = "Executable Files (*.exe)|*.exe|All Files (*.*)|*.*";
+
+                        if (openFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            exePath = openFileDialog.FileName;
+                            Properties.Settings.Default.SevenDiagPath = exePath;
+                            Properties.Settings.Default.Save();
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+
+            try
+            {
+                Process.Start(exePath);
+
+                // نکته: اگر برنامه نیاز به دسترسی ادمین (Run as Administrator) دارد، به جای خط بالا از این استفاده کنید:
+                // ProcessStartInfo startInfo = new ProcessStartInfo(exePath);
+                // startInfo.Verb = "runas";
+                // Process.Start(startInfo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"خطا در اجرای برنامه:\n{ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void RefreshSentences()
         {
             this.barLabelTime.Caption = "تاریخ امروز: " + DateTime.Now.ToShamsiLong();
@@ -100,7 +167,6 @@ namespace AutoLedger.App.Forms
             if (userNameTipItem1 != null) userNameTipItem1.Text = statusText;
             if (userNameTipItem2 != null) userNameTipItem2.Text = detailsText;
         }
-
         private void BarBtnUser_ItemClick(object sender, ItemClickEventArgs e)
         {
             using (var frm = new UserForm(Program.User))
@@ -115,14 +181,106 @@ namespace AutoLedger.App.Forms
                 RefreshUserInfo();
             }
         }
+        private void BtnNewExpens_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var form = new ExpenseForm())
+                {
+                    if (form.ShowDialog() == DialogResult.OK && _expensesManagerPage != null)
+                    {
 
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"خطا در باز کردن فرم ثبت هزینه: {ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void BtnNewCar_Click(object sender, EventArgs e)
+        {
+            using (var carPlate = new CarPlateModalForm())
+            {
+                if (carPlate.ShowDialog() != DialogResult.OK) return;
+
+                using (var db = new AutoLedgerContext())
+                {
+                    var car = db.Cars.FirstOrDefault(a => a.PlateId == carPlate.Plate);
+
+                    if (car == null)
+                    {
+                        using (var carForm = new CarForm(car).WithPlateId(carPlate.Plate))
+                        {
+                            if (carForm.ShowDialog() != DialogResult.OK) return;
+                            car = carForm.GetCar();
+                        }
+                    }
+
+                    using (var receptionForm = new CarReceptionForm(car))
+                    {
+                        if (receptionForm.ShowDialog() == DialogResult.OK)
+                        {
+                            _carsManagerPage?.RefreshCars();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ShowControl(UserControl control)
+        {
+
+            if (_transitionManager != null)
+                _transitionManager.StartTransition(panelView);
+
+            try
+            {
+                panelView.SuspendLayout();
+
+
+                if (panelView.Controls.Count > 0 && panelView.Controls[0] == control)
+                    return;
+
+                panelView.Controls.Clear();
+
+                if (control != null)
+                {
+                    control.MinimumSize = new System.Drawing.Size(0, panelView.ClientSize.Height);
+                    control.MaximumSize = new System.Drawing.Size(panelView.ClientSize.Width, 0);
+
+                    if (control.Height < panelView.ClientSize.Height)
+                    {
+                        control.Height = panelView.ClientSize.Height;
+                    }
+
+                    control.Dock = DockStyle.Top;
+                    panelView.Controls.Add(control);
+
+                    panelView.AutoScroll = true;
+                    panelView.HorizontalScroll.Enabled = false;
+                    panelView.HorizontalScroll.Visible = false;
+                    panelView.HorizontalScroll.Maximum = 0;
+                }
+
+                panelView.ResumeLayout(true);
+                panelView.PerformLayout();
+            }
+            finally
+            {
+
+                if (_transitionManager != null)
+                    _transitionManager.EndTransition();
+            }
+        }
         private void ViewButtons_Click(object sender, EventArgs e)
         {
             RefreshSentences();
 
             if (!(sender is AccordionControlElement btn)) return;
 
-        
+
             switch (btn.Name)
             {
                 case "btnDashboard":
@@ -172,54 +330,15 @@ namespace AutoLedger.App.Forms
                     if (_usersManagerPage == null) _usersManagerPage = new UsersManagerPage();
                     ShowControl(_usersManagerPage);
                     break;
+
+                case "btnSevenDiag":
+                    if (_usersManagerPage == null) _usersManagerPage = new UsersManagerPage();
+                    ShowControl(_usersManagerPage);
+                    break;
             }
         }
 
-        private void ShowControl(UserControl control)
-        {
-     
-            if (_transitionManager != null)
-                _transitionManager.StartTransition(panelView);
 
-            try
-            {
-                panelView.SuspendLayout();
-
-     
-                if (panelView.Controls.Count > 0 && panelView.Controls[0] == control)
-                    return;
-
-                panelView.Controls.Clear();
-
-                if (control != null)
-                {
-                    control.MinimumSize = new System.Drawing.Size(0, panelView.ClientSize.Height);
-                    control.MaximumSize = new System.Drawing.Size(panelView.ClientSize.Width, 0);
-
-                    if (control.Height < panelView.ClientSize.Height)
-                    {
-                        control.Height = panelView.ClientSize.Height;
-                    }
-
-                    control.Dock = DockStyle.Top;
-                    panelView.Controls.Add(control);
-
-                    panelView.AutoScroll = true;
-                    panelView.HorizontalScroll.Enabled = false;
-                    panelView.HorizontalScroll.Visible = false;
-                    panelView.HorizontalScroll.Maximum = 0;
-                }
-
-                panelView.ResumeLayout(true);
-                panelView.PerformLayout();
-            }
-            finally
-            {
-        
-                if (_transitionManager != null)
-                    _transitionManager.EndTransition();
-            }
-        }
 
         private void PanelView_Resize(object sender, EventArgs e)
         {
@@ -230,52 +349,5 @@ namespace AutoLedger.App.Forms
             }
         }
 
-        private void BtnNewExpens_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                using (var form = new ExpenseForm())
-                {
-                    if (form.ShowDialog() == DialogResult.OK && _expensesManagerPage != null)
-                    {
-
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"خطا در باز کردن فرم ثبت هزینه: {ex.Message}", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void BtnNewCar_Click(object sender, EventArgs e)
-        {
-            using (var carPlate = new CarPlateModalForm())
-            {
-                if (carPlate.ShowDialog() != DialogResult.OK) return;
-
-                using (var db = new AutoLedgerContext())
-                {
-                    var car = db.Cars.FirstOrDefault(a => a.PlateId == carPlate.Plate);
-
-                    if (car == null)
-                    {
-                        using (var carForm = new CarForm(car).WithPlateId(carPlate.Plate))
-                        {
-                            if (carForm.ShowDialog() != DialogResult.OK) return;
-                            car = carForm.GetCar();
-                        }
-                    }
-
-                    using (var receptionForm = new CarReceptionForm(car))
-                    {
-                        if (receptionForm.ShowDialog() == DialogResult.OK)
-                        {
-                            _carsManagerPage?.RefreshCars();
-                        }
-                    }
-                }
-            }
-        }
     }
 }

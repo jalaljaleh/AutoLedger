@@ -40,16 +40,16 @@ namespace AutoLedger.App.Forms
             switch (btn.Name)
             {
                 case "btnDeveloper":
-                    Process.Start("https://github.com/jalaljaleh");
-                    Process.Start("http://jalaljaleh.github.io/");
+                    Process.Start(Global.JalalJalehGithub);
+                    Process.Start(Global.JalalJalehWebsite);
                     break;
 
                 case "btnSourceCode":
-                    Process.Start("https://github.com/jalaljaleh/AutoLedger");
+                    Process.Start(Global.SourceCode);
                     break;
 
                 case "btnTelegram":
-                    Process.Start("https://t.me/haluntm");
+                    Process.Start(Global.HaluntmTelegram);
                     break;
             }
         }

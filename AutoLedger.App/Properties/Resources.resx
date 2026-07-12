@@ -229,4 +229,43 @@
   <data name="calendar_1_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_1_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="shopping_wallet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shopping_wallet.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="showexportwarnings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\showexportwarnings.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="expandcollapse" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\expandcollapse.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="SIPMove" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SIPMove.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="security_security" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\security_security.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="actions_add" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_add.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="actions_add1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_add1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="TrafficCongestionSolid" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TrafficCongestionSolid.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="FolderSelect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FolderSelect.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="ReceiptPrinter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReceiptPrinter.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="calculationoptions" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calculationoptions.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="DeveloperTools" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeveloperTools.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="Dial7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Dial7.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.2, Version=25.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
 </root>

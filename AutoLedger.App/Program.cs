@@ -24,57 +24,67 @@ namespace AutoLedger.App
         [STAThread]
         static void Main()
         {
-            try
+            string appGuid = "haluntm_auto_ledger";
+
+            using (Mutex mutex = new Mutex(false, "Global\\" + appGuid, out bool createdNew))
             {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-
-                using (var loading = new LoginForm())
+                if (!createdNew)
                 {
-                    loading.Enabled = false;
-                    loading.Shown += async (sender, e) =>
-                    {
-                        await Task.Delay(150);
-
-                        await InitializeDatabaseSync();
-
-                        loading.Close();
-                    };
-
-                    Application.Run(loading);
+           
+                    MessageBox.Show("برنامه از قبل در حال اجرا است.", "توجه", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
                 }
 
-                OfflineTimeChecker.CheckSystemClock();
-
-                using (var loginDialog = new LoginForm())
-                {
-                    _ = loginDialog.InitializeAsync();
-                    var dialog = loginDialog.ShowDialog();
-
-                    if (dialog == DialogResult.OK)
-                        Application.Run(new DashboardForm());
-
-                }
-
-            }
-            catch (Exception ex)
-            {
                 try
                 {
-                    string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "error_log.txt");
+                    Application.EnableVisualStyles();
+                    Application.SetCompatibleTextRenderingDefault(false);
 
-                    string logMessage = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ERROR: {ex.Message}{Environment.NewLine}" +
-                                        $"STACK TRACE: {ex.StackTrace}{Environment.NewLine}" +
-                                        $"---------------------------------------------------{Environment.NewLine}";
+                    using (var loading = new LoginForm())
+                    {
+                        loading.Enabled = false;
+                        loading.Shown += async (sender, e) =>
+                        {
+                            await Task.Delay(150);
 
-                    File.AppendAllText(logPath, logMessage);
+                            await InitializeDatabaseSync();
+
+                            loading.Close();
+                        };
+
+                        Application.Run(loading);
+                    }
+
+                    OfflineTimeChecker.CheckSystemClock();
+
+                    using (var loginDialog = new LoginForm())
+                    {
+                        _ = loginDialog.InitializeAsync();
+                        var dialog = loginDialog.ShowDialog();
+
+                        if (dialog == DialogResult.OK)
+                            Application.Run(new DashboardForm());
+                    }
                 }
-                catch
+                catch (Exception ex)
                 {
-                }
+                    try
+                    {
+                        string logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "error_log.txt");
 
-                MessageBox.Show("خطای ناشناخته، برنامه باید بسته شود. جزئیات در فایل لاگ ثبت شد.");
-            }
+                        string logMessage = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] ERROR: {ex.Message}{Environment.NewLine}" +
+                                            $"STACK TRACE: {ex.StackTrace}{Environment.NewLine}" +
+                                            $"---------------------------------------------------{Environment.NewLine}";
+
+                        File.AppendAllText(logPath, logMessage);
+                    }
+                    catch
+                    {
+                    }
+
+                    MessageBox.Show("خطای ناشناخته، برنامه باید بسته شود. جزئیات در فایل لاگ ثبت شد.");
+                }
+            } 
         }
 
 
@@ -92,9 +102,10 @@ namespace AutoLedger.App
                     {
                         DatabaseSeeder.SeedExpenseCategories(db);
                         DatabaseSeeder.SeedUsers(db);
-
+                      //  DatabaseSeeder.SeedCarsAndCarReceptions(db, 500, 2);
                         db.SaveChanges();
                     }
+
                 }
                 return true;
 
