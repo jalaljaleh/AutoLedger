@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashboardForm));
-            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
-            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
             this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.lblPrayOfDay = new DevExpress.XtraBars.BarStaticItem();
             this.barUserName = new DevExpress.XtraBars.BarStaticItem();
@@ -74,10 +74,11 @@
             this.btnStuff = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlElement3 = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.btnSevenDiag = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.btnSettings = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator2 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.btnDeveloper = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.panelView = new DevExpress.XtraEditors.PanelControl();
-            this.btnDeveloper = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Menu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelView)).BeginInit();
@@ -103,7 +104,7 @@
             this.barStaticItem2,
             this.barStaticItem3});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 18;
+            this.ribbonControl1.MaxItemId = 19;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.OptionsStubGlyphs.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ribbonControl1.OptionsStubGlyphs.UseFont = true;
@@ -127,20 +128,20 @@
             // barUserName
             // 
             this.barUserName.Caption = "کاربر آنلاین می باشد";
-            toolTipTitleItem4.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
-            toolTipTitleItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
-            superToolTip4.Items.Add(toolTipTitleItem4);
-            superToolTip4.Items.Add(toolTipItem4);
-            this.barUserName.DropDownSuperTip = superToolTip4;
+            toolTipTitleItem1.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
+            toolTipTitleItem1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage")));
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            this.barUserName.DropDownSuperTip = superToolTip1;
             this.barUserName.Id = 6;
             this.barUserName.Name = "barUserName";
             this.barUserName.ShowImageInToolbar = false;
-            toolTipTitleItem5.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
-            toolTipTitleItem5.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
-            superToolTip5.Items.Add(toolTipTitleItem5);
-            superToolTip5.Items.Add(toolTipItem5);
-            superToolTip5.Items.Add(toolTipSeparatorItem3);
-            this.barUserName.SuperTip = superToolTip5;
+            toolTipTitleItem2.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
+            toolTipTitleItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage1")));
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
+            superToolTip2.Items.Add(toolTipSeparatorItem1);
+            this.barUserName.SuperTip = superToolTip2;
             // 
             // barBtnUser
             // 
@@ -154,20 +155,20 @@
             this.barBtnUser.Name = "barBtnUser";
             this.barBtnUser.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            toolTipTitleItem6.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipTitleItem6.Appearance.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold);
-            toolTipTitleItem6.Appearance.Options.UseFont = true;
-            toolTipTitleItem6.Appearance.Options.UseTextOptions = true;
-            toolTipTitleItem6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            toolTipTitleItem6.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            toolTipTitleItem6.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
-            toolTipTitleItem6.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
-            toolTipTitleItem6.Text = "کاربر انلاین می باشد";
-            toolTipItem6.Text = "کاربر انلاین می باشد";
-            superToolTip6.Items.Add(toolTipTitleItem6);
-            superToolTip6.Items.Add(toolTipItem6);
-            superToolTip6.Items.Add(toolTipSeparatorItem4);
-            this.barBtnUser.SuperTip = superToolTip6;
+            toolTipTitleItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipTitleItem3.Appearance.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold);
+            toolTipTitleItem3.Appearance.Options.UseFont = true;
+            toolTipTitleItem3.Appearance.Options.UseTextOptions = true;
+            toolTipTitleItem3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            toolTipTitleItem3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            toolTipTitleItem3.ImageOptions.Alignment = DevExpress.Utils.ToolTipImageAlignment.Right;
+            toolTipTitleItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("resource.SvgImage2")));
+            toolTipTitleItem3.Text = "کاربر انلاین می باشد";
+            toolTipItem3.Text = "کاربر انلاین می باشد";
+            superToolTip3.Items.Add(toolTipTitleItem3);
+            superToolTip3.Items.Add(toolTipItem3);
+            superToolTip3.Items.Add(toolTipSeparatorItem2);
+            this.barBtnUser.SuperTip = superToolTip3;
             // 
             // barLabelTime
             // 
@@ -275,6 +276,7 @@
             this.accordionControlElement2,
             this.btnInformations,
             this.accordionControlElement3,
+            this.btnSettings,
             this.accordionControlSeparator2,
             this.btnDeveloper});
             this.Menu.Location = new System.Drawing.Point(964, 49);
@@ -475,9 +477,29 @@
             this.btnSevenDiag.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
             this.btnSevenDiag.Text = "پروگرامر (7 دیاگ)";
             // 
+            // btnSettings
+            // 
+            this.btnSettings.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSettings.Appearance.Default.Options.UseFont = true;
+            this.btnSettings.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
+            this.btnSettings.ImageOptions.SvgImage = global::AutoLedger.App.Properties.Resources.Setting1;
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnSettings.Text = "تنظیمات";
+            // 
             // accordionControlSeparator2
             // 
             this.accordionControlSeparator2.Name = "accordionControlSeparator2";
+            // 
+            // btnDeveloper
+            // 
+            this.btnDeveloper.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeveloper.Appearance.Default.Options.UseFont = true;
+            this.btnDeveloper.Appearance.Default.Options.UseTextOptions = true;
+            this.btnDeveloper.Appearance.Default.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.btnDeveloper.Name = "btnDeveloper";
+            this.btnDeveloper.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.btnDeveloper.Text = "Copyright 2026 Jalal Jaleh";
             // 
             // barStaticItem1
             // 
@@ -492,16 +514,6 @@
             this.panelView.Name = "panelView";
             this.panelView.Size = new System.Drawing.Size(964, 751);
             this.panelView.TabIndex = 15;
-            // 
-            // btnDeveloper
-            // 
-            this.btnDeveloper.Appearance.Default.Font = new System.Drawing.Font("Vazirmatn", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeveloper.Appearance.Default.Options.UseFont = true;
-            this.btnDeveloper.Appearance.Default.Options.UseTextOptions = true;
-            this.btnDeveloper.Appearance.Default.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.btnDeveloper.Name = "btnDeveloper";
-            this.btnDeveloper.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.btnDeveloper.Text = "Copyright 2026 Jalal Jaleh";
             // 
             // DashboardForm
             // 
@@ -574,5 +586,6 @@
         private DevExpress.XtraEditors.PanelControl panelView;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnSevenDiag;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnDeveloper;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement btnSettings;
     }
 }

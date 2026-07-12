@@ -250,6 +250,12 @@
     <Compile Include="Forms\DashboardForm.Designer.cs">
       <DependentUpon>DashboardForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -314,6 +320,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
@@ -568,6 +577,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="irontuning_icon.ico" />
+    <None Include="Resources\Setting1.svg" />
+    <None Include="Resources\zoom_32x32.png" />
+    <None Include="Resources\SearchAndApps.svg" />
+    <None Include="Resources\Setting.svg" />
     <None Include="Resources\Dial7.svg" />
     <None Include="Resources\DeveloperTools.svg" />
     <None Include="Resources\calculationoptions.svg" />

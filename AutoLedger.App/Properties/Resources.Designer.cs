@@ -421,6 +421,16 @@ namespace AutoLedger.App.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage SearchAndApps {
+            get {
+                object obj = ResourceManager.GetObject("SearchAndApps", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap security_lock_128 {
@@ -436,6 +446,26 @@ namespace AutoLedger.App.Properties {
         public static DevExpress.Utils.Svg.SvgImage security_security {
             get {
                 object obj = ResourceManager.GetObject("security_security", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage Setting {
+            get {
+                object obj = ResourceManager.GetObject("Setting", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage Setting1 {
+            get {
+                object obj = ResourceManager.GetObject("Setting1", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
@@ -546,6 +576,16 @@ namespace AutoLedger.App.Properties {
         public static System.Drawing.Bitmap verified_badge_128 {
             get {
                 object obj = ResourceManager.GetObject("verified_badge_128", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap zoom_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("zoom_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

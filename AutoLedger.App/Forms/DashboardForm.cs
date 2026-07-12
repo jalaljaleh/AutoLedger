@@ -28,6 +28,7 @@ namespace AutoLedger.App.Forms
         private UsersManagerPage _usersManagerPage;
         private DebtsManagerPage _debtsManagerPage;
         private TransitionManager _transitionManager;
+   
         public DashboardForm()
         {
             InitializeComponent();
@@ -72,7 +73,7 @@ namespace AutoLedger.App.Forms
 
 
             this.btnSevenDiag.Click += BtnSevenDiag_Click;
-
+            this.btnSettings.Click += (s, e) => new SettingsForm().ShowDialog();
             this.btnDeveloper.Click += (s, e) => Process.Start(Global.JalalJalehGithub);
      
 
@@ -84,43 +85,12 @@ namespace AutoLedger.App.Forms
 
         private void BtnSevenDiag_Click(object sender, EventArgs e)
         {
-
             string exePath = Properties.Settings.Default.SevenDiagPath;
-
 
             if (string.IsNullOrWhiteSpace(exePath) || !File.Exists(exePath))
             {
-
-                DialogResult result = MessageBox.Show(
-                    "مسیر فایل برنامه (SevenDiag) مشخص نیست یا فایل یافت نشد.\nآیا می‌خواهید فایل اجرایی (.exe) برنامه را انتخاب کنید؟",
-                    "جستجوی برنامه",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-
-                    using (OpenFileDialog openFileDialog = new OpenFileDialog())
-                    {
-                        openFileDialog.Title = "لطفاً فایل اجرایی برنامه (SevenDiag.exe) را انتخاب کنید";
-                        openFileDialog.Filter = "Executable Files (*.exe)|*.exe|All Files (*.*)|*.*";
-
-                        if (openFileDialog.ShowDialog() == DialogResult.OK)
-                        {
-                            exePath = openFileDialog.FileName;
-                            Properties.Settings.Default.SevenDiagPath = exePath;
-                            Properties.Settings.Default.Save();
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
-                }
-                else
-                {
-                    return;
-                }
+                MessageBox.Show("قایل یافت نشد؛ از طریق تنظیمات، نرم افزار پروگرامر را اضافه نمائید.");
+                return;
             }
 
 
