@@ -28,7 +28,7 @@ namespace AutoLedger.App.Forms
         private UsersManagerPage _usersManagerPage;
         private DebtsManagerPage _debtsManagerPage;
         private TransitionManager _transitionManager;
-   
+
         public DashboardForm()
         {
             InitializeComponent();
@@ -53,6 +53,7 @@ namespace AutoLedger.App.Forms
         }
         private void SetupEventHandlers()
         {
+
             // User actions
             this.barBtnUser.ItemClick += BarBtnUser_ItemClick;
             this.btnNewReception.Click += BtnNewCar_Click;
@@ -75,8 +76,9 @@ namespace AutoLedger.App.Forms
             this.btnSevenDiag.Click += BtnSevenDiag_Click;
             this.btnSettings.Click += (s, e) => new SettingsForm().ShowDialog();
             this.btnDeveloper.Click += (s, e) => Process.Start(Global.JalalJalehGithub);
-     
 
+            this.barBtnExit.ItemClick += (s, e) => Environment.Exit(0);
+            this.barBtnSettings.ItemClick += (s, e) => new SettingsForm().ShowDialog();
 
             this.btnRefreshSentenceOfDay.ItemClick += (s, e) => RefreshSentences();
             this.panelView.Resize += PanelView_Resize;
@@ -128,8 +130,11 @@ namespace AutoLedger.App.Forms
             var userNameTipItem1 = this.barUserName.SuperTip?.Items[0] as ToolTipItem;
             var userNameTipItem2 = this.barUserName.SuperTip?.Items[1] as ToolTipItem;
 
-            string statusText = $"کاربر {Program.User.FullName} آنلاین می‌باشد.";
-            string detailsText = $"+{Program.User.PhoneNumber}\nتاریخ عضویت: {Program.User.CreatedAt.ToShamsiLong()}";
+            string statusText = $"کاربر {Program.User.FullName} انلاین است.";
+            string detailsText =
+                $"ساعت ورود: {Program.StartupTime.ToRelativeTime()}\n" +
+                $"شماره تماس: +{Program.User.PhoneNumber}\n" +
+                $"تاریخ عضویت: {Program.User.CreatedAt.ToShamsiLong()}";
 
             if (btnUserTipItem1 != null) btnUserTipItem1.Text = statusText;
             if (btnUserTipItem2 != null) btnUserTipItem2.Text = detailsText;
@@ -137,7 +142,7 @@ namespace AutoLedger.App.Forms
             if (userNameTipItem1 != null) userNameTipItem1.Text = statusText;
             if (userNameTipItem2 != null) userNameTipItem2.Text = detailsText;
         }
-        private void BarBtnUser_ItemClick(object sender, ItemClickEventArgs e)
+        public void BarBtnUser_ItemClick(object sender, object e)
         {
             using (var frm = new UserForm(Program.User))
             {

@@ -32,20 +32,20 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.panelMenuMain = new System.Windows.Forms.Panel();
+            this.labelVersion = new System.Windows.Forms.Label();
+            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             this.labelError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.labelTime = new DevExpress.XtraEditors.LabelControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnTelegram = new AutoLedger.App.Controls.ModernButton();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSourceCode = new AutoLedger.App.Controls.ModernButton();
-            this.btnDeveloper = new AutoLedger.App.Controls.ModernButton();
             this.btnLogin = new DevExpress.XtraEditors.SimpleButton();
             this.cbUsername = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.inputPassword = new AutoLedger.App.Controls.ModernTextBox();
             this.pbLoading = new DevExpress.XtraWaitForm.ProgressPanel();
-            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
-            this.labelVersion = new System.Windows.Forms.Label();
+            this.btnTelegram = new AutoLedger.App.Controls.ModernButton();
+            this.btnSourceCode = new AutoLedger.App.Controls.ModernButton();
+            this.btnDeveloper = new AutoLedger.App.Controls.ModernButton();
+            this.inputPassword = new AutoLedger.App.Controls.ModernTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelMenuMain.SuspendLayout();
@@ -79,16 +79,15 @@
             // 
             // panelMenuMain
             // 
-            this.panelMenuMain.Controls.Add(this.labelVersion);
+            this.panelMenuMain.Controls.Add(this.btnTelegram);
+            this.panelMenuMain.Controls.Add(this.btnDeveloper);
+            this.panelMenuMain.Controls.Add(this.btnSourceCode);
             this.panelMenuMain.Controls.Add(this.btnExit);
             this.panelMenuMain.Controls.Add(this.labelError);
             this.panelMenuMain.Controls.Add(this.label1);
             this.panelMenuMain.Controls.Add(this.labelTime);
             this.panelMenuMain.Controls.Add(this.pictureBox1);
-            this.panelMenuMain.Controls.Add(this.btnTelegram);
             this.panelMenuMain.Controls.Add(this.label2);
-            this.panelMenuMain.Controls.Add(this.btnSourceCode);
-            this.panelMenuMain.Controls.Add(this.btnDeveloper);
             this.panelMenuMain.Controls.Add(this.btnLogin);
             this.panelMenuMain.Controls.Add(this.cbUsername);
             this.panelMenuMain.Controls.Add(this.inputPassword);
@@ -98,11 +97,37 @@
             this.panelMenuMain.Size = new System.Drawing.Size(321, 674);
             this.panelMenuMain.TabIndex = 20;
             // 
+            // labelVersion
+            // 
+            this.labelVersion.AutoSize = true;
+            this.labelVersion.BackColor = System.Drawing.Color.Transparent;
+            this.labelVersion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.labelVersion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelVersion.Location = new System.Drawing.Point(3, 655);
+            this.labelVersion.Name = "labelVersion";
+            this.labelVersion.Size = new System.Drawing.Size(57, 22);
+            this.labelVersion.TabIndex = 23;
+            this.labelVersion.Text = "[version]";
+            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Appearance.BackColor = System.Drawing.Color.Maroon;
+            this.btnExit.Appearance.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Appearance.Options.UseBackColor = true;
+            this.btnExit.Appearance.Options.UseFont = true;
+            this.btnExit.Location = new System.Drawing.Point(23, 445);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(87, 36);
+            this.btnExit.TabIndex = 22;
+            this.btnExit.Text = "خروج";
+            // 
             // labelError
             // 
             this.labelError.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.labelError.Location = new System.Drawing.Point(20, 497);
+            this.labelError.Location = new System.Drawing.Point(23, 494);
             this.labelError.Name = "labelError";
             this.labelError.Size = new System.Drawing.Size(273, 66);
             this.labelError.TabIndex = 21;
@@ -147,32 +172,6 @@
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
-            // btnTelegram
-            // 
-            this.btnTelegram.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTelegram.BackColor = System.Drawing.SystemColors.ControlText;
-            this.btnTelegram.BaseBackColor = System.Drawing.SystemColors.MenuText;
-            this.btnTelegram.BorderColor = System.Drawing.Color.Gray;
-            this.btnTelegram.CornerRadius = 3;
-            this.btnTelegram.Elevation = 0;
-            this.btnTelegram.FlatAppearance.BorderSize = 6;
-            this.btnTelegram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnTelegram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnTelegram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTelegram.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTelegram.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnTelegram.HoverBackColor = System.Drawing.Color.Navy;
-            this.btnTelegram.Icon = global::AutoLedger.App.Properties.Resources.email_send_32;
-            this.btnTelegram.IconSize = 20;
-            this.btnTelegram.Location = new System.Drawing.Point(23, 624);
-            this.btnTelegram.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnTelegram.Name = "btnTelegram";
-            this.btnTelegram.PressedBackColor = System.Drawing.Color.DarkMagenta;
-            this.btnTelegram.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnTelegram.Size = new System.Drawing.Size(37, 34);
-            this.btnTelegram.TabIndex = 17;
-            this.btnTelegram.UseVisualStyleBackColor = false;
-            // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -185,60 +184,6 @@
             this.label2.TabIndex = 19;
             this.label2.Text = "نام و رمز کاربری خود را وارد کنید.";
             // 
-            // btnSourceCode
-            // 
-            this.btnSourceCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSourceCode.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnSourceCode.BaseBackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnSourceCode.BorderColor = System.Drawing.Color.Gray;
-            this.btnSourceCode.CornerRadius = 3;
-            this.btnSourceCode.Elevation = 0;
-            this.btnSourceCode.FlatAppearance.BorderSize = 6;
-            this.btnSourceCode.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSourceCode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSourceCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSourceCode.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSourceCode.ForeColor = System.Drawing.Color.White;
-            this.btnSourceCode.HoverBackColor = System.Drawing.Color.Navy;
-            this.btnSourceCode.Icon = global::AutoLedger.App.Properties.Resources.halun_logo3;
-            this.btnSourceCode.IconSize = 25;
-            this.btnSourceCode.Location = new System.Drawing.Point(66, 624);
-            this.btnSourceCode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSourceCode.Name = "btnSourceCode";
-            this.btnSourceCode.PressedBackColor = System.Drawing.Color.DarkMagenta;
-            this.btnSourceCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnSourceCode.Size = new System.Drawing.Size(227, 34);
-            this.btnSourceCode.TabIndex = 16;
-            this.btnSourceCode.Text = "Copyright ©️ 2026 Haluntm";
-            this.btnSourceCode.UseVisualStyleBackColor = false;
-            // 
-            // btnDeveloper
-            // 
-            this.btnDeveloper.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeveloper.BackColor = System.Drawing.SystemColors.ControlText;
-            this.btnDeveloper.BaseBackColor = System.Drawing.SystemColors.MenuText;
-            this.btnDeveloper.BorderColor = System.Drawing.Color.Gray;
-            this.btnDeveloper.CornerRadius = 3;
-            this.btnDeveloper.Elevation = 0;
-            this.btnDeveloper.FlatAppearance.BorderSize = 6;
-            this.btnDeveloper.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnDeveloper.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnDeveloper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeveloper.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeveloper.ForeColor = System.Drawing.SystemColors.Window;
-            this.btnDeveloper.HoverBackColor = System.Drawing.Color.Navy;
-            this.btnDeveloper.Icon = global::AutoLedger.App.Properties.Resources.verified_badge_128;
-            this.btnDeveloper.IconSize = 20;
-            this.btnDeveloper.Location = new System.Drawing.Point(23, 582);
-            this.btnDeveloper.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnDeveloper.Name = "btnDeveloper";
-            this.btnDeveloper.PressedBackColor = System.Drawing.Color.DarkMagenta;
-            this.btnDeveloper.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnDeveloper.Size = new System.Drawing.Size(270, 34);
-            this.btnDeveloper.TabIndex = 15;
-            this.btnDeveloper.Text = "طراحی و توسعه محمدجلال ژاله";
-            this.btnDeveloper.UseVisualStyleBackColor = false;
-            // 
             // btnLogin
             // 
             this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -248,7 +193,7 @@
             this.btnLogin.Appearance.Options.UseFont = true;
             this.btnLogin.Location = new System.Drawing.Point(116, 445);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(167, 36);
+            this.btnLogin.Size = new System.Drawing.Size(164, 36);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "ورود";
             // 
@@ -270,26 +215,6 @@
             this.cbUsername.Properties.NullText = "نام کاربری";
             this.cbUsername.Size = new System.Drawing.Size(260, 36);
             this.cbUsername.TabIndex = 2;
-            // 
-            // inputPassword
-            // 
-            this.inputPassword.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
-            this.inputPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.inputPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.inputPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.inputPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.inputPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.inputPassword.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.inputPassword.Icon = null;
-            this.inputPassword.Location = new System.Drawing.Point(20, 371);
-            this.inputPassword.Name = "inputPassword";
-            this.inputPassword.PasswordChar = '*';
-            this.inputPassword.Placeholder = "رمز عبور";
-            this.inputPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.inputPassword.Size = new System.Drawing.Size(262, 40);
-            this.inputPassword.TabIndex = 1;
-            this.inputPassword.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
-            this.inputPassword.UseSystemPasswordChar = true;
             // 
             // pbLoading
             // 
@@ -315,30 +240,103 @@
             this.pbLoading.Size = new System.Drawing.Size(321, 674);
             this.pbLoading.TabIndex = 21;
             // 
-            // btnExit
+            // btnTelegram
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Appearance.BackColor = System.Drawing.Color.Maroon;
-            this.btnExit.Appearance.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Appearance.Options.UseBackColor = true;
-            this.btnExit.Appearance.Options.UseFont = true;
-            this.btnExit.Location = new System.Drawing.Point(23, 445);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(87, 36);
-            this.btnExit.TabIndex = 22;
-            this.btnExit.Text = "خروج";
+            this.btnTelegram.BaseBackColor = System.Drawing.Color.Empty;
+            this.btnTelegram.BorderColor = System.Drawing.Color.Empty;
+            this.btnTelegram.CornerRadius = 3;
+            this.btnTelegram.Elevation = 0;
+            this.btnTelegram.FlatAppearance.BorderSize = 6;
+            this.btnTelegram.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnTelegram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnTelegram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTelegram.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTelegram.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnTelegram.HoverBackColor = System.Drawing.Color.Navy;
+            this.btnTelegram.Icon = global::AutoLedger.App.Properties.Resources.email_send_32;
+            this.btnTelegram.IconSize = 20;
+            this.btnTelegram.Location = new System.Drawing.Point(279, 636);
+            this.btnTelegram.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnTelegram.Name = "btnTelegram";
+            this.btnTelegram.PressedBackColor = System.Drawing.Color.DarkMagenta;
+            this.btnTelegram.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnTelegram.Size = new System.Drawing.Size(39, 34);
+            this.btnTelegram.TabIndex = 17;
+            this.btnTelegram.UseVisualStyleBackColor = false;
             // 
-            // labelVersion
+            // btnSourceCode
             // 
-            this.labelVersion.AutoSize = true;
-            this.labelVersion.BackColor = System.Drawing.Color.Transparent;
-            this.labelVersion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelVersion.Location = new System.Drawing.Point(23, 556);
-            this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(57, 22);
-            this.labelVersion.TabIndex = 23;
-            this.labelVersion.Text = "[version]";
-            this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSourceCode.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btnSourceCode.BaseBackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSourceCode.BorderColor = System.Drawing.Color.Black;
+            this.btnSourceCode.CornerRadius = 0;
+            this.btnSourceCode.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSourceCode.Elevation = 0;
+            this.btnSourceCode.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSourceCode.FlatAppearance.BorderSize = 0;
+            this.btnSourceCode.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSourceCode.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSourceCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSourceCode.Font = new System.Drawing.Font("Vazirmatn", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSourceCode.ForeColor = System.Drawing.Color.White;
+            this.btnSourceCode.HoverBackColor = System.Drawing.Color.MidnightBlue;
+            this.btnSourceCode.Icon = null;
+            this.btnSourceCode.IconSize = 20;
+            this.btnSourceCode.Location = new System.Drawing.Point(0, 648);
+            this.btnSourceCode.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSourceCode.Name = "btnSourceCode";
+            this.btnSourceCode.PressedBackColor = System.Drawing.Color.DarkMagenta;
+            this.btnSourceCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnSourceCode.Size = new System.Drawing.Size(321, 26);
+            this.btnSourceCode.TabIndex = 16;
+            this.btnSourceCode.Text = "Copyright ©️ 2026 Haluntm";
+            this.btnSourceCode.UseVisualStyleBackColor = false;
+            // 
+            // btnDeveloper
+            // 
+            this.btnDeveloper.BaseBackColor = System.Drawing.Color.Empty;
+            this.btnDeveloper.BorderColor = System.Drawing.Color.Transparent;
+            this.btnDeveloper.CornerRadius = 0;
+            this.btnDeveloper.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDeveloper.Elevation = 0;
+            this.btnDeveloper.FlatAppearance.BorderSize = 6;
+            this.btnDeveloper.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnDeveloper.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnDeveloper.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeveloper.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeveloper.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDeveloper.HoverBackColor = System.Drawing.Color.Navy;
+            this.btnDeveloper.Icon = global::AutoLedger.App.Properties.Resources.verified_badge_128;
+            this.btnDeveloper.IconSize = 20;
+            this.btnDeveloper.Location = new System.Drawing.Point(0, 610);
+            this.btnDeveloper.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnDeveloper.Name = "btnDeveloper";
+            this.btnDeveloper.PressedBackColor = System.Drawing.Color.DarkMagenta;
+            this.btnDeveloper.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnDeveloper.Size = new System.Drawing.Size(321, 38);
+            this.btnDeveloper.TabIndex = 15;
+            this.btnDeveloper.Text = "طراحی و توسعه محمدجلال ژاله";
+            this.btnDeveloper.UseVisualStyleBackColor = false;
+            // 
+            // inputPassword
+            // 
+            this.inputPassword.AccentColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(215)))));
+            this.inputPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.inputPassword.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.inputPassword.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.inputPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.inputPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.inputPassword.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
+            this.inputPassword.Icon = null;
+            this.inputPassword.Location = new System.Drawing.Point(20, 371);
+            this.inputPassword.Name = "inputPassword";
+            this.inputPassword.PasswordChar = '*';
+            this.inputPassword.Placeholder = "رمز عبور";
+            this.inputPassword.PlaceholderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.inputPassword.Size = new System.Drawing.Size(262, 40);
+            this.inputPassword.TabIndex = 1;
+            this.inputPassword.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.inputPassword.UseSystemPasswordChar = true;
             // 
             // LoginForm
             // 
@@ -347,6 +345,7 @@
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(1080, 680);
             this.ControlBox = false;
+            this.Controls.Add(this.labelVersion);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panelMenu);
             this.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -367,6 +366,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbUsername.Properties)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

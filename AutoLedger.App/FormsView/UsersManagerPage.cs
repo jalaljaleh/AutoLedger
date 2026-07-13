@@ -55,7 +55,7 @@ namespace AutoLedger.App.FormsView
                 return;
             }
 
-            // 3. Permission/Security check (optional: matching your logic)
+
             if (Program.User.Id > user.Id)
             {
                 MessageBox.Show("شما اجازه حذف این کاربر را ندارید.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);

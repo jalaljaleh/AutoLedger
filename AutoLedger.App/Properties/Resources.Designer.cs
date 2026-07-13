@@ -201,6 +201,16 @@ namespace AutoLedger.App.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage ChromeClose {
+            get {
+                object obj = ResourceManager.GetObject("ChromeClose", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap coin {
@@ -473,6 +483,16 @@ namespace AutoLedger.App.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage Setting2 {
+            get {
+                object obj = ResourceManager.GetObject("Setting2", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         public static DevExpress.Utils.Svg.SvgImage shopping_wallet {
             get {
                 object obj = ResourceManager.GetObject("shopping_wallet", resourceCulture);
@@ -496,6 +516,16 @@ namespace AutoLedger.App.Properties {
         public static DevExpress.Utils.Svg.SvgImage SIPMove {
             get {
                 object obj = ResourceManager.GetObject("SIPMove", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        public static DevExpress.Utils.Svg.SvgImage SIPMove1 {
+            get {
+                object obj = ResourceManager.GetObject("SIPMove1", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

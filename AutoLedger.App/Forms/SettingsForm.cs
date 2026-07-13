@@ -21,9 +21,17 @@ namespace AutoLedger.App.Forms
             InitializeComponent();
 
             this.input7Diag.Text = Settings.Default.SevenDiagPath;
-
             this.btn7Diag.Click += Btn7Diag_Click;
+
+            this.lblUserProfile.Text = "نام کاربری: " + Program.User.FullName + "  |  تاریخ عضویت: " + Program.User.CreatedAt.ToRelativeTime();
+            this.btnEditProfile.Click += Program.MainForm.BarBtnUser_ItemClick;
+
+            this.lblStatup.Text = "زمان اجرای برنامه: " + Program.StartupTime.ToRelativeTime();
+
+            this.btnExit.Click += (s, e) => this.Close();
         }
+
+
 
         private void Btn7Diag_Click(object sender, EventArgs e)
         {

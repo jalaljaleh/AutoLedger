@@ -1,114 +1,141 @@
 ﻿using AutoLedger.Data;
 using AutoLedger.Domain;
+using DevExpress.XtraEditors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AutoLedger.App.Forms
 {
     public partial class UserForm : DevExpress.XtraBars.ToolbarForm.ToolbarForm
     {
-        private User _user;
+     
+        private readonly User _user;
 
         public UserForm(User user = null)
         {
             InitializeComponent();
             _user = user;
 
-            if (user != null)
-            {
-                this.inputCreatedAt.Text = user.CreatedAt.ToShamsiLong();
-                this.inputId.Text = user.Id.ToString();
+            SetupForm();
+            SetupEventHandlers();
+        }
 
-                this.inputFullName.Text = user.FullName;
-                this.inputNationalId.Text = user.NationalId;
-                this.InputPhoneNumber.Text = user.PhoneNumber;
-                this.inputDescription.Text = user.Description;
-                this.InputAddress.Text = user.Address;
-
-                this.HtmlText = user.FullName;
-            }
-            else
-            {
-                this.inputCreatedAt.Text = DateTime.Now.ToShamsiLong();
-                this.HtmlText = "ثبت کاربر جدید";
-
-            }
-
+        private void SetupEventHandlers()
+        {
             this.btnCancel.Click += BtnCancel_Click;
             this.btnConfirm.Click += BtnConfirm_Click;
         }
 
+        private void SetupForm()
+        {
+            if (_user != null)
+            {
+                // Populate fields for existing user
+                this.inputCreatedAt.Text = _user.CreatedAt.ToShamsiLong();
+                this.inputId.Text = _user.Id.ToString();
+                this.inputFullName.Text = _user.FullName;
+                this.inputNationalId.Text = _user.NationalId;
+                this.InputPhoneNumber.Text = _user.PhoneNumber;
+                this.inputDescription.Text = _user.Description;
+                this.InputAddress.Text = _user.Address;
+
+                this.HtmlText = _user.FullName;
+            }
+            else
+            {
+                // Setup defaults for a new user
+                this.inputCreatedAt.Text = DateTime.Now.ToShamsiLong();
+                this.HtmlText = "ثبت کاربر جدید";
+            }
+        }
+
         private void BtnConfirm_Click(object sender, EventArgs e)
         {
+            // Extract text values and trim white spaces
+            string newPassword = inputPasswordNew.Text.Trim();
+            string repeatPassword = inputPasswordNewRepeat.Text.Trim();
+            string currentPassword = inputPasswordCurrent.Text.Trim();
+
+            // 1. Password Matching Validation (Applies to both New and Existing users)
+            if (!string.IsNullOrWhiteSpace(newPassword))
+            {
+                if (newPassword != repeatPassword)
+                {
+                    XtraMessageBox.Show("تکرار رمز عبور با رمز جدید یکسان نیست.", "خطا در اعتبارسنجی", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
             try
             {
-                using (AutoLedgerContext db = new AutoLedgerContext())
+                using (var db = new AutoLedgerContext())
                 {
                     if (_user == null)
                     {
-                        User newUser = new User
+                        // --- Create New User ---
+                        var newUser = new User
                         {
-                            FullName = inputFullName.Text,
-                            NationalId = inputNationalId.Text,
-                            PhoneNumber = InputPhoneNumber.Text,
-                            Description = inputDescription.Text,
-                            Address = InputAddress.Text,
+                            FullName = inputFullName.Text.Trim(),
+                            NationalId = inputNationalId.Text.Trim(),
+                            PhoneNumber = InputPhoneNumber.Text.Trim(),
+                            Description = inputDescription.Text.Trim(),
+                            Address = InputAddress.Text.Trim(),
                             CreatedAt = DateTime.Now
                         };
 
-                        if (!string.IsNullOrWhiteSpace(inputPasswordNew.Text))
+                        if (!string.IsNullOrWhiteSpace(newPassword))
                         {
-                            newUser.Password = inputPasswordNew.Text.Trim().GetHashCode().ToString();
+                            newUser.Password = newPassword;
                         }
 
                         db.Users.Add(newUser);
                     }
                     else
                     {
+                        // --- Update Existing User ---
                         var existingUser = db.Users.Find(_user.Id);
 
-                        if (!string.IsNullOrWhiteSpace(inputPasswordNew.Text))
+                        if (existingUser == null)
                         {
-                            if (inputPasswordCurrent.Text != existingUser.Password)
-                            {
-                                MessageBox.Show("رمز عبور فعلی صحیح نیست.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return;
-                            }
-                            if (inputPasswordNew.Text != inputPasswordNewRepeat.Text)
-                            {
-                                MessageBox.Show("تکرار رمز عبور صحیح نیست.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                                return;
-                            }
+                            XtraMessageBox.Show("کاربر مورد نظر در پایگاه داده یافت نشد.", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
 
-                        if (existingUser != null)
+                        // 2. Validate Current Password (Only if attempting to change it)
+                        if (!string.IsNullOrWhiteSpace(newPassword))
                         {
-                            existingUser.FullName = inputFullName.Text;
-                            existingUser.NationalId = inputNationalId.Text;
-                            existingUser.PhoneNumber = InputPhoneNumber.Text;
-                            existingUser.Description = inputDescription.Text;
-                            existingUser.Address = InputAddress.Text;
+                            // If logged-in user has a lower ID (higher privilege), bypass the current password check
+                            bool requiresCurrentPassword = Program.User.Id >= existingUser.Id;
 
-                            existingUser.Password = inputPasswordNew.Text;
+                            if (requiresCurrentPassword && currentPassword != existingUser.Password)
+                            {
+                                XtraMessageBox.Show("رمز عبور فعلی صحیح نیست.", "خطا در اعتبارسنجی", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            // If validation passes, apply the new password
+                            existingUser.Password = newPassword;
                         }
+
+                        // Update other properties
+                        existingUser.FullName = inputFullName.Text.Trim();
+                        existingUser.NationalId = inputNationalId.Text.Trim();
+                        existingUser.PhoneNumber = InputPhoneNumber.Text.Trim();
+                        existingUser.Description = inputDescription.Text.Trim();
+                        existingUser.Address = InputAddress.Text.Trim();
                     }
 
+                    // Save all changes to the database
                     db.SaveChanges();
                 }
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("خطای ناشناخته رخ داد.");
+                // Include exception message for easier debugging
+                XtraMessageBox.Show("خطای ناشناخته رخ داد:\n" + ex.Message, "خطای سیستمی", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -18,6 +18,8 @@ namespace AutoLedger.App
     {
         public static User User { get; set; } = null;
         public static DateTime StartupTime { get; set; } = DateTime.Now;
+
+        public static DashboardForm MainForm;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -30,7 +32,7 @@ namespace AutoLedger.App
             {
                 if (!createdNew)
                 {
-           
+
                     MessageBox.Show("برنامه از قبل در حال اجرا است.", "توجه", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
@@ -63,7 +65,11 @@ namespace AutoLedger.App
                         var dialog = loginDialog.ShowDialog();
 
                         if (dialog == DialogResult.OK)
-                            Application.Run(new DashboardForm());
+                        {
+                            MainForm = new DashboardForm();
+                            Application.Run(MainForm);
+                        }
+
                     }
                 }
                 catch (Exception ex)
@@ -84,7 +90,7 @@ namespace AutoLedger.App
 
                     MessageBox.Show("خطای ناشناخته، برنامه باید بسته شود. جزئیات در فایل لاگ ثبت شد.");
                 }
-            } 
+            }
         }
 
 
@@ -102,7 +108,7 @@ namespace AutoLedger.App
                     {
                         DatabaseSeeder.SeedExpenseCategories(db);
                         DatabaseSeeder.SeedUsers(db);
-                      //  DatabaseSeeder.SeedCarsAndCarReceptions(db, 500, 2);
+                        //  DatabaseSeeder.SeedCarsAndCarReceptions(db, 500, 2);
                         db.SaveChanges();
                     }
 
@@ -113,7 +119,7 @@ namespace AutoLedger.App
         }
 
 
-        public const string Version = "ویرایش بتا نسخه 1.0.3.25";
+        public const string Version = "ویرایش بتا نسخه 1.4.0.4.80";
         public static bool IsDebugMode() => System.Diagnostics.Debugger.IsAttached;
 
 

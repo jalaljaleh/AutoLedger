@@ -40,20 +40,20 @@
             DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
-            this.ribbonControl1 = new DevExpress.XtraBars.Ribbon.RibbonControl();
+            this.ribbonForm = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.lblPrayOfDay = new DevExpress.XtraBars.BarStaticItem();
             this.barUserName = new DevExpress.XtraBars.BarStaticItem();
             this.barBtnUser = new DevExpress.XtraBars.BarButtonItem();
+            this.barSubItem1 = new DevExpress.XtraBars.BarSubItem();
+            this.barBtnSettings = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnExit = new DevExpress.XtraBars.BarButtonItem();
             this.barLabelTime = new DevExpress.XtraBars.BarStaticItem();
             this.lblVersion = new DevExpress.XtraBars.BarStaticItem();
             this.lblSentenceOfDay = new DevExpress.XtraBars.BarStaticItem();
             this.btnRefreshSentenceOfDay = new DevExpress.XtraBars.BarButtonItem();
-            this.barStaticItem2 = new DevExpress.XtraBars.BarStaticItem();
-            this.barStaticItem3 = new DevExpress.XtraBars.BarStaticItem();
-            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
+            this.Lincense = new DevExpress.XtraBars.BarStaticItem();
+            this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonBottom = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.Menu = new DevExpress.XtraBars.Navigation.AccordionControl();
             this.btnDashboard = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -79,43 +79,45 @@
             this.btnDeveloper = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
             this.panelView = new DevExpress.XtraEditors.PanelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonForm)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Menu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelView)).BeginInit();
             this.SuspendLayout();
             // 
-            // ribbonControl1
+            // ribbonForm
             // 
-            this.ribbonControl1.CaptionBarItemLinks.Add(this.lblPrayOfDay);
-            this.ribbonControl1.CaptionBarItemLinks.Add(this.barUserName);
-            this.ribbonControl1.CaptionBarItemLinks.Add(this.barBtnUser);
-            this.ribbonControl1.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(30, 31, 30, 31);
-            this.ribbonControl1.ExpandCollapseItem.Id = 0;
-            this.ribbonControl1.Font = new System.Drawing.Font("Vazirmatn", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.ribbonForm.CaptionBarItemLinks.Add(this.lblPrayOfDay);
+            this.ribbonForm.CaptionBarItemLinks.Add(this.barUserName);
+            this.ribbonForm.CaptionBarItemLinks.Add(this.barBtnUser);
+            this.ribbonForm.CaptionBarItemLinks.Add(this.barSubItem1);
+            this.ribbonForm.EmptyAreaImageOptions.ImagePadding = new System.Windows.Forms.Padding(30, 31, 30, 31);
+            this.ribbonForm.ExpandCollapseItem.Id = 0;
+            this.ribbonForm.Font = new System.Drawing.Font("Vazirmatn", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ribbonForm.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.lblPrayOfDay,
             this.barUserName,
             this.barBtnUser,
-            this.ribbonControl1.ExpandCollapseItem,
+            this.barSubItem1,
+            this.ribbonForm.ExpandCollapseItem,
             this.barLabelTime,
             this.lblVersion,
             this.lblSentenceOfDay,
             this.btnRefreshSentenceOfDay,
-            this.barStaticItem2,
-            this.barStaticItem3});
-            this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 19;
-            this.ribbonControl1.Name = "ribbonControl1";
-            this.ribbonControl1.OptionsStubGlyphs.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ribbonControl1.OptionsStubGlyphs.UseFont = true;
-            this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage1});
-            this.ribbonControl1.RibbonCaptionAlignment = DevExpress.XtraBars.Ribbon.RibbonCaptionAlignment.Left;
-            this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
-            this.ribbonControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ribbonControl1.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl1.Size = new System.Drawing.Size(1187, 49);
-            this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
+            this.Lincense,
+            this.barButtonItem1,
+            this.barBtnExit,
+            this.barBtnSettings});
+            this.ribbonForm.Location = new System.Drawing.Point(0, 0);
+            this.ribbonForm.MaxItemId = 25;
+            this.ribbonForm.Name = "ribbonForm";
+            this.ribbonForm.OptionsStubGlyphs.Font = new System.Drawing.Font("Vazirmatn", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ribbonForm.OptionsStubGlyphs.UseFont = true;
+            this.ribbonForm.RibbonCaptionAlignment = DevExpress.XtraBars.Ribbon.RibbonCaptionAlignment.Left;
+            this.ribbonForm.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.OfficeUniversal;
+            this.ribbonForm.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ribbonForm.ShowDisplayOptionsMenuButton = DevExpress.Utils.DefaultBoolean.False;
+            this.ribbonForm.Size = new System.Drawing.Size(1187, 49);
+            this.ribbonForm.StatusBar = this.ribbonBottom;
             // 
             // lblPrayOfDay
             // 
@@ -170,6 +172,33 @@
             superToolTip3.Items.Add(toolTipSeparatorItem2);
             this.barBtnUser.SuperTip = superToolTip3;
             // 
+            // barSubItem1
+            // 
+            this.barSubItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
+            this.barSubItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.False;
+            this.barSubItem1.Id = 20;
+            this.barSubItem1.ImageOptions.SvgImage = global::AutoLedger.App.Properties.Resources.SIPMove1;
+            this.barSubItem1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barBtnSettings, "", true, true, true, 0, null, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barBtnExit, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
+            this.barSubItem1.Name = "barSubItem1";
+            this.barSubItem1.OptionsMultiColumn.TextHorizontalAlignment = DevExpress.Utils.Drawing.ItemHorizontalAlignment.Center;
+            this.barSubItem1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText;
+            // 
+            // barBtnSettings
+            // 
+            this.barBtnSettings.Caption = "تنظیمات";
+            this.barBtnSettings.Id = 24;
+            this.barBtnSettings.ImageOptions.SvgImage = global::AutoLedger.App.Properties.Resources.Setting2;
+            this.barBtnSettings.Name = "barBtnSettings";
+            // 
+            // barBtnExit
+            // 
+            this.barBtnExit.Caption = "خروج";
+            this.barBtnExit.Id = 22;
+            this.barBtnExit.ImageOptions.SvgImage = global::AutoLedger.App.Properties.Resources.ChromeClose;
+            this.barBtnExit.Name = "barBtnExit";
+            // 
             // barLabelTime
             // 
             this.barLabelTime.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
@@ -209,56 +238,32 @@
             this.btnRefreshSentenceOfDay.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnRefreshSentenceOfDay.ImageOptions.SvgImage")));
             this.btnRefreshSentenceOfDay.Name = "btnRefreshSentenceOfDay";
             // 
-            // barStaticItem2
+            // Lincense
             // 
-            this.barStaticItem2.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left;
-            this.barStaticItem2.Caption = "لایسنس: مادام‌العمر";
-            this.barStaticItem2.Description = "لایسنس تحت نظارت آقای فرید عزیزی بطور مادام المعر ثبت شده است.";
-            this.barStaticItem2.Id = 16;
-            this.barStaticItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barStaticItem2.ImageOptions.SvgImage")));
-            this.barStaticItem2.Name = "barStaticItem2";
-            this.barStaticItem2.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.Lincense.Caption = "لایسنس: مادام العمر";
+            this.Lincense.Id = 17;
+            this.Lincense.ImageOptions.Image = global::AutoLedger.App.Properties.Resources.approval_128;
+            this.Lincense.Name = "Lincense";
+            this.Lincense.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
             // 
-            // barStaticItem3
+            // barButtonItem1
             // 
-            this.barStaticItem3.Caption = "لایسنس: مادام العمر";
-            this.barStaticItem3.Id = 17;
-            this.barStaticItem3.ImageOptions.Image = global::AutoLedger.App.Properties.Resources.approval_128;
-            this.barStaticItem3.Name = "barStaticItem3";
-            this.barStaticItem3.PaintStyle = DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph;
+            this.barButtonItem1.Caption = "تنظیمات";
+            this.barButtonItem1.Id = 21;
+            this.barButtonItem1.Name = "barButtonItem1";
             // 
-            // ribbonPage1
+            // ribbonBottom
             // 
-            this.ribbonPage1.Appearance.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ribbonPage1.Appearance.Options.UseFont = true;
-            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
-            this.ribbonPageGroup2});
-            this.ribbonPage1.Name = "ribbonPage1";
-            this.ribbonPage1.Text = "ribbonPage1";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
-            // 
-            // ribbonPageGroup2
-            // 
-            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
-            // 
-            // ribbonStatusBar1
-            // 
-            this.ribbonStatusBar1.ItemLinks.Add(this.barLabelTime);
-            this.ribbonStatusBar1.ItemLinks.Add(this.lblSentenceOfDay);
-            this.ribbonStatusBar1.ItemLinks.Add(this.lblVersion);
-            this.ribbonStatusBar1.ItemLinks.Add(this.btnRefreshSentenceOfDay);
-            this.ribbonStatusBar1.ItemLinks.Add(this.barStaticItem3);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 800);
-            this.ribbonStatusBar1.Name = "ribbonStatusBar1";
-            this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(1187, 45);
+            this.ribbonBottom.ItemLinks.Add(this.barLabelTime);
+            this.ribbonBottom.ItemLinks.Add(this.lblSentenceOfDay);
+            this.ribbonBottom.ItemLinks.Add(this.lblVersion);
+            this.ribbonBottom.ItemLinks.Add(this.btnRefreshSentenceOfDay);
+            this.ribbonBottom.ItemLinks.Add(this.Lincense);
+            this.ribbonBottom.Location = new System.Drawing.Point(0, 800);
+            this.ribbonBottom.Name = "ribbonBottom";
+            this.ribbonBottom.Ribbon = this.ribbonForm;
+            this.ribbonBottom.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ribbonBottom.Size = new System.Drawing.Size(1187, 45);
             // 
             // ribbonPage2
             // 
@@ -305,6 +310,7 @@
             this.btnNewReception,
             this.btnCurrentCars,
             this.btnAllCars});
+            this.accordionControlElement1.Expanded = true;
             this.accordionControlElement1.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
             this.accordionControlElement1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("accordionControlElement1.ImageOptions.SvgImage")));
             this.accordionControlElement1.Name = "accordionControlElement1";
@@ -354,6 +360,7 @@
             this.btnDailySummary,
             this.btnWeeklySummary,
             this.btnMonthlySummary});
+            this.accordionControlElement2.Expanded = true;
             this.accordionControlElement2.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
             this.accordionControlElement2.ImageOptions.SvgImage = global::AutoLedger.App.Properties.Resources.calculationoptions;
             this.accordionControlElement2.Name = "accordionControlElement2";
@@ -431,6 +438,7 @@
             this.btnInformations.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.btnUsersInformation,
             this.btnStuff});
+            this.btnInformations.Expanded = true;
             this.btnInformations.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
             this.btnInformations.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnInformations.ImageOptions.SvgImage")));
             this.btnInformations.Name = "btnInformations";
@@ -462,6 +470,7 @@
             this.accordionControlElement3.Appearance.Default.Options.UseFont = true;
             this.accordionControlElement3.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
             this.btnSevenDiag});
+            this.accordionControlElement3.Expanded = true;
             this.accordionControlElement3.ImageOptions.ImageLayoutMode = DevExpress.XtraBars.Navigation.ImageLayoutMode.Squeeze;
             this.accordionControlElement3.ImageOptions.SvgImage = global::AutoLedger.App.Properties.Resources.DeveloperTools;
             this.accordionControlElement3.Name = "accordionControlElement3";
@@ -524,22 +533,22 @@
             this.ClientSize = new System.Drawing.Size(1187, 845);
             this.Controls.Add(this.panelView);
             this.Controls.Add(this.Menu);
-            this.Controls.Add(this.ribbonControl1);
-            this.Controls.Add(this.ribbonStatusBar1);
+            this.Controls.Add(this.ribbonForm);
+            this.Controls.Add(this.ribbonBottom);
             this.Font = new System.Drawing.Font("Vazirmatn", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("DashboardForm.IconOptions.Icon")));
             this.IconOptions.Image = global::AutoLedger.App.Properties.Resources.irontuning_icon;
             this.IconOptions.LargeImage = global::AutoLedger.App.Properties.Resources.irontuning_icon1;
             this.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
             this.Name = "DashboardForm";
-            this.Ribbon = this.ribbonControl1;
+            this.Ribbon = this.ribbonForm;
             this.RibbonVisibility = DevExpress.XtraBars.Ribbon.RibbonVisibility.Hidden;
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.StatusBar = this.ribbonStatusBar1;
+            this.StatusBar = this.ribbonBottom;
             this.Text = "نرم افزار حسابداری تقویت خودرو آیرون تونینگ";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ribbonForm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Menu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelView)).EndInit();
             this.ResumeLayout(false);
@@ -548,11 +557,8 @@
         }
 
         #endregion
-        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
-        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
-        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
+        private DevExpress.XtraBars.Ribbon.RibbonControl ribbonForm;
+        private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonBottom;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.Navigation.AccordionControl Menu;
         private DevExpress.XtraBars.Navigation.AccordionControlElement accordionControlElement1;
@@ -581,11 +587,14 @@
         private DevExpress.XtraBars.BarStaticItem lblSentenceOfDay;
         private DevExpress.XtraBars.BarStaticItem barStaticItem1;
         private DevExpress.XtraBars.BarButtonItem btnRefreshSentenceOfDay;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem2;
-        private DevExpress.XtraBars.BarStaticItem barStaticItem3;
+        private DevExpress.XtraBars.BarStaticItem Lincense;
         private DevExpress.XtraEditors.PanelControl panelView;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnSevenDiag;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnDeveloper;
         private DevExpress.XtraBars.Navigation.AccordionControlElement btnSettings;
+        private DevExpress.XtraBars.BarSubItem barSubItem1;
+        private DevExpress.XtraBars.BarButtonItem barBtnExit;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem1;
+        private DevExpress.XtraBars.BarButtonItem barBtnSettings;
     }
 }
